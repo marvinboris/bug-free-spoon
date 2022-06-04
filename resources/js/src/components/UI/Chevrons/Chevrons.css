@@ -1,0 +1,27 @@
+.scrollbar-hidden {
+    scrollbar-width: 0;
+    position: relative;
+    display: flex;
+    align-items: center;
+    overflow: auto;
+}
+
+.scrollbar-hidden::-webkit-scrollbar {
+    width: 0;
+    height: 0;
+}
+
+.scrollbar-hidden::-webkit-scrollbar-thumb {
+    border-radius: 0;
+}
+
+.UI.Chevrons {
+    display: flex;
+    flex-wrap: nowrap;
+    align-items: center;
+    height: 100%;
+}
+
+.UI.Chevrons i {
+    cursor: pointer;
+}

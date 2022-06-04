@@ -1,0 +1,20 @@
+.UI.Trip {
+    padding: 2px 8px 12px 8px;
+}
+
+.UI.Trip > div {
+    width: 360px;
+    margin: auto;
+}
+
+.UI.Trip .border,
+.UI.Trip .border-bottom {
+    border-style: dashed !important;
+}
+
+.UI.Trip .category {
+    top: calc(100% + 40px);
+    left: 50%;
+    transform: translate(-50%, -50%);
+    width: fit-content;
+}

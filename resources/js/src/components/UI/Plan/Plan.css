@@ -1,0 +1,8 @@
+.Plan {
+    transform: scale(0.95);
+    transition: all 0.25s;
+}
+
+.Plan:hover {
+    transform: scale(1);
+}

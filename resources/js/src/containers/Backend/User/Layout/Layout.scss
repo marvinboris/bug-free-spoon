@@ -1,0 +1,49 @@
+.Backend.User {
+    .btn {
+        padding: 13px 25px;
+        border-radius: var(--border-radius);
+
+        i {
+            margin-left: 10px;
+        }
+    }
+
+    .main {
+        padding-left: var(--app-sidebar-width);
+        color: var(--border);
+        min-height: 100vh;
+        background-color: var(--soft);
+
+        .sticky-top {
+            display: flex;
+            background-color: var(--white);
+
+            &>.d-flex {
+                padding: 19px 64px 15px 25px;
+            }
+
+            .user-info {
+                display: flex;
+                justify-content: space-between;
+                align-items: center;
+                width: 322px;
+                padding: 0 24px;
+                border-left: 1px solid var(--border-20);
+
+                .name {
+                    font-weight: 700;
+                }
+
+                .profile-pic {
+                    width: 46px;
+                    height: 46px;
+                    border-radius: 50%;
+                }
+            }
+        }
+    }
+
+    main>div>.content {
+        padding: 36px 33px;
+    }
+}

@@ -1,0 +1,40 @@
+.SectionTitle {
+    margin-bottom: 25px;
+    display: flex;
+    align-items: stretch;
+
+    .icon {
+        padding-right: 15px;
+
+        .wrapper {
+            width: 77px;
+            height: 77px;
+            display: flex;
+            font-size: 30px;
+            color: var(--blue);
+            align-items: center;
+            justify-content: center;
+            background-color: var(--blue-10);
+            border-radius: var(--border-radius);
+        }
+    }
+
+    .text {
+        .title {
+            font-size: 30px;
+            font-weight: 500;
+            color: var(--blue);
+            margin-bottom: 7px;
+            display: inline-block;
+            border-bottom: .5px solid var(--border);
+        }
+    }
+
+    &.centered {
+        justify-content: center;
+
+        .text {
+            text-align: center;
+        }
+    }
+}

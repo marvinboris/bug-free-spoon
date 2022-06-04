@@ -1,0 +1,31 @@
+.UI.ActivityBlock {
+    margin: 10px;
+    overflow: hidden;
+    border-radius: var(--border-radius);
+
+    .text {
+        padding: 24px;
+        background-color: var(--white);
+
+        .title {
+            font-size: 24px;
+            margin-bottom: 15px;
+        }
+
+        .body {
+            height: 40px;
+            overflow: hidden;
+            margin-bottom: 40px;
+            text-overflow: ellipsis;
+        }
+
+        a {
+            color: var(--blue);
+            text-decoration: none;
+
+            i {
+                margin-left: 10px;
+            }
+        }
+    }
+}

@@ -1,0 +1,61 @@
+.UI.List {
+    border-radius: var(--border-radius);
+    padding: 36px 51px 75px 51px;
+    background-color: var(--white);
+
+    .header {
+        display: flex;
+        align-items: center;
+        margin-bottom: 86px;
+
+        .title {
+            font-size: 18px;
+            font-weight: 700;
+            margin-bottom: 5px;
+        }
+
+        .subtitle {
+            font-size: 12px;
+            margin-bottom: 15px;
+        }
+
+        .blue-line {
+            width: 34px;
+            height: 7px;
+            border-radius: 5px;
+            background-color: var(--blue);
+        }
+
+        .show {
+            display: none;
+            margin-left: auto;
+            align-items: center;
+        }
+
+        .export {
+            display: none;
+        }
+
+        .search {
+            margin-left: auto;
+            margin-right: 15px;
+
+            input {
+                border: none;
+                height: 45px;
+                padding: 15px 24px;
+                border-radius: var(--border-radius);
+                color: var(--border);
+                background-color: var(--border-5);
+            }
+        }
+    }
+
+    .body table {
+        color: inherit;
+
+        thead {
+            background-color: var(--border-10);
+        }
+    }
+}

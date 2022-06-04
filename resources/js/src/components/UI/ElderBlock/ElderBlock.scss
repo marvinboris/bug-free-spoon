@@ -1,0 +1,25 @@
+.ElderBlock {
+    padding: 10px;
+
+    .card {
+        border-radius: var(--border-radius) !important;
+    }
+
+    .position-absolute.w-100.h-100 {
+        transform: scale(1);
+        transform-origin: center;
+        transition: all .25s;
+    }
+
+    .card:hover .position-absolute.w-100.h-100 {
+        transform: scale(1.1);
+    }
+
+    .social-networks {
+        font-size: 13px;
+
+        i {
+            margin-right: 20px;
+        }
+    }
+}

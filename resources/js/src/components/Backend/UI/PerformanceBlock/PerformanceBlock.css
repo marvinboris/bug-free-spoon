@@ -1,0 +1,71 @@
+.UI.PerformanceBlock {
+    position: relative;
+    padding-top: 19px;
+    padding-bottom: 13.97px;
+}
+
+.UI.PerformanceBlock .content {
+    background-color: var(--white);
+    border-radius: 15px;
+    padding: 8.52px 19px 8.52px 9px;
+    display: flex;
+    position: relative;
+    z-index: 1;
+}
+
+.UI.PerformanceBlock .content .author-photo {
+    width: 63px;
+    height: 67.08px;
+    margin-right: 23px;
+    border-radius: 15px;
+    background-size: cover;
+    background-repeat: no-repeat;
+    background-position: center;
+}
+
+.UI.PerformanceBlock .content .author-at {
+    font-size: 20px;
+    font-weight: 500;
+    margin-bottom: 8.74px;
+}
+
+.UI.PerformanceBlock .content .performances {
+    display: flex;
+    font-size: 16px;
+}
+
+.UI.PerformanceBlock .content .performances>div {
+    padding-right: 20px;
+}
+
+.UI.PerformanceBlock .content .performances i {
+    margin-right: 8px;
+    font-size: 17px;
+}
+
+.UI.PerformanceBlock .content .rank {
+    font-size: 25px;
+    font-weight: 700;
+    margin-left: auto;
+    color: var(--border-50);
+    padding-top: 27px;
+}
+
+.UI.PerformanceBlock .total {
+    top: 0;
+    z-index: 2;
+    right: 24px;
+    font-size: 16px;
+    font-weight: 700;
+    position: absolute;
+    border-radius: 8px;
+    color: var(--white);
+    background-color: var(--green);
+    padding: 6.39px 10px 6.39px 12px;
+}
+
+.UI.PerformanceBlock .total i {
+    margin-right: 9px;
+    font-size: 13.84px;
+    color: var(--white-50);
+}

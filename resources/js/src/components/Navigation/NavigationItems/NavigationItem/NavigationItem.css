@@ -1,0 +1,17 @@
+.NavigationItems .NavigationItem .circle {
+    opacity: 0;
+    transition: all 0.25s;
+}
+
+.NavigationItems .NavigationItem .nav-link.active .circle {
+    opacity: 1;
+}
+
+.NavigationItems .NavigationItem .angle {
+    transform: rotate(0);
+    transition: all 0.25s;
+}
+
+.NavigationItems .NavigationItem .angle.open {
+    transform: rotate(180deg);
+}

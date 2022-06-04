@@ -1,0 +1,63 @@
+.UI.ProjectBlock {
+    position: relative;
+}
+
+.UI.ProjectBlock .content {
+    z-index: 1;
+    position: relative;
+    border-radius: 20px;
+    padding: 18px 18px 19px 20px;
+}
+
+.UI.ProjectBlock .content .title {
+    font-size: 25px;
+    font-weight: 500;
+}
+
+.UI.ProjectBlock .content .line {
+    width: 20px;
+    height: 5px;
+    border-radius: 2.5px;
+}
+
+.UI.ProjectBlock .content .badger {
+    font-size: 12px;
+    padding: 7px 9px;
+    border-radius: 6px;
+}
+
+.UI.ProjectBlock .content .badger i {
+    margin-left: 10px;
+}
+
+.UI.ProjectBlock .content .ratio {
+    font-size: 16px;
+    font-weight: 500;
+    margin-right: auto;
+}
+
+.UI.ProjectBlock .content .ratio .completed {
+    font-size: 30px;
+    font-weight: 700;
+}
+
+.UI.ProjectBlock .content .comment {
+    font-size: 14px;
+}
+
+.UI.ProjectBlock .check-circle {
+    top: 0;
+    z-index: 2;
+    right: 15px;
+    width: 38px;
+    height: 38px;
+    display: flex;
+    font-size: 12px;
+    position: absolute;
+    border-radius: 50%;
+    color: var(--white);
+    align-items: center;
+    justify-content: center;
+    background-color: var(--green);
+    transform: translate(50%, -50%);
+}

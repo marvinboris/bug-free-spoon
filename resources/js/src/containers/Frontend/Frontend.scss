@@ -1,0 +1,36 @@
+.Frontend {
+    display: flex;
+    min-height: 100vh;
+    flex-direction: column;
+    background-color: var(--white);
+
+    .main {
+        flex-grow: 1;
+    }
+
+    .btn {
+        padding: 13px 25px;
+        border-radius: 50rem;
+
+        i {
+            margin-left: 10px;
+        }
+    }
+
+    footer {
+        font-size: 18px;
+        background-color: var(--white);
+
+        .container {
+            display: flex;
+            padding: 40px 0;
+            align-items: center;
+
+            .left a {
+                font-weight: 500;
+                color: var(--blue);
+                text-decoration: none;
+            }
+        }
+    }
+}

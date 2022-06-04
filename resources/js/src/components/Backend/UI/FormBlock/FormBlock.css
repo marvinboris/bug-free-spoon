@@ -1,0 +1,150 @@
+.UI.FormBlock {
+    position: relative;
+}
+
+.UI.FormBlock .content {
+    position: relative;
+    z-index: 2;
+    padding: 33px 27px 43px 27px;
+    background-color: var(--white);
+    border-radius: 30px;
+}
+
+.UI.FormBlock .approved-big-line,
+.UI.FormBlock .approved-little-line {
+    height: 119px;
+    width: 20px;
+    background-color: var(--green);
+    border-radius: 10px;
+    position: absolute;
+    z-index: 1;
+    top: 35px;
+    right: 15px;
+    transform: translateX(50%);
+}
+
+.UI.FormBlock .approved-little-line {
+    height: 60px;
+    width: 4px;
+    border-radius: 2px;
+    z-index: 3;
+    top: 66px;
+    right: 21px;
+    transform: none;
+}
+
+.UI.FormBlock .icon {
+    padding-right: 11.25px;
+}
+
+.UI.FormBlock .green-line {
+    width: 30px;
+    height: 4px;
+    border-radius: 2px;
+    background-color: var(--green);
+    margin-bottom: 13.18px;
+}
+
+.UI.FormBlock .badger {
+    display: flex;
+    align-items: center;
+    padding: 7px 10px 6px 13px;
+    font-size: 12px;
+    font-weight: 500;
+    border-radius: 8px;
+    color: var(--white);
+}
+
+.UI.FormBlock .badger .text {
+    padding-right: 11.56px;
+}
+
+.UI.FormBlock .paper {
+    border-radius: 10px;
+    padding: 9.82px 12.3px;
+    height: 135.76px;
+    position: relative;
+}
+
+.UI.FormBlock .paper::after {
+    content: "";
+    background-image: url('/images/paper.png');
+    background-size: cover;
+    background-repeat: no-repeat;
+    background-position: center;
+    opacity: 0.2;
+    top: 0;
+    left: 0;
+    bottom: 0;
+    right: 0;
+    position: absolute;
+    z-index: -1;
+}
+
+.UI.FormBlock .paper .group {
+    height: 100%;
+    overflow: hidden;
+}
+
+.UI.FormBlock .paper .group .title {
+    font-size: 14px;
+    font-weight: 500;
+    border-radius: 6px;
+    color: var(--green);
+    margin-bottom: 13px;
+    display: inline-block;
+    padding: 5px 11px 7px 10px;
+    background-color: var(--green-20);
+}
+
+.UI.FormBlock .paper .group .title i {
+    font-size: 8px;
+    margin-left: 8px;
+    color: var(--green-50);
+}
+
+.UI.FormBlock .paper .group .body {
+    font-size: 14px;
+    color: var(--dark);
+}
+
+.UI.FormBlock .border-line {
+    height: 1px;
+    background-color: var(--border-20);
+}
+
+.UI.FormBlock .circle-button {
+    width: 38px;
+    height: 38px;
+    border-radius: 50%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    font-size: 14px;
+    color: var(--white);
+    margin-left: 26px;
+}
+
+.UI.FormBlock .by,
+.UI.FormBlock .edited {
+    display: flex;
+    align-items: flex-end;
+}
+
+.UI.FormBlock .by i,
+.UI.FormBlock .edited i {
+    color: var(--green);
+    font-size: 16px;
+    margin-right: 9px;
+}
+
+.UI.FormBlock .by .label,
+.UI.FormBlock .edited .label {
+    padding-right: 14px;
+}
+
+.UI.FormBlock .by .customer {
+    color: var(--primary);
+    font-weight: 700;
+    font-size: 16px;
+}

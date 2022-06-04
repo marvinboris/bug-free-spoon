@@ -1,0 +1,54 @@
+.UI.PublicationBlock {
+    margin: 10px;
+    overflow: hidden;
+    border-radius: var(--border-radius);
+
+    .embed-responsive {
+        .title {
+            align-items: center;
+            background-color: var(--blue-70);
+            color: var(--white);
+            display: flex;
+            font-size: 24px;
+            font-weight: 500;
+            height: 100%;
+            justify-content: center;
+            left: 0;
+            overflow: hidden;
+            padding: 24px;
+            position: absolute;
+            text-align: center;
+            text-overflow: ellipsis;
+            top: 0;
+            width: 100%;
+
+            &::after {
+                background-color: var(--black);
+                content: "";
+                height: 100%;
+                left: 0;
+                position: absolute;
+                top: 0;
+                width: 100%;
+                z-index: -1;
+            }
+        }
+    }
+
+    .text {
+        padding: 24px;
+        background-color: var(--white);
+
+        .title {
+            font-size: 24px;
+            margin-bottom: 15px;
+        }
+
+        .body {
+            height: 40px;
+            overflow: hidden;
+            margin-bottom: 40px;
+            text-overflow: ellipsis;
+        }
+    }
+}

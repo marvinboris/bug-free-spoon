@@ -1,0 +1,42 @@
+.UI.PageTitle {
+    top: 78.47px;
+    height: 81px;
+    display: flex;
+    z-index: 1000;
+    position: sticky;
+    padding-left: 66px;
+    align-items: center;
+    background-color: var(--white);
+
+    &::after {
+        content: "";
+        position: absolute;
+        top: 0;
+        left: 0;
+        z-index: -1;
+        width: 100%;
+        height: 100%;
+        background-color: var(--blue-10);
+    }
+
+    .blue-line {
+        position: absolute;
+        width: 9px;
+        height: 100%;
+        left: 0;
+        top: 0;
+        background-color: var(--blue);
+    }
+
+    .icon {
+        padding-right: 23px;
+        font-size: 33px;
+        color: var(--blue);
+    }
+
+    .title {
+        font-size: 16px;
+        font-weight: 500;
+        margin-bottom: 10px;
+    }
+}
