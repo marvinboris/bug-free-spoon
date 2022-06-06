@@ -647,28 +647,30 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony export */ });
 /* harmony import */ var react__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! react */ "./node_modules/react/index.js");
 /* harmony import */ var react_redux__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! react-redux */ "./node_modules/react-redux/es/index.js");
-/* harmony import */ var react_router_dom__WEBPACK_IMPORTED_MODULE_22__ = __webpack_require__(/*! react-router-dom */ "./node_modules/react-router-dom/node_modules/react-router/esm/react-router.js");
+/* harmony import */ var react_router_dom__WEBPACK_IMPORTED_MODULE_18__ = __webpack_require__(/*! react-router-dom */ "./node_modules/react-router-dom/node_modules/react-router/esm/react-router.js");
 /* harmony import */ var reactstrap__WEBPACK_IMPORTED_MODULE_13__ = __webpack_require__(/*! reactstrap */ "./node_modules/reactstrap/es/Col.js");
-/* harmony import */ var reactstrap__WEBPACK_IMPORTED_MODULE_14__ = __webpack_require__(/*! reactstrap */ "./node_modules/reactstrap/es/FormGroup.js");
-/* harmony import */ var reactstrap__WEBPACK_IMPORTED_MODULE_15__ = __webpack_require__(/*! reactstrap */ "./node_modules/reactstrap/es/Label.js");
-/* harmony import */ var reactstrap__WEBPACK_IMPORTED_MODULE_16__ = __webpack_require__(/*! reactstrap */ "./node_modules/reactstrap/es/NavItem.js");
-/* harmony import */ var reactstrap__WEBPACK_IMPORTED_MODULE_17__ = __webpack_require__(/*! reactstrap */ "./node_modules/reactstrap/es/NavLink.js");
-/* harmony import */ var reactstrap__WEBPACK_IMPORTED_MODULE_18__ = __webpack_require__(/*! reactstrap */ "./node_modules/reactstrap/es/TabPane.js");
-/* harmony import */ var reactstrap__WEBPACK_IMPORTED_MODULE_19__ = __webpack_require__(/*! reactstrap */ "./node_modules/reactstrap/es/Row.js");
-/* harmony import */ var reactstrap__WEBPACK_IMPORTED_MODULE_20__ = __webpack_require__(/*! reactstrap */ "./node_modules/reactstrap/es/Nav.js");
-/* harmony import */ var reactstrap__WEBPACK_IMPORTED_MODULE_21__ = __webpack_require__(/*! reactstrap */ "./node_modules/reactstrap/es/TabContent.js");
-/* harmony import */ var _components_UI_Input__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! ../../../../components/UI/Input */ "./resources/js/src/components/UI/Input/index.js");
-/* harmony import */ var _components_Error_Error__WEBPACK_IMPORTED_MODULE_3__ = __webpack_require__(/*! ../../../../components/Error/Error */ "./resources/js/src/components/Error/Error.js");
-/* harmony import */ var _components_Backend_UI_Form_Form__WEBPACK_IMPORTED_MODULE_4__ = __webpack_require__(/*! ../../../../components/Backend/UI/Form/Form */ "./resources/js/src/components/Backend/UI/Form/Form.js");
-/* harmony import */ var _components_Feedback_Feedback__WEBPACK_IMPORTED_MODULE_5__ = __webpack_require__(/*! ../../../../components/Feedback/Feedback */ "./resources/js/src/components/Feedback/Feedback.js");
-/* harmony import */ var _components_Backend_UI_PageTitle__WEBPACK_IMPORTED_MODULE_6__ = __webpack_require__(/*! ../../../../components/Backend/UI/PageTitle */ "./resources/js/src/components/Backend/UI/PageTitle/index.js");
-/* harmony import */ var _components_Backend_UI_Breadcrumb_Breadcrumb__WEBPACK_IMPORTED_MODULE_7__ = __webpack_require__(/*! ../../../../components/Backend/UI/Breadcrumb/Breadcrumb */ "./resources/js/src/components/Backend/UI/Breadcrumb/Breadcrumb.js");
-/* harmony import */ var _components_UI_CustomSpinner_CustomSpinner__WEBPACK_IMPORTED_MODULE_8__ = __webpack_require__(/*! ../../../../components/UI/CustomSpinner/CustomSpinner */ "./resources/js/src/components/UI/CustomSpinner/CustomSpinner.js");
-/* harmony import */ var _store_actions_backend_cms__WEBPACK_IMPORTED_MODULE_9__ = __webpack_require__(/*! ../../../../store/actions/backend/cms */ "./resources/js/src/store/actions/backend/cms.js");
-/* harmony import */ var _shared_utility__WEBPACK_IMPORTED_MODULE_10__ = __webpack_require__(/*! ../../../../shared/utility */ "./resources/js/src/shared/utility.js");
+/* harmony import */ var reactstrap__WEBPACK_IMPORTED_MODULE_14__ = __webpack_require__(/*! reactstrap */ "./node_modules/reactstrap/es/TabPane.js");
+/* harmony import */ var reactstrap__WEBPACK_IMPORTED_MODULE_15__ = __webpack_require__(/*! reactstrap */ "./node_modules/reactstrap/es/Row.js");
+/* harmony import */ var reactstrap__WEBPACK_IMPORTED_MODULE_16__ = __webpack_require__(/*! reactstrap */ "./node_modules/reactstrap/es/Nav.js");
+/* harmony import */ var reactstrap__WEBPACK_IMPORTED_MODULE_17__ = __webpack_require__(/*! reactstrap */ "./node_modules/reactstrap/es/TabContent.js");
+/* harmony import */ var reactstrap__WEBPACK_IMPORTED_MODULE_19__ = __webpack_require__(/*! reactstrap */ "./node_modules/reactstrap/es/NavItem.js");
+/* harmony import */ var reactstrap__WEBPACK_IMPORTED_MODULE_20__ = __webpack_require__(/*! reactstrap */ "./node_modules/reactstrap/es/NavLink.js");
+/* harmony import */ var _components_Error_Error__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! ../../../../components/Error/Error */ "./resources/js/src/components/Error/Error.js");
+/* harmony import */ var _components_Backend_UI_Form_Form__WEBPACK_IMPORTED_MODULE_3__ = __webpack_require__(/*! ../../../../components/Backend/UI/Form/Form */ "./resources/js/src/components/Backend/UI/Form/Form.js");
+/* harmony import */ var _components_Feedback_Feedback__WEBPACK_IMPORTED_MODULE_4__ = __webpack_require__(/*! ../../../../components/Feedback/Feedback */ "./resources/js/src/components/Feedback/Feedback.js");
+/* harmony import */ var _components_Backend_UI_PageTitle__WEBPACK_IMPORTED_MODULE_5__ = __webpack_require__(/*! ../../../../components/Backend/UI/PageTitle */ "./resources/js/src/components/Backend/UI/PageTitle/index.js");
+/* harmony import */ var _components_Backend_UI_Breadcrumb_Breadcrumb__WEBPACK_IMPORTED_MODULE_6__ = __webpack_require__(/*! ../../../../components/Backend/UI/Breadcrumb/Breadcrumb */ "./resources/js/src/components/Backend/UI/Breadcrumb/Breadcrumb.js");
+/* harmony import */ var _components_UI_CustomSpinner_CustomSpinner__WEBPACK_IMPORTED_MODULE_7__ = __webpack_require__(/*! ../../../../components/UI/CustomSpinner/CustomSpinner */ "./resources/js/src/components/UI/CustomSpinner/CustomSpinner.js");
+/* harmony import */ var _store_actions_backend_cms__WEBPACK_IMPORTED_MODULE_8__ = __webpack_require__(/*! ../../../../store/actions/backend/cms */ "./resources/js/src/store/actions/backend/cms.js");
+/* harmony import */ var _shared_utility__WEBPACK_IMPORTED_MODULE_9__ = __webpack_require__(/*! ../../../../shared/utility */ "./resources/js/src/shared/utility.js");
+/* harmony import */ var _utility__WEBPACK_IMPORTED_MODULE_10__ = __webpack_require__(/*! ./utility */ "./resources/js/src/containers/Backend/User/Cms/utility.js");
 /* harmony import */ var _components_Content_Messages__WEBPACK_IMPORTED_MODULE_11__ = __webpack_require__(/*! ../../../../components/Content/Messages */ "./resources/js/src/components/Content/Messages.js");
 /* harmony import */ var react_jsx_runtime__WEBPACK_IMPORTED_MODULE_12__ = __webpack_require__(/*! react/jsx-runtime */ "./node_modules/react/jsx-runtime.js");
 function _typeof(obj) { "@babel/helpers - typeof"; return _typeof = "function" == typeof Symbol && "symbol" == typeof Symbol.iterator ? function (obj) { return typeof obj; } : function (obj) { return obj && "function" == typeof Symbol && obj.constructor === Symbol && obj !== Symbol.prototype ? "symbol" : typeof obj; }, _typeof(obj); }
+
+function ownKeys(object, enumerableOnly) { var keys = Object.keys(object); if (Object.getOwnPropertySymbols) { var symbols = Object.getOwnPropertySymbols(object); enumerableOnly && (symbols = symbols.filter(function (sym) { return Object.getOwnPropertyDescriptor(object, sym).enumerable; })), keys.push.apply(keys, symbols); } return keys; }
+
+function _objectSpread(target) { for (var i = 1; i < arguments.length; i++) { var source = null != arguments[i] ? arguments[i] : {}; i % 2 ? ownKeys(Object(source), !0).forEach(function (key) { _defineProperty(target, key, source[key]); }) : Object.getOwnPropertyDescriptors ? Object.defineProperties(target, Object.getOwnPropertyDescriptors(source)) : ownKeys(Object(source)).forEach(function (key) { Object.defineProperty(target, key, Object.getOwnPropertyDescriptor(source, key)); }); } return target; }
 
 function _regeneratorRuntime() { "use strict"; /*! regenerator-runtime -- Copyright (c) 2014-present, Facebook, Inc. -- license (MIT): https://github.com/facebook/regenerator/blob/main/LICENSE */ _regeneratorRuntime = function _regeneratorRuntime() { return exports; }; var exports = {}, Op = Object.prototype, hasOwn = Op.hasOwnProperty, $Symbol = "function" == typeof Symbol ? Symbol : {}, iteratorSymbol = $Symbol.iterator || "@@iterator", asyncIteratorSymbol = $Symbol.asyncIterator || "@@asyncIterator", toStringTagSymbol = $Symbol.toStringTag || "@@toStringTag"; function define(obj, key, value) { return Object.defineProperty(obj, key, { value: value, enumerable: !0, configurable: !0, writable: !0 }), obj[key]; } try { define({}, ""); } catch (err) { define = function define(obj, key, value) { return obj[key] = value; }; } function wrap(innerFn, outerFn, self, tryLocsList) { var protoGenerator = outerFn && outerFn.prototype instanceof Generator ? outerFn : Generator, generator = Object.create(protoGenerator.prototype), context = new Context(tryLocsList || []); return generator._invoke = function (innerFn, self, context) { var state = "suspendedStart"; return function (method, arg) { if ("executing" === state) throw new Error("Generator is already running"); if ("completed" === state) { if ("throw" === method) throw arg; return doneResult(); } for (context.method = method, context.arg = arg;;) { var delegate = context.delegate; if (delegate) { var delegateResult = maybeInvokeDelegate(delegate, context); if (delegateResult) { if (delegateResult === ContinueSentinel) continue; return delegateResult; } } if ("next" === context.method) context.sent = context._sent = context.arg;else if ("throw" === context.method) { if ("suspendedStart" === state) throw state = "completed", context.arg; context.dispatchException(context.arg); } else "return" === context.method && context.abrupt("return", context.arg); state = "executing"; var record = tryCatch(innerFn, self, context); if ("normal" === record.type) { if (state = context.done ? "completed" : "suspendedYield", record.arg === ContinueSentinel) continue; return { value: record.arg, done: context.done }; } "throw" === record.type && (state = "completed", context.method = "throw", context.arg = record.arg); } }; }(innerFn, self, context), generator; } function tryCatch(fn, obj, arg) { try { return { type: "normal", arg: fn.call(obj, arg) }; } catch (err) { return { type: "throw", arg: err }; } } exports.wrap = wrap; var ContinueSentinel = {}; function Generator() {} function GeneratorFunction() {} function GeneratorFunctionPrototype() {} var IteratorPrototype = {}; define(IteratorPrototype, iteratorSymbol, function () { return this; }); var getProto = Object.getPrototypeOf, NativeIteratorPrototype = getProto && getProto(getProto(values([]))); NativeIteratorPrototype && NativeIteratorPrototype !== Op && hasOwn.call(NativeIteratorPrototype, iteratorSymbol) && (IteratorPrototype = NativeIteratorPrototype); var Gp = GeneratorFunctionPrototype.prototype = Generator.prototype = Object.create(IteratorPrototype); function defineIteratorMethods(prototype) { ["next", "throw", "return"].forEach(function (method) { define(prototype, method, function (arg) { return this._invoke(method, arg); }); }); } function AsyncIterator(generator, PromiseImpl) { function invoke(method, arg, resolve, reject) { var record = tryCatch(generator[method], generator, arg); if ("throw" !== record.type) { var result = record.arg, value = result.value; return value && "object" == _typeof(value) && hasOwn.call(value, "__await") ? PromiseImpl.resolve(value.__await).then(function (value) { invoke("next", value, resolve, reject); }, function (err) { invoke("throw", err, resolve, reject); }) : PromiseImpl.resolve(value).then(function (unwrapped) { result.value = unwrapped, resolve(result); }, function (error) { return invoke("throw", error, resolve, reject); }); } reject(record.arg); } var previousPromise; this._invoke = function (method, arg) { function callInvokeWithMethodAndArg() { return new PromiseImpl(function (resolve, reject) { invoke(method, arg, resolve, reject); }); } return previousPromise = previousPromise ? previousPromise.then(callInvokeWithMethodAndArg, callInvokeWithMethodAndArg) : callInvokeWithMethodAndArg(); }; } function maybeInvokeDelegate(delegate, context) { var method = delegate.iterator[context.method]; if (undefined === method) { if (context.delegate = null, "throw" === context.method) { if (delegate.iterator["return"] && (context.method = "return", context.arg = undefined, maybeInvokeDelegate(delegate, context), "throw" === context.method)) return ContinueSentinel; context.method = "throw", context.arg = new TypeError("The iterator does not provide a 'throw' method"); } return ContinueSentinel; } var record = tryCatch(method, delegate.iterator, context.arg); if ("throw" === record.type) return context.method = "throw", context.arg = record.arg, context.delegate = null, ContinueSentinel; var info = record.arg; return info ? info.done ? (context[delegate.resultName] = info.value, context.next = delegate.nextLoc, "return" !== context.method && (context.method = "next", context.arg = undefined), context.delegate = null, ContinueSentinel) : info : (context.method = "throw", context.arg = new TypeError("iterator result is not an object"), context.delegate = null, ContinueSentinel); } function pushTryEntry(locs) { var entry = { tryLoc: locs[0] }; 1 in locs && (entry.catchLoc = locs[1]), 2 in locs && (entry.finallyLoc = locs[2], entry.afterLoc = locs[3]), this.tryEntries.push(entry); } function resetTryEntry(entry) { var record = entry.completion || {}; record.type = "normal", delete record.arg, entry.completion = record; } function Context(tryLocsList) { this.tryEntries = [{ tryLoc: "root" }], tryLocsList.forEach(pushTryEntry, this), this.reset(!0); } function values(iterable) { if (iterable) { var iteratorMethod = iterable[iteratorSymbol]; if (iteratorMethod) return iteratorMethod.call(iterable); if ("function" == typeof iterable.next) return iterable; if (!isNaN(iterable.length)) { var i = -1, next = function next() { for (; ++i < iterable.length;) { if (hasOwn.call(iterable, i)) return next.value = iterable[i], next.done = !1, next; } return next.value = undefined, next.done = !0, next; }; return next.next = next; } } return { next: doneResult }; } function doneResult() { return { value: undefined, done: !0 }; } return GeneratorFunction.prototype = GeneratorFunctionPrototype, define(Gp, "constructor", GeneratorFunctionPrototype), define(GeneratorFunctionPrototype, "constructor", GeneratorFunction), GeneratorFunction.displayName = define(GeneratorFunctionPrototype, toStringTagSymbol, "GeneratorFunction"), exports.isGeneratorFunction = function (genFun) { var ctor = "function" == typeof genFun && genFun.constructor; return !!ctor && (ctor === GeneratorFunction || "GeneratorFunction" === (ctor.displayName || ctor.name)); }, exports.mark = function (genFun) { return Object.setPrototypeOf ? Object.setPrototypeOf(genFun, GeneratorFunctionPrototype) : (genFun.__proto__ = GeneratorFunctionPrototype, define(genFun, toStringTagSymbol, "GeneratorFunction")), genFun.prototype = Object.create(Gp), genFun; }, exports.awrap = function (arg) { return { __await: arg }; }, defineIteratorMethods(AsyncIterator.prototype), define(AsyncIterator.prototype, asyncIteratorSymbol, function () { return this; }), exports.AsyncIterator = AsyncIterator, exports.async = function (innerFn, outerFn, self, tryLocsList, PromiseImpl) { void 0 === PromiseImpl && (PromiseImpl = Promise); var iter = new AsyncIterator(wrap(innerFn, outerFn, self, tryLocsList), PromiseImpl); return exports.isGeneratorFunction(outerFn) ? iter : iter.next().then(function (result) { return result.done ? result.value : iter.next(); }); }, defineIteratorMethods(Gp), define(Gp, toStringTagSymbol, "Generator"), define(Gp, iteratorSymbol, function () { return this; }), define(Gp, "toString", function () { return "[object Generator]"; }), exports.keys = function (object) { var keys = []; for (var key in object) { keys.push(key); } return keys.reverse(), function next() { for (; keys.length;) { var key = keys.pop(); if (key in object) return next.value = key, next.done = !1, next; } return next.done = !0, next; }; }, exports.values = values, Context.prototype = { constructor: Context, reset: function reset(skipTempReset) { if (this.prev = 0, this.next = 0, this.sent = this._sent = undefined, this.done = !1, this.delegate = null, this.method = "next", this.arg = undefined, this.tryEntries.forEach(resetTryEntry), !skipTempReset) for (var name in this) { "t" === name.charAt(0) && hasOwn.call(this, name) && !isNaN(+name.slice(1)) && (this[name] = undefined); } }, stop: function stop() { this.done = !0; var rootRecord = this.tryEntries[0].completion; if ("throw" === rootRecord.type) throw rootRecord.arg; return this.rval; }, dispatchException: function dispatchException(exception) { if (this.done) throw exception; var context = this; function handle(loc, caught) { return record.type = "throw", record.arg = exception, context.next = loc, caught && (context.method = "next", context.arg = undefined), !!caught; } for (var i = this.tryEntries.length - 1; i >= 0; --i) { var entry = this.tryEntries[i], record = entry.completion; if ("root" === entry.tryLoc) return handle("end"); if (entry.tryLoc <= this.prev) { var hasCatch = hasOwn.call(entry, "catchLoc"), hasFinally = hasOwn.call(entry, "finallyLoc"); if (hasCatch && hasFinally) { if (this.prev < entry.catchLoc) return handle(entry.catchLoc, !0); if (this.prev < entry.finallyLoc) return handle(entry.finallyLoc); } else if (hasCatch) { if (this.prev < entry.catchLoc) return handle(entry.catchLoc, !0); } else { if (!hasFinally) throw new Error("try statement without catch or finally"); if (this.prev < entry.finallyLoc) return handle(entry.finallyLoc); } } } }, abrupt: function abrupt(type, arg) { for (var i = this.tryEntries.length - 1; i >= 0; --i) { var entry = this.tryEntries[i]; if (entry.tryLoc <= this.prev && hasOwn.call(entry, "finallyLoc") && this.prev < entry.finallyLoc) { var finallyEntry = entry; break; } } finallyEntry && ("break" === type || "continue" === type) && finallyEntry.tryLoc <= arg && arg <= finallyEntry.finallyLoc && (finallyEntry = null); var record = finallyEntry ? finallyEntry.completion : {}; return record.type = type, record.arg = arg, finallyEntry ? (this.method = "next", this.next = finallyEntry.finallyLoc, ContinueSentinel) : this.complete(record); }, complete: function complete(record, afterLoc) { if ("throw" === record.type) throw record.arg; return "break" === record.type || "continue" === record.type ? this.next = record.arg : "return" === record.type ? (this.rval = this.arg = record.arg, this.method = "return", this.next = "end") : "normal" === record.type && afterLoc && (this.next = afterLoc), ContinueSentinel; }, finish: function finish(finallyLoc) { for (var i = this.tryEntries.length - 1; i >= 0; --i) { var entry = this.tryEntries[i]; if (entry.finallyLoc === finallyLoc) return this.complete(entry.completion, entry.afterLoc), resetTryEntry(entry), ContinueSentinel; } }, "catch": function _catch(tryLoc) { for (var i = this.tryEntries.length - 1; i >= 0; --i) { var entry = this.tryEntries[i]; if (entry.tryLoc === tryLoc) { var record = entry.completion; if ("throw" === record.type) { var thrown = record.arg; resetTryEntry(entry); } return thrown; } } throw new Error("illegal catch attempt"); }, delegateYield: function delegateYield(iterable, resultName, nextLoc) { return this.delegate = { iterator: values(iterable), resultName: resultName, nextLoc: nextLoc }, "next" === this.method && (this.arg = undefined), ContinueSentinel; } }, exports; }
 
@@ -695,18 +697,6 @@ function _assertThisInitialized(self) { if (self === void 0) { throw new Referen
 function _isNativeReflectConstruct() { if (typeof Reflect === "undefined" || !Reflect.construct) return false; if (Reflect.construct.sham) return false; if (typeof Proxy === "function") return true; try { Boolean.prototype.valueOf.call(Reflect.construct(Boolean, [], function () {})); return true; } catch (e) { return false; } }
 
 function _getPrototypeOf(o) { _getPrototypeOf = Object.setPrototypeOf ? Object.getPrototypeOf.bind() : function _getPrototypeOf(o) { return o.__proto__ || Object.getPrototypeOf(o); }; return _getPrototypeOf(o); }
-
-function _toConsumableArray(arr) { return _arrayWithoutHoles(arr) || _iterableToArray(arr) || _unsupportedIterableToArray(arr) || _nonIterableSpread(); }
-
-function _nonIterableSpread() { throw new TypeError("Invalid attempt to spread non-iterable instance.\nIn order to be iterable, non-array objects must have a [Symbol.iterator]() method."); }
-
-function _iterableToArray(iter) { if (typeof Symbol !== "undefined" && iter[Symbol.iterator] != null || iter["@@iterator"] != null) return Array.from(iter); }
-
-function _arrayWithoutHoles(arr) { if (Array.isArray(arr)) return _arrayLikeToArray(arr); }
-
-function ownKeys(object, enumerableOnly) { var keys = Object.keys(object); if (Object.getOwnPropertySymbols) { var symbols = Object.getOwnPropertySymbols(object); enumerableOnly && (symbols = symbols.filter(function (sym) { return Object.getOwnPropertyDescriptor(object, sym).enumerable; })), keys.push.apply(keys, symbols); } return keys; }
-
-function _objectSpread(target) { for (var i = 1; i < arguments.length; i++) { var source = null != arguments[i] ? arguments[i] : {}; i % 2 ? ownKeys(Object(source), !0).forEach(function (key) { _defineProperty(target, key, source[key]); }) : Object.getOwnPropertyDescriptors ? Object.defineProperties(target, Object.getOwnPropertyDescriptors(source)) : ownKeys(Object(source)).forEach(function (key) { Object.defineProperty(target, key, Object.getOwnPropertyDescriptor(source, key)); }); } return target; }
 
 function _defineProperty(obj, key, value) { if (key in obj) { Object.defineProperty(obj, key, { value: value, enumerable: true, configurable: true, writable: true }); } else { obj[key] = value; } return obj; }
 
@@ -763,108 +753,30 @@ var SubNavLinks = function SubNavLinks(_ref2) {
       value = _useState4[0],
       setValue = _useState4[1];
 
+  var prefix = "".concat(language.abbr, "[messages]");
+  var prefixId = "".concat(language.abbr, "-messages");
+
   var toggle = function toggle(tab) {
     if (activeTab !== tab) setActiveTab(tab);
   };
 
-  var _onChange = function onChange(e) {
-    var valueCopy = _objectSpread({}, value);
-
+  var onChange = function onChange(e) {
     for (var _len = arguments.length, deepness = new Array(_len > 1 ? _len - 1 : 0), _key = 1; _key < _len; _key++) {
       deepness[_key - 1] = arguments[_key];
     }
 
-    if (deepness.length === 1) {
-      valueCopy[deepness[0]] = e.target.value;
-      return setValue(valueCopy);
-    }
-
-    var subValues = [];
-
-    var subValue = _objectSpread({}, value);
-
-    for (var i = 0; i < deepness.length - 1; i++) {
-      var element = deepness[i];
-      subValue = subValue[element];
-      subValues.push(subValue);
-    }
-
-    subValues[subValues.length - 1][deepness[deepness.length - 1]] = e.target.value;
-
-    for (var _i2 = 1; _i2 < deepness.length - 1; _i2++) {
-      var _element = deepness[deepness.length - 1 - _i2];
-      var index = subValues.length - 1 - _i2;
-      subValues[index][_element] = subValues[index + 1];
-    }
-
-    valueCopy[deepness[0]] = subValues[0];
-    setValue(valueCopy);
+    return _utility__WEBPACK_IMPORTED_MODULE_10__.onChange(value, setValue).apply(void 0, [e].concat(deepness));
   };
 
-  var recursiveDeepness = function recursiveDeepness(paramItem, paramName, paramId, paramValue, paramDeepness) {
-    var paramPrepends = arguments.length > 5 && arguments[5] !== undefined ? arguments[5] : [];
-    var paramAppends = arguments.length > 6 && arguments[6] !== undefined ? arguments[6] : [];
-    return Object.keys(paramItem).map(function (item) {
-      var mainItem = paramItem[item];
-      var mainName = "".concat(paramName, "[").concat(item, "]");
-      var mainId = "".concat(paramId, "-").concat(item);
-      var mainValue = paramValue[item];
-      var mainDeepness = paramDeepness.concat(item);
-      var prepend;
-      var findPrepend = paramPrepends.find(function (el) {
-        return new RegExp(el.regex.replace(/\[/g, '\\[').replace(/\]/g, '\\]')).test(mainName);
-      });
-      prepend = !findPrepend ? null : findPrepend.action(mainItem);
-      var append;
-      var findAppend = paramAppends.find(function (el) {
-        return new RegExp(el.regex.replace(/\[/g, '\\[').replace(/\]/g, '\\]')).test(mainName);
-      });
-      append = !findAppend ? null : findAppend.action(mainItem);
-      return typeof mainItem === 'string' ? /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_12__.jsxs)(react_jsx_runtime__WEBPACK_IMPORTED_MODULE_12__.Fragment, {
-        children: [prepend, /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_12__.jsxs)(reactstrap__WEBPACK_IMPORTED_MODULE_14__["default"], {
-          className: "col-md-6 col-lg-4 align-self-end",
-          children: [/*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_12__.jsx)(reactstrap__WEBPACK_IMPORTED_MODULE_15__["default"], {
-            className: "text-small text-500",
-            children: mainItem
-          }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_12__.jsx)(_components_UI_Input__WEBPACK_IMPORTED_MODULE_2__["default"], {
-            type: "text",
-            name: mainName,
-            id: mainId,
-            placeholder: mainItem,
-            onChange: function onChange(e) {
-              return _onChange.apply(void 0, [e].concat(_toConsumableArray(mainDeepness)));
-            },
-            value: mainValue
-          })]
-        }), append]
-      }) : recursiveDeepness(mainItem, mainName, mainId, mainValue, mainDeepness, paramPrepends, paramAppends);
-    });
+  var resourceDeepness = function resourceDeepness(resource) {
+    var paramPrepends = arguments.length > 1 && arguments[1] !== undefined ? arguments[1] : [];
+    var paramAppends = arguments.length > 2 && arguments[2] !== undefined ? arguments[2] : [];
+    return _utility__WEBPACK_IMPORTED_MODULE_10__.resourceDeepness(onChange)(_components_Content_Messages__WEBPACK_IMPORTED_MODULE_11__["default"], prefix, prefixId, value)(resource, paramPrepends, paramAppends);
   };
 
-  var navItems = Object.keys(messages).map(function (key) {
-    var id = "".concat(language.abbr, "-").concat(key);
-    return /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_12__.jsx)(reactstrap__WEBPACK_IMPORTED_MODULE_16__["default"], {
-      children: /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_12__.jsx)(reactstrap__WEBPACK_IMPORTED_MODULE_17__["default"], {
-        className: activeTab === id ? 'active' : "",
-        onClick: function onClick() {
-          return toggle(id);
-        },
-        children: /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_12__.jsx)("span", {
-          className: "text-capitalize",
-          children: key.split('_').join(' ')
-        })
-      })
-    }, id);
-  });
-  var prefix = "".concat(language.abbr, "[messages]");
-  var prefixId = "".concat(language.abbr, "-messages");
-  var authItem = _components_Content_Messages__WEBPACK_IMPORTED_MODULE_11__["default"].auth;
-  var authName = "".concat(prefix, "[auth]");
-  var authId = "".concat(prefixId, "-auth");
-  var authValue = value['auth'];
-  var authDeepness = ['auth'];
-  var auth = recursiveDeepness(authItem, authName, authId, authValue, authDeepness, [{
-    regex: "".concat(authName, "[admin][not_found]"),
+  var navItems = _utility__WEBPACK_IMPORTED_MODULE_10__.navItems(messages, language, activeTab, toggle);
+  var auth = resourceDeepness('auth', [{
+    regex: "".concat(prefix, "[auth][admin][not_found]"),
     action: function action() {
       return /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_12__.jsx)(reactstrap__WEBPACK_IMPORTED_MODULE_13__["default"], {
         xs: 12,
@@ -874,7 +786,7 @@ var SubNavLinks = function SubNavLinks(_ref2) {
       });
     }
   }, {
-    regex: "".concat(authName, "[user][inactive]"),
+    regex: "".concat(prefix, "[auth][user][inactive]"),
     action: function action() {
       return /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_12__.jsxs)(react_jsx_runtime__WEBPACK_IMPORTED_MODULE_12__.Fragment, {
         children: [/*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_12__.jsx)(Separator, {}), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_12__.jsx)(reactstrap__WEBPACK_IMPORTED_MODULE_13__["default"], {
@@ -887,34 +799,29 @@ var SubNavLinks = function SubNavLinks(_ref2) {
     }
   }]);
   var keys = Object.keys(_components_Content_Messages__WEBPACK_IMPORTED_MODULE_11__["default"]).filter(function (key) {
-    return !['auth'].includes(key);
+    return !['admin'].includes(key);
   });
   var resourceTabPanes = keys.map(function (item) {
-    var currentItem = _components_Content_Messages__WEBPACK_IMPORTED_MODULE_11__["default"][item];
-    var currentName = "".concat(prefix, "[").concat(item, "]");
-    var currentId = "".concat(prefixId, "-").concat(item);
-    var currentValue = value[item];
-    var currentDeepness = [item];
-    var current = recursiveDeepness(currentItem, currentName, currentId, currentValue, currentDeepness);
-    return /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_12__.jsx)(reactstrap__WEBPACK_IMPORTED_MODULE_18__["default"], {
+    var current = resourceDeepness(item);
+    return /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_12__.jsx)(reactstrap__WEBPACK_IMPORTED_MODULE_14__["default"], {
       tabId: "".concat(language.abbr, "-").concat(item),
       className: "pt-4",
-      children: /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_12__.jsx)(reactstrap__WEBPACK_IMPORTED_MODULE_19__["default"], {
+      children: /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_12__.jsx)(reactstrap__WEBPACK_IMPORTED_MODULE_15__["default"], {
         children: current
       })
-    }, Math.random() + currentName);
+    }, Math.random() + "".concat(prefix, "[").concat(item, "]"));
   });
   return /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_12__.jsxs)("div", {
-    children: [/*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_12__.jsx)(reactstrap__WEBPACK_IMPORTED_MODULE_20__["default"], {
+    children: [/*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_12__.jsx)(reactstrap__WEBPACK_IMPORTED_MODULE_16__["default"], {
       tabs: true,
       pills: true,
       children: navItems
-    }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_12__.jsxs)(reactstrap__WEBPACK_IMPORTED_MODULE_21__["default"], {
+    }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_12__.jsxs)(reactstrap__WEBPACK_IMPORTED_MODULE_17__["default"], {
       activeTab: activeTab,
-      children: [/*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_12__.jsx)(reactstrap__WEBPACK_IMPORTED_MODULE_18__["default"], {
+      children: [/*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_12__.jsx)(reactstrap__WEBPACK_IMPORTED_MODULE_14__["default"], {
         tabId: "".concat(language.abbr, "-auth"),
         className: "pt-4",
-        children: /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_12__.jsx)(reactstrap__WEBPACK_IMPORTED_MODULE_19__["default"], {
+        children: /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_12__.jsx)(reactstrap__WEBPACK_IMPORTED_MODULE_15__["default"], {
           children: auth
         })
       }), resourceTabPanes]
@@ -1044,22 +951,22 @@ var Messages = /*#__PURE__*/function (_Component) {
         return f.prefix === 'cms';
       });
 
-      var redirect = !(feature && JSON.parse(feature.permissions).includes('u')) && /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_12__.jsx)(react_router_dom__WEBPACK_IMPORTED_MODULE_22__.Redirect, {
+      var redirect = !(feature && JSON.parse(feature.permissions).includes('u')) && /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_12__.jsx)(react_router_dom__WEBPACK_IMPORTED_MODULE_18__.Redirect, {
         to: "/user/dashboard"
       });
 
       if (loading) content = /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_12__.jsx)(reactstrap__WEBPACK_IMPORTED_MODULE_13__["default"], {
         xs: 12,
-        children: /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_12__.jsx)(_components_UI_CustomSpinner_CustomSpinner__WEBPACK_IMPORTED_MODULE_8__["default"], {})
+        children: /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_12__.jsx)(_components_UI_CustomSpinner_CustomSpinner__WEBPACK_IMPORTED_MODULE_7__["default"], {})
       });else {
         errors = /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_12__.jsx)(react_jsx_runtime__WEBPACK_IMPORTED_MODULE_12__.Fragment, {
-          children: /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_12__.jsx)(_components_Error_Error__WEBPACK_IMPORTED_MODULE_3__["default"], {
+          children: /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_12__.jsx)(_components_Error_Error__WEBPACK_IMPORTED_MODULE_2__["default"], {
             err: error
           })
         });
         var nav = languages.map(function (language) {
-          return /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_12__.jsx)(reactstrap__WEBPACK_IMPORTED_MODULE_16__["default"], {
-            children: /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_12__.jsx)(reactstrap__WEBPACK_IMPORTED_MODULE_17__["default"], {
+          return /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_12__.jsx)(reactstrap__WEBPACK_IMPORTED_MODULE_19__["default"], {
+            children: /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_12__.jsx)(reactstrap__WEBPACK_IMPORTED_MODULE_20__["default"], {
               className: activeTab === language.abbr ? 'active' : '',
               onClick: function onClick() {
                 return _this2.toggle(language.abbr);
@@ -1069,7 +976,7 @@ var Messages = /*#__PURE__*/function (_Component) {
           }, Math.random());
         });
         var tabContent = languages.map(function (language) {
-          return /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_12__.jsx)(reactstrap__WEBPACK_IMPORTED_MODULE_18__["default"], {
+          return /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_12__.jsx)(reactstrap__WEBPACK_IMPORTED_MODULE_14__["default"], {
             tabId: language.abbr,
             children: /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_12__.jsx)(SubNavLinks, {
               messages: cms.pages[language.abbr].messages,
@@ -1079,16 +986,16 @@ var Messages = /*#__PURE__*/function (_Component) {
         });
         content = /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_12__.jsxs)(reactstrap__WEBPACK_IMPORTED_MODULE_13__["default"], {
           lg: 12,
-          children: [/*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_12__.jsx)(_components_Feedback_Feedback__WEBPACK_IMPORTED_MODULE_5__["default"], {
+          children: [/*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_12__.jsx)(_components_Feedback_Feedback__WEBPACK_IMPORTED_MODULE_4__["default"], {
             message: message
-          }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_12__.jsxs)(reactstrap__WEBPACK_IMPORTED_MODULE_19__["default"], {
+          }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_12__.jsxs)(reactstrap__WEBPACK_IMPORTED_MODULE_15__["default"], {
             children: [/*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_12__.jsx)("input", {
               type: "hidden",
               name: "_method",
               defaultValue: "PATCH"
             }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_12__.jsx)(reactstrap__WEBPACK_IMPORTED_MODULE_13__["default"], {
               lg: 2,
-              children: /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_12__.jsx)(reactstrap__WEBPACK_IMPORTED_MODULE_20__["default"], {
+              children: /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_12__.jsx)(reactstrap__WEBPACK_IMPORTED_MODULE_16__["default"], {
                 tabs: true,
                 vertical: true,
                 pills: true,
@@ -1096,7 +1003,7 @@ var Messages = /*#__PURE__*/function (_Component) {
               })
             }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_12__.jsx)(reactstrap__WEBPACK_IMPORTED_MODULE_13__["default"], {
               lg: 10,
-              children: /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_12__.jsx)(reactstrap__WEBPACK_IMPORTED_MODULE_21__["default"], {
+              children: /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_12__.jsx)(reactstrap__WEBPACK_IMPORTED_MODULE_17__["default"], {
                 activeTab: activeTab,
                 children: tabContent
               })
@@ -1117,16 +1024,16 @@ var Messages = /*#__PURE__*/function (_Component) {
       }
       return /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_12__.jsxs)("div", {
         className: "Cms Messages",
-        children: [/*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_12__.jsx)(_components_Backend_UI_PageTitle__WEBPACK_IMPORTED_MODULE_6__["default"], {
+        children: [/*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_12__.jsx)(_components_Backend_UI_PageTitle__WEBPACK_IMPORTED_MODULE_5__["default"], {
           title: title,
           subtitle: messages,
           icon: icon,
-          children: /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_12__.jsx)(_components_Backend_UI_Breadcrumb_Breadcrumb__WEBPACK_IMPORTED_MODULE_7__["default"], {
+          children: /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_12__.jsx)(_components_Backend_UI_Breadcrumb_Breadcrumb__WEBPACK_IMPORTED_MODULE_6__["default"], {
             main: messages
           })
         }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_12__.jsxs)("div", {
           className: "content",
-          children: [redirect, errors, /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_12__.jsx)(_components_Backend_UI_Form_Form__WEBPACK_IMPORTED_MODULE_4__["default"], {
+          children: [redirect, errors, /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_12__.jsx)(_components_Backend_UI_Form_Form__WEBPACK_IMPORTED_MODULE_3__["default"], {
             onSubmit: this.submitHandler,
             icon: icon,
             title: messages,
@@ -1142,7 +1049,7 @@ var Messages = /*#__PURE__*/function (_Component) {
     value: function getDerivedStateFromProps(nextProps, prevState) {
       if (nextProps.backend.cms.cms && prevState.app_name === '') {
         var messages = nextProps.backend.cms.cms.messages;
-        return (0,_shared_utility__WEBPACK_IMPORTED_MODULE_10__.updateObject)(prevState, _objectSpread({}, messages));
+        return (0,_shared_utility__WEBPACK_IMPORTED_MODULE_9__.updateObject)(prevState, _objectSpread({}, messages));
       }
 
       return prevState;
@@ -1159,18 +1066,172 @@ var mapStateToProps = function mapStateToProps(state) {
 var mapDispatchToProps = function mapDispatchToProps(dispatch) {
   return {
     get: function get() {
-      return dispatch((0,_store_actions_backend_cms__WEBPACK_IMPORTED_MODULE_9__.getCms)());
+      return dispatch((0,_store_actions_backend_cms__WEBPACK_IMPORTED_MODULE_8__.getCms)());
     },
     patch: function patch(data) {
-      return dispatch((0,_store_actions_backend_cms__WEBPACK_IMPORTED_MODULE_9__.patchCms)('messages', data));
+      return dispatch((0,_store_actions_backend_cms__WEBPACK_IMPORTED_MODULE_8__.patchCms)('messages', data));
     },
     reset: function reset() {
-      return dispatch((0,_store_actions_backend_cms__WEBPACK_IMPORTED_MODULE_9__.resetCms)());
+      return dispatch((0,_store_actions_backend_cms__WEBPACK_IMPORTED_MODULE_8__.resetCms)());
     }
   };
 };
 
-/* harmony default export */ const __WEBPACK_DEFAULT_EXPORT__ = ((0,react_router_dom__WEBPACK_IMPORTED_MODULE_22__.withRouter)((0,react_redux__WEBPACK_IMPORTED_MODULE_1__.connect)(mapStateToProps, mapDispatchToProps)(Messages)));
+/* harmony default export */ const __WEBPACK_DEFAULT_EXPORT__ = ((0,react_router_dom__WEBPACK_IMPORTED_MODULE_18__.withRouter)((0,react_redux__WEBPACK_IMPORTED_MODULE_1__.connect)(mapStateToProps, mapDispatchToProps)(Messages)));
+
+/***/ }),
+
+/***/ "./resources/js/src/containers/Backend/User/Cms/utility.js":
+/*!*****************************************************************!*\
+  !*** ./resources/js/src/containers/Backend/User/Cms/utility.js ***!
+  \*****************************************************************/
+/***/ ((__unused_webpack_module, __webpack_exports__, __webpack_require__) => {
+
+__webpack_require__.r(__webpack_exports__);
+/* harmony export */ __webpack_require__.d(__webpack_exports__, {
+/* harmony export */   "navItems": () => (/* binding */ navItems),
+/* harmony export */   "onChange": () => (/* binding */ onChange),
+/* harmony export */   "resourceDeepness": () => (/* binding */ resourceDeepness)
+/* harmony export */ });
+/* harmony import */ var react__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! react */ "./node_modules/react/index.js");
+/* harmony import */ var reactstrap__WEBPACK_IMPORTED_MODULE_3__ = __webpack_require__(/*! reactstrap */ "./node_modules/reactstrap/es/FormGroup.js");
+/* harmony import */ var reactstrap__WEBPACK_IMPORTED_MODULE_4__ = __webpack_require__(/*! reactstrap */ "./node_modules/reactstrap/es/Label.js");
+/* harmony import */ var reactstrap__WEBPACK_IMPORTED_MODULE_5__ = __webpack_require__(/*! reactstrap */ "./node_modules/reactstrap/es/NavItem.js");
+/* harmony import */ var reactstrap__WEBPACK_IMPORTED_MODULE_6__ = __webpack_require__(/*! reactstrap */ "./node_modules/reactstrap/es/NavLink.js");
+/* harmony import */ var _components_UI_Input__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! ../../../../components/UI/Input */ "./resources/js/src/components/UI/Input/index.js");
+/* harmony import */ var react_jsx_runtime__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! react/jsx-runtime */ "./node_modules/react/jsx-runtime.js");
+function _toConsumableArray(arr) { return _arrayWithoutHoles(arr) || _iterableToArray(arr) || _unsupportedIterableToArray(arr) || _nonIterableSpread(); }
+
+function _nonIterableSpread() { throw new TypeError("Invalid attempt to spread non-iterable instance.\nIn order to be iterable, non-array objects must have a [Symbol.iterator]() method."); }
+
+function _unsupportedIterableToArray(o, minLen) { if (!o) return; if (typeof o === "string") return _arrayLikeToArray(o, minLen); var n = Object.prototype.toString.call(o).slice(8, -1); if (n === "Object" && o.constructor) n = o.constructor.name; if (n === "Map" || n === "Set") return Array.from(o); if (n === "Arguments" || /^(?:Ui|I)nt(?:8|16|32)(?:Clamped)?Array$/.test(n)) return _arrayLikeToArray(o, minLen); }
+
+function _iterableToArray(iter) { if (typeof Symbol !== "undefined" && iter[Symbol.iterator] != null || iter["@@iterator"] != null) return Array.from(iter); }
+
+function _arrayWithoutHoles(arr) { if (Array.isArray(arr)) return _arrayLikeToArray(arr); }
+
+function _arrayLikeToArray(arr, len) { if (len == null || len > arr.length) len = arr.length; for (var i = 0, arr2 = new Array(len); i < len; i++) { arr2[i] = arr[i]; } return arr2; }
+
+function ownKeys(object, enumerableOnly) { var keys = Object.keys(object); if (Object.getOwnPropertySymbols) { var symbols = Object.getOwnPropertySymbols(object); enumerableOnly && (symbols = symbols.filter(function (sym) { return Object.getOwnPropertyDescriptor(object, sym).enumerable; })), keys.push.apply(keys, symbols); } return keys; }
+
+function _objectSpread(target) { for (var i = 1; i < arguments.length; i++) { var source = null != arguments[i] ? arguments[i] : {}; i % 2 ? ownKeys(Object(source), !0).forEach(function (key) { _defineProperty(target, key, source[key]); }) : Object.getOwnPropertyDescriptors ? Object.defineProperties(target, Object.getOwnPropertyDescriptors(source)) : ownKeys(Object(source)).forEach(function (key) { Object.defineProperty(target, key, Object.getOwnPropertyDescriptor(source, key)); }); } return target; }
+
+function _defineProperty(obj, key, value) { if (key in obj) { Object.defineProperty(obj, key, { value: value, enumerable: true, configurable: true, writable: true }); } else { obj[key] = value; } return obj; }
+
+
+
+
+
+
+var onChange = function onChange(value, setValue) {
+  return function (e) {
+    var valueCopy = _objectSpread({}, value);
+
+    for (var _len = arguments.length, deepness = new Array(_len > 1 ? _len - 1 : 0), _key = 1; _key < _len; _key++) {
+      deepness[_key - 1] = arguments[_key];
+    }
+
+    if (deepness.length === 1) {
+      valueCopy[deepness[0]] = e.target.value;
+      return setValue(valueCopy);
+    }
+
+    var subValues = [];
+
+    var subValue = _objectSpread({}, value);
+
+    for (var i = 0; i < deepness.length - 1; i++) {
+      var element = deepness[i];
+      subValue = subValue[element];
+      subValues.push(subValue);
+    }
+
+    subValues[subValues.length - 1][deepness[deepness.length - 1]] = e.target.value;
+
+    for (var _i = 1; _i < deepness.length - 1; _i++) {
+      var _element = deepness[deepness.length - 1 - _i];
+      var index = subValues.length - 1 - _i;
+      subValues[index][_element] = subValues[index + 1];
+    }
+
+    valueCopy[deepness[0]] = subValues[0];
+    setValue(valueCopy);
+  };
+};
+
+var recursiveDeepness = function recursiveDeepness(_onChange) {
+  return function (paramItem, paramName, paramId, paramValue, paramDeepness) {
+    var paramPrepends = arguments.length > 5 && arguments[5] !== undefined ? arguments[5] : [];
+    var paramAppends = arguments.length > 6 && arguments[6] !== undefined ? arguments[6] : [];
+    return Object.keys(paramItem).map(function (item) {
+      var mainItem = paramItem[item];
+      var mainName = "".concat(paramName, "[").concat(item, "]");
+      var mainId = "".concat(paramId, "-").concat(item);
+      var mainValue = paramValue[item];
+      var mainDeepness = paramDeepness.concat(item);
+      var prepend;
+      var findPrepend = paramPrepends.find(function (el) {
+        return new RegExp(el.regex.replace(/\[/g, '\\[').replace(/\]/g, '\\]')).test(mainName);
+      });
+      prepend = !findPrepend ? null : findPrepend.action(mainItem);
+      var append;
+      var findAppend = paramAppends.find(function (el) {
+        return new RegExp(el.regex.replace(/\[/g, '\\[').replace(/\]/g, '\\]')).test(mainName);
+      });
+      append = !findAppend ? null : findAppend.action(mainItem);
+      return typeof mainItem === 'string' ? /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_2__.jsxs)(react__WEBPACK_IMPORTED_MODULE_0__.Fragment, {
+        children: [prepend, /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_2__.jsxs)(reactstrap__WEBPACK_IMPORTED_MODULE_3__["default"], {
+          className: "col-md-6 col-lg-4 align-self-end",
+          children: [/*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_2__.jsx)(reactstrap__WEBPACK_IMPORTED_MODULE_4__["default"], {
+            className: "text-small text-500",
+            children: mainItem
+          }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_2__.jsx)(_components_UI_Input__WEBPACK_IMPORTED_MODULE_1__["default"], {
+            type: "text",
+            name: mainName,
+            id: mainId,
+            placeholder: mainItem,
+            onChange: function onChange(e) {
+              return _onChange.apply(void 0, [e].concat(_toConsumableArray(mainDeepness)));
+            },
+            value: mainValue
+          }, Math.random() + mainName + '-input')]
+        }), append]
+      }, Math.random() + mainName) : recursiveDeepness(mainItem, mainName, mainId, mainValue, mainDeepness, paramPrepends, paramAppends);
+    });
+  };
+};
+
+var navItems = function navItems(item, language, activeTab, toggle) {
+  return Object.keys(item).map(function (key) {
+    var id = "".concat(language.abbr, "-").concat(key);
+    return /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_2__.jsx)(reactstrap__WEBPACK_IMPORTED_MODULE_5__["default"], {
+      children: /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_2__.jsx)(reactstrap__WEBPACK_IMPORTED_MODULE_6__["default"], {
+        className: activeTab === id ? 'active' : "",
+        onClick: function onClick() {
+          return toggle(id);
+        },
+        children: /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_2__.jsx)("span", {
+          className: "text-capitalize",
+          children: key.split('_').join(' ')
+        })
+      })
+    }, id);
+  });
+};
+var resourceDeepness = function resourceDeepness(onChange) {
+  return function (example, prefix, prefixId, value) {
+    return function (resource) {
+      var paramPrepends = arguments.length > 1 && arguments[1] !== undefined ? arguments[1] : [];
+      var paramAppends = arguments.length > 2 && arguments[2] !== undefined ? arguments[2] : [];
+      var resourceItem = example[resource];
+      var resourceName = "".concat(prefix, "[").concat(resource, "]");
+      var resourceId = "".concat(prefixId, "-").concat(resource);
+      var resourceValue = value[resource];
+      var resourceDeepness = [resource];
+      return recursiveDeepness(onChange)(resourceItem, resourceName, resourceId, resourceValue, resourceDeepness, paramPrepends, paramAppends);
+    };
+  };
+};
 
 /***/ }),
 
@@ -1536,7 +1597,7 @@ __webpack_require__.r(__webpack_exports__);
 
 var ___CSS_LOADER_EXPORT___ = _node_modules_css_loader_dist_runtime_api_js__WEBPACK_IMPORTED_MODULE_0___default()(function(i){return i[1]});
 // Module
-___CSS_LOADER_EXPORT___.push([module.id, ".UI.Input {\n  position: relative;\n}\n.UI.Input ::-moz-placeholder {\n  color: var(--border-50);\n  opacity: 1;\n}\n.UI.Input :-ms-input-placeholder {\n  color: var(--border-50);\n  opacity: 1;\n}\n.UI.Input ::placeholder {\n  color: var(--border-50);\n  opacity: 1;\n}\n.UI.Input label:not(.control-label) {\n  position: absolute;\n  left: 75px;\n  top: 0.75rem;\n  z-index: 1;\n  max-width: calc(100% - 76px - 0.75rem);\n}\n.UI.Input .form-control[required] + label:not(.control-label)::after {\n  content: \"*\";\n  color: red;\n}\n.UI.Input .form-control[readonly] + label:not(.control-label),\n.UI.Input .form-control[disabled] + label:not(.control-label),\n.UI.Input .form-control[required]:valid + label:not(.control-label),\n.UI.Input input:not([value=\"\"]) + label:not(.control-label),\n.UI.Input textarea:not(:invalid) + label:not(.control-label) {\n  display: none;\n}\n.UI.Input .input-group {\n  border: none;\n  display: flex;\n  overflow: hidden;\n  border-radius: var(--border-radius);\n  align-items: center;\n  background-color: var(--white);\n  box-shadow: 0 0 0 1px var(--border-10);\n}\n.UI.Input .input-group-prepend {\n  z-index: 10;\n  height: 45px;\n  position: relative;\n}\n.UI.Input .input-group-prepend .input-group-text {\n  width: 57px;\n  border: none;\n  display: block;\n  padding: 3px 18px;\n  position: relative;\n  color: var(--border-30);\n  background-color: transparent;\n}\n.UI.Input .input-group-prepend .input-group-text .icon {\n  top: 50%;\n  left: 50%;\n  margin: 0 3px;\n  position: absolute;\n  color: var(--blue);\n  transform: translate(-50%, -50%);\n}\n.UI.Input .input-group-prepend .input-group-text .addon {\n  top: 0;\n  left: 0;\n  width: 100%;\n  height: 100%;\n  display: flex;\n  position: absolute;\n  align-items: center;\n  justify-content: center;\n}\n.UI.Input .input-group-prepend .input-group-text .circle {\n  top: 50%;\n  left: 100%;\n  width: 10px;\n  height: 10px;\n  overflow: hidden;\n  position: absolute;\n  border-radius: 50%;\n  background-color: var(--white);\n  transform: translate(-50%, calc(-50% - 2px));\n}\n.UI.Input .input-group-prepend .input-group-text .circle::after {\n  top: 0;\n  left: 0;\n  content: \"\";\n  width: 100%;\n  z-index: -1;\n  height: 100%;\n  position: absolute;\n  background-color: var(--border-10);\n}\n.UI.Input .form-control,\n.UI.Input select {\n  border: none;\n  height: 45px;\n  color: inherit;\n  box-shadow: none;\n  font-weight: 500;\n  padding-left: 15px;\n  padding-right: 15px;\n}\n.UI.Input textarea {\n  min-height: 112px;\n}\n.UI.Input .control-label {\n  font-weight: 500;\n}\n.UI.Input .input-group-append .input-group-text {\n  border: none;\n  padding: 0 24px;\n  color: var(--border);\n  background-color: transparent;\n}\n.UI.Input.lg .input-group {\n  border-radius: calc(var(--border-radius) * 2);\n}\n.UI.Input.lg .input-group-prepend {\n  height: 82px;\n}\n.UI.Input.lg .input-group-prepend .input-group-text {\n  padding-left: 39px;\n  padding-right: 28px;\n}\n.UI.Input.lg .form-control,\n.UI.Input.lg select {\n  height: 82px;\n  font-size: 18px;\n  padding-left: 40px;\n  padding-right: 40px;\n}\n.UI.Input.inactive .input-group-prepend .input-group-text .addon {\n  background-color: var(--readonly);\n}", ""]);
+___CSS_LOADER_EXPORT___.push([module.id, ".UI.Input {\n  position: relative;\n}\n.UI.Input ::-moz-placeholder {\n  color: var(--border-50);\n  opacity: 1;\n}\n.UI.Input :-ms-input-placeholder {\n  color: var(--border-50);\n  opacity: 1;\n}\n.UI.Input ::placeholder {\n  color: var(--border-50);\n  opacity: 1;\n}\n.UI.Input label:not(.control-label) {\n  position: absolute;\n  left: 75px;\n  top: 0.75rem;\n  z-index: 1;\n  max-width: calc(100% - 76px - 0.75rem);\n}\n.UI.Input .form-control[required] + label:not(.control-label)::after {\n  content: \"*\";\n  color: red;\n}\n.UI.Input .form-control[readonly] + label:not(.control-label),\n.UI.Input .form-control[disabled] + label:not(.control-label),\n.UI.Input .form-control[required]:valid + label:not(.control-label),\n.UI.Input input:not([value=\"\"]) + label:not(.control-label),\n.UI.Input textarea:not(:invalid) + label:not(.control-label) {\n  display: none;\n}\n.UI.Input .input-group {\n  border: none;\n  display: flex;\n  overflow: hidden;\n  border-radius: var(--border-radius);\n  align-items: center;\n  background-color: var(--white);\n  box-shadow: 0 0 0 1px var(--border-10);\n}\n.UI.Input .input-group-prepend {\n  z-index: 10;\n  height: 45px;\n  position: relative;\n}\n.UI.Input .input-group-prepend .input-group-text {\n  width: 57px;\n  border: none;\n  display: block;\n  padding: 3px 18px;\n  position: relative;\n  color: var(--border-30);\n  background-color: transparent;\n}\n.UI.Input .input-group-prepend .input-group-text .icon {\n  top: 50%;\n  left: 50%;\n  margin: 0 3px;\n  position: absolute;\n  color: var(--blue);\n  transform: translate(-50%, -50%);\n}\n.UI.Input .input-group-prepend .input-group-text .addon {\n  top: 0;\n  left: 0;\n  width: 100%;\n  height: 100%;\n  display: flex;\n  position: absolute;\n  align-items: center;\n  justify-content: center;\n}\n.UI.Input .input-group-prepend .input-group-text .circle {\n  top: 50%;\n  left: 100%;\n  width: 10px;\n  height: 10px;\n  overflow: hidden;\n  position: absolute;\n  border-radius: 50%;\n  background-color: var(--white);\n  transform: translate(-50%, calc(-50% - 2px));\n}\n.UI.Input .input-group-prepend .input-group-text .circle::after {\n  top: 0;\n  left: 0;\n  content: \"\";\n  width: 100%;\n  z-index: -1;\n  height: 100%;\n  position: absolute;\n  background-color: var(--border-10);\n}\n.UI.Input .form-control,\n.UI.Input select {\n  border: none;\n  height: 45px;\n  color: inherit;\n  box-shadow: none;\n  padding-left: 15px;\n  padding-right: 15px;\n}\n.UI.Input textarea {\n  min-height: 112px;\n}\n.UI.Input .control-label {\n  font-weight: 500;\n}\n.UI.Input .input-group-append .input-group-text {\n  border: none;\n  padding: 0 24px;\n  color: var(--border);\n  background-color: transparent;\n}\n.UI.Input.lg .input-group {\n  border-radius: calc(var(--border-radius) * 2);\n}\n.UI.Input.lg .input-group-prepend {\n  height: 82px;\n}\n.UI.Input.lg .input-group-prepend .input-group-text {\n  padding-left: 39px;\n  padding-right: 28px;\n}\n.UI.Input.lg .form-control,\n.UI.Input.lg select {\n  height: 82px;\n  font-size: 18px;\n  padding-left: 40px;\n  padding-right: 40px;\n}\n.UI.Input.inactive .input-group-prepend .input-group-text .addon {\n  background-color: var(--readonly);\n}", ""]);
 // Exports
 /* harmony default export */ const __WEBPACK_DEFAULT_EXPORT__ = (___CSS_LOADER_EXPORT___);
 

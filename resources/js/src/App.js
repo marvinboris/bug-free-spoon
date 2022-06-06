@@ -74,6 +74,11 @@ const asyncUserSubscribersAdd = asyncComponent(() => import('./containers/Backen
 const asyncUserSubscribersEdit = asyncComponent(() => import('./containers/Backend/User/Subscribers/Edit'));
 
 
+const asyncUserContributions = asyncComponent(() => import('./containers/Backend/User/Contributions'));
+const asyncUserContributionsAdd = asyncComponent(() => import('./containers/Backend/User/Contributions/Add'));
+const asyncUserContributionsEdit = asyncComponent(() => import('./containers/Backend/User/Contributions/Edit'));
+
+
 const asyncUserUsers = asyncComponent(() => import('./containers/Backend/User/Users'));
 const asyncUserUsersAdd = asyncComponent(() => import('./containers/Backend/User/Users/Add'));
 const asyncUserUsersEdit = asyncComponent(() => import('./containers/Backend/User/Users/Edit'));
@@ -140,6 +145,8 @@ const asyncPublicationsShow = asyncComponent(() => import('./containers/Frontend
 const asyncActivities = asyncComponent(() => import('./containers/Frontend/Activities'));
 const asyncActivitiesShow = asyncComponent(() => import('./containers/Frontend/Activities/Show'));
 
+const asyncEventsShow = asyncComponent(() => import('./containers/Frontend/Events/Show'));
+
 class App extends Component {
     componentDidMount() {
         const { onTryAuthSignup, onGetContent } = this.props;
@@ -155,6 +162,8 @@ class App extends Component {
         const frontendRoutes = <Route path="/">
             <FrontendLayout>
                 <Switch>
+                    <Route path="/events/:slug" component={asyncEventsShow} />
+
                     <Route path="/activities/:slug" component={asyncActivitiesShow} />
                     <Route path="/activities" component={asyncActivities} />
 
@@ -201,6 +210,10 @@ class App extends Component {
                     <Route path="/user">
                         <BackendUserLayout>
                             <Switch>
+                                <Route path="/user/contributions/:id/edit" component={asyncUserContributionsEdit} />
+                                <Route path="/user/contributions/add" component={asyncUserContributionsAdd} />
+                                <Route path="/user/contributions" component={asyncUserContributions} />
+                                
                                 <Route path="/user/subscribers/:id/edit" component={asyncUserSubscribersEdit} />
                                 <Route path="/user/subscribers/add" component={asyncUserSubscribersAdd} />
                                 <Route path="/user/subscribers" component={asyncUserSubscribers} />

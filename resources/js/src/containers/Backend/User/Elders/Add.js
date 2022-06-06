@@ -18,7 +18,9 @@ import { getElder, getEldersInfo, postElders, patchElders, resetElders } from '.
 const initialState = {
     title: {},
     name: '',
+    email: '',
     photo: null,
+    paid: '1',
 
     translate: '',
 
@@ -112,7 +114,7 @@ class Add extends Component {
             backend: { elders: { loading, error, message, elder } },
             auth: { data: { role: { features } } }
         } = this.props;
-        const { title: elder_title, name, photo, translate } = this.state;
+        const { title: elder_title, name, email, photo, paid, translate } = this.state;
         let content;
 
         const errors = <>
@@ -156,6 +158,12 @@ class Add extends Component {
                 <div className="col-lg-9">
                     <Row>
                         <FormInput className="col-md-6" type="text" name="name" placeholder={form.name} onChange={this.inputChangeHandler} icon="user" required value={name} />
+                        <FormInput className="col-md-6" type="email" name="email" placeholder={form.email} onChange={this.inputChangeHandler} icon="envelope" required value={email} />
+                        <FormInput className="col-md-6" type="select" name="paid" label={form.paid} onChange={this.inputChangeHandler} required value={paid}>
+                            <option>{form.select_status}</option>
+                            <option value={0}>{form.unpaid_status}</option>
+                            <option value={1}>{form.paid_status}</option>
+                        </FormInput>
                     </Row>
                 </div>
 

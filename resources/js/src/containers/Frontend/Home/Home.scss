@@ -118,6 +118,14 @@
             background-color: var(--blue-10);
         }
 
+        &.about .actions {
+
+            .donate,
+            .join {
+                margin-right: 15px;
+            }
+        }
+
         &.stats {
             color: var(--white);
             background-color: var(--blue);

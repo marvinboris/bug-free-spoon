@@ -16,8 +16,11 @@ class CreateEldersTable extends Migration
         Schema::create('elders', function (Blueprint $table) {
             $table->id();
             $table->string('name');
+            $table->string('email')->unique();
             $table->text('title');
             $table->text('photo');
+            $table->text('payment')->nullable();
+            $table->tinyInteger('paid')->default(0);
             $table->timestamps();
         });
     }

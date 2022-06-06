@@ -1,4 +1,4 @@
-import React, { Component, useState } from 'react';
+import React, { Component, Fragment, useState } from 'react';
 import { connect } from 'react-redux';
 import { Redirect, withRouter } from 'react-router-dom';
 import { Col, FormGroup, Label, Nav, NavItem, NavLink, Row, TabContent, TabPane } from 'reactstrap';
@@ -14,10 +14,11 @@ import CustomSpinner from '../../../../components/UI/CustomSpinner/CustomSpinner
 
 import { getCms, patchCms, resetCms } from '../../../../store/actions/backend/cms';
 import { updateObject } from '../../../../shared/utility';
+
 import FRONTEND from '../../../../components/Content/Frontend';
 
 const SubNavLinks = ({ frontend, language }) => {
-    const [activeTab, setActiveTab] = useState(`${language.abbr}-restaurants`);
+    const [activeTab, setActiveTab] = useState(`${language.abbr}-home`);
     const [value, setValue] = useState(frontend);
 
     const toggle = tab => {
@@ -65,14 +66,14 @@ const SubNavLinks = ({ frontend, language }) => {
         const findAppend = paramAppends.find(el => (new RegExp(el.regex.replace(/\[/g, '\\[').replace(/\]/g, '\\]'))).test(mainName));
         append = !findAppend ? null : findAppend.action(mainItem);
 
-        return typeof mainItem === 'string' ? <>
+        return typeof mainItem === 'string' ? <Fragment key={Math.random() + mainName}>
             {prepend}
             <FormGroup className="col-md-6 col-lg-4 align-self-end">
                 <Label className="text-small text-500">{mainItem}</Label>
                 <Input type="text" name={mainName} id={mainId} placeholder={mainItem} onChange={e => onChange(e, ...mainDeepness)} value={mainValue} />
             </FormGroup>
             {append}
-        </> : recursiveDeepness(mainItem, mainName, mainId, mainValue, mainDeepness, paramPrepends, paramAppends);
+        </Fragment> : recursiveDeepness(mainItem, mainName, mainId, mainValue, mainDeepness, paramPrepends, paramAppends);
     });
 
 
@@ -90,16 +91,32 @@ const SubNavLinks = ({ frontend, language }) => {
     const prefix = `${language.abbr}[frontend]`;
     const prefixId = `${language.abbr}-frontend`;
 
-    const keys = Object.keys(FRONTEND);
-    const resourceTabPanes = keys.map(item => {
-        const currentItem = FRONTEND[item];
-        const currentName = `${prefix}[${item}]`;
-        const currentId = `${prefixId}-${item}`;
-        const currentValue = value[item];
-        const currentDeepness = [item];
-        const current = recursiveDeepness(currentItem, currentName, currentId, currentValue, currentDeepness);
+    const resourceDeepness = (resource, paramPrepends = [], paramAppends = []) => {
+        const resourceItem = FRONTEND[resource];
+        const resourceName = `${prefix}[${resource}]`;
+        const resourceId = `${prefixId}-${resource}`;
+        const resourceValue = value[resource];
+        const resourceDeepness = [resource];
+        return recursiveDeepness(resourceItem, resourceName, resourceId, resourceValue, resourceDeepness, paramPrepends, paramAppends);
+    };
 
-        return <TabPane key={Math.random() + currentName} tabId={`${language.abbr}-${item}`} className="pt-4">
+    const header = resourceDeepness('header');
+    const footer = resourceDeepness('footer');
+
+    const pagesResourceDeepness = (resource, paramPrepends = [], paramAppends = []) => {
+        const resourceItem = FRONTEND.pages[resource];
+        const resourceName = `${prefix}[pages][${resource}]`;
+        const resourceId = `${prefixId}-pages-${resource}`;
+        const resourceValue = value[resource];
+        const resourceDeepness = [resource];
+        return recursiveDeepness(resourceItem, resourceName, resourceId, resourceValue, resourceDeepness, paramPrepends, paramAppends);
+    };
+
+    const keys = Object.keys(FRONTEND.pages);
+    const resourceTabPanes = keys.map(item => {
+        const current = pagesResourceDeepness(item);
+
+        return <TabPane key={Math.random() + `${prefix}[pages][${item}]`} tabId={`${language.abbr}-${item}`} className="pt-4">
             <Row>{current}</Row>
         </TabPane>;
     });
@@ -108,6 +125,14 @@ const SubNavLinks = ({ frontend, language }) => {
         <Nav tabs pills>{navItems}</Nav>
 
         <TabContent activeTab={activeTab}>
+            <TabPane tabId={`${language.abbr}-header`} className="pt-4">
+                <Row>{header}</Row>
+            </TabPane>
+
+            <TabPane tabId={`${language.abbr}-footer`} className="pt-4">
+                <Row>{footer}</Row>
+            </TabPane>
+
             {resourceTabPanes}
         </TabContent>
     </div>;
@@ -182,9 +207,18 @@ class Frontend extends Component {
                 </NavLink>
             </NavItem>);
 
-            const tabContent = languages.map(language => <TabPane key={Math.random()} tabId={language.abbr}>
-                <SubNavLinks frontend={cms.pages[language.abbr].frontend} language={language} />
-            </TabPane>);
+            const tabContent = languages.map(language => {
+                const data = cms.pages[language.abbr].frontend;
+                const frontend = {
+                    header: data.header,
+                    footer: data.footer,
+                    ...data.pages
+                };
+
+                return <TabPane key={Math.random()} tabId={language.abbr}>
+                    <SubNavLinks frontend={frontend} language={language} />
+                </TabPane>
+            });
 
             content = <Col lg={12}>
                 <Feedback message={message} />

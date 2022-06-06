@@ -4,7 +4,7 @@ import { updateObject } from '../../shared/utility';
 const initialState = {};
 
 const pages = [
-    'home', 'alumni_call', 'committee', 'opportunities', 'contact', 'publications', 'activities',
+    'home', 'alumni_call', 'committee', 'opportunities', 'contact', 'publications', 'activities', 'events',
 ];
 
 pages.forEach(page => {
@@ -55,6 +55,11 @@ export default (state = initialState, action) => {
         case actionTypes.ACTIVITIES_START: return start('activities', state);
         case actionTypes.ACTIVITIES_SUCCESS: return success('activities', state, action);
         case actionTypes.ACTIVITIES_FAIL: return fail('activities', state, action);
+
+        case actionTypes.EVENTS_RESET: return reset('events', state);
+        case actionTypes.EVENTS_START: return start('events', state);
+        case actionTypes.EVENTS_SUCCESS: return success('events', state, action);
+        case actionTypes.EVENTS_FAIL: return fail('events', state, action);
 
         default: return state;
     }

@@ -74,8 +74,10 @@ class Index extends Component {
         const content = <List array={data} loading={loading} data={JSON.stringify(elders)} get={this.props.get} total={total} bordered add={add} link="/user/elders/add" icon={icon} title={index} className="shadow-sm"
             fields={[
                 { name: form.name, key: 'name' },
+                { name: form.email, key: 'email' },
                 { name: form.title, key: 'title' },
                 { name: form.photo, key: 'photo' },
+                { name: form.paid, key: 'paid' },
                 { name: action, key: 'action', fixed: true }
             ]} />;
 

@@ -1111,8 +1111,8 @@ var Index = /*#__PURE__*/function (_Component) {
           name: form.name,
           key: 'name'
         }, {
-          name: form.prefix,
-          key: 'prefix'
+          name: form.email,
+          key: 'email'
         }, {
           name: form.created_at,
           key: 'created_at'

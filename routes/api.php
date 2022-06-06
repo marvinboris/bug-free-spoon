@@ -82,6 +82,11 @@ Route::namespace('User')->prefix('user')->name('user.')->group(function () {
                 Route::get('{subscriber}', 'SubscriberController@show')->name('show');
             });
 
+            Route::prefix('contributions')->name('contributions.')->group(function () {
+                Route::get('info', 'ContributionController@info')->name('info');
+                Route::get('{contribution}', 'ContributionController@show')->name('show');
+            });
+
 
 
             Route::apiResources([
@@ -94,6 +99,7 @@ Route::namespace('User')->prefix('user')->name('user.')->group(function () {
                 'elders' => 'ElderController',
                 'publications' => 'PublicationController',
                 'subscribers' => 'SubscriberController',
+                'contributions' => 'ContributionController',
             ]);
         });
     });
@@ -165,6 +171,10 @@ Route::prefix('content')->name('content.')->group(function () {
 });
 
 Route::name('frontend.')->group(function () {
+    Route::prefix('events')->name('events.')->group(function () {
+        Route::get('{event}', 'FrontendController@event')->name('show');
+    });
+
     Route::prefix('activities')->name('activities.')->group(function () {
         Route::get('{activity}', 'FrontendController@activity')->name('show');
         Route::get('', 'FrontendController@activities')->name('index');
@@ -183,6 +193,7 @@ Route::name('frontend.')->group(function () {
 
     Route::get('alumni-call', 'FrontendController@alumni_call')->name('alumni_call');
 
+    Route::post('join', 'FrontendController@join')->name('join');
     Route::post('subscribe', 'FrontendController@newsletter')->name('newsletter');
     Route::get('home', 'FrontendController@home')->name('home');
 });

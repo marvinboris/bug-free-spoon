@@ -1,7 +1,7 @@
 {
     "global": {
         "app_name": "Fiducac",
-        "company_name": "Fédération Internationale Des Diplômés De L'UCAC",
+        "company_name": "F\u00e9d\u00e9ration Internationale Des Dipl\u00f4m\u00e9s De L'UCAC",
         "company_logo": "\/images\/company-logo.png",
         "logo": {
             "big": "\/images\/logo.png",
@@ -17,7 +17,6 @@
                 "date": "Date",
                 "time": "Heure",
                 "home": "Accueil",
-                "loading": "Chargement en cours",
                 "days": [
                     "Dimanche",
                     "Lundi",
@@ -39,22 +38,22 @@
                     "Sep",
                     "Oct",
                     "Nov",
-                    "Déc"
+                    "D\u00e9c"
                 ]
             },
             "components": {
                 "form": {
                     "save": "Sauvegarder",
                     "save_add": "Sauvegarder & ajouter",
-                    "selected_file": "Fichier sélectionné",
+                    "selected_file": "Fichier s\u00e9lectionn\u00e9",
                     "active": "Actif",
                     "inactive": "Inactif"
                 },
                 "list": {
                     "action": "Action",
                     "all": "Tous",
-                    "first": "Première",
-                    "last": "Dernière",
+                    "first": "Premi\u00e8re",
+                    "last": "Derni\u00e8re",
                     "loading": "Chargement en cours",
                     "print": "Imprimer",
                     "pdf": "PDF",
@@ -67,8 +66,8 @@
                     "showing": "Affichant",
                     "from": "sur",
                     "entries": {
-                        "singular": "entrée",
-                        "plural": "entrées"
+                        "singular": "entr\u00e9e",
+                        "plural": "entr\u00e9es"
                     }
                 },
                 "activity_block": {
@@ -88,7 +87,7 @@
             "auth": {
                 "footer": {
                     "copyrights": "Copyrights",
-                    "all_rights": "Tous droits réservés par"
+                    "all_rights": "Tous droits r\u00e9serv\u00e9s par"
                 },
                 "user": {
                     "login": {
@@ -107,13 +106,13 @@
                         "password": "Mot de passe",
                         "sms": "SMS",
                         "email": "Adresse mail",
-                        "otp_method": "Méthode OTP"
+                        "otp_method": "M\u00e9thode OTP"
                     },
                     "verify": {
                         "enter": "Entrer",
-                        "verification_code": "Code de vérification",
+                        "verification_code": "Code de v\u00e9rification",
                         "continue": "Continuer",
-                        "didnt_receive_code": "Aucun code reçu",
+                        "didnt_receive_code": "Aucun code re\u00e7u",
                         "resend": "Renvoyer"
                     }
                 }
@@ -122,100 +121,107 @@
                 "auth": {
                     "admin": {
                         "not_found": "Informations incorrectes.",
-                        "invalid": "Code de vérification invalide.",
-                        "sent": "Code de vérification envoyé avec succès."
+                        "invalid": "Code de v\u00e9rification invalide.",
+                        "sent": "Code de v\u00e9rification envoy\u00e9 avec succ\u00e8s."
                     },
                     "user": {
                         "inactive": "Votre compte n'est pas actif. Veuillez appeler l'administrateur.",
-                        "unauthorized": "Non autorisé",
-                        "sent": "Lien de réinitialisation envoyé avec succès.",
-                        "reset": "Mot de passe réinitialisé avec succès.",
+                        "unauthorized": "Non autoris\u00e9",
+                        "sent": "Lien de r\u00e9initialisation envoy\u00e9 avec succ\u00e8s.",
+                        "reset": "Mot de passe r\u00e9initialis\u00e9 avec succ\u00e8s.",
                         "failure": "Echec."
                     }
                 },
                 "admins": {
                     "not_found": "Administrateur introuvable.",
-                    "created": "Administrateur créé avec succès.",
-                    "updated": "Administrateur modifié avec succès.",
-                    "deleted": "Administrateur supprimé avec succès."
+                    "created": "Administrateur cr\u00e9\u00e9 avec succ\u00e8s.",
+                    "updated": "Administrateur modifi\u00e9 avec succ\u00e8s.",
+                    "deleted": "Administrateur supprim\u00e9 avec succ\u00e8s."
                 },
                 "users": {
                     "not_found": "Utilisateur introuvable.",
-                    "created": "Utilisateur créé avec succès.",
-                    "updated": "Utilisateur modifié avec succès.",
-                    "deleted": "Utilisateur supprimé avec succès."
+                    "created": "Utilisateur cr\u00e9\u00e9 avec succ\u00e8s.",
+                    "updated": "Utilisateur modifi\u00e9 avec succ\u00e8s.",
+                    "deleted": "Utilisateur supprim\u00e9 avec succ\u00e8s."
                 },
                 "roles": {
-                    "not_found": "Rôle introuvable.",
-                    "created": "Rôle créé avec succès.",
-                    "updated": "Rôle modifié avec succès.",
-                    "deleted": "Rôle supprimé avec succès."
+                    "not_found": "R\u00f4le introuvable.",
+                    "created": "R\u00f4le cr\u00e9\u00e9 avec succ\u00e8s.",
+                    "updated": "R\u00f4le modifi\u00e9 avec succ\u00e8s.",
+                    "deleted": "R\u00f4le supprim\u00e9 avec succ\u00e8s."
                 },
                 "features": {
-                    "not_found": "Fonctionnalité introuvable.",
-                    "created": "Fonctionnalité créée avec succès.",
-                    "updated": "Fonctionnalité modifiée avec succès.",
-                    "deleted": "Fonctionnalité supprimée avec succès."
+                    "not_found": "Fonctionnalit\u00e9 introuvable.",
+                    "created": "Fonctionnalit\u00e9 cr\u00e9\u00e9e avec succ\u00e8s.",
+                    "updated": "Fonctionnalit\u00e9 modifi\u00e9e avec succ\u00e8s.",
+                    "deleted": "Fonctionnalit\u00e9 supprim\u00e9e avec succ\u00e8s."
                 },
                 "languages": {
                     "not_found": "Langue introuvable.",
-                    "created": "Langue créée avec succès.",
-                    "updated": "Langue modifiée avec succès.",
-                    "deleted": "Langue supprimée avec succès."
+                    "created": "Langue cr\u00e9\u00e9e avec succ\u00e8s.",
+                    "updated": "Langue modifi\u00e9e avec succ\u00e8s.",
+                    "deleted": "Langue supprim\u00e9e avec succ\u00e8s."
                 },
                 "notifications": {
                     "not_found": "Notification introuvable."
                 },
                 "cms": {
                     "not_found": "Contenu introuvable.",
-                    "updated": "Contenu modifié avec succès."
+                    "updated": "Contenu modifi\u00e9 avec succ\u00e8s."
                 },
                 "settings": {
-                    "not_found": "Paramètre introuvable.",
-                    "created": "Paramètre créé avec succès.",
-                    "updated": "Paramètre modifié avec succès.",
-                    "deleted": "Paramètre supprimé avec succès."
+                    "not_found": "Param\u00e8tre introuvable.",
+                    "created": "Param\u00e8tre cr\u00e9\u00e9 avec succ\u00e8s.",
+                    "updated": "Param\u00e8tre modifi\u00e9 avec succ\u00e8s.",
+                    "deleted": "Param\u00e8tre supprim\u00e9 avec succ\u00e8s."
                 },
                 "events": {
-                    "not_found": "Evènement introuvable.",
-                    "created": "Evènement créé avec succès.",
-                    "updated": "Evènement modifié avec succès.",
-                    "deleted": "Evènement supprimé avec succès."
+                    "not_found": "Ev\u00e8nement introuvable.",
+                    "created": "Ev\u00e8nement cr\u00e9\u00e9 avec succ\u00e8s.",
+                    "updated": "Ev\u00e8nement modifi\u00e9 avec succ\u00e8s.",
+                    "deleted": "Ev\u00e8nement supprim\u00e9 avec succ\u00e8s."
                 },
                 "activities": {
-                    "not_found": "Activité introuvable.",
-                    "created": "Activité créée avec succès.",
-                    "updated": "Activité modifiée avec succès.",
-                    "deleted": "Activité supprimée avec succès."
+                    "not_found": "Activit\u00e9 introuvable.",
+                    "created": "Activit\u00e9 cr\u00e9\u00e9e avec succ\u00e8s.",
+                    "updated": "Activit\u00e9 modifi\u00e9e avec succ\u00e8s.",
+                    "deleted": "Activit\u00e9 supprim\u00e9e avec succ\u00e8s."
                 },
                 "elders": {
                     "not_found": "Ancien introuvable.",
-                    "created": "Ancien créé avec succès.",
-                    "updated": "Ancien modifié avec succès.",
-                    "deleted": "Ancien supprimé avec succès."
+                    "created": "Ancien cr\u00e9\u00e9 avec succ\u00e8s.",
+                    "updated": "Ancien modifi\u00e9 avec succ\u00e8s.",
+                    "deleted": "Ancien supprim\u00e9 avec succ\u00e8s.",
+                    "application": "Candidature d'adhésion rejetée avec succès."
                 },
                 "publications": {
                     "not_found": "Publication introuvable.",
-                    "created": "Publication créée avec succès.",
-                    "updated": "Publication modifiée avec succès.",
-                    "deleted": "Publication supprimée avec succès."
+                    "created": "Publication cr\u00e9\u00e9e avec succ\u00e8s.",
+                    "updated": "Publication modifi\u00e9e avec succ\u00e8s.",
+                    "deleted": "Publication supprim\u00e9e avec succ\u00e8s."
                 },
                 "subscribers": {
                     "not_found": "Souscripteur introuvable.",
-                    "created": "Souscripteur créé avec succès.",
-                    "updated": "Souscripteur modifié avec succès.",
-                    "deleted": "Souscripteur supprimé avec succès."
+                    "created": "Souscripteur cr\u00e9\u00e9 avec succ\u00e8s.",
+                    "updated": "Souscripteur modifi\u00e9 avec succ\u00e8s.",
+                    "deleted": "Souscripteur supprim\u00e9 avec succ\u00e8s."
+                },
+                "contributions": {
+                    "not_found": "Cotisation introuvable.",
+                    "created": "Cotisation cr\u00e9\u00e9e avec succ\u00e8s.",
+                    "updated": "Cotisation modifi\u00e9e avec succ\u00e8s.",
+                    "deleted": "Cotisation supprim\u00e9e avec succ\u00e8s."
                 }
             },
             "backend": {
                 "header": {
                     "id": "ID",
-                    "sign_out": "Se déconnecter",
+                    "sign_out": "Se d\u00e9connecter",
                     "no_message": "Aucun message",
                     "no_notification": "Aucune notification",
-                    "logout": "Déconnexion",
+                    "logout": "D\u00e9connexion",
                     "close": "Fermer",
-                    "sure_logout": "Êtes-vous sûr de vouloir vous déconnecter",
+                    "sure_logout": "\u00cates-vous s\u00fbr de vouloir vous d\u00e9connecter",
                     "you_have": "Vous avez",
                     "messages": "messages",
                     "unread_message": "message non lu",
@@ -227,7 +233,7 @@
                 },
                 "footer": {
                     "copyright": "Copyright",
-                    "all_rights": "Tous droits réservés par"
+                    "all_rights": "Tous droits r\u00e9serv\u00e9s par"
                 },
                 "sidebar": {
                     "admin": "Administrateur",
@@ -251,15 +257,15 @@
                         },
                         "roles": {
                             "icon": "user-tag",
-                            "title": "Rôles",
-                            "add": "Ajouter un rôle",
-                            "index": "Liste des rôles"
+                            "title": "R\u00f4les",
+                            "add": "Ajouter un r\u00f4le",
+                            "index": "Liste des r\u00f4les"
                         },
                         "features": {
                             "icon": "tools",
-                            "title": "Fonctionnalités",
-                            "add": "Ajouter une fonctionnalité",
-                            "index": "Liste des fonctionnalités"
+                            "title": "Fonctionnalit\u00e9s",
+                            "add": "Ajouter une fonctionnalit\u00e9",
+                            "index": "Liste des fonctionnalit\u00e9s"
                         },
                         "languages": {
                             "icon": "language",
@@ -271,7 +277,7 @@
                             "icon": "wrench",
                             "title": "CMS",
                             "global": "Global",
-                            "general": "Général",
+                            "general": "G\u00e9n\u00e9ral",
                             "components": "Composants",
                             "auth": "Authentification",
                             "messages": "Messages",
@@ -284,21 +290,21 @@
                         },
                         "settings": {
                             "icon": "sliders-h",
-                            "title": "Paramètres",
+                            "title": "Param\u00e8tres",
                             "cms": "CMS",
-                            "language": "Paramètres de langue"
+                            "language": "Param\u00e8tres de langue"
                         },
                         "events": {
                             "icon": "calendar-alt",
-                            "title": "Evènements",
-                            "add": "Ajouter un évènement",
-                            "index": "Liste des évènements"
+                            "title": "Ev\u00e8nements",
+                            "add": "Ajouter un \u00e9v\u00e8nement",
+                            "index": "Liste des \u00e9v\u00e8nements"
                         },
                         "activities": {
                             "icon": "chart-line",
-                            "title": "Activités",
-                            "add": "Ajouter une activité",
-                            "index": "Liste des activités"
+                            "title": "Activit\u00e9s",
+                            "add": "Ajouter une activit\u00e9",
+                            "index": "Liste des activit\u00e9s"
                         },
                         "elders": {
                             "icon": "users",
@@ -317,6 +323,12 @@
                             "title": "Souscripteurs",
                             "add": "Ajouter un souscripteur",
                             "index": "Liste des souscripteurs"
+                        },
+                        "contributions": {
+                            "icon": "wallet",
+                            "title": "Cotisations",
+                            "add": "Ajouter une cotisation",
+                            "index": "Liste des cotisations"
                         }
                     }
                 },
@@ -327,8 +339,8 @@
                             "title": "Panneau de l'administrateur",
                             "subtitle": "Tableau de bord",
                             "blocks": {
-                                "events": "Evènements",
-                                "activities": "Activités",
+                                "events": "Ev\u00e8nements",
+                                "activities": "Activit\u00e9s",
                                 "elders": "Anciens",
                                 "publications": "Publications",
                                 "subscribers": "Souscripteurs"
@@ -339,15 +351,15 @@
                             "title": "Panneau de l'utilisateur",
                             "subtitle": "Tableau de bord",
                             "blocks": {
-                                "events": "Evènements",
-                                "activities": "Activités",
+                                "events": "Ev\u00e8nements",
+                                "activities": "Activit\u00e9s",
                                 "elders": "Anciens",
                                 "publications": "Publications",
                                 "subscribers": "Souscripteurs"
                             },
                             "general_report": {
-                                "title": "Rapport général",
-                                "subtitle": "Rapport général",
+                                "title": "Rapport g\u00e9n\u00e9ral",
+                                "subtitle": "Rapport g\u00e9n\u00e9ral",
                                 "elders": "Anciens",
                                 "publications": "Publications",
                                 "total_elders": "Total des anciens",
@@ -380,7 +392,7 @@
                         "form": {
                             "name": "Nom de l'administrateur",
                             "full_name": "Nom complet",
-                            "phone": "Numéro de téléphone",
+                            "phone": "Num\u00e9ro de t\u00e9l\u00e9phone",
                             "password": "Mot de passe",
                             "password_confirmation": "Confirmation de mot de passe",
                             "email": "Adresse mail",
@@ -397,42 +409,42 @@
                         "form": {
                             "name": "Nom de l'utilisateur",
                             "full_name": "Nom complet",
-                            "phone": "Numéro de téléphone",
+                            "phone": "Num\u00e9ro de t\u00e9l\u00e9phone",
                             "password": "Mot de passe",
                             "password_confirmation": "Confirmation de mot de passe",
                             "email": "Adresse mail",
-                            "role": "Rôle",
-                            "select_role": "Sélectionner un rôle",
+                            "role": "R\u00f4le",
+                            "select_role": "S\u00e9lectionner un r\u00f4le",
                             "user_photo": "Photo de l'utilisateur",
                             "photo": "Photo"
                         }
                     },
                     "roles": {
                         "icon": "user-tag",
-                        "title": "Rôles",
-                        "add": "Ajouter un rôle",
-                        "edit": "Modifier un rôle",
-                        "index": "Liste des rôles",
+                        "title": "R\u00f4les",
+                        "add": "Ajouter un r\u00f4le",
+                        "edit": "Modifier un r\u00f4le",
+                        "index": "Liste des r\u00f4les",
                         "form": {
                             "name": "Nom",
                             "description": "Description",
-                            "features": "Fonctionnalités",
-                            "created_at": "Créé le",
-                            "create": "Créer",
+                            "features": "Fonctionnalit\u00e9s",
+                            "created_at": "Cr\u00e9\u00e9 le",
+                            "create": "Cr\u00e9er",
                             "update": "Modifier",
                             "delete": "Supprimer"
                         }
                     },
                     "features": {
                         "icon": "tools",
-                        "title": "Fonctionnalités",
-                        "add": "Ajouter une fonctionnalité",
-                        "edit": "Modifier une fonctionnalité",
-                        "index": "Liste des fonctionnalités",
+                        "title": "Fonctionnalit\u00e9s",
+                        "add": "Ajouter une fonctionnalit\u00e9",
+                        "edit": "Modifier une fonctionnalit\u00e9",
+                        "index": "Liste des fonctionnalit\u00e9s",
                         "form": {
                             "name": "Nom",
-                            "prefix": "Préfixe",
-                            "created_at": "Créée le"
+                            "prefix": "Pr\u00e9fixe",
+                            "created_at": "Cr\u00e9\u00e9e le"
                         }
                     },
                     "languages": {
@@ -443,16 +455,16 @@
                         "index": "Liste des langues",
                         "form": {
                             "name": "Nom",
-                            "abbr": "Abréviation",
+                            "abbr": "Abr\u00e9viation",
                             "flag": "Drapeau",
-                            "select_flag": "Sélectionner un drapeau",
-                            "created_at": "Créée le"
+                            "select_flag": "S\u00e9lectionner un drapeau",
+                            "created_at": "Cr\u00e9\u00e9e le"
                         }
                     },
                     "notifications": {
                         "icon": "bell",
                         "title": "Notifications",
-                        "show": "Détails des notifications",
+                        "show": "D\u00e9tails des notifications",
                         "index": "Liste des notifications",
                         "form": {
                             "you_have_no_notification": "Vous n'avez pas de notification."
@@ -460,8 +472,8 @@
                     },
                     "settings": {
                         "icon": "sliders-h",
-                        "title": "Paramètres",
-                        "subtitle": "Paramètres du compte",
+                        "title": "Param\u00e8tres",
+                        "subtitle": "Param\u00e8tres du compte",
                         "form": {
                             "user_account": {
                                 "title": "User Account Settings",
@@ -478,7 +490,7 @@
                                 "title": "Payment Method Settings",
                                 "subtitle": "Setup your payout chanel",
                                 "mobile_money": {
-                                    "title": "Orange Money / MTN Momo",
+                                    "title": "Orange Money \/ MTN Momo",
                                     "subtitle": "Only for Cameroon for now.",
                                     "mobile_money_name": "Full Nom",
                                     "select_operator": "Select Operator",
@@ -515,33 +527,33 @@
                     },
                     "events": {
                         "icon": "calendar-alt",
-                        "title": "Evènements",
-                        "add": "Ajouter un évènement",
-                        "edit": "Modifier un évènement",
-                        "index": "Liste des évènements",
+                        "title": "Ev\u00e8nements",
+                        "add": "Ajouter un \u00e9v\u00e8nement",
+                        "edit": "Modifier un \u00e9v\u00e8nement",
+                        "index": "Liste des \u00e9v\u00e8nements",
                         "form": {
                             "title": "Titre",
                             "description": "Description",
                             "body": "Contenu",
                             "date": "Date",
                             "photo": "Photo",
-                            "event_photo": "Photo de l'évènement",
-                            "created_at": "Créé le"
+                            "event_photo": "Photo de l'\u00e9v\u00e8nement",
+                            "created_at": "Cr\u00e9\u00e9 le"
                         }
                     },
                     "activities": {
                         "icon": "chart-line",
-                        "title": "Activités",
-                        "add": "Ajouter une activité",
-                        "edit": "Modifier une activité",
-                        "index": "Liste des activités",
+                        "title": "Activit\u00e9s",
+                        "add": "Ajouter une activit\u00e9",
+                        "edit": "Modifier une activit\u00e9",
+                        "index": "Liste des activit\u00e9s",
                         "form": {
                             "title": "Titre",
                             "body": "Contenu",
                             "slug": "Slug",
                             "photo": "Photo",
-                            "activity_photo": "Photo de l'activité",
-                            "created_at": "Créée le"
+                            "activity_photo": "Photo de l'activit\u00e9",
+                            "created_at": "Cr\u00e9\u00e9e le"
                         }
                     },
                     "elders": {
@@ -555,7 +567,10 @@
                             "title": "Titre du poste",
                             "photo": "Photo",
                             "elder_photo": "Photo de l'ancien",
-                            "created_at": "Créée le"
+                            "select_status": "Sélectionner le statut",
+                            "paid_status": "Payée",
+                            "unpaid_status": "Impayée",
+                            "created_at": "Cr\u00e9\u00e9e le"
                         }
                     },
                     "publications": {
@@ -571,8 +586,8 @@
                             "photo": "Photo",
                             "publication_photo": "Photo de la publication",
                             "is_active": "Status",
-                            "select_status": "Sélectionner le statut",
-                            "created_at": "Créée le"
+                            "select_status": "S\u00e9lectionner le statut",
+                            "created_at": "Cr\u00e9\u00e9e le"
                         }
                     },
                     "subscribers": {
@@ -582,9 +597,26 @@
                         "edit": "Modifier un souscripteur",
                         "index": "Liste des souscripteurs",
                         "form": {
-                            "name": "Nom",
+                            "name": "Prénom",
                             "email": "Adresse mail",
-                            "created_at": "Créée le"
+                            "created_at": "Cr\u00e9\u00e9e le"
+                        }
+                    },
+                    "contributions": {
+                        "icon": "wallet",
+                        "title": "Cotisations",
+                        "add": "Ajouter une cotisation",
+                        "edit": "Modifier une cotisation",
+                        "index": "Liste des cotisations",
+                        "form": {
+                            "elder": "Ancien",
+                            "year": "Année cotisée",
+                            "payment": "Preuve de paiement",
+                            "paid": "Statut de paiement",
+                            "select_status": "Sélectionner le statut",
+                            "paid_status": "Payée",
+                            "unpaid_status": "Impayée",
+                            "created_at": "Cr\u00e9\u00e9e le"
                         }
                     }
                 }
@@ -594,53 +626,79 @@
                     "menu": {
                         "home": "La FIDUCAC",
                         "alumni_call": "Alumni Call",
-                        "committee": "Le comité",
-                        "opportunities": "Opportunités",
+                        "committee": "Le comit\u00e9",
+                        "opportunities": "Opportunit\u00e9s",
                         "contact": "Contact"
                     }
                 },
                 "footer": {
-                    "fiducac": "Fédération Internationale Des Diplômés De L'UCAC"
+                    "fiducac": "F\u00e9d\u00e9ration Internationale Des Dipl\u00f4m\u00e9s De L'UCAC"
                 },
                 "pages": {
                     "home": {
                         "banner": {
-                            "title": "Fédération Internationale Des Diplômés De L'UCAC",
+                            "title": "F\u00e9d\u00e9ration Internationale Des Dipl\u00f4m\u00e9s De L'UCAC",
                             "alumni_call": "Alumni Call",
-                            "opportunities": "Opportunités",
+                            "opportunities": "Opportunit\u00e9s",
                             "carousel": [
                                 {
-                                    "src": "/images/Photo-Amphi-1-1.jpg",
-                                    "altText": "Nos diplômés après un forum sur les changements macro-économiques et leurs impacts sur l’employabilité"
+                                    "src": "\/images\/Photo-Amphi-1-1.jpg",
+                                    "altText": "Nos dipl\u00f4m\u00e9s apr\u00e8s un forum sur les changements macro-\u00e9conomiques et leurs impacts sur l\u2019employabilit\u00e9"
                                 },
                                 {
-                                    "src": "/images/Devanture-Institut-UCAC-ICAM-1.jpg",
-                                    "altText": "Visite du comité de direction de la FIDUCAC à l’UCAC-ICAM pour multiples projets"
+                                    "src": "\/images\/Devanture-Institut-UCAC-ICAM-1.jpg",
+                                    "altText": "Visite du comit\u00e9 de direction de la FIDUCAC \u00e0 l\u2019UCAC-ICAM pour multiples projets"
                                 },
                                 {
-                                    "src": "/images/Defile-Catho-en-marche-1.jpg",
+                                    "src": "\/images\/Defile-Catho-en-marche-1.jpg",
                                     "altText": "Lancement officiel de la FIDUCAC en 2009"
                                 }
                             ]
                         },
                         "events": {
-                            "title": "Evènement à venir",
+                            "title": "Ev\u00e8nement \u00e0 venir",
                             "join": "Rejoindre"
                         },
                         "about": {
                             "title": "La Fiducac",
                             "subtitle": "Qui sommes-nous ?",
-                            "photo": "/images/Equipe-2.jpg",
-                            "description": "A la Fiducac, nous définissons notre avenir tout en embrassant une tradition en devenir depuis plus de 35 ans. Notre mission estudiantine façonne notre vision. Mais nos anciens et amis — notre communauté unique en son genre — font de cette vision une réalité. Ils assurent la réussite des jeunes poulains. Ils aident à forger un nouveau chapitre audacieux dans l’histoire extraordinaire de l’UCAC. Ensemble, nous garderons la FIDUCAC prospère et préparerons une nouvelle génération pour montrer la voie.",
+                            "photo": "\/images\/Equipe-2.jpg",
+                            "description": "A la Fiducac, nous d\u00e9finissons notre avenir tout en embrassant une tradition en devenir depuis plus de 35 ans. Notre mission estudiantine fa\u00e7onne notre vision. Mais nos anciens et amis \u2014 notre communaut\u00e9 unique en son genre \u2014 font de cette vision une r\u00e9alit\u00e9. Ils assurent la r\u00e9ussite des jeunes poulains. Ils aident \u00e0 forger un nouveau chapitre audacieux dans l\u2019histoire extraordinaire de l\u2019UCAC. Ensemble, nous garderons la FIDUCAC prosp\u00e8re et pr\u00e9parerons une nouvelle g\u00e9n\u00e9ration pour montrer la voie.",
                             "donate": "Faire un don",
-                            "icon": "info-circle"
+                            "icon": "info-circle",
+                            "join": {
+                                "title": "Adhérer",
+                                "subtitle": "Rejoindre la Fiducac",
+                                "form": {
+                                    "title": "Lieu de service et poste occupé",
+                                    "name": "Votre nom",
+                                    "email": "Votre adresse mail",
+                                    "photo": "Votre photo",
+                                    "upload": "Envoyer",
+                                    "payment": "Preuve de paiement",
+                                    "submit": "Soumettre",
+                                    "all_languages": "Assurez-vous de renseigner les informations dans toutes les langues avant de soumettre le formulaire.",
+                                    "payment_details": "Afin de confirmer votre adhésion à la Fiducac, veuillez effectuer un paiement et en envoyer la preuve en image (une capture d'écran du message de transfert ou de dépôt, par exemple)."
+                                }
+                            },
+                            "pay": {
+                                "title": "Cotisation annuelle",
+                                "subtitle": "Régler sa cotisation annuelle",
+                                "form": {
+                                    "email": "Votre adresse mail",
+                                    "year": "Année cotisée",
+                                    "payment": "Preuve de paiement",
+                                    "submit": "Soumettre",
+                                    "payment_details":"Afin de confirmer votre adhésion à la Fiducac, veuillez effectuer un paiement et en envoyer la preuve en image (une capture d'écran du message de transfert ou de dépôt, par exemple)."
+                                }
+                            }
                         },
                         "activities": {
-                            "title": "Nos activités",
-                            "subtitle": "Les activités de la Fiducac",
-                            "description": "Les desseins de la Fiducac sont semblables à ceux de bien des alumnis. Nous souhaitons créer une communauté qui puisse être utile à chacun d'entre nous.",
+                            "title": "Nos activit\u00e9s",
+                            "subtitle": "Les activit\u00e9s de la Fiducac",
+                            "description": "Les desseins de la Fiducac sont semblables \u00e0 ceux de bien des alumnis. Nous souhaitons cr\u00e9er une communaut\u00e9 qui puisse \u00eatre utile \u00e0 chacun d'entre nous.",
                             "icon": "chart-line",
-                            "view_all": "Voir toutes les activités"
+                            "view_all": "Voir toutes les activit\u00e9s"
                         },
                         "stats": {
                             "members": {
@@ -653,58 +711,58 @@
                             },
                             "events": {
                                 "icon": "calendar-alt",
-                                "text": "Evènements"
+                                "text": "Ev\u00e8nements"
                             },
                             "awards": {
                                 "icon": "award",
-                                "text": "Récompenses"
+                                "text": "R\u00e9compenses"
                             }
                         },
                         "elders": {
                             "title": "Nos anciens",
-                            "subtitle": "Nos anciens partagent avec nous leur expérience",
+                            "subtitle": "Nos anciens partagent avec nous leur exp\u00e9rience",
                             "icon": "users",
                             "view_all": "Voir tous les anciens"
                         },
                         "publications": {
-                            "title": "Nos publications récentes",
-                            "subtitle": "Retrouvez les publications récentes de la Fiducac",
+                            "title": "Nos publications r\u00e9centes",
+                            "subtitle": "Retrouvez les publications r\u00e9centes de la Fiducac",
                             "icon": "newspaper",
                             "view_all": "Voir toutes les publications"
                         },
                         "newsletter": {
-                            "title": "Restez connecté",
-                            "subtitle": "Tenez-vous informé en vous inscrivant à notre newsletter",
-                            "description": "En souscrivant, vous acceptez de partager votre adresse e-mail avec la Fiducac afin de recevoir des messages de nouvelles récentes de l'UCAC, des mises à jour et d’autres e-mails jugés importants. Vous pouvez vous désabonner à tout moment à l’aide du lien correspondant disponible dans ces e-mails.",
+                            "title": "Restez connect\u00e9",
+                            "subtitle": "Tenez-vous inform\u00e9 en vous inscrivant \u00e0 notre newsletter",
+                            "description": "En souscrivant, vous acceptez de partager votre adresse e-mail avec la Fiducac afin de recevoir des messages de nouvelles r\u00e9centes de l'UCAC, des mises \u00e0 jour et d\u2019autres e-mails jug\u00e9s importants. Vous pouvez vous d\u00e9sabonner \u00e0 tout moment \u00e0 l\u2019aide du lien correspondant disponible dans ces e-mails.",
                             "email": "Adresse mail",
-                            "name": "Nom",
+                            "name": "Prénom",
                             "submit": "Soumettre"
                         },
-                        "contact": {}
+                        "contact": []
                     },
                     "alumni_call": {
                         "title": "Alumni Call",
-                        "subtitle": "Nos anciens nous partagent leur expérience",
+                        "subtitle": "Nos anciens nous partagent leur exp\u00e9rience",
                         "elders": {
                             "title": "Nos anciens",
-                            "subtitle": "Nos anciens partagent avec nous leur expérience",
+                            "subtitle": "Nos anciens partagent avec nous leur exp\u00e9rience",
                             "icon": "users"
                         }
                     },
                     "committee": {
-                        "title": "Le comité",
-                        "subtitle": "Le comité dirigeant de la Fiducac"
+                        "title": "Le comit\u00e9",
+                        "subtitle": "Le comit\u00e9 dirigeant de la Fiducac"
                     },
                     "opportunities": {
-                        "title": "Opportunités",
-                        "subtitle": "Les opportunités à saisir pour tout un chacun"
+                        "title": "Opportunit\u00e9s",
+                        "subtitle": "Les opportunit\u00e9s \u00e0 saisir pour tout un chacun"
                     },
                     "contact": {
                         "title": "Contact",
                         "subtitle": "Contactez-nous",
                         "contact": {
                             "title": "Contactez-nous",
-                            "subtitle": "Remplissez ce formulaire pour toute information supplémentaire",
+                            "subtitle": "Remplissez ce formulaire pour toute information suppl\u00e9mentaire",
                             "name": "Nom",
                             "email": "Adresse mail",
                             "message": "Message",
@@ -723,13 +781,23 @@
                         }
                     },
                     "activities": {
-                        "title": "Activités",
-                        "subtitle": "Nos activités",
+                        "title": "Activit\u00e9s",
+                        "subtitle": "Nos activit\u00e9s",
                         "loading": "Chargement en cours...",
                         "activities": {
-                            "title": "Nos activités",
-                            "subtitle": "Retrouvez les activités de la Fiducac",
+                            "title": "Nos activit\u00e9s",
+                            "subtitle": "Retrouvez les activit\u00e9s de la Fiducac",
                             "icon": "chart-line"
+                        }
+                    },
+                    "events": {
+                        "title": "Evènements",
+                        "subtitle": "Nos évènements",
+                        "loading": "Chargement en cours...",
+                        "activities": {
+                            "title": "Nos évènements",
+                            "subtitle": "Retrouvez les évènements de la Fiducac",
+                            "icon": "calendar-alt"
                         }
                     }
                 }

@@ -5,14 +5,19 @@ namespace App\Http\Controllers\User;
 use App\Http\Controllers\Controller;
 use App\Http\Controllers\UtilController;
 use App\Models\Elder;
+use App\Notifications\ApplicationRejected;
 use Illuminate\Http\Request;
 
 class ElderController extends Controller
 {
     private $rules = [
         'name' => 'required|string',
+        'email' => 'required|email',
         'title' => 'array|required',
-        'photo' => 'nullable|image',
+        'photo' => 'required|image',
+        'payment' => 'nullable|image',
+        'paid' => 'required|integer',
+        'errors' => 'nullable|string',
     ];
 
 
@@ -104,11 +109,16 @@ class ElderController extends Controller
 
         $request->validate($this->rules);
 
-        $input = $request->except(['photo', 'title']);
+        $input = $request->except(['photo', 'payment', 'title']);
 
         if ($file = $request->file('photo')) {
             $fileName = UtilController::resize($file, 'elders');
             $input['photo'] = htmlspecialchars($fileName);
+        }
+
+        if ($file = $request->file('payment')) {
+            $fileName = UtilController::resize($file, 'elders');
+            $input['payment'] = htmlspecialchars($fileName);
         }
 
         Elder::create($input + [
@@ -133,7 +143,7 @@ class ElderController extends Controller
         $rules = $this->rules;
         $request->validate($rules);
 
-        $input = $request->except(['photo', 'title']);
+        $input = $request->except(['photo', 'payment', 'title', 'errors']);
 
         if ($file = $request->file('photo')) {
             if ($elder->photo && is_file(public_path($elder->photo))) unlink(public_path($elder->photo));
@@ -141,14 +151,40 @@ class ElderController extends Controller
             $input['photo'] = htmlspecialchars($fileName);
         }
 
-        $elder->update($input + [
-            'title' => json_encode($request->title),
-        ]);
+        if ($file = $request->file('payment')) {
+            if ($elder->payment && is_file(public_path($elder->payment))) unlink(public_path($elder->payment));
+            $fileName = UtilController::resize($file, 'elders');
+            $input['payment'] = htmlspecialchars($fileName);
+        }
 
-        return response()->json([
-            'message' => UtilController::message($cms['pages'][$user->language->abbr]['messages']['elders']['updated'], 'success'),
-            'elder' => $elder,
-        ]);
+        if ($request->paid == 0) {
+            $input['errors'] = $request->errors;
+            $elder->notify(new ApplicationRejected($request->errors));
+
+            if ($elder->photo && is_file(public_path($elder->photo))) unlink(public_path($elder->photo));
+            if ($elder->payment && is_file(public_path($elder->payment))) unlink(public_path($elder->payment));
+            $elder->delete();
+
+            $data = $this->data();
+
+            $elders = $data['elders'];
+            $total = $data['total'];
+
+            return response()->json([
+                'message' => UtilController::message($cms['pages'][$user->language->abbr]['messages']['elders']['application'], 'success'),
+                'elders' => $elders,
+                'total' => $total,
+            ]);
+        } else {
+            $elder->update($input + [
+                'title' => json_encode($request->title),
+            ]);
+
+            return response()->json([
+                'message' => UtilController::message($cms['pages'][$user->language->abbr]['messages']['elders']['updated'], 'success'),
+                'elder' => $elder,
+            ]);
+        }
     }
 
     public function destroy($id)
@@ -162,6 +198,7 @@ class ElderController extends Controller
         ]);
 
         if ($elder->photo && is_file(public_path($elder->photo))) unlink(public_path($elder->photo));
+        if ($elder->payment && is_file(public_path($elder->payment))) unlink(public_path($elder->payment));
         $elder->delete();
 
         $data = $this->data();

@@ -27,6 +27,12 @@ class Layout extends Component {
                     <div className='left'>
                         © {(new Date()).getFullYear()} <Link to='/'>{footer.fiducac}</Link>
                     </div>
+
+                    <div className='right'>
+                        <a href='' target='_blank' className='fab fa-facebook-square' />
+                        <a href='' target='_blank' className='fab fa-linkedin' />
+                        <a href='' target='_blank' className='fab fa-twitter-square' />
+                    </div>
                 </div>
             </footer>
         </div>;

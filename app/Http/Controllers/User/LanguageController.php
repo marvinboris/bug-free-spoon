@@ -93,7 +93,7 @@ class LanguageController extends Controller
 
         $input = $request->all();
 
-        $cms['pages'][$request->abbr] = $cms['pages']['en'];
+        $cms['pages'][$request->abbr] = $cms['pages'][env('MIX_DEFAULT_LANG', 'fr')];
 
         $contentText = json_encode($cms);
         file_put_contents(base_path('cms.json'), $contentText);
@@ -137,6 +137,11 @@ class LanguageController extends Controller
         if (!$language) return response()->json([
             'message' => UtilController::message($cms['pages'][$user->language->abbr]['messages']['languages']['not_found'], 'danger'),
         ]);
+        
+        unset($cms['pages'][$language->abbr]);
+
+        $contentText = json_encode($cms);
+        file_put_contents(base_path('cms.json'), $contentText);
 
         $language->delete();
 

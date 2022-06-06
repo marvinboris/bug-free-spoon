@@ -10,8 +10,10 @@
         flex-direction: column;
 
         .block {
+            width: 45px;
+            padding: 8px 0;
             margin-top: 5px;
-            padding: 8px 12px;
+            text-align: center;
             border-radius: 10px;
             border: 1px solid var(--white);
         }

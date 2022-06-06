@@ -1200,11 +1200,17 @@ var Index = /*#__PURE__*/function (_Component) {
           name: form.name,
           key: 'name'
         }, {
+          name: form.email,
+          key: 'email'
+        }, {
           name: form.title,
           key: 'title'
         }, {
           name: form.photo,
           key: 'photo'
+        }, {
+          name: form.paid,
+          key: 'paid'
         }, {
           name: action,
           key: 'action',

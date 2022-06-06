@@ -56,6 +56,10 @@ class FeatureSeeder extends Seeder
                 'name' => "Subscribers",
                 'prefix' => 'subscribers',
             ],
+            [
+                'name' => "Contributions",
+                'prefix' => 'contributions',
+            ],
         ];
 
         foreach ($features as $feature) {

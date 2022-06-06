@@ -1108,7 +1108,7 @@ var SubNavLinks = function SubNavLinks(_ref2) {
         return new RegExp(el.regex.replace(/\[/g, '\\[').replace(/\]/g, '\\]')).test(mainName);
       });
       append = !findAppend ? null : findAppend.action(mainItem);
-      return typeof mainItem === 'string' ? /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_12__.jsxs)(react_jsx_runtime__WEBPACK_IMPORTED_MODULE_12__.Fragment, {
+      return typeof mainItem === 'string' ? /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_12__.jsxs)(react__WEBPACK_IMPORTED_MODULE_0__.Fragment, {
         children: [prepend, /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_12__.jsxs)(reactstrap__WEBPACK_IMPORTED_MODULE_14__["default"], {
           className: "col-md-6 col-lg-4 align-self-end",
           children: [/*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_12__.jsx)(reactstrap__WEBPACK_IMPORTED_MODULE_15__["default"], {
@@ -1125,7 +1125,7 @@ var SubNavLinks = function SubNavLinks(_ref2) {
             value: mainValue
           })]
         }), append]
-      }) : recursiveDeepness(mainItem, mainName, mainId, mainValue, mainDeepness, paramPrepends, paramAppends);
+      }, Math.random() + mainName) : recursiveDeepness(mainItem, mainName, mainId, mainValue, mainDeepness, paramPrepends, paramAppends);
     });
   };
 
@@ -1146,35 +1146,32 @@ var SubNavLinks = function SubNavLinks(_ref2) {
   });
   var prefix = "".concat(language.abbr, "[backend]");
   var prefixId = "".concat(language.abbr, "-backend");
-  var headerItem = _components_Content_Backend__WEBPACK_IMPORTED_MODULE_11__["default"].header;
-  var headerName = "".concat(prefix, "[header]");
-  var headerId = "".concat(prefixId, "-header");
-  var headerValue = value['header'];
-  var headerDeepness = ['header'];
-  var header = recursiveDeepness(headerItem, headerName, headerId, headerValue, headerDeepness, [], [{
-    regex: "".concat(headerName, "[no_notification]"),
+
+  var resourceDeepness = function resourceDeepness(resource) {
+    var paramPrepends = arguments.length > 1 && arguments[1] !== undefined ? arguments[1] : [];
+    var paramAppends = arguments.length > 2 && arguments[2] !== undefined ? arguments[2] : [];
+    var resourceItem = _components_Content_Backend__WEBPACK_IMPORTED_MODULE_11__["default"][resource];
+    var resourceName = "".concat(prefix, "[").concat(resource, "]");
+    var resourceId = "".concat(prefixId, "-").concat(resource);
+    var resourceValue = value[resource];
+    var resourceDeepness = [resource];
+    return recursiveDeepness(resourceItem, resourceName, resourceId, resourceValue, resourceDeepness, paramPrepends, paramAppends);
+  };
+
+  var header = resourceDeepness('header', [], [{
+    regex: "".concat(prefix, "[header][no_notification]"),
     action: function action() {
       return /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_12__.jsx)(Separator, {});
     }
   }, {
-    regex: "".concat(headerName, "[sure_logout]"),
+    regex: "".concat(prefix, "[header][sure_logout]"),
     action: function action() {
       return /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_12__.jsx)(Separator, {});
     }
   }]);
-  var footerItem = _components_Content_Backend__WEBPACK_IMPORTED_MODULE_11__["default"].footer;
-  var footerName = "".concat(prefix, "[footer]");
-  var footerId = "".concat(prefixId, "-footer");
-  var footerValue = value['footer'];
-  var footerDeepness = ['footer'];
-  var footer = recursiveDeepness(footerItem, footerName, footerId, footerValue, footerDeepness);
-  var sidebarItem = _components_Content_Backend__WEBPACK_IMPORTED_MODULE_11__["default"].sidebar;
-  var sidebarName = "".concat(prefix, "[sidebar]");
-  var sidebarId = "".concat(prefixId, "-sidebar");
-  var sidebarValue = value['sidebar'];
-  var sidebarDeepness = ['sidebar'];
-  var sidebar = recursiveDeepness(sidebarItem, sidebarName, sidebarId, sidebarValue, sidebarDeepness, [{
-    regex: "".concat(sidebarName, "[admin]"),
+  var footer = resourceDeepness('footer');
+  var sidebar = resourceDeepness('sidebar', [{
+    regex: "".concat(prefix, "[sidebar][admin]"),
     action: function action() {
       return /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_12__.jsx)(reactstrap__WEBPACK_IMPORTED_MODULE_13__["default"], {
         xs: 12,
@@ -1184,7 +1181,7 @@ var SubNavLinks = function SubNavLinks(_ref2) {
       });
     }
   }, {
-    regex: "".concat(sidebarName, "[menu][dashboard]"),
+    regex: "".concat(prefix, "[sidebar][menu][dashboard]"),
     action: function action() {
       return /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_12__.jsx)(reactstrap__WEBPACK_IMPORTED_MODULE_13__["default"], {
         xs: 12,
@@ -1194,7 +1191,7 @@ var SubNavLinks = function SubNavLinks(_ref2) {
       });
     }
   }, {
-    regex: "".concat(sidebarName, "[menu][.+][title]"),
+    regex: "".concat(prefix, "[sidebar][menu][.+][title]"),
     action: function action(item) {
       return /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_12__.jsx)(reactstrap__WEBPACK_IMPORTED_MODULE_13__["default"], {
         xs: 12,
@@ -1204,18 +1201,25 @@ var SubNavLinks = function SubNavLinks(_ref2) {
       });
     }
   }], [{
-    regex: "".concat(sidebarName, "[user]"),
+    regex: "".concat(prefix, "[sidebar][user]"),
     action: function action() {
       return /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_12__.jsx)(Separator, {});
     }
   }]);
-  var dashboardItem = _components_Content_Backend__WEBPACK_IMPORTED_MODULE_11__["default"].pages.dashboard;
-  var dashboardName = "".concat(prefix, "[pages][dashboard]");
-  var dashboardId = "".concat(prefixId, "-pages-dashboard");
-  var dashboardValue = value['dashboard'];
-  var dashboardDeepness = ['dashboard'];
-  var dashboard = recursiveDeepness(dashboardItem, dashboardName, dashboardId, dashboardValue, dashboardDeepness, [{
-    regex: "".concat(dashboardName, "[admin][title]"),
+
+  var pagesResourceDeepness = function pagesResourceDeepness(resource) {
+    var paramPrepends = arguments.length > 1 && arguments[1] !== undefined ? arguments[1] : [];
+    var paramAppends = arguments.length > 2 && arguments[2] !== undefined ? arguments[2] : [];
+    var resourceItem = _components_Content_Backend__WEBPACK_IMPORTED_MODULE_11__["default"].pages[resource];
+    var resourceName = "".concat(prefix, "[pages][").concat(resource, "]");
+    var resourceId = "".concat(prefixId, "-pages-").concat(resource);
+    var resourceValue = value[resource];
+    var resourceDeepness = [resource];
+    return recursiveDeepness(resourceItem, resourceName, resourceId, resourceValue, resourceDeepness, paramPrepends, paramAppends);
+  };
+
+  var dashboard = pagesResourceDeepness('dashboard', [{
+    regex: "".concat(prefix, "[pages][dashboard][admin][title]"),
     action: function action() {
       return /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_12__.jsx)(reactstrap__WEBPACK_IMPORTED_MODULE_13__["default"], {
         xs: 12,
@@ -1225,7 +1229,7 @@ var SubNavLinks = function SubNavLinks(_ref2) {
       });
     }
   }, {
-    regex: "".concat(dashboardName, "[.+][blocks][total_issues][title]"),
+    regex: "".concat(prefix, "[pages][dashboard][.+][blocks][total_issues][title]"),
     action: function action() {
       return /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_12__.jsx)(reactstrap__WEBPACK_IMPORTED_MODULE_13__["default"], {
         xs: 12,
@@ -1235,7 +1239,7 @@ var SubNavLinks = function SubNavLinks(_ref2) {
       });
     }
   }, {
-    regex: "".concat(dashboardName, "[user][title]"),
+    regex: "".concat(prefix, "[pages][dashboard][user][title]"),
     action: function action() {
       return /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_12__.jsxs)(react_jsx_runtime__WEBPACK_IMPORTED_MODULE_12__.Fragment, {
         children: [/*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_12__.jsx)(Separator, {}), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_12__.jsx)(reactstrap__WEBPACK_IMPORTED_MODULE_13__["default"], {
@@ -1247,20 +1251,15 @@ var SubNavLinks = function SubNavLinks(_ref2) {
       });
     }
   }], [{
-    regex: "".concat(dashboardName, "[.+][subtitle]"),
+    regex: "".concat(prefix, "[pages][dashboard][.+][subtitle]"),
     action: function action() {
       return /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_12__.jsx)(Separator, {
         sm: true
       });
     }
   }]);
-  var cmsItem = _components_Content_Backend__WEBPACK_IMPORTED_MODULE_11__["default"].pages.cms;
-  var cmsName = "".concat(prefix, "[pages][cms]");
-  var cmsId = "".concat(prefixId, "-pages-cms");
-  var cmsValue = value['cms'];
-  var cmsDeepness = ['cms'];
-  var cms = recursiveDeepness(cmsItem, cmsName, cmsId, cmsValue, cmsDeepness, [], [{
-    regex: "".concat(cmsName, "[auth]"),
+  var cms = pagesResourceDeepness('cms', [], [{
+    regex: "".concat(prefix, "[pages][cms][auth]"),
     action: function action() {
       return /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_12__.jsxs)(react_jsx_runtime__WEBPACK_IMPORTED_MODULE_12__.Fragment, {
         children: [/*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_12__.jsx)(Separator, {}), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_12__.jsx)(reactstrap__WEBPACK_IMPORTED_MODULE_13__["default"], {
@@ -1276,19 +1275,14 @@ var SubNavLinks = function SubNavLinks(_ref2) {
     return !['dashboard', 'cms'].includes(key);
   });
   var resourceTabPanes = keys.map(function (item) {
-    var currentItem = _components_Content_Backend__WEBPACK_IMPORTED_MODULE_11__["default"].pages[item];
-    var currentName = "".concat(prefix, "[pages][").concat(item, "]");
-    var currentId = "".concat(prefixId, "-pages-").concat(item);
-    var currentValue = value[item];
-    var currentDeepness = [item];
-    var current = recursiveDeepness(currentItem, currentName, currentId, currentValue, currentDeepness);
+    var current = pagesResourceDeepness(item);
     return /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_12__.jsx)(reactstrap__WEBPACK_IMPORTED_MODULE_18__["default"], {
       tabId: "".concat(language.abbr, "-").concat(item),
       className: "pt-4",
       children: /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_12__.jsx)(reactstrap__WEBPACK_IMPORTED_MODULE_19__["default"], {
         children: current
       })
-    }, Math.random() + currentName);
+    }, Math.random() + "".concat(prefix, "[pages][").concat(item, "]"));
   });
   return /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_12__.jsxs)(react_jsx_runtime__WEBPACK_IMPORTED_MODULE_12__.Fragment, {
     children: [/*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_12__.jsx)(reactstrap__WEBPACK_IMPORTED_MODULE_20__["default"], {
@@ -1436,6 +1430,7 @@ var Backend = /*#__PURE__*/function (_Component) {
           _this$props$content$c = _this$props.content.cms.pages,
           save = _this$props$content$c.components.form.save,
           _this$props$content$c2 = _this$props$content$c.backend.pages.cms,
+          icon = _this$props$content$c2.icon,
           title = _this$props$content$c2.title,
           backend = _this$props$content$c2.backend,
           _this$props$backend$c = _this$props.backend.cms,
@@ -1953,7 +1948,7 @@ __webpack_require__.r(__webpack_exports__);
 
 var ___CSS_LOADER_EXPORT___ = _node_modules_css_loader_dist_runtime_api_js__WEBPACK_IMPORTED_MODULE_0___default()(function(i){return i[1]});
 // Module
-___CSS_LOADER_EXPORT___.push([module.id, ".UI.Input {\n  position: relative;\n}\n.UI.Input ::-moz-placeholder {\n  color: var(--border-50);\n  opacity: 1;\n}\n.UI.Input :-ms-input-placeholder {\n  color: var(--border-50);\n  opacity: 1;\n}\n.UI.Input ::placeholder {\n  color: var(--border-50);\n  opacity: 1;\n}\n.UI.Input label:not(.control-label) {\n  position: absolute;\n  left: 75px;\n  top: 0.75rem;\n  z-index: 1;\n  max-width: calc(100% - 76px - 0.75rem);\n}\n.UI.Input .form-control[required] + label:not(.control-label)::after {\n  content: \"*\";\n  color: red;\n}\n.UI.Input .form-control[readonly] + label:not(.control-label),\n.UI.Input .form-control[disabled] + label:not(.control-label),\n.UI.Input .form-control[required]:valid + label:not(.control-label),\n.UI.Input input:not([value=\"\"]) + label:not(.control-label),\n.UI.Input textarea:not(:invalid) + label:not(.control-label) {\n  display: none;\n}\n.UI.Input .input-group {\n  border: none;\n  display: flex;\n  overflow: hidden;\n  border-radius: var(--border-radius);\n  align-items: center;\n  background-color: var(--white);\n  box-shadow: 0 0 0 1px var(--border-10);\n}\n.UI.Input .input-group-prepend {\n  z-index: 10;\n  height: 45px;\n  position: relative;\n}\n.UI.Input .input-group-prepend .input-group-text {\n  width: 57px;\n  border: none;\n  display: block;\n  padding: 3px 18px;\n  position: relative;\n  color: var(--border-30);\n  background-color: transparent;\n}\n.UI.Input .input-group-prepend .input-group-text .icon {\n  top: 50%;\n  left: 50%;\n  margin: 0 3px;\n  position: absolute;\n  color: var(--blue);\n  transform: translate(-50%, -50%);\n}\n.UI.Input .input-group-prepend .input-group-text .addon {\n  top: 0;\n  left: 0;\n  width: 100%;\n  height: 100%;\n  display: flex;\n  position: absolute;\n  align-items: center;\n  justify-content: center;\n}\n.UI.Input .input-group-prepend .input-group-text .circle {\n  top: 50%;\n  left: 100%;\n  width: 10px;\n  height: 10px;\n  overflow: hidden;\n  position: absolute;\n  border-radius: 50%;\n  background-color: var(--white);\n  transform: translate(-50%, calc(-50% - 2px));\n}\n.UI.Input .input-group-prepend .input-group-text .circle::after {\n  top: 0;\n  left: 0;\n  content: \"\";\n  width: 100%;\n  z-index: -1;\n  height: 100%;\n  position: absolute;\n  background-color: var(--border-10);\n}\n.UI.Input .form-control,\n.UI.Input select {\n  border: none;\n  height: 45px;\n  color: inherit;\n  box-shadow: none;\n  font-weight: 500;\n  padding-left: 15px;\n  padding-right: 15px;\n}\n.UI.Input textarea {\n  min-height: 112px;\n}\n.UI.Input .control-label {\n  font-weight: 500;\n}\n.UI.Input .input-group-append .input-group-text {\n  border: none;\n  padding: 0 24px;\n  color: var(--border);\n  background-color: transparent;\n}\n.UI.Input.lg .input-group {\n  border-radius: calc(var(--border-radius) * 2);\n}\n.UI.Input.lg .input-group-prepend {\n  height: 82px;\n}\n.UI.Input.lg .input-group-prepend .input-group-text {\n  padding-left: 39px;\n  padding-right: 28px;\n}\n.UI.Input.lg .form-control,\n.UI.Input.lg select {\n  height: 82px;\n  font-size: 18px;\n  padding-left: 40px;\n  padding-right: 40px;\n}\n.UI.Input.inactive .input-group-prepend .input-group-text .addon {\n  background-color: var(--readonly);\n}", ""]);
+___CSS_LOADER_EXPORT___.push([module.id, ".UI.Input {\n  position: relative;\n}\n.UI.Input ::-moz-placeholder {\n  color: var(--border-50);\n  opacity: 1;\n}\n.UI.Input :-ms-input-placeholder {\n  color: var(--border-50);\n  opacity: 1;\n}\n.UI.Input ::placeholder {\n  color: var(--border-50);\n  opacity: 1;\n}\n.UI.Input label:not(.control-label) {\n  position: absolute;\n  left: 75px;\n  top: 0.75rem;\n  z-index: 1;\n  max-width: calc(100% - 76px - 0.75rem);\n}\n.UI.Input .form-control[required] + label:not(.control-label)::after {\n  content: \"*\";\n  color: red;\n}\n.UI.Input .form-control[readonly] + label:not(.control-label),\n.UI.Input .form-control[disabled] + label:not(.control-label),\n.UI.Input .form-control[required]:valid + label:not(.control-label),\n.UI.Input input:not([value=\"\"]) + label:not(.control-label),\n.UI.Input textarea:not(:invalid) + label:not(.control-label) {\n  display: none;\n}\n.UI.Input .input-group {\n  border: none;\n  display: flex;\n  overflow: hidden;\n  border-radius: var(--border-radius);\n  align-items: center;\n  background-color: var(--white);\n  box-shadow: 0 0 0 1px var(--border-10);\n}\n.UI.Input .input-group-prepend {\n  z-index: 10;\n  height: 45px;\n  position: relative;\n}\n.UI.Input .input-group-prepend .input-group-text {\n  width: 57px;\n  border: none;\n  display: block;\n  padding: 3px 18px;\n  position: relative;\n  color: var(--border-30);\n  background-color: transparent;\n}\n.UI.Input .input-group-prepend .input-group-text .icon {\n  top: 50%;\n  left: 50%;\n  margin: 0 3px;\n  position: absolute;\n  color: var(--blue);\n  transform: translate(-50%, -50%);\n}\n.UI.Input .input-group-prepend .input-group-text .addon {\n  top: 0;\n  left: 0;\n  width: 100%;\n  height: 100%;\n  display: flex;\n  position: absolute;\n  align-items: center;\n  justify-content: center;\n}\n.UI.Input .input-group-prepend .input-group-text .circle {\n  top: 50%;\n  left: 100%;\n  width: 10px;\n  height: 10px;\n  overflow: hidden;\n  position: absolute;\n  border-radius: 50%;\n  background-color: var(--white);\n  transform: translate(-50%, calc(-50% - 2px));\n}\n.UI.Input .input-group-prepend .input-group-text .circle::after {\n  top: 0;\n  left: 0;\n  content: \"\";\n  width: 100%;\n  z-index: -1;\n  height: 100%;\n  position: absolute;\n  background-color: var(--border-10);\n}\n.UI.Input .form-control,\n.UI.Input select {\n  border: none;\n  height: 45px;\n  color: inherit;\n  box-shadow: none;\n  padding-left: 15px;\n  padding-right: 15px;\n}\n.UI.Input textarea {\n  min-height: 112px;\n}\n.UI.Input .control-label {\n  font-weight: 500;\n}\n.UI.Input .input-group-append .input-group-text {\n  border: none;\n  padding: 0 24px;\n  color: var(--border);\n  background-color: transparent;\n}\n.UI.Input.lg .input-group {\n  border-radius: calc(var(--border-radius) * 2);\n}\n.UI.Input.lg .input-group-prepend {\n  height: 82px;\n}\n.UI.Input.lg .input-group-prepend .input-group-text {\n  padding-left: 39px;\n  padding-right: 28px;\n}\n.UI.Input.lg .form-control,\n.UI.Input.lg select {\n  height: 82px;\n  font-size: 18px;\n  padding-left: 40px;\n  padding-right: 40px;\n}\n.UI.Input.inactive .input-group-prepend .input-group-text .addon {\n  background-color: var(--readonly);\n}", ""]);
 // Exports
 /* harmony default export */ const __WEBPACK_DEFAULT_EXPORT__ = (___CSS_LOADER_EXPORT___);
 

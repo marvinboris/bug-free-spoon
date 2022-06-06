@@ -1,4 +1,4 @@
-import React, { Component, useState } from 'react';
+import React, { Component, Fragment, useState } from 'react';
 import { connect } from 'react-redux';
 import { Redirect, withRouter } from 'react-router-dom';
 import { Col, FormGroup, Label, Nav, NavItem, NavLink, Row, TabContent, TabPane } from 'reactstrap';
@@ -67,14 +67,14 @@ const SubNavLinks = ({ backend, language }) => {
         const findAppend = paramAppends.find(el => (new RegExp(el.regex.replace(/\[/g, '\\[').replace(/\]/g, '\\]'))).test(mainName));
         append = !findAppend ? null : findAppend.action(mainItem);
 
-        return typeof mainItem === 'string' ? <>
+        return typeof mainItem === 'string' ? <Fragment key={Math.random() + mainName}>
             {prepend}
             <FormGroup className="col-md-6 col-lg-4 align-self-end">
                 <Label className="text-small text-500">{mainItem}</Label>
                 <Input type="text" name={mainName} id={mainId} placeholder={mainItem} onChange={e => onChange(e, ...mainDeepness)} value={mainValue} />
             </FormGroup>
             {append}
-        </> : recursiveDeepness(mainItem, mainName, mainId, mainValue, mainDeepness, paramPrepends, paramAppends);
+        </Fragment> : recursiveDeepness(mainItem, mainName, mainId, mainValue, mainDeepness, paramPrepends, paramAppends);
     });
 
 
@@ -92,62 +92,55 @@ const SubNavLinks = ({ backend, language }) => {
     const prefix = `${language.abbr}[backend]`;
     const prefixId = `${language.abbr}-backend`;
 
-    const headerItem = BACKEND['header'];
-    const headerName = `${prefix}[header]`;
-    const headerId = `${prefixId}-header`;
-    const headerValue = value['header'];
-    const headerDeepness = ['header'];
-    const header = recursiveDeepness(headerItem, headerName, headerId, headerValue, headerDeepness, [], [
-        { regex: `${headerName}[no_notification]`, action: () => <Separator /> },
-        { regex: `${headerName}[sure_logout]`, action: () => <Separator /> },
+    const resourceDeepness = (resource, paramPrepends = [], paramAppends = []) => {
+        const resourceItem = BACKEND[resource];
+        const resourceName = `${prefix}[${resource}]`;
+        const resourceId = `${prefixId}-${resource}`;
+        const resourceValue = value[resource];
+        const resourceDeepness = [resource];
+        return recursiveDeepness(resourceItem, resourceName, resourceId, resourceValue, resourceDeepness, paramPrepends, paramAppends);
+    };
+
+    const header = resourceDeepness('header', [], [
+        { regex: `${prefix}[header][no_notification]`, action: () => <Separator /> },
+        { regex: `${prefix}[header][sure_logout]`, action: () => <Separator /> },
     ]);
 
-    const footerItem = BACKEND['footer'];
-    const footerName = `${prefix}[footer]`;
-    const footerId = `${prefixId}-footer`;
-    const footerValue = value['footer'];
-    const footerDeepness = ['footer'];
-    const footer = recursiveDeepness(footerItem, footerName, footerId, footerValue, footerDeepness);
+    const footer = resourceDeepness('footer');
 
-    const sidebarItem = BACKEND['sidebar'];
-    const sidebarName = `${prefix}[sidebar]`;
-    const sidebarId = `${prefixId}-sidebar`;
-    const sidebarValue = value['sidebar'];
-    const sidebarDeepness = ['sidebar'];
-    const sidebar = recursiveDeepness(sidebarItem, sidebarName, sidebarId, sidebarValue, sidebarDeepness, [
-        { regex: `${sidebarName}[admin]`, action: () => <Col xs={12}><h4>Roles</h4></Col> },
-        { regex: `${sidebarName}[menu][dashboard]`, action: () => <Col xs={12}><h4>Menu</h4></Col> },
-        { regex: `${sidebarName}[menu][.+][title]`, action: item => <Col xs={12}><h5>{item}</h5></Col> },
+    const sidebar = resourceDeepness('sidebar', [
+        { regex: `${prefix}[sidebar][admin]`, action: () => <Col xs={12}><h4>Roles</h4></Col> },
+        { regex: `${prefix}[sidebar][menu][dashboard]`, action: () => <Col xs={12}><h4>Menu</h4></Col> },
+        { regex: `${prefix}[sidebar][menu][.+][title]`, action: item => <Col xs={12}><h5>{item}</h5></Col> },
     ], [
-        { regex: `${sidebarName}[user]`, action: () => <Separator /> },
+        { regex: `${prefix}[sidebar][user]`, action: () => <Separator /> },
     ]);
 
-    const dashboardItem = BACKEND.pages['dashboard'];
-    const dashboardName = `${prefix}[pages][dashboard]`;
-    const dashboardId = `${prefixId}-pages-dashboard`;
-    const dashboardValue = value['dashboard'];
-    const dashboardDeepness = ['dashboard'];
-    const dashboard = recursiveDeepness(dashboardItem, dashboardName, dashboardId, dashboardValue, dashboardDeepness, [
-        { regex: `${dashboardName}[admin][title]`, action: () => <Col xs={12}><h4>Admin</h4></Col> },
-        { regex: `${dashboardName}[.+][blocks][total_issues][title]`, action: () => <Col xs={12}><h5>Blocks</h5></Col> },
+    const pagesResourceDeepness = (resource, paramPrepends = [], paramAppends = []) => {
+        const resourceItem = BACKEND.pages[resource];
+        const resourceName = `${prefix}[pages][${resource}]`;
+        const resourceId = `${prefixId}-pages-${resource}`;
+        const resourceValue = value[resource];
+        const resourceDeepness = [resource];
+        return recursiveDeepness(resourceItem, resourceName, resourceId, resourceValue, resourceDeepness, paramPrepends, paramAppends);
+    };
+
+    const dashboard = pagesResourceDeepness('dashboard', [
+        { regex: `${prefix}[pages][dashboard][admin][title]`, action: () => <Col xs={12}><h4>Admin</h4></Col> },
+        { regex: `${prefix}[pages][dashboard][.+][blocks][total_issues][title]`, action: () => <Col xs={12}><h5>Blocks</h5></Col> },
         {
-            regex: `${dashboardName}[user][title]`, action: () => <>
+            regex: `${prefix}[pages][dashboard][user][title]`, action: () => <>
                 <Separator />
                 <Col xs={12}><h4>User</h4></Col>
             </>
         },
     ], [
-        { regex: `${dashboardName}[.+][subtitle]`, action: () => <Separator sm /> },
+        { regex: `${prefix}[pages][dashboard][.+][subtitle]`, action: () => <Separator sm /> },
     ]);
-
-    const cmsItem = BACKEND.pages['cms'];
-    const cmsName = `${prefix}[pages][cms]`;
-    const cmsId = `${prefixId}-pages-cms`;
-    const cmsValue = value['cms'];
-    const cmsDeepness = ['cms'];
-    const cms = recursiveDeepness(cmsItem, cmsName, cmsId, cmsValue, cmsDeepness, [], [
+    
+    const cms = pagesResourceDeepness('cms', [], [
         {
-            regex: `${cmsName}[auth]`, action: () => <>
+            regex: `${prefix}[pages][cms][auth]`, action: () => <>
                 <Separator />
                 <Col xs={12}>
                     <h4>Form</h4>
@@ -158,14 +151,9 @@ const SubNavLinks = ({ backend, language }) => {
 
     const keys = Object.keys(BACKEND.pages).filter(key => !['dashboard', 'cms'].includes(key));
     const resourceTabPanes = keys.map(item => {
-        const currentItem = BACKEND.pages[item];
-        const currentName = `${prefix}[pages][${item}]`;
-        const currentId = `${prefixId}-pages-${item}`;
-        const currentValue = value[item];
-        const currentDeepness = [item];
-        const current = recursiveDeepness(currentItem, currentName, currentId, currentValue, currentDeepness);
+        const current = pagesResourceDeepness(item);
 
-        return <TabPane key={Math.random() + currentName} tabId={`${language.abbr}-${item}`} className="pt-4">
+        return <TabPane key={Math.random() + `${prefix}[pages][${item}]`} tabId={`${language.abbr}-${item}`} className="pt-4">
             <Row>{current}</Row>
         </TabPane>;
     });
@@ -241,7 +229,7 @@ class Backend extends Component {
         const {
             content: {
                 cms: {
-                    pages: { components: { form: { save } }, backend: { pages: { cms: { title, backend } } } }
+                    pages: { components: { form: { save } }, backend: { pages: { cms: { icon, title, backend } } } }
                 }
             },
             backend: { cms: { loading, error, message, cms, languages = [] } },

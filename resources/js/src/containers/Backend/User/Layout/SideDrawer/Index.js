@@ -22,7 +22,7 @@ export default ({ data, logoutHandler, toggle, selectItem, selectedItem, cms }) 
                 sidebar: {
                     menu: {
                         dashboard, users, roles, features, languages, cms: cms_, notifications, settings,
-                        events, activities, elders, publications, subscribers,
+                        events, activities, elders, publications, subscribers, contributions,
                     }
                 }
             }
@@ -91,7 +91,7 @@ export default ({ data, logoutHandler, toggle, selectItem, selectedItem, cms }) 
         {sideDrawerItem(false, elders.title, null, elders.icon, "/user/elders")}
         {sideDrawerItem(false, publications.title, null, publications.icon, "/user/publications")}
         {sideDrawerItem(false, subscribers.title, null, subscribers.icon, "/user/subscribers")}
-        {sideDrawerItem(true, notifications.title, null, notifications.icon, "/user/notifications")}
+        {sideDrawerItem(false, contributions.title, null, contributions.icon, "/user/contributions")}
         {sideDrawerItem(false, null, cms_, cms_.icon, "/user/cms", [
             { link: '/global', text: cms_.global },
             { link: '/general', text: cms_.general },

@@ -1,0 +1,36 @@
+.Pay {
+    .embed-responsive {
+        display: flex;
+        cursor: pointer;
+        overflow: visible;
+        position: relative;
+        align-items: center;
+        justify-content: center;
+        background-color: var(--border-10);
+        border-radius: var(--border-radius);
+    }
+
+    .subtitle {
+        font-size: 18px;
+        font-weight: 500;
+        color: var(--blue);
+    }
+
+    label {
+        font-weight: 500;
+        margin-top: 16px;
+    }
+
+    .submit {
+        margin-top: 40px;
+
+        button {
+            padding: 13px 25px;
+            border-radius: 50rem;
+
+            i {
+                margin-left: 10px;
+            }
+        }
+    }
+}

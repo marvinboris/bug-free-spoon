@@ -27,7 +27,7 @@ class RemainingTime extends Component {
 
         if (now >= eventTime) {
             days = hours = minutes = seconds = 0;
-            clearTimeout(this.getTime);
+            clearInterval(this.getTime);
         } else {
             days = Math.floor((eventTime - now) / (1000 * 60 * 60 * 24));
             hours = Math.floor((eventTime - now) / (1000 * 60 * 60)) - days * 24;
@@ -42,11 +42,11 @@ class RemainingTime extends Component {
 
     // Lifecycle methods
     componentDidMount() {
-        setTimeout(this.getTime, 1000);
+        setInterval(this.getTime, 1000);
     }
 
     componentWillUnmount() {
-        clearTimeout(this.getTime);
+        clearInterval(this.getTime);
     }
 
     render() {

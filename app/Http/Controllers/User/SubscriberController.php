@@ -105,10 +105,7 @@ class SubscriberController extends Controller
 
         $input = $request->all();
 
-        Subscriber::create($input + [
-            'title' => json_encode($request->title),
-            'body' => json_encode($request->body),
-        ]);
+        Subscriber::create($input);
 
         return response()->json([
             'message' => UtilController::message($cms['pages'][$user->language->abbr]['messages']['subscribers']['created'], 'success'),
@@ -130,10 +127,7 @@ class SubscriberController extends Controller
 
         $input = $request->all();
 
-        $subscriber->update($input + [
-            'title' => json_encode($request->title),
-            'body' => json_encode($request->body),
-        ]);
+        $subscriber->update($input);
 
         return response()->json([
             'message' => UtilController::message($cms['pages'][$user->language->abbr]['messages']['subscribers']['updated'], 'success'),

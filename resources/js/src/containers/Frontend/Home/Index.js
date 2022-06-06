@@ -4,6 +4,8 @@ import { withRouter, Link } from 'react-router-dom';
 import OwlCarousel from 'react-owl-carousel2';
 
 import Carousel from './Carousel';
+import Join from './Join';
+import Pay from './Pay';
 
 import Input from '../../../components/UI/Input';
 import ElderBlock from '../../../components/UI/ElderBlock';
@@ -12,6 +14,8 @@ import SectionTitle from '../../../components/UI/SectionTitle';
 import RemainingTime from '../../../components/UI/RemainingTime';
 import ActivityBlock from '../../../components/UI/ActivityBlock';
 import PublicationBlock from '../../../components/UI/PublicationBlock';
+
+import View from '../../../components/Backend/UI/View/View';
 
 import { convertDate } from '../../../shared/utility';
 import { getHome, postSubscribe, resetHome } from '../../../store/actions/frontend/home';
@@ -92,7 +96,7 @@ class Home extends Component {
             </div>
         </div>);
         const activitiesContent = activities.map(activity => <ActivityBlock key={JSON.stringify(activity)} {...activity} />);
-        const statsContent = stats.map(stat => <div key={JSON.stringify(stat)} className='col'><Stat {...{ ...stat, ...cms.stats[stat.ref] }} /></div>);
+        const statsContent = stats.map(stat => <div key={JSON.stringify(stat)} className='col'><Stat {...{ ...stat, ...cms.stats[stat.key] }} /></div>);
         const eldersContent = elders.map(elder => <ElderBlock key={JSON.stringify(elder)} {...elder} />);
         const publicationsContent = publications.map(publication => <PublicationBlock key={JSON.stringify(publication)} {...publication} />);
 
@@ -136,7 +140,11 @@ class Home extends Component {
 
                             <p>{cms.about.description}</p>
 
-                            <a href='mailto:contact@fiducac.org?subject=Je fais un don' target='_blank' className="donate btn btn-blue">{cms.about.donate}<i className='fas fa-donate' /></a>
+                            <div className='actions'>
+                                <a href='mailto:contact@fiducac.org?subject=Je fais un don' target='_blank' className="donate btn btn-blue">{cms.about.donate}<i className='fas fa-donate' /></a>
+                                <View title={cms.about.join.title} content={<Join />}><button className='join btn btn-white'>{cms.about.join.title}<i className='fas fa-sign-in-alt' /></button></View>
+                                <View title={cms.about.pay.title} content={<Pay />}><button className='pay btn btn-border'>{cms.about.pay.title}<i className='fas fa-wallet' /></button></View>
+                            </div>
                         </div>
                     </div>
                 </div>

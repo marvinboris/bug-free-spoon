@@ -4,7 +4,6 @@ import { Redirect, withRouter } from 'react-router-dom';
 import { Col, FormGroup, Label, Nav, NavItem, NavLink, Row, TabContent, TabPane } from 'reactstrap';
 
 // Components
-import Input from '../../../../components/UI/Input';
 import Error from '../../../../components/Error/Error';
 import Form from '../../../../components/Backend/UI/Form/Form';
 import Feedback from '../../../../components/Feedback/Feedback';
@@ -14,6 +13,8 @@ import CustomSpinner from '../../../../components/UI/CustomSpinner/CustomSpinner
 
 import { getCms, patchCms, resetCms } from '../../../../store/actions/backend/cms';
 import { updateObject } from '../../../../shared/utility';
+import * as utility from './utility';
+
 import MESSAGES from '../../../../components/Content/Messages';
 
 const Separator = ({ sm }) => <Col xs={12} className={`mb-${sm ? 2 : 3}`} />;
@@ -22,101 +23,32 @@ const SubNavLinks = ({ messages, language }) => {
     const [activeTab, setActiveTab] = useState(`${language.abbr}-auth`);
     const [value, setValue] = useState(messages);
 
-    const toggle = tab => {
-        if (activeTab !== tab) setActiveTab(tab);
-    }
-
-    const onChange = (e, ...deepness) => {
-        const valueCopy = { ...value };
-
-        if (deepness.length === 1) {
-            valueCopy[deepness[0]] = e.target.value;
-            return setValue(valueCopy);
-        }
-
-        const subValues = [];
-        let subValue = { ...value };
-        for (let i = 0; i < deepness.length - 1; i++) {
-            const element = deepness[i];
-            subValue = subValue[element];
-            subValues.push(subValue);
-        }
-        subValues[subValues.length - 1][deepness[deepness.length - 1]] = e.target.value;
-        for (let i = 1; i < deepness.length - 1; i++) {
-            const element = deepness[deepness.length - 1 - i];
-            const index = subValues.length - 1 - i;
-            subValues[index][element] = subValues[index + 1];
-        }
-        valueCopy[deepness[0]] = subValues[0];
-
-        setValue(valueCopy);
-    }
-
-    const recursiveDeepness = (paramItem, paramName, paramId, paramValue, paramDeepness, paramPrepends = [], paramAppends = []) => Object.keys(paramItem).map(item => {
-        const mainItem = paramItem[item];
-        const mainName = `${paramName}[${item}]`;
-        const mainId = `${paramId}-${item}`;
-        const mainValue = paramValue[item];
-        const mainDeepness = paramDeepness.concat(item);
-
-        let prepend;
-        const findPrepend = paramPrepends.find(el => (new RegExp(el.regex.replace(/\[/g, '\\[').replace(/\]/g, '\\]'))).test(mainName));
-        prepend = !findPrepend ? null : findPrepend.action(mainItem);
-
-        let append;
-        const findAppend = paramAppends.find(el => (new RegExp(el.regex.replace(/\[/g, '\\[').replace(/\]/g, '\\]'))).test(mainName));
-        append = !findAppend ? null : findAppend.action(mainItem);
-
-        return typeof mainItem === 'string' ? <>
-            {prepend}
-            <FormGroup className="col-md-6 col-lg-4 align-self-end">
-                <Label className="text-small text-500">{mainItem}</Label>
-                <Input type="text" name={mainName} id={mainId} placeholder={mainItem} onChange={e => onChange(e, ...mainDeepness)} value={mainValue} />
-            </FormGroup>
-            {append}
-        </> : recursiveDeepness(mainItem, mainName, mainId, mainValue, mainDeepness, paramPrepends, paramAppends);
-    });
-
-
-
-    const navItems = Object.keys(messages).map(key => {
-        const id = `${language.abbr}-${key}`;
-
-        return <NavItem key={id}>
-            <NavLink className={(activeTab === id) ? 'active' : ""} onClick={() => toggle(id)}>
-                <span className="text-capitalize">{key.split('_').join(' ')}</span>
-            </NavLink>
-        </NavItem>
-    });
-
     const prefix = `${language.abbr}[messages]`;
     const prefixId = `${language.abbr}-messages`;
 
-    const authItem = MESSAGES['auth'];
-    const authName = `${prefix}[auth]`;
-    const authId = `${prefixId}-auth`;
-    const authValue = value['auth'];
-    const authDeepness = ['auth'];
-    const auth = recursiveDeepness(authItem, authName, authId, authValue, authDeepness, [
-        { regex: `${authName}[admin][not_found]`, action: () => <Col xs={12}><h4>Admin</h4></Col> },
+    const toggle = tab => {
+        if (activeTab !== tab) setActiveTab(tab);
+    };
+    const onChange = (e, ...deepness) => utility.onChange(value, setValue)(e, ...deepness);
+    const resourceDeepness = (resource, paramPrepends = [], paramAppends = []) => utility.resourceDeepness(onChange)(MESSAGES, prefix, prefixId, value)(resource, paramPrepends, paramAppends);
+
+    const navItems = utility.navItems(messages, language, activeTab, toggle);
+
+    const auth = resourceDeepness('auth', [
+        { regex: `${prefix}[auth][admin][not_found]`, action: () => <Col xs={12}><h4>Admin</h4></Col> },
         {
-            regex: `${authName}[user][inactive]`, action: () => <>
+            regex: `${prefix}[auth][user][inactive]`, action: () => <>
                 <Separator />
                 <Col xs={12}><h4>User</h4></Col>
             </>
         },
     ]);
 
-    const keys = Object.keys(MESSAGES).filter(key => !['auth'].includes(key));
+    const keys = Object.keys(MESSAGES).filter(key => !['admin'].includes(key));
     const resourceTabPanes = keys.map(item => {
-        const currentItem = MESSAGES[item];
-        const currentName = `${prefix}[${item}]`;
-        const currentId = `${prefixId}-${item}`;
-        const currentValue = value[item];
-        const currentDeepness = [item];
-        const current = recursiveDeepness(currentItem, currentName, currentId, currentValue, currentDeepness);
+        const current = resourceDeepness(item);
 
-        return <TabPane key={Math.random() + currentName} tabId={`${language.abbr}-${item}`} className="pt-4">
+        return <TabPane key={Math.random() + `${prefix}[${item}]`} tabId={`${language.abbr}-${item}`} className="pt-4">
             <Row>{current}</Row>
         </TabPane>;
     });

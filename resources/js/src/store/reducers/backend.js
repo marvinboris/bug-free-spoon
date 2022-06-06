@@ -5,7 +5,7 @@ const initialState = {};
 
 const resources = [
     'admins', 'cms', 'notifications', 'dashboard', 'features', 'languages', 'roles', 'users', 'settings',
-    'events', 'activities', 'elders', 'publications', 'subscribers',
+    'events', 'activities', 'elders', 'publications', 'subscribers', 'contributions',
 ];
 
 resources.forEach(resource => {
@@ -91,6 +91,11 @@ export default (state = initialState, action) => {
         case actionTypes.SUBSCRIBERS_START: return start('subscribers', state);
         case actionTypes.SUBSCRIBERS_SUCCESS: return success('subscribers', state, action);
         case actionTypes.SUBSCRIBERS_FAIL: return fail('subscribers', state, action);
+
+        case actionTypes.CONTRIBUTIONS_RESET: return reset('contributions', state);
+        case actionTypes.CONTRIBUTIONS_START: return start('contributions', state);
+        case actionTypes.CONTRIBUTIONS_SUCCESS: return success('contributions', state, action);
+        case actionTypes.CONTRIBUTIONS_FAIL: return fail('contributions', state, action);
 
 
 

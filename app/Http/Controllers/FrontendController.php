@@ -3,6 +3,7 @@
 namespace App\Http\Controllers;
 
 use App\Models\Activity;
+use App\Models\Contribution;
 use App\Models\Elder;
 use App\Models\Event;
 use App\Models\Language;
@@ -11,6 +12,8 @@ use App\Models\Restaurant;
 use App\Models\Subscriber;
 use App\Models\User;
 use App\Notifications\ContactNotification;
+use App\Notifications\NewContribution;
+use App\Notifications\NewMember;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Notification;
 
@@ -22,23 +25,23 @@ class FrontendController extends Controller
         $activities = Activity::orderBy('id', 'DESC')->take(3)->get();
         $stats = [
             [
-                'ref' => 'members',
-                'value' => 4025,
+                'key' => 'members',
+                'value' => Elder::wherePaid(1)->count(),
             ],
             [
-                'ref' => 'photos',
-                'value' => 8725,
+                'key' => 'photos',
+                'value' => Elder::wherePaid(1)->count() + Activity::count() + Event::count() + Publication::count(),
             ],
             [
-                'ref' => 'events',
-                'value' => '230+',
+                'key' => 'events',
+                'value' => Event::count(),
             ],
             [
-                'ref' => 'awards',
+                'key' => 'awards',
                 'value' => '30+',
             ]
         ];
-        $elders = Elder::orderBy('id', 'DESC')->take(3)->get();
+        $elders = Elder::wherePaid(1)->orderBy('id', 'DESC')->take(3)->get();
         $publications = Publication::orderBy('id', 'DESC')->take(3)->get();
 
         return response()->json([
@@ -64,6 +67,67 @@ class FrontendController extends Controller
         ]);
     }
 
+    public function join(Request $request)
+    {
+        $request->validate([
+            'title' => 'required|array',
+            'name' => 'required|unique:elders',
+            'email' => 'required|unique:elders',
+            'photo' => 'required|image',
+            'payment' => 'required|image',
+        ]);
+
+        $input = $request->except(['photo', 'payment', 'title']);
+
+        if ($file = $request->file('photo')) {
+            $fileName = UtilController::resize($file, 'elders');
+            $input['photo'] = htmlspecialchars($fileName);
+        }
+
+        if ($file = $request->file('payment')) {
+            $fileName = UtilController::resize($file, 'elders');
+            $input['payment'] = htmlspecialchars($fileName);
+        }
+
+        $elder = Elder::create($input + [
+            'paid' => 0,
+        ]);
+
+        Notification::send(User::all(), new NewMember($elder));
+
+        return response()->json([
+            'message' => UtilController::message('Souscription réussie.', 'success'),
+        ]);
+    }
+
+    public function pay(Request $request)
+    {
+        $request->validate([
+            'email' => 'required|exists:elders',
+            'year' => 'required|integer',
+            'payment' => 'required|image',
+        ]);
+
+        $input = $request->except(['payment', 'email']);
+
+        $input['elder_id'] = Elder::whereEmail($request->email)->first()->id;
+
+        if ($file = $request->file('payment')) {
+            $fileName = UtilController::resize($file, 'elders');
+            $input['payment'] = htmlspecialchars($fileName);
+        }
+
+        $contribution = Contribution::create($input + [
+            'paid' => 0,
+        ]);
+
+        Notification::send(User::all(), new NewContribution($contribution));
+
+        return response()->json([
+            'message' => UtilController::message('Souscription réussie.', 'success'),
+        ]);
+    }
+
     public function alumni_call()
     {
         $page = +request()->page ?? 1;
@@ -73,7 +137,7 @@ class FrontendController extends Controller
         $total = 0;
 
         $elders = [];
-        $filteredData = Elder::orderBy('id');
+        $filteredData = Elder::wherePaid(1)->orderBy('id');
 
         $filteredData = $filteredData
             ->select('elders.*')
@@ -118,7 +182,7 @@ class FrontendController extends Controller
             'message' => 'required|string',
         ]);
 
-        Notification::send(User::all(), new ContactNotification($request->all()));   
+        Notification::send(User::all(), new ContactNotification($request->all()));
 
         return response()->json([
             'message' => UtilController::message('Formulaire soumis.', 'success'),
@@ -238,7 +302,7 @@ class FrontendController extends Controller
         $search = request()->search ?? '';
 
         $events = [];
-        $filteredData = Publication::orderBy('id');
+        $filteredData = Event::orderBy('id');
 
         $filteredData = $filteredData
             ->select('events.*')
@@ -258,8 +322,7 @@ class FrontendController extends Controller
         $filteredData = $filteredData->get();
 
         foreach ($filteredData as $event) {
-            $events[] = array_merge($event->toArray(), [
-            ]);
+            $events[] = array_merge($event->toArray(), []);
         }
 
         return response()->json([
@@ -269,7 +332,7 @@ class FrontendController extends Controller
 
     public function event($slug)
     {
-        $event = Publication::whereSlug($slug)->first();
+        $event = Event::whereSlug($slug)->first();
 
         if (!$event) return response()->json([
             'message' => UtilController::message('Evènement introuvable.', 'danger'),

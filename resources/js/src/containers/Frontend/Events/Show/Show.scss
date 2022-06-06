@@ -1,0 +1,57 @@
+.Events.Show {
+    .event {
+        .container {
+            padding: 80px 0;
+
+            .title {
+                font-size: 30px;
+                font-weight: 700;
+                color: var(--blue);
+                margin-bottom: 24px;
+            }
+
+            .bg-img {
+                position: relative;
+                margin-bottom: 40px;
+                border-radius: var(--border-radius);
+
+                .RemainingTime {
+                    top: 0;
+                    left: 50%;
+                    display: block;
+                    padding: 20px 40px;
+                    position: absolute;
+                    color: var(--white);
+                    transform: translateX(-50%);
+                    background-color: var(--blue);
+                    border: 1px solid var(--white);
+                    border-top: none;
+                    border-bottom-left-radius: var(--border-radius);
+                    border-bottom-right-radius: var(--border-radius);
+
+                    &>div:not(.remaining) {
+                        margin: 0 10px;
+                        display: inline-flex;
+                    }
+
+                    .remaining {
+                        margin-top: 10px;
+                        text-align: center;
+                    }
+                }
+            }
+
+            .description {
+                font-size: 24px;
+                margin-bottom: 20px;
+                color: var(--blue);
+                font-weight: 500px;
+            }
+
+            .content {
+                font-size: 18px;
+                text-align: justify;
+            }
+        }
+    }
+}

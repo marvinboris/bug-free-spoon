@@ -797,7 +797,7 @@ var SubNavLinks = function SubNavLinks(_ref) {
   var frontend = _ref.frontend,
       language = _ref.language;
 
-  var _useState = (0,react__WEBPACK_IMPORTED_MODULE_0__.useState)("".concat(language.abbr, "-restaurants")),
+  var _useState = (0,react__WEBPACK_IMPORTED_MODULE_0__.useState)("".concat(language.abbr, "-home")),
       _useState2 = _slicedToArray(_useState, 2),
       activeTab = _useState2[0],
       setActiveTab = _useState2[1];
@@ -864,7 +864,7 @@ var SubNavLinks = function SubNavLinks(_ref) {
         return new RegExp(el.regex.replace(/\[/g, '\\[').replace(/\]/g, '\\]')).test(mainName);
       });
       append = !findAppend ? null : findAppend.action(mainItem);
-      return typeof mainItem === 'string' ? /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_12__.jsxs)(react_jsx_runtime__WEBPACK_IMPORTED_MODULE_12__.Fragment, {
+      return typeof mainItem === 'string' ? /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_12__.jsxs)(react__WEBPACK_IMPORTED_MODULE_0__.Fragment, {
         children: [prepend, /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_12__.jsxs)(reactstrap__WEBPACK_IMPORTED_MODULE_13__["default"], {
           className: "col-md-6 col-lg-4 align-self-end",
           children: [/*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_12__.jsx)(reactstrap__WEBPACK_IMPORTED_MODULE_14__["default"], {
@@ -881,7 +881,7 @@ var SubNavLinks = function SubNavLinks(_ref) {
             value: mainValue
           })]
         }), append]
-      }) : recursiveDeepness(mainItem, mainName, mainId, mainValue, mainDeepness, paramPrepends, paramAppends);
+      }, Math.random() + mainName) : recursiveDeepness(mainItem, mainName, mainId, mainValue, mainDeepness, paramPrepends, paramAppends);
     });
   };
 
@@ -902,30 +902,63 @@ var SubNavLinks = function SubNavLinks(_ref) {
   });
   var prefix = "".concat(language.abbr, "[frontend]");
   var prefixId = "".concat(language.abbr, "-frontend");
-  var keys = Object.keys(_components_Content_Frontend__WEBPACK_IMPORTED_MODULE_11__["default"]);
+
+  var resourceDeepness = function resourceDeepness(resource) {
+    var paramPrepends = arguments.length > 1 && arguments[1] !== undefined ? arguments[1] : [];
+    var paramAppends = arguments.length > 2 && arguments[2] !== undefined ? arguments[2] : [];
+    var resourceItem = _components_Content_Frontend__WEBPACK_IMPORTED_MODULE_11__["default"][resource];
+    var resourceName = "".concat(prefix, "[").concat(resource, "]");
+    var resourceId = "".concat(prefixId, "-").concat(resource);
+    var resourceValue = value[resource];
+    var resourceDeepness = [resource];
+    return recursiveDeepness(resourceItem, resourceName, resourceId, resourceValue, resourceDeepness, paramPrepends, paramAppends);
+  };
+
+  var header = resourceDeepness('header');
+  var footer = resourceDeepness('footer');
+
+  var pagesResourceDeepness = function pagesResourceDeepness(resource) {
+    var paramPrepends = arguments.length > 1 && arguments[1] !== undefined ? arguments[1] : [];
+    var paramAppends = arguments.length > 2 && arguments[2] !== undefined ? arguments[2] : [];
+    var resourceItem = _components_Content_Frontend__WEBPACK_IMPORTED_MODULE_11__["default"].pages[resource];
+    var resourceName = "".concat(prefix, "[pages][").concat(resource, "]");
+    var resourceId = "".concat(prefixId, "-pages-").concat(resource);
+    var resourceValue = value[resource];
+    var resourceDeepness = [resource];
+    return recursiveDeepness(resourceItem, resourceName, resourceId, resourceValue, resourceDeepness, paramPrepends, paramAppends);
+  };
+
+  var keys = Object.keys(_components_Content_Frontend__WEBPACK_IMPORTED_MODULE_11__["default"].pages);
   var resourceTabPanes = keys.map(function (item) {
-    var currentItem = _components_Content_Frontend__WEBPACK_IMPORTED_MODULE_11__["default"][item];
-    var currentName = "".concat(prefix, "[").concat(item, "]");
-    var currentId = "".concat(prefixId, "-").concat(item);
-    var currentValue = value[item];
-    var currentDeepness = [item];
-    var current = recursiveDeepness(currentItem, currentName, currentId, currentValue, currentDeepness);
+    var current = pagesResourceDeepness(item);
     return /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_12__.jsx)(reactstrap__WEBPACK_IMPORTED_MODULE_17__["default"], {
       tabId: "".concat(language.abbr, "-").concat(item),
       className: "pt-4",
       children: /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_12__.jsx)(reactstrap__WEBPACK_IMPORTED_MODULE_18__["default"], {
         children: current
       })
-    }, Math.random() + currentName);
+    }, Math.random() + "".concat(prefix, "[pages][").concat(item, "]"));
   });
   return /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_12__.jsxs)("div", {
     children: [/*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_12__.jsx)(reactstrap__WEBPACK_IMPORTED_MODULE_19__["default"], {
       tabs: true,
       pills: true,
       children: navItems
-    }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_12__.jsx)(reactstrap__WEBPACK_IMPORTED_MODULE_20__["default"], {
+    }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_12__.jsxs)(reactstrap__WEBPACK_IMPORTED_MODULE_20__["default"], {
       activeTab: activeTab,
-      children: resourceTabPanes
+      children: [/*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_12__.jsx)(reactstrap__WEBPACK_IMPORTED_MODULE_17__["default"], {
+        tabId: "".concat(language.abbr, "-header"),
+        className: "pt-4",
+        children: /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_12__.jsx)(reactstrap__WEBPACK_IMPORTED_MODULE_18__["default"], {
+          children: header
+        })
+      }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_12__.jsx)(reactstrap__WEBPACK_IMPORTED_MODULE_17__["default"], {
+        tabId: "".concat(language.abbr, "-footer"),
+        className: "pt-4",
+        children: /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_12__.jsx)(reactstrap__WEBPACK_IMPORTED_MODULE_18__["default"], {
+          children: footer
+        })
+      }), resourceTabPanes]
     })]
   }, Math.random() * Math.random());
 };
@@ -1077,10 +1110,17 @@ var Frontend = /*#__PURE__*/function (_Component) {
           }, Math.random());
         });
         var tabContent = languages.map(function (language) {
+          var data = cms.pages[language.abbr].frontend;
+
+          var frontend = _objectSpread({
+            header: data.header,
+            footer: data.footer
+          }, data.pages);
+
           return /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_12__.jsx)(reactstrap__WEBPACK_IMPORTED_MODULE_17__["default"], {
             tabId: language.abbr,
             children: /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_12__.jsx)(SubNavLinks, {
-              frontend: cms.pages[language.abbr].frontend,
+              frontend: frontend,
               language: language
             })
           }, Math.random());
@@ -1544,7 +1584,7 @@ __webpack_require__.r(__webpack_exports__);
 
 var ___CSS_LOADER_EXPORT___ = _node_modules_css_loader_dist_runtime_api_js__WEBPACK_IMPORTED_MODULE_0___default()(function(i){return i[1]});
 // Module
-___CSS_LOADER_EXPORT___.push([module.id, ".UI.Input {\n  position: relative;\n}\n.UI.Input ::-moz-placeholder {\n  color: var(--border-50);\n  opacity: 1;\n}\n.UI.Input :-ms-input-placeholder {\n  color: var(--border-50);\n  opacity: 1;\n}\n.UI.Input ::placeholder {\n  color: var(--border-50);\n  opacity: 1;\n}\n.UI.Input label:not(.control-label) {\n  position: absolute;\n  left: 75px;\n  top: 0.75rem;\n  z-index: 1;\n  max-width: calc(100% - 76px - 0.75rem);\n}\n.UI.Input .form-control[required] + label:not(.control-label)::after {\n  content: \"*\";\n  color: red;\n}\n.UI.Input .form-control[readonly] + label:not(.control-label),\n.UI.Input .form-control[disabled] + label:not(.control-label),\n.UI.Input .form-control[required]:valid + label:not(.control-label),\n.UI.Input input:not([value=\"\"]) + label:not(.control-label),\n.UI.Input textarea:not(:invalid) + label:not(.control-label) {\n  display: none;\n}\n.UI.Input .input-group {\n  border: none;\n  display: flex;\n  overflow: hidden;\n  border-radius: var(--border-radius);\n  align-items: center;\n  background-color: var(--white);\n  box-shadow: 0 0 0 1px var(--border-10);\n}\n.UI.Input .input-group-prepend {\n  z-index: 10;\n  height: 45px;\n  position: relative;\n}\n.UI.Input .input-group-prepend .input-group-text {\n  width: 57px;\n  border: none;\n  display: block;\n  padding: 3px 18px;\n  position: relative;\n  color: var(--border-30);\n  background-color: transparent;\n}\n.UI.Input .input-group-prepend .input-group-text .icon {\n  top: 50%;\n  left: 50%;\n  margin: 0 3px;\n  position: absolute;\n  color: var(--blue);\n  transform: translate(-50%, -50%);\n}\n.UI.Input .input-group-prepend .input-group-text .addon {\n  top: 0;\n  left: 0;\n  width: 100%;\n  height: 100%;\n  display: flex;\n  position: absolute;\n  align-items: center;\n  justify-content: center;\n}\n.UI.Input .input-group-prepend .input-group-text .circle {\n  top: 50%;\n  left: 100%;\n  width: 10px;\n  height: 10px;\n  overflow: hidden;\n  position: absolute;\n  border-radius: 50%;\n  background-color: var(--white);\n  transform: translate(-50%, calc(-50% - 2px));\n}\n.UI.Input .input-group-prepend .input-group-text .circle::after {\n  top: 0;\n  left: 0;\n  content: \"\";\n  width: 100%;\n  z-index: -1;\n  height: 100%;\n  position: absolute;\n  background-color: var(--border-10);\n}\n.UI.Input .form-control,\n.UI.Input select {\n  border: none;\n  height: 45px;\n  color: inherit;\n  box-shadow: none;\n  font-weight: 500;\n  padding-left: 15px;\n  padding-right: 15px;\n}\n.UI.Input textarea {\n  min-height: 112px;\n}\n.UI.Input .control-label {\n  font-weight: 500;\n}\n.UI.Input .input-group-append .input-group-text {\n  border: none;\n  padding: 0 24px;\n  color: var(--border);\n  background-color: transparent;\n}\n.UI.Input.lg .input-group {\n  border-radius: calc(var(--border-radius) * 2);\n}\n.UI.Input.lg .input-group-prepend {\n  height: 82px;\n}\n.UI.Input.lg .input-group-prepend .input-group-text {\n  padding-left: 39px;\n  padding-right: 28px;\n}\n.UI.Input.lg .form-control,\n.UI.Input.lg select {\n  height: 82px;\n  font-size: 18px;\n  padding-left: 40px;\n  padding-right: 40px;\n}\n.UI.Input.inactive .input-group-prepend .input-group-text .addon {\n  background-color: var(--readonly);\n}", ""]);
+___CSS_LOADER_EXPORT___.push([module.id, ".UI.Input {\n  position: relative;\n}\n.UI.Input ::-moz-placeholder {\n  color: var(--border-50);\n  opacity: 1;\n}\n.UI.Input :-ms-input-placeholder {\n  color: var(--border-50);\n  opacity: 1;\n}\n.UI.Input ::placeholder {\n  color: var(--border-50);\n  opacity: 1;\n}\n.UI.Input label:not(.control-label) {\n  position: absolute;\n  left: 75px;\n  top: 0.75rem;\n  z-index: 1;\n  max-width: calc(100% - 76px - 0.75rem);\n}\n.UI.Input .form-control[required] + label:not(.control-label)::after {\n  content: \"*\";\n  color: red;\n}\n.UI.Input .form-control[readonly] + label:not(.control-label),\n.UI.Input .form-control[disabled] + label:not(.control-label),\n.UI.Input .form-control[required]:valid + label:not(.control-label),\n.UI.Input input:not([value=\"\"]) + label:not(.control-label),\n.UI.Input textarea:not(:invalid) + label:not(.control-label) {\n  display: none;\n}\n.UI.Input .input-group {\n  border: none;\n  display: flex;\n  overflow: hidden;\n  border-radius: var(--border-radius);\n  align-items: center;\n  background-color: var(--white);\n  box-shadow: 0 0 0 1px var(--border-10);\n}\n.UI.Input .input-group-prepend {\n  z-index: 10;\n  height: 45px;\n  position: relative;\n}\n.UI.Input .input-group-prepend .input-group-text {\n  width: 57px;\n  border: none;\n  display: block;\n  padding: 3px 18px;\n  position: relative;\n  color: var(--border-30);\n  background-color: transparent;\n}\n.UI.Input .input-group-prepend .input-group-text .icon {\n  top: 50%;\n  left: 50%;\n  margin: 0 3px;\n  position: absolute;\n  color: var(--blue);\n  transform: translate(-50%, -50%);\n}\n.UI.Input .input-group-prepend .input-group-text .addon {\n  top: 0;\n  left: 0;\n  width: 100%;\n  height: 100%;\n  display: flex;\n  position: absolute;\n  align-items: center;\n  justify-content: center;\n}\n.UI.Input .input-group-prepend .input-group-text .circle {\n  top: 50%;\n  left: 100%;\n  width: 10px;\n  height: 10px;\n  overflow: hidden;\n  position: absolute;\n  border-radius: 50%;\n  background-color: var(--white);\n  transform: translate(-50%, calc(-50% - 2px));\n}\n.UI.Input .input-group-prepend .input-group-text .circle::after {\n  top: 0;\n  left: 0;\n  content: \"\";\n  width: 100%;\n  z-index: -1;\n  height: 100%;\n  position: absolute;\n  background-color: var(--border-10);\n}\n.UI.Input .form-control,\n.UI.Input select {\n  border: none;\n  height: 45px;\n  color: inherit;\n  box-shadow: none;\n  padding-left: 15px;\n  padding-right: 15px;\n}\n.UI.Input textarea {\n  min-height: 112px;\n}\n.UI.Input .control-label {\n  font-weight: 500;\n}\n.UI.Input .input-group-append .input-group-text {\n  border: none;\n  padding: 0 24px;\n  color: var(--border);\n  background-color: transparent;\n}\n.UI.Input.lg .input-group {\n  border-radius: calc(var(--border-radius) * 2);\n}\n.UI.Input.lg .input-group-prepend {\n  height: 82px;\n}\n.UI.Input.lg .input-group-prepend .input-group-text {\n  padding-left: 39px;\n  padding-right: 28px;\n}\n.UI.Input.lg .form-control,\n.UI.Input.lg select {\n  height: 82px;\n  font-size: 18px;\n  padding-left: 40px;\n  padding-right: 40px;\n}\n.UI.Input.inactive .input-group-prepend .input-group-text .addon {\n  background-color: var(--readonly);\n}", ""]);
 // Exports
 /* harmony default export */ const __WEBPACK_DEFAULT_EXPORT__ = (___CSS_LOADER_EXPORT___);
 

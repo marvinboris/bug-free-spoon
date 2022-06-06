@@ -5,6 +5,7 @@ import { Collapse } from 'reactstrap';
 
 import Logo from '../../UI/Logo/Logo';
 
+import Languages from './Languages';
 import NavigationItems from '../NavigationItems/NavigationItems';
 
 import { setLanguage } from '../../../store/actions/content';
@@ -47,10 +48,11 @@ class Toolbar extends Component {
         const {
             content: {
                 cms: {
-                    pages: { frontend: { header: { tel, menu } } }
-                }
+                    pages: { frontend: { header: { menu } } }
+                }, languages
             },
         } = this.props;
+        const { language } = this.state;
 
         return <div className="Toolbar shadow">
             <div className="container d-flex justify-content-between align-items-center h-100">
@@ -65,6 +67,10 @@ class Toolbar extends Component {
 
                     <div className="mx-2 mx-md-3 d-lg-none">
                         <i onClick={this.toggleNavbar} className="fas fa-th-large text-21 text-md-40" style={{ cursor: 'pointer' }} />
+                    </div>
+
+                    <div className="pl-3 d-lg-block">
+                        <Languages languages={languages} set={this.setLanguage} language={language} />
                     </div>
                 </div>
             </div>
