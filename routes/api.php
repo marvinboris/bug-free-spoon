@@ -193,6 +193,7 @@ Route::name('frontend.')->group(function () {
 
     Route::get('alumni-call', 'FrontendController@alumni_call')->name('alumni_call');
 
+    Route::post('pay', 'FrontendController@pay')->name('pay');
     Route::post('join', 'FrontendController@join')->name('join');
     Route::post('subscribe', 'FrontendController@newsletter')->name('newsletter');
     Route::get('home', 'FrontendController@home')->name('home');
