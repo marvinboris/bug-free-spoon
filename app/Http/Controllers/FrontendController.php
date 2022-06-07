@@ -111,7 +111,7 @@ class FrontendController extends Controller
 
         $input = $request->except(['payment', 'email']);
 
-        $elder = Elder::wherePaid(1)->whereEmail($request->email);
+        $elder = Elder::wherePaid(1)->whereEmail($request->email)->first();
         if (!$elder) return response()->json([
             'message' => UtilController::message('Votre souscription est en attente de validation.', 'danger'),
         ]);
