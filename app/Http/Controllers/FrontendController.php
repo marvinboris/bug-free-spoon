@@ -90,13 +90,14 @@ class FrontendController extends Controller
         }
 
         $elder = Elder::create($input + [
+            'title' => json_encode($request->title),
             'paid' => 0,
         ]);
 
         Notification::send(User::all(), new NewMember($elder));
 
         return response()->json([
-            'message' => UtilController::message('Souscription réussie.', 'success'),
+            'message' => UtilController::message('Formulaire soumis. Votre candidature d\'adhésion est en attente de validation', 'success'),
         ]);
     }
 
@@ -110,7 +111,12 @@ class FrontendController extends Controller
 
         $input = $request->except(['payment', 'email']);
 
-        $input['elder_id'] = Elder::whereEmail($request->email)->first()->id;
+        $elder = Elder::wherePaid(1)->whereEmail($request->email);
+        if (!$elder) return response()->json([
+            'message' => UtilController::message('Votre souscription est en attente de validation.', 'danger'),
+        ]);
+
+        $input['elder_id'] = $elder->id;
 
         if ($file = $request->file('payment')) {
             $fileName = UtilController::resize($file, 'elders');
@@ -124,7 +130,7 @@ class FrontendController extends Controller
         Notification::send(User::all(), new NewContribution($contribution));
 
         return response()->json([
-            'message' => UtilController::message('Souscription réussie.', 'success'),
+            'message' => UtilController::message('Formulaire soumis. Votre cotisation est en attente de validation.', 'success'),
         ]);
     }
 

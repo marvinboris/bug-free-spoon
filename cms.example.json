@@ -567,6 +567,7 @@
                             "title": "Titre du poste",
                             "photo": "Photo",
                             "elder_photo": "Photo de l'ancien",
+                            "paid": "Statut de paiement",
                             "select_status": "Sélectionner le statut",
                             "paid_status": "Payée",
                             "unpaid_status": "Impayée",
