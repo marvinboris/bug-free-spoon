@@ -58,7 +58,7 @@ class Contact extends Component {
                         <div className='col-lg-7'><p>{cms.contact.description}</p></div>
 
                         <div className='col-lg-7'>
-                            <Feedback message={backend_message} />
+                            <Feedback message={backend_message} time={5000} />
                         </div>
 
                         <Input type='text' name='name' className='col-lg-7' onChange={this.inputChangeHandler} value={name} placeholder={cms.contact.name} required validation={{ required: true }} />

@@ -91,7 +91,7 @@ class Join extends Component {
             <CustomSpinner />
         </div>;
         else content = <div className='col-12'>
-            <Feedback message={message} />
+            <Feedback message={message} time={5000} />
 
             <div className='row justify-content-center'>
                 <div className='col-12'>

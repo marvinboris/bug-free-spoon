@@ -208,7 +208,7 @@ class Home extends Component {
 
                     <form className='row' onSubmit={this.saveHandler}>
                         <div className='col-lg-7'>
-                            <Feedback message={message} />
+                            <Feedback message={message} time={5000} />
                         </div>
 
                         <Input type='text' name='name' className='col-lg-7' onChange={this.inputChangeHandler} value={name} placeholder={cms.newsletter.name} required validation={{ required: true }} />
