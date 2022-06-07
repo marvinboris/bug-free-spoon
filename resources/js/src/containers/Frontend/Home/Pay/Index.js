@@ -49,11 +49,17 @@ class Pay extends Component {
         }
     }
 
-    fileUpload = name => document.getElementById(name).click()
+    fileUpload = id => document.getElementById(id).click()
 
 
 
     // Lifecycle methods
+    componentDidUpdate(prevProps) {
+        if (!prevProps.frontend.home.message && this.props.frontend.home.message && this.props.frontend.home.message.type === 'success' && !this.props.edit) {
+            this.setState({ ...initialState });
+        }
+    }
+
     render() {
         const {
             content: {
@@ -79,24 +85,11 @@ class Pay extends Component {
             <div className='row justify-content-center'>
                 <div className="col-12">
                     <Row>
-                        <FormInput className="col-md-6" type="email" name="email" placeholder={cms.form.email} onChange={this.inputChangeHandler} icon="envelope" required value={email} />
-                        <FormInput className="col-md-6" type="number" name="year" placeholder={cms.form.year} onChange={this.inputChangeHandler} icon="calendar-alt" required value={year} />
-                        <FormGroup className='col-md-12'>
-                            <label>{cms.form.payment}</label>
+                        <FormInput className="col-lg-6" type="email" name="email" label={cms.form.email} onChange={this.inputChangeHandler} required value={email} />
+                        <FormInput className="col-lg-6" type="number" name="year" label={cms.form.year} onChange={this.inputChangeHandler} required value={year} />
+                        <FormGroup className='col-lg-12'>
+                            <FormInput type="image" name="payment" label={cms.form.payment} onClick={() => this.fileUpload('payment')} cms={cms.form} value={payment} dimensions='21by9' />
                             <p>{cms.form.payment_details}</p>
-                            <div id="embed-payment" className="embed-responsive embed-responsive-21by9 bg-img" style={{ backgroundImage: payment && `url("${payment}")` }} onClick={() => this.fileUpload('payment')}>
-                                {payment ? <div className="text-center text-green w-100">
-                                    <div className="position-absolute" style={{ top: 0, right: 0, transform: 'translate(50%,-50%)' }}><i className='fas fa-check-circle fa-fw fa-2x' /></div>
-
-                                    <div className="position-absolute file-selected text-truncate w-100 pt-3" style={{ top: '100%', left: 0 }} />
-                                </div> : <div className="text-center text-light w-100 overflow-hidden px-3">
-                                    <div><i className='fas fa-file-image fa-fw fa-4x' /></div>
-
-                                    <div className="mt-3 mb-1 text-center text-12 text-truncate">{cms.form.upload}</div>
-
-                                    <div className="text-center text-12 text-truncate">{cms.form.size}</div>
-                                </div>}
-                            </div>
                         </FormGroup>
                     </Row>
                 </div>

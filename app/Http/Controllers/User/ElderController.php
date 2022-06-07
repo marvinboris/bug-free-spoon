@@ -5,15 +5,19 @@ namespace App\Http\Controllers\User;
 use App\Http\Controllers\Controller;
 use App\Http\Controllers\UtilController;
 use App\Models\Elder;
+use App\Models\School;
+use App\Notifications\ApplicationApproved;
 use App\Notifications\ApplicationRejected;
 use Illuminate\Http\Request;
 
 class ElderController extends Controller
 {
     private $rules = [
+        'school_id' => 'nullable|exists:schools,id',
         'name' => 'required|string',
         'email' => 'required|email',
         'title' => 'array|required',
+        'promotion' => 'nullable|integer',
         'photo' => 'nullable|image',
         'payment' => 'nullable|image',
         'paid' => 'required|integer',
@@ -34,11 +38,14 @@ class ElderController extends Controller
         $filteredData = Elder::orderBy('id');
 
         $filteredData = $filteredData
+            ->join('schools', 'schools.id', '=', 'elders.school_id')
             ->select('elders.*')
             ->when($search, function ($query, $search) {
                 if ($search !== "")
                     $query
                         ->where('elders.title', 'LIKE', "%$search%")
+                        ->orWhere('schools.name', 'LIKE', "%$search%")
+                        ->orWhere('schools.abbr', 'LIKE', "%$search%")
                         ->orWhere('elders.name', 'LIKE', "%$search%");
             });
 
@@ -49,7 +56,9 @@ class ElderController extends Controller
         $filteredData = $filteredData->get();
 
         foreach ($filteredData as $elder) {
-            $elders[] = array_merge($elder->toArray(), []);
+            $elders[] = array_merge($elder->toArray(), [
+                'school' => $elder->school ? $elder->school->name : null
+            ]);
         }
 
         return [
@@ -60,7 +69,11 @@ class ElderController extends Controller
 
     private function information()
     {
-        return [];
+        $schools = School::all();
+
+        return [
+            'schools' => $schools,
+        ];
     }
 
 
@@ -165,17 +178,11 @@ class ElderController extends Controller
             if ($elder->payment && is_file(public_path($elder->payment))) unlink(public_path($elder->payment));
             $elder->delete();
 
-            $data = $this->data();
-
-            $elders = $data['elders'];
-            $total = $data['total'];
-
             return response()->json([
                 'message' => UtilController::message($cms['pages'][$user->language->abbr]['messages']['elders']['application'], 'success'),
-                'elders' => $elders,
-                'total' => $total,
             ]);
         } else {
+            if ($elder->paid == 0) $elder->notify(new ApplicationApproved());
             $elder->update($input + [
                 'title' => json_encode($request->title),
             ]);

@@ -1155,6 +1155,24 @@ var Index = /*#__PURE__*/function (_Component) {
               })
             })]
           }),
+          payment: elder.payment && /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_11__.jsxs)("div", {
+            className: "d-flex",
+            children: [/*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_11__.jsx)("span", {
+              children: see
+            }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_11__.jsx)("span", {
+              className: "ml-auto",
+              children: /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_11__.jsx)(_components_Backend_UI_View_View__WEBPACK_IMPORTED_MODULE_4__["default"], {
+                title: "".concat(form.elder_photo, ": ").concat(elder.name),
+                content: /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_11__.jsx)("img", {
+                  src: elder.payment,
+                  className: "w-100"
+                }),
+                children: /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_11__.jsx)("i", {
+                  className: "fas fa-eye text-green mr-2 fa-fw"
+                })
+              })
+            })]
+          }),
           action: /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_11__.jsxs)("div", {
             className: "text-center",
             children: [/*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_11__.jsx)(react_router_dom__WEBPACK_IMPORTED_MODULE_13__.Link, {
@@ -1203,11 +1221,20 @@ var Index = /*#__PURE__*/function (_Component) {
           name: form.email,
           key: 'email'
         }, {
+          name: form.school,
+          key: 'school'
+        }, {
+          name: form.promotion,
+          key: 'promotion'
+        }, {
           name: form.title,
           key: 'title'
         }, {
           name: form.photo,
           key: 'photo'
+        }, {
+          name: form.payment,
+          key: 'payment'
         }, {
           name: form.paid,
           key: 'paid'

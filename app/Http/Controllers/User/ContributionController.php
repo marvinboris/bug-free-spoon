@@ -6,6 +6,8 @@ use App\Http\Controllers\Controller;
 use App\Http\Controllers\UtilController;
 use App\Models\Contribution;
 use App\Models\Elder;
+use App\Notifications\ContributionApproved;
+use App\Notifications\ContributionRejected;
 use Illuminate\Http\Request;
 
 class ContributionController extends Controller
@@ -113,7 +115,12 @@ class ContributionController extends Controller
 
         $request->validate($this->rules);
 
-        $input = $request->all();
+        $input = $request->except(['payment']);
+
+        if ($file = $request->file('payment')) {
+            $fileName = UtilController::resize($file, 'contributions');
+            $input['payment'] = htmlspecialchars($fileName);
+        }
 
         Contribution::create($input);
 
@@ -135,14 +142,33 @@ class ContributionController extends Controller
         $rules = $this->rules;
         $request->validate($rules);
 
-        $input = $request->all();
+        $input = $request->except(['payment', 'errors']);
 
-        $contribution->update($input);
+        if ($file = $request->file('payment')) {
+            if ($contribution->payment && is_file(public_path($contribution->payment))) unlink(public_path($contribution->payment));
+            $fileName = UtilController::resize($file, 'contributions');
+            $input['payment'] = htmlspecialchars($fileName);
+        }
 
-        return response()->json([
-            'message' => UtilController::message($cms['pages'][$user->language->abbr]['messages']['contributions']['updated'], 'success'),
-            'contribution' => $contribution,
-        ]);
+        if ($request->paid == 0) {
+            $input['errors'] = $request->errors;
+            $contribution->notify(new ContributionRejected($request->errors));
+
+            if ($contribution->payment && is_file(public_path($contribution->payment))) unlink(public_path($contribution->payment));
+            $contribution->delete();
+
+            return response()->json([
+                'message' => UtilController::message($cms['pages'][$user->language->abbr]['messages']['contributions']['application'], 'success'),
+            ]);
+        } else {
+            if ($contribution->paid == 0) $contribution->notify(new ContributionApproved($contribution));
+            $contribution->update($input);
+
+            return response()->json([
+                'message' => UtilController::message($cms['pages'][$user->language->abbr]['messages']['contributions']['updated'], 'success'),
+                'contribution' => $contribution,
+            ]);
+        }
     }
 
     public function destroy($id)

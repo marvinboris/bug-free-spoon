@@ -43,7 +43,7 @@ class NewContribution extends Notification
     public function toMail($notifiable)
     {
         return (new MailMessage)
-            ->line('Nouvelle cotisation annuelle effectuée !')
+            ->greeting('Nouvelle cotisation annuelle effectuée !')
             ->line($this->contribution->elder->name . ' (' . $this->contribution->elder->email . ') vient d\'envoyer sa cotisation annuelle.')
             ->action('La vérifier', url('/user/contributions/' . $this->contribution->id . '/edit'))
             ->line('Merci d\'utiliser notre application !');

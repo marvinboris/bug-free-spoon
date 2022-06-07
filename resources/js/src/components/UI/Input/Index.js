@@ -7,7 +7,7 @@ import { checkValidity } from '../../../shared/utility';
 
 import './Input.scss';
 
-export default ({ id, onChange, size = '', className = '', name, type = 'text', required, readonly, disabled, placeholder, label, value = undefined, defaultValue = undefined, validation = {}, children, bonus, icon, addon, append }) => {
+export default ({ id, onChange, onClick, cms, dimensions = '1by1', size = '', className = '', name, type = 'text', required, readonly, disabled, placeholder, label, value = undefined, defaultValue = undefined, validation = {}, children, bonus, icon, addon, append }) => {
     const [touched, setTouched] = useState(false);
 
     const inputChangedHandler = e => {
@@ -27,7 +27,23 @@ export default ({ id, onChange, size = '', className = '', name, type = 'text', 
         readOnly: readonly,
     };
 
-    const content = <InputGroup>
+    let content;
+    if (type === 'image') {
+        content = <div id={"embed-" + data.id} className={"embed-responsive embed-responsive-" + dimensions + " bg-img"} style={{ backgroundImage: `url("${defaultValue || data.value}")` }} onClick={onClick}>
+            {!defaultValue && ((!defaultValue && data.value) || (!!defaultValue && defaultValue !== data.value) ? <div className="image-selected">
+                <div className="check-circle"><i className='fas fa-check-circle fa-fw fa-2x' /></div>
+
+                <div className="file-selected text-truncate" />
+            </div> : <div className="select-image">
+                <div><i className='fas fa-file-image fa-fw fa-4x' /></div>
+
+                <div className="upload text-truncate">{cms.upload}</div>
+
+                <div className="text-center text-truncate">{cms.size}</div>
+            </div>)}
+        </div>;
+    }
+    else content = <InputGroup>
         {(icon || addon) && <InputGroupAddon addonType="prepend">
             <InputGroupText>
                 {icon ? <div className='icon'>

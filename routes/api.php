@@ -3,6 +3,7 @@
 use App\Http\Controllers\UtilController;
 use Illuminate\Http\Request;
 use App\Models\Language;
+use App\Models\School;
 use Illuminate\Support\Facades\Route;
 
 /*
@@ -71,6 +72,7 @@ Route::namespace('User')->prefix('user')->name('user.')->group(function () {
             });
 
             Route::prefix('elders')->name('elders.')->group(function () {
+                Route::get('info', 'ElderController@info')->name('info');
                 Route::get('{elder}', 'ElderController@show')->name('show');
             });
 
@@ -87,6 +89,10 @@ Route::namespace('User')->prefix('user')->name('user.')->group(function () {
                 Route::get('{contribution}', 'ContributionController@show')->name('show');
             });
 
+            Route::prefix('schools')->name('schools.')->group(function () {
+                Route::get('{school}', 'SchoolController@show')->name('show');
+            });
+
 
 
             Route::apiResources([
@@ -100,6 +106,7 @@ Route::namespace('User')->prefix('user')->name('user.')->group(function () {
                 'publications' => 'PublicationController',
                 'subscribers' => 'SubscriberController',
                 'contributions' => 'ContributionController',
+                'schools' => 'SchoolController',
             ]);
         });
     });
@@ -162,10 +169,12 @@ Route::prefix('content')->name('content.')->group(function () {
             'pages' => $cmsFile['pages'][$abbr],
         ];
         $languages = Language::all();
+        $schools = School::all();
 
         return response()->json([
             'cms' => $cms,
             'languages' => $languages,
+            'schools' => $schools,
         ]);
     })->name('cms');
 });

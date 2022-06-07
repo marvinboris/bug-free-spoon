@@ -6,6 +6,7 @@
 /public/images/events/*
 /public/images/activities/*
 /public/images/elders/*
+/public/images/contributions/*
 /public/images/publications/*
 /storage/*.key
 /vendor

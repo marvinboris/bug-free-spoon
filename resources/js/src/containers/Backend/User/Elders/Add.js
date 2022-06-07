@@ -1,11 +1,11 @@
 import React, { Component, Fragment } from 'react';
 import { connect } from 'react-redux';
 import { Redirect, withRouter } from 'react-router-dom';
-import { Col, FormGroup, Row, Input } from 'reactstrap';
+import { Col, Row } from 'reactstrap';
 
 // Components
+import Input from '../../../../components/UI/Input';
 import Error from '../../../../components/Error/Error';
-import FormInput from '../../../../components/UI/Input';
 import Form from '../../../../components/Backend/UI/Form/Form';
 import Feedback from '../../../../components/Feedback/Feedback';
 import Save from '../../../../components/Backend/UI/Food/Form/Save';
@@ -22,8 +22,11 @@ const initialState = {
     photo: null,
     payment: null,
     paid: '1',
+    errors: '',
+    school_id: '',
+    promotion: '',
 
-    translate: '',
+    translate: process.env.MIX_DEFAULT_LANG,
 
     add: false,
 }
@@ -70,7 +73,7 @@ class Add extends Component {
         }
     }
 
-    fileUpload = () => document.getElementById('photo').click()
+    fileUpload = id => document.getElementById(id).click()
 
 
 
@@ -78,11 +81,11 @@ class Add extends Component {
     componentDidMount() {
         this.props.reset();
         if (this.props.edit) this.props.get(this.props.match.params.id);
-        this.setState({ translate: process.env.MIX_DEFAULT_LANG });
+        else this.props.info();
     }
 
     componentDidUpdate(prevProps) {
-        if (!prevProps.backend.elders.message && this.props.backend.elders.message && this.props.backend.elders.message.type === 'success' && !this.props.edit) {
+        if (!prevProps.backend.elders.message && this.props.backend.elders.message && this.props.backend.elders.message.type === 'success' && (!this.props.edit || (this.props.edit && this.props.backend.elders.elder.paid == 0))) {
             if (this.state.add) this.setState({ ...initialState });
             else this.props.history.push({
                 pathname: '/user/elders',
@@ -96,8 +99,8 @@ class Add extends Component {
             this.setState({ ...elder });
         }
         if (this.props.edit && !prevProps.backend.elders.message && this.props.backend.elders.message && this.props.backend.elders.message.type === 'success') {
-            const { photo } = this.props.backend.elders.elder;
-            this.setState({ photo });
+            const { photo, payment } = this.props.backend.elders.elder;
+            this.setState({ photo, payment });
         }
     }
 
@@ -112,10 +115,10 @@ class Add extends Component {
                     pages: { backend: { pages: { elders: { icon, title, add, edit, index, form } } } }
                 }, languages
             },
-            backend: { elders: { loading, error, message, elder } },
+            backend: { elders: { loading, error, message, schools = [], elder = {} } },
             auth: { data: { role: { features } } }
         } = this.props;
-        const { title: elder_title, name, email, photo, payment, paid, translate } = this.state;
+        const { title: elder_title, name, email, photo, payment, paid, errors: form_errors, school_id, promotion, translate } = this.state;
         let content;
 
         const errors = <>
@@ -125,6 +128,7 @@ class Add extends Component {
         const feature = features.find(f => f.prefix === 'elders');
         const redirect = !(feature && JSON.parse(feature.permissions).includes(this.props.edit ? 'u' : 'c')) && <Redirect to="/user/dashboard" />;
 
+        const schoolsOptions = schools.sort((a, b) => a.name.localeCompare(b.name)).map(school => <option key={JSON.stringify(school)} value={school.id}>{school.name}</option>);
         const languagesOptions = languages.map(language => <option key={JSON.stringify(language)} value={language.abbr}>{language.name}</option>);
 
         if (loading) content = <Col xs={12}>
@@ -139,17 +143,15 @@ class Add extends Component {
                 <div className="col-lg-9">
                     <div className="row">
                         {languages.map(l => <Fragment key={'language-' + l.abbr}>
-                            <FormInput type="text" id={"title-" + l.abbr} className={"col-md-12" + (l.abbr === translate ? "" : " d-none")} onChange={this.inputChangeHandler} value={elder_title[l.abbr]} name={"title[" + l.abbr + "]"} required label={form.title} />
+                            <Input type="text" id={"title-" + l.abbr} className={"col-lg-12" + (l.abbr === translate ? "" : " d-none")} onChange={this.inputChangeHandler} value={elder_title[l.abbr]} name={"title[" + l.abbr + "]"} required label={form.title} />
                         </Fragment>)}
                     </div>
                 </div>
 
                 <div className="col-lg-3">
-                    <FormGroup>
-                        <Input type="select" name="translate" onChange={this.inputChangeHandler} value={translate}>
-                            {languagesOptions}
-                        </Input>
-                    </FormGroup>
+                    <Input type="select" name="translate" label={form.language} onChange={this.inputChangeHandler} value={translate}>
+                        {languagesOptions}
+                    </Input>
                 </div>
 
                 <div className="col-12 mb-3">
@@ -158,74 +160,26 @@ class Add extends Component {
 
                 <div className="col-lg-9">
                     <Row>
-                        <FormInput className="col-md-6" type="text" name="name" label={form.name} onChange={this.inputChangeHandler} required value={name} />
-                        <FormInput className="col-md-6" type="email" name="email" label={form.email} onChange={this.inputChangeHandler} required value={email} />
-                        <FormInput className="col-md-6" type="select" name="paid" label={form.paid} onChange={this.inputChangeHandler} required value={paid}>
-                            <option>{form.select_status}</option>
-                            <option value={0}>{form.unpaid_status}</option>
-                            <option value={1}>{form.paid_status}</option>
-                        </FormInput>
-                        <FormGroup className='col-md-12'>
-                            <label className='text-500 mb-2'>{form.payment}</label>
-                            <div id="embed-payment" className="embed-responsive embed-responsive-21by9 bg-border-10 rounded-15 d-flex justify-content-center align-items-center position-relative" style={{
-                                cursor: 'pointer',
-                                backgroundImage: payment && `url("${payment}")`,
-                                backgroundRepeat: 'no-repeat',
-                                backgroundPosition: 'center',
-                                backgroundSize: 'cover',
-                                overflow: 'visible',
-                            }} onClick={() => this.fileUpload('payment')}>
-                                {this.props.edit
-                                    ? payment && (payment !== elder.payment) && <div className="text-center text-green w-100">
-                                        <div className="position-absolute" style={{ top: 0, right: 0, transform: 'translate(50%,-50%)' }}><i className='fas fa-check-circle fa-fw fa-2x' /></div>
+                        <Input className="col-lg-6" type="text" name="name" label={form.name} onChange={this.inputChangeHandler} required value={name} />
+                        <Input className="col-lg-6" type="email" name="email" label={form.email} onChange={this.inputChangeHandler} required value={email} />
+                        <Input className="col-lg-6" type="select" name="school_id" label={form.school} onChange={this.inputChangeHandler} required value={school_id}>
+                            <option>{form.select_school}</option>
+                            {schoolsOptions}
+                        </Input>
+                        <Input className="col-lg-6" type="number" name="promotion" label={form.promotion} onChange={this.inputChangeHandler} required value={promotion} />
+                        <Input className="col-lg-12" type="image" name="payment" label={form.payment} onClick={() => this.fileUpload('payment')} cms={form} defaultValue={elder.payment} value={payment} dimensions='21by9' />
+                        {this.props.edit && paid == 0 && <Input className="col-lg-12" type="textarea" name="errors" label={form.errors} onChange={this.inputChangeHandler} required value={form_errors} />}
 
-                                        <div className="position-absolute file-selected text-truncate w-100 pt-3" style={{ top: '100%', left: 0 }} />
-                                    </div>
-                                    : payment ? <div className="text-center text-green w-100">
-                                        <div className="position-absolute" style={{ top: 0, right: 0, transform: 'translate(50%,-50%)' }}><i className='fas fa-check-circle fa-fw fa-2x' /></div>
-
-                                        <div className="position-absolute file-selected text-truncate w-100 pt-3" style={{ top: '100%', left: 0 }} />
-                                    </div> : <div className="text-center text-light w-100 overflow-hidden px-3">
-                                        <div><i className='fas fa-file-image fa-fw fa-4x' /></div>
-
-                                        <div className="mt-3 mb-1 text-center text-12 text-truncate">{form.upload}</div>
-
-                                        <div className="text-center text-12 text-truncate">{form.size}</div>
-                                    </div>}
-                            </div>
-                        </FormGroup>
                     </Row>
                 </div>
 
                 <div className="col-lg-3">
-                    <FormGroup className='col-md-12'>
-                        <div id="embed-photo" className="embed-responsive embed-responsive-1by1 bg-border-10 rounded-15 d-flex justify-content-center align-items-center position-relative" style={{
-                            cursor: 'pointer',
-                            backgroundImage: photo && `url("${photo}")`,
-                            backgroundRepeat: 'no-repeat',
-                            backgroundPosition: 'center',
-                            backgroundSize: 'cover',
-                            overflow: 'visible',
-                        }} onClick={() => this.fileUpload('photo')}>
-                            {this.props.edit
-                                ? photo && (photo !== elder.photo) && <div className="text-center text-green w-100">
-                                    <div className="position-absolute" style={{ top: 0, right: 0, transform: 'translate(50%,-50%)' }}><i className='fas fa-check-circle fa-fw fa-2x' /></div>
-
-                                    <div className="position-absolute file-selected text-truncate w-100 pt-3" style={{ top: '100%', left: 0 }} />
-                                </div>
-                                : photo ? <div className="text-center text-green w-100">
-                                    <div className="position-absolute" style={{ top: 0, right: 0, transform: 'translate(50%,-50%)' }}><i className='fas fa-check-circle fa-fw fa-2x' /></div>
-
-                                    <div className="position-absolute file-selected text-truncate w-100 pt-3" style={{ top: '100%', left: 0 }} />
-                                </div> : <div className="text-center text-light w-100 overflow-hidden px-3">
-                                    <div><i className='fas fa-file-image fa-fw fa-4x' /></div>
-
-                                    <div className="mt-3 mb-1 text-center text-12 text-truncate">{form.upload}</div>
-
-                                    <div className="text-center text-12 text-truncate">{form.size}</div>
-                                </div>}
-                        </div>
-                    </FormGroup>
+                    <Input type="select" name="paid" label={form.paid} onChange={this.inputChangeHandler} required value={paid}>
+                        <option>{form.select_status}</option>
+                        <option value={0}>{form.unpaid_status}</option>
+                        <option value={1}>{form.paid_status}</option>
+                    </Input>
+                    <Input type="image" name="photo" label={form.photo} onClick={() => this.fileUpload('photo')} cms={form} defaultValue={elder.photo} value={photo} />
                 </div>
             </div>
 

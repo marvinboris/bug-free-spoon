@@ -59,6 +59,15 @@ class Index extends Component {
                         </View>
                     </span>
                 </div>,
+                payment: elder.payment && <div className="d-flex">
+                    <span>{see}</span>
+
+                    <span className="ml-auto">
+                        <View title={`${form.elder_photo}: ${elder.name}`} content={<img src={elder.payment} className="w-100" />}>
+                            <i className="fas fa-eye text-green mr-2 fa-fw" />
+                        </View>
+                    </span>
+                </div>,
                 action: <div className="text-center">
                     <Link to={`/user/elders/${elder.id}`} className="mx-1">
                         <i className="fas fa-eye text-green fa-fw" />
@@ -75,8 +84,11 @@ class Index extends Component {
             fields={[
                 { name: form.name, key: 'name' },
                 { name: form.email, key: 'email' },
+                { name: form.school, key: 'school' },
+                { name: form.promotion, key: 'promotion' },
                 { name: form.title, key: 'title' },
                 { name: form.photo, key: 'photo' },
+                { name: form.payment, key: 'payment' },
                 { name: form.paid, key: 'paid' },
                 { name: action, key: 'action', fixed: true }
             ]} />;

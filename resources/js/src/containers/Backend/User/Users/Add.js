@@ -104,7 +104,7 @@ class Add extends Component {
                     pages: { backend: { pages: { users: { icon, title, add, edit, index, form } } } }
                 }
             },
-            backend: { users: { loading, error, message, roles = [], user } },
+            backend: { users: { loading, error, message, roles = [], user = {} } },
             auth: { data: { role: { features } } }
         } = this.props;
         const { name, phone, photo, email, password, password_confirmation, role_id } = this.state;
@@ -130,12 +130,12 @@ class Add extends Component {
             <Row>
                 <div className="col-lg-9">
                     <Row>
-                        <FormInput type="text" className="col-md-6" onChange={this.inputChangeHandler} value={name} name="name" required label={form.name} />
-                        <FormInput type="tel" className="col-md-6" addon={<span className="text-secondary text-small">+237</span>} onChange={this.inputChangeHandler} value={phone} name="phone" required label={form.phone} />
-                        <FormInput type="password" className="col-md-6" onChange={this.inputChangeHandler} value={password} name="password" label={form.password} />
-                        <FormInput type="password" className="col-md-6" onChange={this.inputChangeHandler} value={password_confirmation} name="password_confirmation" label={form.password_confirmation} />
-                        <FormInput type="email" className="col-md-6" onChange={this.inputChangeHandler} value={email} name="email" label={form.email} />
-                        <FormInput className="col-lg-6" type="select" name="role_id" label={form.role} onChange={this.inputChangeHandler} required value={role_id}>
+                        <FormInput type="text" className="col-lg-6" onChange={this.inputChangeHandler} value={name} name="name" required label={form.name} />
+                        <FormInput type="tel" className="col-lg-6" addon={<span className="text-secondary text-small">+237</span>} onChange={this.inputChangeHandler} value={phone} name="phone" required label={form.phone} />
+                        <FormInput type="password" className="col-lg-6" onChange={this.inputChangeHandler} value={password} name="password" label={form.password} />
+                        <FormInput type="password" className="col-lg-6" onChange={this.inputChangeHandler} value={password_confirmation} name="password_confirmation" label={form.password_confirmation} />
+                        <FormInput type="email" className="col-lg-6" onChange={this.inputChangeHandler} value={email} name="email" label={form.email} />
+                        <FormInput type="select" className="col-lg-6" name="role_id" label={form.role} onChange={this.inputChangeHandler} required value={role_id}>
                             <option>{form.select_role}</option>
                             {rolesOptions}
                         </FormInput>
@@ -143,34 +143,7 @@ class Add extends Component {
                 </div>
 
                 <div className="col-lg-3">
-                    <FormGroup>
-                        <div id="embed-photo" className="embed-responsive embed-responsive-1by1 bg-border-5 rounded-8 d-flex justify-content-center align-items-center position-relative" style={{
-                            cursor: 'pointer',
-                            backgroundImage: photo && `url("${photo}")`,
-                            backgroundRepeat: 'no-repeat',
-                            backgroundPosition: 'center',
-                            backgroundSize: 'cover',
-                            overflow: 'visible',
-                        }} onClick={this.fileUpload}>
-                            {this.props.edit
-                                ? photo && (photo !== user.photo) && <div className="text-center text-green w-100">
-                                    <div className="position-absolute" style={{ top: 0, right: 0, transform: 'translate(50%,-50%)' }}><i className='fas fa-check-circle fa-fw fa-2x' /></div>
-
-                                    <div className="position-absolute file-selected text-truncate w-100 pt-3" style={{ top: '100%', left: 0 }} />
-                                </div>
-                                : photo ? <div className="text-center text-green w-100">
-                                    <div className="position-absolute" style={{ top: 0, right: 0, transform: 'translate(50%,-50%)' }}><i className='fas fa-check-circle fa-fw fa-2x' /></div>
-
-                                    <div className="position-absolute file-selected text-truncate w-100 pt-3" style={{ top: '100%', left: 0 }} />
-                                </div> : <div className="text-center text-light w-100 overflow-hidden px-3">
-                                    <div><i className='fas fa-file-image fa-fw fa-4x' /></div>
-
-                                    <div className="mt-3 mb-1 text-center text-12 text-truncate">{form.upload}</div>
-
-                                    <div className="text-center text-12 text-truncate">{form.size}</div>
-                                </div>}
-                        </div>
-                    </FormGroup>
+                    <FormInput type="image" name="photo" label={form.photo} onClick={this.fileUpload} cms={form} defaultValue={user.photo} value={photo} />
                 </div>
 
                 <Save edit={this.props.edit} saveAddHandler={this.saveAddHandler} />

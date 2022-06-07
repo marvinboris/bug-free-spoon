@@ -15,7 +15,7 @@ class Logo extends Component {
         } = this.props;
         const styles = {
             default: {},
-            big: {},
+            big: { height: 70 },
             sm: {},
             named: { height: 60 },
         };

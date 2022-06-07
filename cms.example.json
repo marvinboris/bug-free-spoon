@@ -211,6 +211,12 @@
                     "created": "Cotisation cr\u00e9\u00e9e avec succ\u00e8s.",
                     "updated": "Cotisation modifi\u00e9e avec succ\u00e8s.",
                     "deleted": "Cotisation supprim\u00e9e avec succ\u00e8s."
+                },
+                "schools": {
+                    "not_found": "Ecole introuvable.",
+                    "created": "Ecole cr\u00e9\u00e9e avec succ\u00e8s.",
+                    "updated": "Ecole modifi\u00e9e avec succ\u00e8s.",
+                    "deleted": "Ecole supprim\u00e9e avec succ\u00e8s."
                 }
             },
             "backend": {
@@ -329,6 +335,12 @@
                             "title": "Cotisations",
                             "add": "Ajouter une cotisation",
                             "index": "Liste des cotisations"
+                        },
+                        "schools": {
+                            "icon": "school",
+                            "title": "Ecoles",
+                            "add": "Ajouter une école",
+                            "index": "Liste des écoles"
                         }
                     }
                 },
@@ -538,6 +550,7 @@
                             "date": "Date",
                             "photo": "Photo",
                             "event_photo": "Photo de l'\u00e9v\u00e8nement",
+                            "language": "Langue",
                             "created_at": "Cr\u00e9\u00e9 le"
                         }
                     },
@@ -553,6 +566,8 @@
                             "slug": "Slug",
                             "photo": "Photo",
                             "activity_photo": "Photo de l'activit\u00e9",
+                            "language": "Langue",
+                            "is_active": "Status",
                             "created_at": "Cr\u00e9\u00e9e le"
                         }
                     },
@@ -566,12 +581,18 @@
                             "name": "Nom",
                             "title": "Titre du poste",
                             "photo": "Photo",
+                            "school": "Ecole",
+                            "select_school": "Sélectionner une école",
+                            "promotion": "Promotion",
                             "email": "Adresse mail",
                             "elder_photo": "Photo de l'ancien",
                             "paid": "Statut de paiement",
+                            "payment": "Preuve de paiement",
+                            "language": "Langue",
                             "select_status": "Sélectionner le statut",
                             "paid_status": "Payée",
                             "unpaid_status": "Impayée",
+                            "errors": "Corrections à effectuer",
                             "created_at": "Cr\u00e9\u00e9e le"
                         }
                     },
@@ -589,6 +610,7 @@
                             "publication_photo": "Photo de la publication",
                             "is_active": "Status",
                             "select_status": "S\u00e9lectionner le statut",
+                            "language": "Langue",
                             "created_at": "Cr\u00e9\u00e9e le"
                         }
                     },
@@ -612,12 +634,26 @@
                         "index": "Liste des cotisations",
                         "form": {
                             "elder": "Ancien",
+                            "select_elder": "Sélectionner un ancien",
                             "year": "Année cotisée",
                             "payment": "Preuve de paiement",
                             "paid": "Statut de paiement",
                             "select_status": "Sélectionner le statut",
                             "paid_status": "Payée",
                             "unpaid_status": "Impayée",
+                            "created_at": "Cr\u00e9\u00e9e le"
+                        }
+                    },
+                    "schools": {
+                        "icon": "school",
+                        "title": "Ecoles",
+                        "add": "Ajouter une école",
+                        "edit": "Modifier une école",
+                        "index": "Liste des écoles",
+                        "form": {
+                            "name": "Nom",
+                            "abbr": "Abrévation",
+                            "link": "Site web",
                             "created_at": "Cr\u00e9\u00e9e le"
                         }
                     }
@@ -634,7 +670,27 @@
                     }
                 },
                 "footer": {
-                    "fiducac": "F\u00e9d\u00e9ration Internationale Des Dipl\u00f4m\u00e9s De L'UCAC"
+                    "fiducac": "F\u00e9d\u00e9ration Internationale Des Dipl\u00f4m\u00e9s De L'UCAC",
+                    "social_networks": {
+                        "title": "Réseaux sociaux",
+                        "list": [
+                            {
+                                "icon": "facebook-square",
+                                "link": "https://web.facebook.com/equipefiducac/?_rdc=1&_rdr"
+                            },
+                            {
+                                "icon": "linkedin",
+                                "link": "https://www.linkedin.com/company/fiducac/about/"
+                            },
+                            {
+                                "icon": "twitter-square",
+                                "link": "https://twitter.com/fiducac?lang=fr"
+                            }
+                        ]
+                    },
+                    "schools": {
+                        "title": "Les écoles de l'UCAC"
+                    }
                 },
                 "pages": {
                     "home": {
@@ -678,7 +734,11 @@
                                     "photo": "Votre photo",
                                     "upload": "Envoyer",
                                     "payment": "Preuve de paiement",
+                                    "school": "Ecole",
+                                    "select_school": "Sélectionner une école",
+                                    "promotion": "Promotion",
                                     "submit": "Soumettre",
+                                    "language": "Langue",
                                     "all_languages": "Assurez-vous de renseigner les informations dans toutes les langues avant de soumettre le formulaire.",
                                     "payment_details": "Afin de confirmer votre adhésion à la Fiducac, veuillez effectuer un paiement et en envoyer la preuve en image (une capture d'écran du message de transfert ou de dépôt, par exemple)."
                                 }

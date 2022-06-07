@@ -18,25 +18,48 @@
     }
 
     footer {
-        font-size: 18px;
-        background-color: var(--white);
+        .top {
+            padding: 20px 0;
+            background-color: var(--blue-5);
+            border-top: .5px solid var(--blue-50);
 
-        .container {
-            display: flex;
-            padding: 40px 0;
-            justify-content: space-between;
-            align-items: center;
-
-            .left a {
+            .title {
+                font-size: 18px;
                 font-weight: 500;
                 color: var(--blue);
+                margin-bottom: 10px;
+                display: inline-block;
+                border-bottom: .5px solid var(--border);
+            }
+
+            .social-networks a {
+                font-size: 30px;
+                margin-right: 13px;
+                color: var(--border);
                 text-decoration: none;
             }
 
-            .right a {
-                font-size: 30px;
-                margin-left: 10px;
-                color: var(--blue);
+            .schools {
+                i {
+                    margin-right: 10px;
+                }
+
+                a {
+                    color: var(--border);
+                }
+            }
+        }
+
+        .bottom {
+            font-size: 18px;
+            padding: 20px 0;
+            text-align: center;
+            color: var(--white);
+            background-color: var(--blue);
+
+            a {
+                font-weight: 500;
+                color: var(--white);
                 text-decoration: none;
             }
         }

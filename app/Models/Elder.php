@@ -14,8 +14,13 @@ class Elder extends Model
     protected $directory = '/images/elders/';
 
     public $fillable = [
-        'name', 'email', 'title', 'photo', 'payment', 'paid',
+        'school_id', 'name', 'email', 'title', 'photo', 'promotion', 'payment', 'paid',
     ];
+
+    public function school()
+    {
+        return $this->belongsTo(School::class);
+    }
 
     public function getTitleAttribute($value)
     {

@@ -3,6 +3,7 @@ import { connect } from 'react-redux';
 import { Link, withRouter } from 'react-router-dom';
 
 import Toolbar from '../../components/Navigation/Toolbar';
+import Logo from '../../components/UI/Logo/Logo';
 
 import './Frontend.scss';
 
@@ -13,7 +14,7 @@ class Layout extends Component {
             content: {
                 cms: {
                     pages: { frontend: { footer } }
-                }
+                }, schools
             }
         } = this.props;
 
@@ -23,15 +24,31 @@ class Layout extends Component {
             <div className='main'>{children}</div>
 
             <footer>
-                <div className='container'>
-                    <div className='left'>
-                        © {(new Date()).getFullYear()} <Link to='/'>{footer.fiducac}</Link>
-                    </div>
+                <div className='top'>
+                    <div className='container'>
+                        <div className='row'>
+                            <div className='col-lg-3'>
+                                <Logo type='big' />
+                            </div>
 
-                    <div className='right'>
-                        <a href='' target='_blank'><i className='fab fa-facebook-square' /></a>
-                        <a href='' target='_blank'><i className='fab fa-linkedin' /></a>
-                        <a href='' target='_blank'><i className='fab fa-twitter-square' /></a>
+                            <div className='col-lg-3 social-networks'>
+                                <div className='title'>{footer.social_networks.title}</div>
+
+                                <div>{footer.social_networks.list.map(social_network => <a key={JSON.stringify(social_network)} href={social_network.link} target='_blank'><i className={'fab fa-' + social_network.icon} /></a>)}</div>
+                            </div>
+
+                            <div className='col-lg-4 schools'>
+                                <div className='title'>{footer.schools.title}</div>
+
+                                <div className='row'>{schools.map(school => <div key={JSON.stringify(school)} className='col-lg-6'><i className='fas fa-angle-double-right' /><a href={school.link} target="_blank">{school.abbr}</a></div>)}</div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <div className='bottom'>
+                    <div className='container'>
+                        © {(new Date()).getFullYear()} <Link to='/'>{footer.fiducac}</Link>
                     </div>
                 </div>
             </footer>

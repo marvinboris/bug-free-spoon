@@ -430,6 +430,10 @@ function _arrayWithHoles(arr) { if (Array.isArray(arr)) return arr; }
 /* harmony default export */ const __WEBPACK_DEFAULT_EXPORT__ = (function (_ref) {
   var id = _ref.id,
       onChange = _ref.onChange,
+      onClick = _ref.onClick,
+      cms = _ref.cms,
+      _ref$dimensions = _ref.dimensions,
+      dimensions = _ref$dimensions === void 0 ? '1by1' : _ref$dimensions,
       _ref$size = _ref.size,
       size = _ref$size === void 0 ? '' : _ref$size,
       _ref$className = _ref.className,
@@ -481,8 +485,42 @@ function _arrayWithHoles(arr) { if (Array.isArray(arr)) return arr; }
     id: id ? id : name,
     readOnly: readonly
   };
+  var content;
 
-  var content = /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_4__.jsxs)(reactstrap__WEBPACK_IMPORTED_MODULE_5__["default"], {
+  if (type === 'image') {
+    content = /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_4__.jsx)("div", {
+      id: "embed-" + data.id,
+      className: "embed-responsive embed-responsive-" + dimensions + " bg-img",
+      style: {
+        backgroundImage: "url(\"".concat(defaultValue || data.value, "\")")
+      },
+      onClick: onClick,
+      children: !defaultValue && (!defaultValue && data.value || !!defaultValue && defaultValue !== data.value ? /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_4__.jsxs)("div", {
+        className: "image-selected",
+        children: [/*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_4__.jsx)("div", {
+          className: "check-circle",
+          children: /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_4__.jsx)("i", {
+            className: "fas fa-check-circle fa-fw fa-2x"
+          })
+        }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_4__.jsx)("div", {
+          className: "file-selected text-truncate"
+        })]
+      }) : /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_4__.jsxs)("div", {
+        className: "select-image",
+        children: [/*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_4__.jsx)("div", {
+          children: /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_4__.jsx)("i", {
+            className: "fas fa-file-image fa-fw fa-4x"
+          })
+        }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_4__.jsx)("div", {
+          className: "upload text-truncate",
+          children: cms.upload
+        }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_4__.jsx)("div", {
+          className: "text-center text-truncate",
+          children: cms.size
+        })]
+      }))
+    });
+  } else content = /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_4__.jsxs)(reactstrap__WEBPACK_IMPORTED_MODULE_5__["default"], {
     children: [(icon || addon) && /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_4__.jsx)(reactstrap__WEBPACK_IMPORTED_MODULE_6__["default"], {
       addonType: "prepend",
       children: /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_4__.jsxs)(reactstrap__WEBPACK_IMPORTED_MODULE_7__["default"], {
@@ -1051,11 +1089,10 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony export */ });
 /* harmony import */ var react__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! react */ "./node_modules/react/index.js");
 /* harmony import */ var react_redux__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! react-redux */ "./node_modules/react-redux/es/index.js");
-/* harmony import */ var reactstrap__WEBPACK_IMPORTED_MODULE_9__ = __webpack_require__(/*! reactstrap */ "./node_modules/reactstrap/es/FormGroup.js");
-/* harmony import */ var reactstrap__WEBPACK_IMPORTED_MODULE_10__ = __webpack_require__(/*! reactstrap */ "./node_modules/reactstrap/es/Input.js");
-/* harmony import */ var reactstrap__WEBPACK_IMPORTED_MODULE_11__ = __webpack_require__(/*! reactstrap */ "./node_modules/reactstrap/es/Row.js");
-/* harmony import */ var _components_Error_Error__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! ../../../../components/Error/Error */ "./resources/js/src/components/Error/Error.js");
-/* harmony import */ var _components_UI_Input__WEBPACK_IMPORTED_MODULE_3__ = __webpack_require__(/*! ../../../../components/UI/Input */ "./resources/js/src/components/UI/Input/index.js");
+/* harmony import */ var reactstrap__WEBPACK_IMPORTED_MODULE_9__ = __webpack_require__(/*! reactstrap */ "./node_modules/reactstrap/es/Row.js");
+/* harmony import */ var reactstrap__WEBPACK_IMPORTED_MODULE_10__ = __webpack_require__(/*! reactstrap */ "./node_modules/reactstrap/es/FormGroup.js");
+/* harmony import */ var _components_UI_Input__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! ../../../../components/UI/Input */ "./resources/js/src/components/UI/Input/index.js");
+/* harmony import */ var _components_Error_Error__WEBPACK_IMPORTED_MODULE_3__ = __webpack_require__(/*! ../../../../components/Error/Error */ "./resources/js/src/components/Error/Error.js");
 /* harmony import */ var _components_Feedback_Feedback__WEBPACK_IMPORTED_MODULE_4__ = __webpack_require__(/*! ../../../../components/Feedback/Feedback */ "./resources/js/src/components/Feedback/Feedback.js");
 /* harmony import */ var _components_UI_CustomSpinner_CustomSpinner__WEBPACK_IMPORTED_MODULE_5__ = __webpack_require__(/*! ../../../../components/UI/CustomSpinner/CustomSpinner */ "./resources/js/src/components/UI/CustomSpinner/CustomSpinner.js");
 /* harmony import */ var _store_actions_frontend_home__WEBPACK_IMPORTED_MODULE_6__ = __webpack_require__(/*! ../../../../store/actions/frontend/home */ "./resources/js/src/store/actions/frontend/home.js");
@@ -1107,7 +1144,9 @@ var initialState = {
   email: '',
   photo: null,
   payment: null,
-  translate: ''
+  school_id: '',
+  promotion: '',
+  translate: "fr"
 };
 
 var Join = /*#__PURE__*/function (_Component) {
@@ -1167,20 +1206,20 @@ var Join = /*#__PURE__*/function (_Component) {
       }
     });
 
-    _defineProperty(_assertThisInitialized(_this), "fileUpload", function (name) {
-      return document.getElementById(name).click();
+    _defineProperty(_assertThisInitialized(_this), "fileUpload", function (id) {
+      return document.getElementById(id).click();
     });
 
     return _this;
   }
 
   _createClass(Join, [{
-    key: "componentDidMount",
+    key: "componentDidUpdate",
     value: // Lifecycle methods
-    function componentDidMount() {
-      this.setState({
-        translate: "fr"
-      });
+    function componentDidUpdate(prevProps) {
+      if (!prevProps.frontend.home.message && this.props.frontend.home.message && this.props.frontend.home.message.type === 'success' && !this.props.edit) {
+        this.setState(_objectSpread({}, initialState));
+      }
     }
   }, {
     key: "render",
@@ -1191,6 +1230,7 @@ var Join = /*#__PURE__*/function (_Component) {
           _this$props$content = _this$props.content,
           cms = _this$props$content.cms.pages.frontend.pages.home.about.join,
           languages = _this$props$content.languages,
+          schools = _this$props$content.schools,
           _this$props$frontend$ = _this$props.frontend.home,
           loading = _this$props$frontend$.loading,
           error = _this$props$frontend$.error,
@@ -1201,15 +1241,25 @@ var Join = /*#__PURE__*/function (_Component) {
           email = _this$state.email,
           photo = _this$state.photo,
           payment = _this$state.payment,
+          school_id = _this$state.school_id,
+          promotion = _this$state.promotion,
           translate = _this$state.translate;
       var content;
 
       var errors = /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_8__.jsx)(react_jsx_runtime__WEBPACK_IMPORTED_MODULE_8__.Fragment, {
-        children: /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_8__.jsx)(_components_Error_Error__WEBPACK_IMPORTED_MODULE_2__["default"], {
+        children: /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_8__.jsx)(_components_Error_Error__WEBPACK_IMPORTED_MODULE_3__["default"], {
           err: error
         })
       });
 
+      var schoolsOptions = schools.sort(function (a, b) {
+        return a.name.localeCompare(b.name);
+      }).map(function (school) {
+        return /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_8__.jsx)("option", {
+          value: school.id,
+          children: school.name
+        }, JSON.stringify(school));
+      });
       var languagesOptions = languages.map(function (language) {
         return /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_8__.jsx)("option", {
           value: language.abbr,
@@ -1222,7 +1272,8 @@ var Join = /*#__PURE__*/function (_Component) {
       });else content = /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_8__.jsxs)("div", {
         className: "col-12",
         children: [/*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_8__.jsx)(_components_Feedback_Feedback__WEBPACK_IMPORTED_MODULE_4__["default"], {
-          message: message
+          message: message,
+          time: 5000
         }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_8__.jsxs)("div", {
           className: "row justify-content-center",
           children: [/*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_8__.jsxs)("div", {
@@ -1239,150 +1290,94 @@ var Join = /*#__PURE__*/function (_Component) {
               className: "row",
               children: languages.map(function (l) {
                 return /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_8__.jsx)(react__WEBPACK_IMPORTED_MODULE_0__.Fragment, {
-                  children: /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_8__.jsx)(_components_UI_Input__WEBPACK_IMPORTED_MODULE_3__["default"], {
+                  children: /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_8__.jsx)(_components_UI_Input__WEBPACK_IMPORTED_MODULE_2__["default"], {
                     type: "text",
                     id: "title-" + l.abbr,
-                    className: "col-md-12" + (l.abbr === translate ? "" : " d-none"),
-                    icon: "user-tie",
+                    className: "col-lg-12" + (l.abbr === translate ? "" : " d-none"),
                     onChange: _this2.inputChangeHandler,
                     value: title[l.abbr],
                     name: "title[" + l.abbr + "]",
                     required: true,
-                    placeholder: cms.form.title
+                    label: cms.form.title
                   })
                 }, 'language-' + l.abbr);
               })
             })
           }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_8__.jsx)("div", {
             className: "col-lg-3",
-            children: /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_8__.jsx)(reactstrap__WEBPACK_IMPORTED_MODULE_9__["default"], {
-              children: /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_8__.jsx)(reactstrap__WEBPACK_IMPORTED_MODULE_10__["default"], {
-                type: "select",
-                name: "translate",
-                onChange: this.inputChangeHandler,
-                value: translate,
-                children: languagesOptions
-              })
+            children: /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_8__.jsx)(_components_UI_Input__WEBPACK_IMPORTED_MODULE_2__["default"], {
+              type: "select",
+              name: "translate",
+              label: cms.form.language,
+              onChange: this.inputChangeHandler,
+              value: translate,
+              children: languagesOptions
             })
           }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_8__.jsx)("div", {
             className: "col-12 mb-3",
             children: /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_8__.jsx)("hr", {})
           }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_8__.jsx)("div", {
             className: "col-12",
-            children: /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_8__.jsxs)(reactstrap__WEBPACK_IMPORTED_MODULE_11__["default"], {
-              children: [/*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_8__.jsx)(_components_UI_Input__WEBPACK_IMPORTED_MODULE_3__["default"], {
-                className: "col-md-6",
+            children: /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_8__.jsxs)(reactstrap__WEBPACK_IMPORTED_MODULE_9__["default"], {
+              children: [/*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_8__.jsx)(_components_UI_Input__WEBPACK_IMPORTED_MODULE_2__["default"], {
+                className: "col-lg-6",
                 type: "text",
                 name: "name",
-                placeholder: cms.form.name,
+                label: cms.form.name,
                 onChange: this.inputChangeHandler,
-                icon: "user",
                 required: true,
                 value: name
-              }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_8__.jsx)(_components_UI_Input__WEBPACK_IMPORTED_MODULE_3__["default"], {
-                className: "col-md-6",
+              }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_8__.jsx)(_components_UI_Input__WEBPACK_IMPORTED_MODULE_2__["default"], {
+                className: "col-lg-6",
                 type: "email",
                 name: "email",
-                placeholder: cms.form.email,
+                label: cms.form.email,
                 onChange: this.inputChangeHandler,
-                icon: "envelope",
                 required: true,
                 value: email
-              }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_8__.jsxs)(reactstrap__WEBPACK_IMPORTED_MODULE_9__["default"], {
-                className: "col-md-6",
-                children: [/*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_8__.jsx)("label", {
-                  children: cms.form.photo
-                }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_8__.jsx)("div", {
-                  id: "embed-photo",
-                  className: "embed-responsive embed-responsive-1by1 bg-img",
-                  style: {
-                    backgroundImage: photo && "url(\"".concat(photo, "\")")
-                  },
-                  onClick: function onClick() {
-                    return _this2.fileUpload('photo');
-                  },
-                  children: photo ? /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_8__.jsxs)("div", {
-                    className: "text-center text-green w-100",
-                    children: [/*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_8__.jsx)("div", {
-                      className: "position-absolute",
-                      style: {
-                        top: 0,
-                        right: 0,
-                        transform: 'translate(50%,-50%)'
-                      },
-                      children: /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_8__.jsx)("i", {
-                        className: "fas fa-check-circle fa-fw fa-2x"
-                      })
-                    }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_8__.jsx)("div", {
-                      className: "position-absolute file-selected text-truncate w-100 pt-3",
-                      style: {
-                        top: '100%',
-                        left: 0
-                      }
-                    })]
-                  }) : /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_8__.jsxs)("div", {
-                    className: "text-center text-light w-100 overflow-hidden px-3",
-                    children: [/*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_8__.jsx)("div", {
-                      children: /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_8__.jsx)("i", {
-                        className: "fas fa-file-image fa-fw fa-4x"
-                      })
-                    }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_8__.jsx)("div", {
-                      className: "mt-3 mb-1 text-center text-12 text-truncate",
-                      children: cms.form.upload
-                    }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_8__.jsx)("div", {
-                      className: "text-center text-12 text-truncate",
-                      children: cms.form.size
-                    })]
-                  })
-                })]
-              }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_8__.jsxs)(reactstrap__WEBPACK_IMPORTED_MODULE_9__["default"], {
-                className: "col-md-6",
-                children: [/*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_8__.jsx)("label", {
-                  children: cms.form.payment
-                }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_8__.jsx)("p", {
-                  children: cms.form.payment_details
-                }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_8__.jsx)("div", {
-                  id: "embed-payment",
-                  className: "embed-responsive embed-responsive-16by9 bg-img",
-                  style: {
-                    backgroundImage: payment && "url(\"".concat(payment, "\")")
-                  },
+              }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_8__.jsxs)(_components_UI_Input__WEBPACK_IMPORTED_MODULE_2__["default"], {
+                className: "col-lg-6",
+                type: "select",
+                name: "school_id",
+                label: cms.form.school,
+                onChange: this.inputChangeHandler,
+                required: true,
+                value: school_id,
+                children: [/*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_8__.jsx)("option", {
+                  children: cms.form.select_school
+                }), schoolsOptions]
+              }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_8__.jsx)(_components_UI_Input__WEBPACK_IMPORTED_MODULE_2__["default"], {
+                className: "col-lg-6",
+                type: "number",
+                name: "promotion",
+                label: cms.form.promotion,
+                onChange: this.inputChangeHandler,
+                required: true,
+                value: promotion
+              }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_8__.jsx)(_components_UI_Input__WEBPACK_IMPORTED_MODULE_2__["default"], {
+                className: "col-lg-5",
+                type: "image",
+                name: "photo",
+                label: cms.form.photo,
+                onClick: function onClick() {
+                  return _this2.fileUpload('photo');
+                },
+                cms: cms.form,
+                value: photo
+              }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_8__.jsxs)(reactstrap__WEBPACK_IMPORTED_MODULE_10__["default"], {
+                className: "col-lg-7",
+                children: [/*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_8__.jsx)(_components_UI_Input__WEBPACK_IMPORTED_MODULE_2__["default"], {
+                  type: "image",
+                  name: "payment",
+                  label: cms.form.payment,
                   onClick: function onClick() {
                     return _this2.fileUpload('payment');
                   },
-                  children: payment ? /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_8__.jsxs)("div", {
-                    className: "text-center text-green w-100",
-                    children: [/*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_8__.jsx)("div", {
-                      className: "position-absolute",
-                      style: {
-                        top: 0,
-                        right: 0,
-                        transform: 'translate(50%,-50%)'
-                      },
-                      children: /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_8__.jsx)("i", {
-                        className: "fas fa-check-circle fa-fw fa-2x"
-                      })
-                    }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_8__.jsx)("div", {
-                      className: "position-absolute file-selected text-truncate w-100 pt-3",
-                      style: {
-                        top: '100%',
-                        left: 0
-                      }
-                    })]
-                  }) : /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_8__.jsxs)("div", {
-                    className: "text-center text-light w-100 overflow-hidden px-3",
-                    children: [/*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_8__.jsx)("div", {
-                      children: /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_8__.jsx)("i", {
-                        className: "fas fa-file-image fa-fw fa-4x"
-                      })
-                    }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_8__.jsx)("div", {
-                      className: "mt-3 mb-1 text-center text-12 text-truncate",
-                      children: cms.form.upload
-                    }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_8__.jsx)("div", {
-                      className: "text-center text-12 text-truncate",
-                      children: cms.form.size
-                    })]
-                  })
+                  cms: cms.form,
+                  value: payment,
+                  dimensions: "21by9"
+                }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_8__.jsx)("p", {
+                  children: cms.form.payment_details
                 })]
               })]
             })
@@ -1559,17 +1554,24 @@ var Pay = /*#__PURE__*/function (_Component) {
       }
     });
 
-    _defineProperty(_assertThisInitialized(_this), "fileUpload", function (name) {
-      return document.getElementById(name).click();
+    _defineProperty(_assertThisInitialized(_this), "fileUpload", function (id) {
+      return document.getElementById(id).click();
     });
 
     return _this;
   }
 
   _createClass(Pay, [{
-    key: "render",
+    key: "componentDidUpdate",
     value: // Lifecycle methods
-    function render() {
+    function componentDidUpdate(prevProps) {
+      if (!prevProps.frontend.home.message && this.props.frontend.home.message && this.props.frontend.home.message.type === 'success' && !this.props.edit) {
+        this.setState(_objectSpread({}, initialState));
+      }
+    }
+  }, {
+    key: "render",
+    value: function render() {
       var _this2 = this;
 
       var _this$props = this.props,
@@ -1598,78 +1600,43 @@ var Pay = /*#__PURE__*/function (_Component) {
       });else content = /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_8__.jsxs)("div", {
         className: "col-12",
         children: [/*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_8__.jsx)(_components_Feedback_Feedback__WEBPACK_IMPORTED_MODULE_4__["default"], {
-          message: message
+          message: message,
+          time: 5000
         }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_8__.jsx)("div", {
           className: "row justify-content-center",
           children: /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_8__.jsx)("div", {
             className: "col-12",
             children: /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_8__.jsxs)(reactstrap__WEBPACK_IMPORTED_MODULE_9__["default"], {
               children: [/*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_8__.jsx)(_components_UI_Input__WEBPACK_IMPORTED_MODULE_3__["default"], {
-                className: "col-md-6",
+                className: "col-lg-6",
                 type: "email",
                 name: "email",
-                placeholder: cms.form.email,
+                label: cms.form.email,
                 onChange: this.inputChangeHandler,
-                icon: "envelope",
                 required: true,
                 value: email
               }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_8__.jsx)(_components_UI_Input__WEBPACK_IMPORTED_MODULE_3__["default"], {
-                className: "col-md-6",
+                className: "col-lg-6",
                 type: "number",
                 name: "year",
-                placeholder: cms.form.year,
+                label: cms.form.year,
                 onChange: this.inputChangeHandler,
-                icon: "calendar-alt",
                 required: true,
                 value: year
               }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_8__.jsxs)(reactstrap__WEBPACK_IMPORTED_MODULE_10__["default"], {
-                className: "col-md-12",
-                children: [/*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_8__.jsx)("label", {
-                  children: cms.form.payment
-                }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_8__.jsx)("p", {
-                  children: cms.form.payment_details
-                }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_8__.jsx)("div", {
-                  id: "embed-payment",
-                  className: "embed-responsive embed-responsive-21by9 bg-img",
-                  style: {
-                    backgroundImage: payment && "url(\"".concat(payment, "\")")
-                  },
+                className: "col-lg-12",
+                children: [/*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_8__.jsx)(_components_UI_Input__WEBPACK_IMPORTED_MODULE_3__["default"], {
+                  type: "image",
+                  name: "payment",
+                  label: cms.form.payment,
                   onClick: function onClick() {
                     return _this2.fileUpload('payment');
                   },
-                  children: payment ? /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_8__.jsxs)("div", {
-                    className: "text-center text-green w-100",
-                    children: [/*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_8__.jsx)("div", {
-                      className: "position-absolute",
-                      style: {
-                        top: 0,
-                        right: 0,
-                        transform: 'translate(50%,-50%)'
-                      },
-                      children: /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_8__.jsx)("i", {
-                        className: "fas fa-check-circle fa-fw fa-2x"
-                      })
-                    }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_8__.jsx)("div", {
-                      className: "position-absolute file-selected text-truncate w-100 pt-3",
-                      style: {
-                        top: '100%',
-                        left: 0
-                      }
-                    })]
-                  }) : /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_8__.jsxs)("div", {
-                    className: "text-center text-light w-100 overflow-hidden px-3",
-                    children: [/*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_8__.jsx)("div", {
-                      children: /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_8__.jsx)("i", {
-                        className: "fas fa-file-image fa-fw fa-4x"
-                      })
-                    }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_8__.jsx)("div", {
-                      className: "mt-3 mb-1 text-center text-12 text-truncate",
-                      children: cms.form.upload
-                    }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_8__.jsx)("div", {
-                      className: "text-center text-12 text-truncate",
-                      children: cms.form.size
-                    })]
-                  })
+                  cms: cms.form,
+                  value: payment,
+                  dimensions: "21by9"
+                }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_8__.jsx)("p", {
+                  children: cms.form.payment_details
                 })]
               })]
             })
@@ -1826,6 +1793,11 @@ var Stat = function Stat(_ref) {
   });
 };
 
+var initialState = {
+  name: '',
+  email: ''
+};
+
 var Home = /*#__PURE__*/function (_Component) {
   _inherits(Home, _Component);
 
@@ -1842,10 +1814,7 @@ var Home = /*#__PURE__*/function (_Component) {
 
     _this = _super.call.apply(_super, [this].concat(args));
 
-    _defineProperty(_assertThisInitialized(_this), "state", {
-      name: '',
-      email: ''
-    });
+    _defineProperty(_assertThisInitialized(_this), "state", _objectSpread({}, initialState));
 
     _defineProperty(_assertThisInitialized(_this), "saveHandler", function (e) {
       e.preventDefault();
@@ -1869,6 +1838,13 @@ var Home = /*#__PURE__*/function (_Component) {
     value: // Lifecycle methods
     function componentDidMount() {
       this.props.get();
+    }
+  }, {
+    key: "componentDidUpdate",
+    value: function componentDidUpdate(prevProps) {
+      if (!prevProps.frontend.home.message && this.props.frontend.home.message && this.props.frontend.home.message.type === 'success' && !this.props.edit) {
+        this.setState(_objectSpread({}, initialState));
+      }
     }
   }, {
     key: "componentWillUnmount",
@@ -2171,7 +2147,8 @@ var Home = /*#__PURE__*/function (_Component) {
               children: [/*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_17__.jsx)("div", {
                 className: "col-lg-7",
                 children: /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_17__.jsx)(_components_Feedback_Feedback__WEBPACK_IMPORTED_MODULE_8__["default"], {
-                  message: message
+                  message: message,
+                  time: 5000
                 })
               }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_17__.jsx)(_components_UI_Input__WEBPACK_IMPORTED_MODULE_6__["default"], {
                 type: "text",
@@ -2596,7 +2573,7 @@ __webpack_require__.r(__webpack_exports__);
 
 var ___CSS_LOADER_EXPORT___ = _node_modules_css_loader_dist_runtime_api_js__WEBPACK_IMPORTED_MODULE_0___default()(function(i){return i[1]});
 // Module
-___CSS_LOADER_EXPORT___.push([module.id, ".UI.Input {\n  position: relative;\n}\n.UI.Input ::-moz-placeholder {\n  color: var(--border-50);\n  opacity: 1;\n}\n.UI.Input :-ms-input-placeholder {\n  color: var(--border-50);\n  opacity: 1;\n}\n.UI.Input ::placeholder {\n  color: var(--border-50);\n  opacity: 1;\n}\n.UI.Input label:not(.control-label) {\n  position: absolute;\n  left: 75px;\n  top: 0.75rem;\n  z-index: 1;\n  max-width: calc(100% - 76px - 0.75rem);\n}\n.UI.Input .form-control[required] + label:not(.control-label)::after {\n  content: \"*\";\n  color: red;\n}\n.UI.Input .form-control[readonly] + label:not(.control-label),\n.UI.Input .form-control[disabled] + label:not(.control-label),\n.UI.Input .form-control[required]:valid + label:not(.control-label),\n.UI.Input input:not([value=\"\"]) + label:not(.control-label),\n.UI.Input textarea:not(:invalid) + label:not(.control-label) {\n  display: none;\n}\n.UI.Input .input-group {\n  border: none;\n  display: flex;\n  overflow: hidden;\n  border-radius: var(--border-radius);\n  align-items: center;\n  background-color: var(--white);\n  box-shadow: 0 0 0 1px var(--border-10);\n}\n.UI.Input .input-group-prepend {\n  z-index: 10;\n  height: 45px;\n  position: relative;\n}\n.UI.Input .input-group-prepend .input-group-text {\n  width: 57px;\n  border: none;\n  display: block;\n  padding: 3px 18px;\n  position: relative;\n  color: var(--border-30);\n  background-color: transparent;\n}\n.UI.Input .input-group-prepend .input-group-text .icon {\n  top: 50%;\n  left: 50%;\n  margin: 0 3px;\n  position: absolute;\n  color: var(--blue);\n  transform: translate(-50%, -50%);\n}\n.UI.Input .input-group-prepend .input-group-text .addon {\n  top: 0;\n  left: 0;\n  width: 100%;\n  height: 100%;\n  display: flex;\n  position: absolute;\n  align-items: center;\n  justify-content: center;\n}\n.UI.Input .input-group-prepend .input-group-text .circle {\n  top: 50%;\n  left: 100%;\n  width: 10px;\n  height: 10px;\n  overflow: hidden;\n  position: absolute;\n  border-radius: 50%;\n  background-color: var(--white);\n  transform: translate(-50%, calc(-50% - 2px));\n}\n.UI.Input .input-group-prepend .input-group-text .circle::after {\n  top: 0;\n  left: 0;\n  content: \"\";\n  width: 100%;\n  z-index: -1;\n  height: 100%;\n  position: absolute;\n  background-color: var(--border-10);\n}\n.UI.Input .form-control,\n.UI.Input select {\n  border: none;\n  height: 45px;\n  color: inherit;\n  box-shadow: none;\n  padding-left: 15px;\n  padding-right: 15px;\n}\n.UI.Input textarea {\n  min-height: 112px;\n}\n.UI.Input .control-label {\n  font-weight: 500;\n}\n.UI.Input .input-group-append .input-group-text {\n  border: none;\n  padding: 0 24px;\n  color: var(--border);\n  background-color: transparent;\n}\n.UI.Input.lg .input-group {\n  border-radius: calc(var(--border-radius) * 2);\n}\n.UI.Input.lg .input-group-prepend {\n  height: 82px;\n}\n.UI.Input.lg .input-group-prepend .input-group-text {\n  padding-left: 39px;\n  padding-right: 28px;\n}\n.UI.Input.lg .form-control,\n.UI.Input.lg select {\n  height: 82px;\n  font-size: 18px;\n  padding-left: 40px;\n  padding-right: 40px;\n}\n.UI.Input.inactive .input-group-prepend .input-group-text .addon {\n  background-color: var(--readonly);\n}", ""]);
+___CSS_LOADER_EXPORT___.push([module.id, ".UI.Input {\n  position: relative;\n}\n.UI.Input ::-moz-placeholder {\n  color: var(--border-50);\n  opacity: 1;\n}\n.UI.Input :-ms-input-placeholder {\n  color: var(--border-50);\n  opacity: 1;\n}\n.UI.Input ::placeholder {\n  color: var(--border-50);\n  opacity: 1;\n}\n.UI.Input label:not(.control-label) {\n  position: absolute;\n  left: 75px;\n  top: 0.75rem;\n  z-index: 1;\n  max-width: calc(100% - 76px - 0.75rem);\n}\n.UI.Input .form-control[required] + label:not(.control-label)::after {\n  content: \"*\";\n  color: red;\n}\n.UI.Input .form-control[readonly] + label:not(.control-label),\n.UI.Input .form-control[disabled] + label:not(.control-label),\n.UI.Input .form-control[required]:valid + label:not(.control-label),\n.UI.Input input:not([value=\"\"]) + label:not(.control-label),\n.UI.Input textarea:not(:invalid) + label:not(.control-label) {\n  display: none;\n}\n.UI.Input .input-group {\n  border: none;\n  display: flex;\n  overflow: hidden;\n  border-radius: var(--border-radius);\n  align-items: center;\n  background-color: var(--white);\n  box-shadow: 0 0 0 1px var(--border-10);\n}\n.UI.Input .input-group-prepend {\n  z-index: 10;\n  height: 45px;\n  position: relative;\n}\n.UI.Input .input-group-prepend .input-group-text {\n  width: 57px;\n  border: none;\n  display: block;\n  padding: 3px 18px;\n  position: relative;\n  color: var(--border-30);\n  background-color: transparent;\n}\n.UI.Input .input-group-prepend .input-group-text .icon {\n  top: 50%;\n  left: 50%;\n  margin: 0 3px;\n  position: absolute;\n  color: var(--blue);\n  transform: translate(-50%, -50%);\n}\n.UI.Input .input-group-prepend .input-group-text .addon {\n  top: 0;\n  left: 0;\n  width: 100%;\n  height: 100%;\n  display: flex;\n  position: absolute;\n  align-items: center;\n  justify-content: center;\n}\n.UI.Input .input-group-prepend .input-group-text .circle {\n  top: 50%;\n  left: 100%;\n  width: 10px;\n  height: 10px;\n  overflow: hidden;\n  position: absolute;\n  border-radius: 50%;\n  background-color: var(--white);\n  transform: translate(-50%, calc(-50% - 2px));\n}\n.UI.Input .input-group-prepend .input-group-text .circle::after {\n  top: 0;\n  left: 0;\n  content: \"\";\n  width: 100%;\n  z-index: -1;\n  height: 100%;\n  position: absolute;\n  background-color: var(--border-10);\n}\n.UI.Input .form-control,\n.UI.Input select {\n  border: none;\n  height: 45px;\n  color: inherit;\n  box-shadow: none;\n  padding-left: 15px;\n  padding-right: 15px;\n}\n.UI.Input textarea {\n  min-height: 112px;\n}\n.UI.Input .embed-responsive {\n  display: flex;\n  cursor: pointer;\n  overflow: visible;\n  position: relative;\n  align-items: center;\n  justify-content: center;\n  background-color: var(--border-10);\n  border-radius: var(--border-radius);\n  box-shadow: 0 0 0 1px var(--border-10);\n}\n.UI.Input .embed-responsive .image-selected {\n  width: 100%;\n  text-align: center;\n  color: var(--green);\n}\n.UI.Input .embed-responsive .image-selected .check-circle {\n  top: 0;\n  right: 0;\n  position: absolute;\n  transform: translate(50%, -50%);\n}\n.UI.Input .embed-responsive .image-selected .file-selected {\n  left: 0;\n  bottom: 0;\n  width: 100%;\n  padding: 8px 15px;\n  position: absolute;\n  color: var(--white);\n  background-color: var(--black-70);\n  border-bottom-left-radius: var(--border-radius);\n  border-bottom-right-radius: var(--border-radius);\n}\n.UI.Input .embed-responsive .select-image {\n  width: 100%;\n  padding: 0 16px;\n  overflow: hidden;\n  text-align: center;\n  color: var(--border-50);\n}\n.UI.Input .embed-responsive .select-image .upload {\n  margin-top: 16px;\n  margin-bottom: 4px;\n  text-align: center;\n}\n.UI.Input .control-label {\n  font-weight: 500;\n}\n.UI.Input .input-group-append .input-group-text {\n  border: none;\n  padding: 0 24px;\n  color: var(--border);\n  background-color: transparent;\n}\n.UI.Input.lg .input-group {\n  border-radius: calc(var(--border-radius) * 2);\n}\n.UI.Input.lg .input-group-prepend {\n  height: 82px;\n}\n.UI.Input.lg .input-group-prepend .input-group-text {\n  padding-left: 39px;\n  padding-right: 28px;\n}\n.UI.Input.lg .form-control,\n.UI.Input.lg select {\n  height: 82px;\n  font-size: 18px;\n  padding-left: 40px;\n  padding-right: 40px;\n}\n.UI.Input.inactive .input-group-prepend .input-group-text .addon {\n  background-color: var(--readonly);\n}", ""]);
 // Exports
 /* harmony default export */ const __WEBPACK_DEFAULT_EXPORT__ = (___CSS_LOADER_EXPORT___);
 
@@ -2692,7 +2669,7 @@ __webpack_require__.r(__webpack_exports__);
 
 var ___CSS_LOADER_EXPORT___ = _node_modules_css_loader_dist_runtime_api_js__WEBPACK_IMPORTED_MODULE_0___default()(function(i){return i[1]});
 // Module
-___CSS_LOADER_EXPORT___.push([module.id, ".Frontend .Home .Stat {\n  display: flex;\n  align-items: center;\n  justify-content: center;\n}\n.Frontend .Home .Stat .icon {\n  font-size: 77px;\n  margin-right: 25px;\n}\n.Frontend .Home .Stat .value {\n  font-size: 30px;\n}\n.Frontend .Home .banner {\n  position: relative;\n  height: calc(100vh - 87px);\n}\n.Frontend .Home .banner .banner__container {\n  position: absolute;\n  width: 100%;\n  height: 100%;\n  z-index: 10;\n}\n.Frontend .Home .banner .banner__text {\n  height: 100%;\n  display: flex;\n  position: relative;\n  color: var(--white);\n  flex-direction: column;\n  justify-content: center;\n}\n.Frontend .Home .banner .banner__text > .title {\n  width: 50%;\n  font-size: 2rem;\n  font-weight: 500;\n  margin-bottom: 25px;\n}\n.Frontend .Home .banner .banner__text > .subtitle {\n  width: 70%;\n  font-size: 18px;\n  margin-bottom: 40px;\n}\n.Frontend .Home .banner .banner__text .alumni-call {\n  margin-right: 15px;\n}\n.Frontend .Home .events .events__container .events__wrapper {\n  bottom: 0;\n  z-index: 1;\n  width: 100%;\n  padding: 24px;\n  display: flex;\n  position: relative;\n  border-radius: var(--border-radius);\n  color: var(--white);\n  align-items: stretch;\n  transform: translateY(-50%);\n  background-color: var(--blue);\n}\n.Frontend .Home .events .events__container .events__wrapper .events__title {\n  top: 0;\n  right: 24px;\n  font-size: 24px;\n  font-weight: 500;\n  color: var(--dark);\n  padding: 10px 45px;\n  position: absolute;\n  border-radius: 50rem;\n  transform: translateY(-50%);\n  background-color: var(--white);\n}\n.Frontend .Home .events .events__container .events__wrapper .img {\n  overflow: hidden;\n  border-radius: var(--border-radius);\n}\n.Frontend .Home .events .events__container .events__wrapper .img .date {\n  padding: 12px;\n  font-size: 18px;\n  font-weight: 500;\n  color: var(--dark);\n  text-align: center;\n  background-color: var(--white);\n}\n.Frontend .Home .events .events__container .events__wrapper a.title {\n  font-size: 30px;\n  font-weight: 500;\n  color: var(--white);\n  margin: 25px 0;\n  text-decoration: none;\n}\n.Frontend .Home .events .events__container .events__wrapper p {\n  margin-bottom: 40px;\n}\n.Frontend .Home section {\n  background-color: var(--white);\n}\n.Frontend .Home section.about, .Frontend .Home section.elders, .Frontend .Home section.newsletter {\n  background-color: var(--blue-10);\n}\n.Frontend .Home section.about .actions a {\n  margin-bottom: 10px;\n}\n.Frontend .Home section.about .actions .donate,\n.Frontend .Home section.about .actions .join {\n  margin-right: 15px;\n}\n.Frontend .Home section.stats {\n  color: var(--white);\n  background-color: var(--blue);\n}\n.Frontend .Home section.newsletter p {\n  text-align: center;\n}\n.Frontend .Home section.newsletter form {\n  justify-content: center;\n}\n.Frontend .Home section.newsletter form .submit {\n  margin-top: 40px;\n  text-align: center;\n}\n.Frontend .Home section .container {\n  padding: 80px 0;\n}\n.Frontend .Home section .container img {\n  border-radius: var(--border-radius);\n}\n.Frontend .Home section .container p {\n  margin-bottom: 40px;\n}\n.Frontend .Home section .container .view-all {\n  margin-top: 40px;\n  text-align: center;\n}\n.Frontend .Home .carousel-inner {\n  height: 100% !important;\n}\n.Frontend .Home .carousel-indicators {\n  top: 50%;\n  width: 30px;\n  transform: translate(-50%, -50%);\n  left: 96%;\n  margin: 0;\n}\n.Frontend .Home .carousel-indicators li {\n  width: 24px;\n  height: 24px;\n  border-radius: 50%;\n  background-color: white;\n  border: none;\n  margin: 8px 0;\n  transition: all 0.5s;\n}\n.Frontend .Home .carousel-indicators li.active {\n  width: 28px;\n  height: 28px;\n  background-color: var(--blue);\n  border: 4px solid var(--white);\n}\n\n@media screen and (max-width: 992px) {\n  .Frontend .Home .banner {\n    min-height: auto;\n  }\n  .Frontend .Home .txt-block img {\n    transform: translateX(-200%);\n  }\n}", ""]);
+___CSS_LOADER_EXPORT___.push([module.id, ".Frontend .Home .Stat {\n  display: flex;\n  align-items: center;\n  justify-content: center;\n}\n.Frontend .Home .Stat .icon {\n  font-size: 77px;\n  margin-right: 25px;\n}\n.Frontend .Home .Stat .value {\n  font-size: 30px;\n}\n.Frontend .Home .banner {\n  position: relative;\n  height: calc(100vh - 87px);\n}\n.Frontend .Home .banner .banner__container {\n  position: absolute;\n  width: 100%;\n  height: 100%;\n  z-index: 10;\n}\n.Frontend .Home .banner .banner__text {\n  height: 100%;\n  display: flex;\n  position: relative;\n  color: var(--white);\n  flex-direction: column;\n  justify-content: center;\n}\n.Frontend .Home .banner .banner__text > .title {\n  width: 50%;\n  font-size: 2rem;\n  font-weight: 500;\n  margin-bottom: 25px;\n}\n.Frontend .Home .banner .banner__text > .subtitle {\n  width: 70%;\n  font-size: 18px;\n  margin-bottom: 40px;\n}\n.Frontend .Home .banner .banner__text .alumni-call {\n  margin-right: 15px;\n}\n.Frontend .Home .events .events__container .events__wrapper {\n  bottom: 0;\n  z-index: 1;\n  width: 100%;\n  padding: 24px;\n  display: flex;\n  position: relative;\n  border-radius: var(--border-radius);\n  color: var(--white);\n  align-items: stretch;\n  transform: translateY(-50%);\n  background-color: var(--blue);\n}\n.Frontend .Home .events .events__container .events__wrapper .events__title {\n  top: 0;\n  right: 24px;\n  font-size: 24px;\n  font-weight: 500;\n  color: var(--dark);\n  padding: 10px 45px;\n  position: absolute;\n  border-radius: 50rem;\n  transform: translateY(-50%);\n  background-color: var(--white);\n}\n.Frontend .Home .events .events__container .events__wrapper .img {\n  overflow: hidden;\n  border-radius: var(--border-radius);\n}\n.Frontend .Home .events .events__container .events__wrapper .img .date {\n  padding: 12px;\n  font-size: 18px;\n  font-weight: 500;\n  color: var(--dark);\n  text-align: center;\n  background-color: var(--white);\n}\n.Frontend .Home .events .events__container .events__wrapper a.title {\n  font-size: 30px;\n  font-weight: 500;\n  color: var(--white);\n  margin: 25px 0;\n  text-decoration: none;\n}\n.Frontend .Home .events .events__container .events__wrapper p {\n  margin-bottom: 40px;\n}\n.Frontend .Home section {\n  background-color: var(--white);\n}\n.Frontend .Home section.about, .Frontend .Home section.elders, .Frontend .Home section.newsletter {\n  background-color: var(--blue-10);\n}\n.Frontend .Home section.about .actions a, .Frontend .Home section.about .actions button {\n  margin-bottom: 10px;\n}\n.Frontend .Home section.about .actions .donate,\n.Frontend .Home section.about .actions .join {\n  margin-right: 15px;\n}\n.Frontend .Home section.stats {\n  color: var(--white);\n  background-color: var(--blue);\n}\n.Frontend .Home section.newsletter p {\n  text-align: center;\n}\n.Frontend .Home section.newsletter form {\n  justify-content: center;\n}\n.Frontend .Home section.newsletter form .submit {\n  margin-top: 40px;\n  text-align: center;\n}\n.Frontend .Home section .container {\n  padding: 80px 0;\n}\n.Frontend .Home section .container img {\n  border-radius: var(--border-radius);\n}\n.Frontend .Home section .container p {\n  margin-bottom: 40px;\n}\n.Frontend .Home section .container .view-all {\n  margin-top: 40px;\n  text-align: center;\n}\n.Frontend .Home .carousel-inner {\n  height: 100% !important;\n}\n.Frontend .Home .carousel-indicators {\n  top: 50%;\n  width: 30px;\n  transform: translate(-50%, -50%);\n  left: 96%;\n  margin: 0;\n}\n.Frontend .Home .carousel-indicators li {\n  width: 24px;\n  height: 24px;\n  border-radius: 50%;\n  background-color: white;\n  border: none;\n  margin: 8px 0;\n  transition: all 0.5s;\n}\n.Frontend .Home .carousel-indicators li.active {\n  width: 28px;\n  height: 28px;\n  background-color: var(--blue);\n  border: 4px solid var(--white);\n}\n\n@media screen and (max-width: 992px) {\n  .Frontend .Home .banner {\n    min-height: auto;\n  }\n  .Frontend .Home .txt-block img {\n    transform: translateX(-200%);\n  }\n}", ""]);
 // Exports
 /* harmony default export */ const __WEBPACK_DEFAULT_EXPORT__ = (___CSS_LOADER_EXPORT___);
 
@@ -2716,7 +2693,7 @@ __webpack_require__.r(__webpack_exports__);
 
 var ___CSS_LOADER_EXPORT___ = _node_modules_css_loader_dist_runtime_api_js__WEBPACK_IMPORTED_MODULE_0___default()(function(i){return i[1]});
 // Module
-___CSS_LOADER_EXPORT___.push([module.id, ".Join .embed-responsive {\n  display: flex;\n  cursor: pointer;\n  overflow: visible;\n  position: relative;\n  align-items: center;\n  justify-content: center;\n  background-color: var(--border-10);\n  border-radius: var(--border-radius);\n}\n.Join .subtitle {\n  font-size: 18px;\n  font-weight: 500;\n  color: var(--blue);\n}\n.Join label {\n  font-weight: 500;\n  margin-top: 16px;\n}\n.Join .submit {\n  margin-top: 40px;\n}\n.Join .submit button {\n  padding: 13px 25px;\n  border-radius: 50rem;\n}\n.Join .submit button i {\n  margin-left: 10px;\n}", ""]);
+___CSS_LOADER_EXPORT___.push([module.id, ".Join .embed-responsive {\n  display: flex;\n  cursor: pointer;\n  overflow: visible;\n  position: relative;\n  align-items: center;\n  justify-content: center;\n  background-color: var(--border-10);\n  border-radius: var(--border-radius);\n}\n.Join .subtitle {\n  font-size: 18px;\n  font-weight: 500;\n  color: var(--blue);\n}\n.Join .submit {\n  margin-top: 40px;\n}\n.Join .submit button {\n  padding: 13px 25px;\n  border-radius: 50rem;\n}\n.Join .submit button i {\n  margin-left: 10px;\n}", ""]);
 // Exports
 /* harmony default export */ const __WEBPACK_DEFAULT_EXPORT__ = (___CSS_LOADER_EXPORT___);
 
@@ -2740,7 +2717,7 @@ __webpack_require__.r(__webpack_exports__);
 
 var ___CSS_LOADER_EXPORT___ = _node_modules_css_loader_dist_runtime_api_js__WEBPACK_IMPORTED_MODULE_0___default()(function(i){return i[1]});
 // Module
-___CSS_LOADER_EXPORT___.push([module.id, ".Pay .embed-responsive {\n  display: flex;\n  cursor: pointer;\n  overflow: visible;\n  position: relative;\n  align-items: center;\n  justify-content: center;\n  background-color: var(--border-10);\n  border-radius: var(--border-radius);\n}\n.Pay .subtitle {\n  font-size: 18px;\n  font-weight: 500;\n  color: var(--blue);\n}\n.Pay label {\n  font-weight: 500;\n  margin-top: 16px;\n}\n.Pay .submit {\n  margin-top: 40px;\n}\n.Pay .submit button {\n  padding: 13px 25px;\n  border-radius: 50rem;\n}\n.Pay .submit button i {\n  margin-left: 10px;\n}", ""]);
+___CSS_LOADER_EXPORT___.push([module.id, ".Pay .embed-responsive {\n  display: flex;\n  cursor: pointer;\n  overflow: visible;\n  position: relative;\n  align-items: center;\n  justify-content: center;\n  background-color: var(--border-10);\n  border-radius: var(--border-radius);\n}\n.Pay .subtitle {\n  font-size: 18px;\n  font-weight: 500;\n  color: var(--blue);\n}\n.Pay .submit {\n  margin-top: 40px;\n}\n.Pay .submit button {\n  padding: 13px 25px;\n  border-radius: 50rem;\n}\n.Pay .submit button i {\n  margin-left: 10px;\n}", ""]);
 // Exports
 /* harmony default export */ const __WEBPACK_DEFAULT_EXPORT__ = (___CSS_LOADER_EXPORT___);
 

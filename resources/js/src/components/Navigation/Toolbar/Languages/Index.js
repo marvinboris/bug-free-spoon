@@ -12,7 +12,7 @@ export default ({ languages, language, set }) => {
     return <UncontrolledDropdown className="Languages">
         <DropdownToggle caret>
             <div className="flag">
-                <span className="language-flag shadow-sm">
+                <span className="language-flag">
                     {/* <span className={`fas position-absolute fa-globe-africa text-secondary`} /> */}
                     <span className={`flag-icon flag-icon-${language && language.flag.toLowerCase()}`} />
                 </span>

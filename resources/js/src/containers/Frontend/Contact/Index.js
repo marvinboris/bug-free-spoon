@@ -11,12 +11,14 @@ import { postContact, resetContact } from '../../../store/actions/frontend/conta
 
 import './Contact.scss';
 
+const initialState = {
+    name: '',
+    email: '',
+    message: '',
+}
+
 class Contact extends Component {
-    state = {
-        name: '',
-        email: '',
-        message: '',
-    }
+    state = { ...initialState }
 
 
 
@@ -34,6 +36,12 @@ class Contact extends Component {
 
 
     // Lifecycle methods
+    componentDidUpdate(prevProps) {
+        if (!prevProps.frontend.contact.message && this.props.frontend.contact.message && this.props.frontend.contact.message.type === 'success' && !this.props.edit) {
+            this.setState({ ...initialState });
+        }
+    }
+
     componentWillUnmount() {
         this.props.reset();
     }

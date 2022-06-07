@@ -1,11 +1,11 @@
 import React, { Component } from 'react';
 import { connect } from 'react-redux';
 import { Redirect, withRouter } from 'react-router-dom';
-import { Col, FormGroup, Row } from 'reactstrap';
+import { Col, Row } from 'reactstrap';
 
 // Components
+import Input from '../../../../components/UI/Input';
 import Error from '../../../../components/Error/Error';
-import FormInput from '../../../../components/UI/Input';
 import Form from '../../../../components/Backend/UI/Form/Form';
 import Feedback from '../../../../components/Feedback/Feedback';
 import Save from '../../../../components/Backend/UI/Food/Form/Save';
@@ -20,6 +20,7 @@ const initialState = {
     year: '',
     payment: null,
     paid: '1',
+    errors: '',
 
     add: false,
 }
@@ -101,10 +102,10 @@ class Add extends Component {
                     pages: { backend: { pages: { contributions: { icon, title, add, edit, index, form } } } }
                 }
             },
-            backend: { contributions: { loading, error, message, elders = [], contribution } },
+            backend: { contributions: { loading, error, message, elders = [], contribution = {} } },
             auth: { data: { role: { features } } }
         } = this.props;
-        const { year, payment, paid, elder_id } = this.state;
+        const { year, payment, paid, elder_id, errors: form_errors } = this.state;
         let content;
 
         const errors = <>
@@ -127,48 +128,22 @@ class Add extends Component {
             <Row>
                 <div className="col-lg-9">
                     <Row>
-                        <FormInput className="col-md-6" type="select" name="elder_id" label={form.elder} onChange={this.inputChangeHandler} required value={elder_id}>
+                        <Input className="col-lg-6" type="select" name="elder_id" label={form.elder} onChange={this.inputChangeHandler} required value={elder_id}>
                             <option>{form.select_elder}</option>
                             {eldersOptions}
-                        </FormInput>
-                        <FormInput className="col-md-6" type="number" onChange={this.inputChangeHandler} value={year} name="year" label={form.year} />
-                        <FormInput className="col-md-6" type="select" name="paid" label={form.paid} onChange={this.inputChangeHandler} required value={paid}>
-                            <option>{form.select_status}</option>
-                            <option value={0}>{form.unpaid_status}</option>
-                            <option value={1}>{form.paid_status}</option>
-                        </FormInput>
+                        </Input>
+                        <Input className="col-lg-6" type="number" onChange={this.inputChangeHandler} value={year} name="year" label={form.year} />
+                        <Input type="image" className='col-lg-12' name="payment" label={form.payment} onClick={this.fileUpload} cms={form} defaultValue={contribution.payment} value={payment} dimensions='21by9' />
+                        {this.props.edit && paid == 0 && <Input className="col-lg-12" type="textarea" name="errors" label={form.errors} onChange={this.inputChangeHandler} required value={form_errors} />}
                     </Row>
                 </div>
 
-                <div className="col-lg-3">
-                    <FormGroup>
-                        <div id="embed-payment" className="embed-responsive embed-responsive-1by1 bg-border-5 rounded-8 d-flex justify-content-center align-items-center position-relative" style={{
-                            cursor: 'pointer',
-                            backgroundImage: payment && `url("${payment}")`,
-                            backgroundRepeat: 'no-repeat',
-                            backgroundPosition: 'center',
-                            backgroundSize: 'cover',
-                            overflow: 'visible',
-                        }} onClick={this.fileUpload}>
-                            {this.props.edit
-                                ? payment && (payment !== contribution.payment) && <div className="text-center text-green w-100">
-                                    <div className="position-absolute" style={{ top: 0, right: 0, transform: 'translate(50%,-50%)' }}><i className='fas fa-check-circle fa-fw fa-2x' /></div>
-
-                                    <div className="position-absolute file-selected text-truncate w-100 pt-3" style={{ top: '100%', left: 0 }} />
-                                </div>
-                                : payment ? <div className="text-center text-green w-100">
-                                    <div className="position-absolute" style={{ top: 0, right: 0, transform: 'translate(50%,-50%)' }}><i className='fas fa-check-circle fa-fw fa-2x' /></div>
-
-                                    <div className="position-absolute file-selected text-truncate w-100 pt-3" style={{ top: '100%', left: 0 }} />
-                                </div> : <div className="text-center text-light w-100 overflow-hidden px-3">
-                                    <div><i className='fas fa-file-image fa-fw fa-4x' /></div>
-
-                                    <div className="mt-3 mb-1 text-center text-12 text-truncate">{form.upload}</div>
-
-                                    <div className="text-center text-12 text-truncate">{form.size}</div>
-                                </div>}
-                        </div>
-                    </FormGroup>
+                <div className='col-lg-3'>
+                    <Input type="select" name="paid" label={form.paid} onChange={this.inputChangeHandler} required value={paid}>
+                        <option>{form.select_status}</option>
+                        <option value={0}>{form.unpaid_status}</option>
+                        <option value={1}>{form.paid_status}</option>
+                    </Input>
                 </div>
 
                 <Save edit={this.props.edit} saveAddHandler={this.saveAddHandler} />

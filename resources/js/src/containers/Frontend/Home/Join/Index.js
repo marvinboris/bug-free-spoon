@@ -1,9 +1,9 @@
 import React, { Component, Fragment } from 'react';
 import { connect } from 'react-redux';
-import { FormGroup, Input, Row } from 'reactstrap';
+import { FormGroup, Row } from 'reactstrap';
 
+import Input from '../../../../components/UI/Input';
 import Error from '../../../../components/Error/Error';
-import FormInput from '../../../../components/UI/Input';
 import Feedback from '../../../../components/Feedback/Feedback';
 import CustomSpinner from '../../../../components/UI/CustomSpinner/CustomSpinner';
 
@@ -17,8 +17,10 @@ const initialState = {
     email: '',
     photo: null,
     payment: null,
+    school_id: '',
+    promotion: '',
 
-    translate: '',
+    translate: process.env.MIX_DEFAULT_LANG,
 }
 
 class Join extends Component {
@@ -60,13 +62,15 @@ class Join extends Component {
         }
     }
 
-    fileUpload = name => document.getElementById(name).click()
+    fileUpload = id => document.getElementById(id).click()
 
 
 
     // Lifecycle methods
-    componentDidMount() {
-        this.setState({ translate: process.env.MIX_DEFAULT_LANG });
+    componentDidUpdate(prevProps) {
+        if (!prevProps.frontend.home.message && this.props.frontend.home.message && this.props.frontend.home.message.type === 'success' && !this.props.edit) {
+            this.setState({ ...initialState });
+        }
     }
 
     render() {
@@ -74,17 +78,18 @@ class Join extends Component {
             content: {
                 cms: {
                     pages: { frontend: { pages: { home: { about: { join: cms } } } } }
-                }, languages
+                }, languages, schools
             },
             frontend: { home: { loading, error, message } },
         } = this.props;
-        const { title, name, email, photo, payment, translate } = this.state;
+        const { title, name, email, photo, payment, school_id, promotion, translate } = this.state;
         let content;
 
         const errors = <>
             <Error err={error} />
         </>;
 
+        const schoolsOptions = schools.sort((a, b) => a.name.localeCompare(b.name)).map(school => <option key={JSON.stringify(school)} value={school.id}>{school.name}</option>);
         const languagesOptions = languages.map(language => <option key={JSON.stringify(language)} value={language.abbr}>{language.name}</option>);
 
         if (loading) content = <div className='col-12'>
@@ -101,17 +106,15 @@ class Join extends Component {
                 <div className="col-lg-9">
                     <div className="row">
                         {languages.map(l => <Fragment key={'language-' + l.abbr}>
-                            <FormInput type="text" id={"title-" + l.abbr} className={"col-md-12" + (l.abbr === translate ? "" : " d-none")} icon="user-tie" onChange={this.inputChangeHandler} value={title[l.abbr]} name={"title[" + l.abbr + "]"} required placeholder={cms.form.title} />
+                            <Input type="text" id={"title-" + l.abbr} className={"col-lg-12" + (l.abbr === translate ? "" : " d-none")} onChange={this.inputChangeHandler} value={title[l.abbr]} name={"title[" + l.abbr + "]"} required label={cms.form.title} />
                         </Fragment>)}
                     </div>
                 </div>
 
                 <div className="col-lg-3">
-                    <FormGroup>
-                        <Input type="select" name="translate" onChange={this.inputChangeHandler} value={translate}>
-                            {languagesOptions}
-                        </Input>
-                    </FormGroup>
+                    <Input type="select" name="translate" label={cms.form.language} onChange={this.inputChangeHandler} value={translate}>
+                        {languagesOptions}
+                    </Input>
                 </div>
 
                 <div className="col-12 mb-3">
@@ -120,40 +123,17 @@ class Join extends Component {
 
                 <div className="col-12">
                     <Row>
-                        <FormInput className="col-md-6" type="text" name="name" placeholder={cms.form.name} onChange={this.inputChangeHandler} icon="user" required value={name} />
-                        <FormInput className="col-md-6" type="email" name="email" placeholder={cms.form.email} onChange={this.inputChangeHandler} icon="envelope" required value={email} />
-                        <FormGroup className='col-md-6'>
-                            <label>{cms.form.photo}</label>
-                            <div id="embed-photo" className="embed-responsive embed-responsive-1by1 bg-img" style={{ backgroundImage: photo && `url("${photo}")` }} onClick={() => this.fileUpload('photo')}>
-                                {photo ? <div className="text-center text-green w-100">
-                                    <div className="position-absolute" style={{ top: 0, right: 0, transform: 'translate(50%,-50%)' }}><i className='fas fa-check-circle fa-fw fa-2x' /></div>
-
-                                    <div className="position-absolute file-selected text-truncate w-100 pt-3" style={{ top: '100%', left: 0 }} />
-                                </div> : <div className="text-center text-light w-100 overflow-hidden px-3">
-                                    <div><i className='fas fa-file-image fa-fw fa-4x' /></div>
-
-                                    <div className="mt-3 mb-1 text-center text-12 text-truncate">{cms.form.upload}</div>
-
-                                    <div className="text-center text-12 text-truncate">{cms.form.size}</div>
-                                </div>}
-                            </div>
-                        </FormGroup>
-                        <FormGroup className='col-md-6'>
-                            <label>{cms.form.payment}</label>
+                        <Input className="col-lg-6" type="text" name="name" label={cms.form.name} onChange={this.inputChangeHandler} required value={name} />
+                        <Input className="col-lg-6" type="email" name="email" label={cms.form.email} onChange={this.inputChangeHandler} required value={email} />
+                        <Input className="col-lg-6" type="select" name="school_id" label={cms.form.school} onChange={this.inputChangeHandler} required value={school_id}>
+                            <option>{cms.form.select_school}</option>
+                            {schoolsOptions}
+                        </Input>
+                        <Input className="col-lg-6" type="number" name="promotion" label={cms.form.promotion} onChange={this.inputChangeHandler} required value={promotion} />
+                        <Input className="col-lg-5" type="image" name="photo" label={cms.form.photo} onClick={() => this.fileUpload('photo')} cms={cms.form} value={photo} />
+                        <FormGroup className='col-lg-7'>
+                            <Input type="image" name="payment" label={cms.form.payment} onClick={() => this.fileUpload('payment')} cms={cms.form} value={payment} dimensions='21by9' />
                             <p>{cms.form.payment_details}</p>
-                            <div id="embed-payment" className="embed-responsive embed-responsive-16by9 bg-img" style={{ backgroundImage: payment && `url("${payment}")` }} onClick={() => this.fileUpload('payment')}>
-                                {payment ? <div className="text-center text-green w-100">
-                                    <div className="position-absolute" style={{ top: 0, right: 0, transform: 'translate(50%,-50%)' }}><i className='fas fa-check-circle fa-fw fa-2x' /></div>
-
-                                    <div className="position-absolute file-selected text-truncate w-100 pt-3" style={{ top: '100%', left: 0 }} />
-                                </div> : <div className="text-center text-light w-100 overflow-hidden px-3">
-                                    <div><i className='fas fa-file-image fa-fw fa-4x' /></div>
-
-                                    <div className="mt-3 mb-1 text-center text-12 text-truncate">{cms.form.upload}</div>
-
-                                    <div className="text-center text-12 text-truncate">{cms.form.size}</div>
-                                </div>}
-                            </div>
                         </FormGroup>
                     </Row>
                 </div>

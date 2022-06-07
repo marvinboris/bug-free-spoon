@@ -43,7 +43,7 @@ class ContributionRejected extends Notification
     public function toMail($notifiable)
     {
         return (new MailMessage)
-            ->line('Cotisation annuelle rejetée.')
+            ->greeting('Cotisation annuelle rejetée !')
             ->line('En voici la raison: ' . $this->errors)
             ->line('Veuillez soumettre à nouveau le formulaire de cotisation sur le site en effectuant les corrections nécessaires.');
     }

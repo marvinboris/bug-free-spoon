@@ -43,7 +43,7 @@ class ApplicationRejected extends Notification
     public function toMail($notifiable)
     {
         return (new MailMessage)
-            ->line('Candidature d\'adhésion rejetée.')
+            ->greeting('Candidature d\'adhésion rejetée !')
             ->line('En voici la raison: ' . $this->errors)
             ->line('Veuillez soumettre à nouveau votre candidature sur le site en effectuant les corrections nécessaires.');
     }

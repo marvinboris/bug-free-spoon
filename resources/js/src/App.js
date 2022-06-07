@@ -79,6 +79,11 @@ const asyncUserContributionsAdd = asyncComponent(() => import('./containers/Back
 const asyncUserContributionsEdit = asyncComponent(() => import('./containers/Backend/User/Contributions/Edit'));
 
 
+const asyncUserSchools = asyncComponent(() => import('./containers/Backend/User/Schools'));
+const asyncUserSchoolsAdd = asyncComponent(() => import('./containers/Backend/User/Schools/Add'));
+const asyncUserSchoolsEdit = asyncComponent(() => import('./containers/Backend/User/Schools/Edit'));
+
+
 const asyncUserUsers = asyncComponent(() => import('./containers/Backend/User/Users'));
 const asyncUserUsersAdd = asyncComponent(() => import('./containers/Backend/User/Users/Add'));
 const asyncUserUsersEdit = asyncComponent(() => import('./containers/Backend/User/Users/Edit'));
@@ -210,6 +215,10 @@ class App extends Component {
                     <Route path="/user">
                         <BackendUserLayout>
                             <Switch>
+                                <Route path="/user/schools/:id/edit" component={asyncUserSchoolsEdit} />
+                                <Route path="/user/schools/add" component={asyncUserSchoolsAdd} />
+                                <Route path="/user/schools" component={asyncUserSchools} />
+
                                 <Route path="/user/contributions/:id/edit" component={asyncUserContributionsEdit} />
                                 <Route path="/user/contributions/add" component={asyncUserContributionsAdd} />
                                 <Route path="/user/contributions" component={asyncUserContributions} />

@@ -471,6 +471,10 @@ function _arrayWithHoles(arr) { if (Array.isArray(arr)) return arr; }
 /* harmony default export */ const __WEBPACK_DEFAULT_EXPORT__ = (function (_ref) {
   var id = _ref.id,
       onChange = _ref.onChange,
+      onClick = _ref.onClick,
+      cms = _ref.cms,
+      _ref$dimensions = _ref.dimensions,
+      dimensions = _ref$dimensions === void 0 ? '1by1' : _ref$dimensions,
       _ref$size = _ref.size,
       size = _ref$size === void 0 ? '' : _ref$size,
       _ref$className = _ref.className,
@@ -522,8 +526,42 @@ function _arrayWithHoles(arr) { if (Array.isArray(arr)) return arr; }
     id: id ? id : name,
     readOnly: readonly
   };
+  var content;
 
-  var content = /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_4__.jsxs)(reactstrap__WEBPACK_IMPORTED_MODULE_5__["default"], {
+  if (type === 'image') {
+    content = /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_4__.jsx)("div", {
+      id: "embed-" + data.id,
+      className: "embed-responsive embed-responsive-" + dimensions + " bg-img",
+      style: {
+        backgroundImage: "url(\"".concat(defaultValue || data.value, "\")")
+      },
+      onClick: onClick,
+      children: !defaultValue && (!defaultValue && data.value || !!defaultValue && defaultValue !== data.value ? /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_4__.jsxs)("div", {
+        className: "image-selected",
+        children: [/*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_4__.jsx)("div", {
+          className: "check-circle",
+          children: /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_4__.jsx)("i", {
+            className: "fas fa-check-circle fa-fw fa-2x"
+          })
+        }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_4__.jsx)("div", {
+          className: "file-selected text-truncate"
+        })]
+      }) : /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_4__.jsxs)("div", {
+        className: "select-image",
+        children: [/*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_4__.jsx)("div", {
+          children: /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_4__.jsx)("i", {
+            className: "fas fa-file-image fa-fw fa-4x"
+          })
+        }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_4__.jsx)("div", {
+          className: "upload text-truncate",
+          children: cms.upload
+        }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_4__.jsx)("div", {
+          className: "text-center text-truncate",
+          children: cms.size
+        })]
+      }))
+    });
+  } else content = /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_4__.jsxs)(reactstrap__WEBPACK_IMPORTED_MODULE_5__["default"], {
     children: [(icon || addon) && /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_4__.jsx)(reactstrap__WEBPACK_IMPORTED_MODULE_6__["default"], {
       addonType: "prepend",
       children: /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_4__.jsxs)(reactstrap__WEBPACK_IMPORTED_MODULE_7__["default"], {
@@ -644,11 +682,9 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony import */ var react_redux__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! react-redux */ "./node_modules/react-redux/es/index.js");
 /* harmony import */ var react_router_dom__WEBPACK_IMPORTED_MODULE_12__ = __webpack_require__(/*! react-router-dom */ "./node_modules/react-router-dom/node_modules/react-router/esm/react-router.js");
 /* harmony import */ var reactstrap__WEBPACK_IMPORTED_MODULE_13__ = __webpack_require__(/*! reactstrap */ "./node_modules/reactstrap/es/Col.js");
-/* harmony import */ var reactstrap__WEBPACK_IMPORTED_MODULE_14__ = __webpack_require__(/*! reactstrap */ "./node_modules/reactstrap/es/FormGroup.js");
-/* harmony import */ var reactstrap__WEBPACK_IMPORTED_MODULE_15__ = __webpack_require__(/*! reactstrap */ "./node_modules/reactstrap/es/Input.js");
-/* harmony import */ var reactstrap__WEBPACK_IMPORTED_MODULE_16__ = __webpack_require__(/*! reactstrap */ "./node_modules/reactstrap/es/Row.js");
-/* harmony import */ var _components_Error_Error__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! ../../../../components/Error/Error */ "./resources/js/src/components/Error/Error.js");
-/* harmony import */ var _components_UI_Input__WEBPACK_IMPORTED_MODULE_3__ = __webpack_require__(/*! ../../../../components/UI/Input */ "./resources/js/src/components/UI/Input/index.js");
+/* harmony import */ var reactstrap__WEBPACK_IMPORTED_MODULE_14__ = __webpack_require__(/*! reactstrap */ "./node_modules/reactstrap/es/Row.js");
+/* harmony import */ var _components_UI_Input__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! ../../../../components/UI/Input */ "./resources/js/src/components/UI/Input/index.js");
+/* harmony import */ var _components_Error_Error__WEBPACK_IMPORTED_MODULE_3__ = __webpack_require__(/*! ../../../../components/Error/Error */ "./resources/js/src/components/Error/Error.js");
 /* harmony import */ var _components_Backend_UI_Form_Form__WEBPACK_IMPORTED_MODULE_4__ = __webpack_require__(/*! ../../../../components/Backend/UI/Form/Form */ "./resources/js/src/components/Backend/UI/Form/Form.js");
 /* harmony import */ var _components_Feedback_Feedback__WEBPACK_IMPORTED_MODULE_5__ = __webpack_require__(/*! ../../../../components/Feedback/Feedback */ "./resources/js/src/components/Feedback/Feedback.js");
 /* harmony import */ var _components_Backend_UI_Food_Form_Save__WEBPACK_IMPORTED_MODULE_6__ = __webpack_require__(/*! ../../../../components/Backend/UI/Food/Form/Save */ "./resources/js/src/components/Backend/UI/Food/Form/Save/index.js");
@@ -707,8 +743,12 @@ var initialState = {
   name: '',
   email: '',
   photo: null,
+  payment: null,
   paid: '1',
-  translate: '',
+  errors: '',
+  school_id: '',
+  promotion: '',
+  translate: "fr",
   add: false
 };
 
@@ -776,8 +816,8 @@ var Add = /*#__PURE__*/function (_Component) {
       }
     });
 
-    _defineProperty(_assertThisInitialized(_this), "fileUpload", function () {
-      return document.getElementById('photo').click();
+    _defineProperty(_assertThisInitialized(_this), "fileUpload", function (id) {
+      return document.getElementById(id).click();
     });
 
     return _this;
@@ -788,15 +828,12 @@ var Add = /*#__PURE__*/function (_Component) {
     value: // Lifecycle methods
     function componentDidMount() {
       this.props.reset();
-      if (this.props.edit) this.props.get(this.props.match.params.id);
-      this.setState({
-        translate: "fr"
-      });
+      if (this.props.edit) this.props.get(this.props.match.params.id);else this.props.info();
     }
   }, {
     key: "componentDidUpdate",
     value: function componentDidUpdate(prevProps) {
-      if (!prevProps.backend.elders.message && this.props.backend.elders.message && this.props.backend.elders.message.type === 'success' && !this.props.edit) {
+      if (!prevProps.backend.elders.message && this.props.backend.elders.message && this.props.backend.elders.message.type === 'success' && (!this.props.edit || this.props.edit && this.props.backend.elders.elder.paid == 0)) {
         if (this.state.add) this.setState(_objectSpread({}, initialState));else this.props.history.push({
           pathname: '/user/elders',
           state: {
@@ -811,9 +848,12 @@ var Add = /*#__PURE__*/function (_Component) {
       }
 
       if (this.props.edit && !prevProps.backend.elders.message && this.props.backend.elders.message && this.props.backend.elders.message.type === 'success') {
-        var photo = this.props.backend.elders.elder.photo;
+        var _this$props$backend$e = this.props.backend.elders.elder,
+            photo = _this$props$backend$e.photo,
+            payment = _this$props$backend$e.payment;
         this.setState({
-          photo: photo
+          photo: photo,
+          payment: payment
         });
       }
     }
@@ -837,23 +877,30 @@ var Add = /*#__PURE__*/function (_Component) {
           index = _this$props$content$c.index,
           form = _this$props$content$c.form,
           languages = _this$props$content.languages,
-          _this$props$backend$e = _this$props.backend.elders,
-          loading = _this$props$backend$e.loading,
-          error = _this$props$backend$e.error,
-          message = _this$props$backend$e.message,
-          elder = _this$props$backend$e.elder,
+          _this$props$backend$e2 = _this$props.backend.elders,
+          loading = _this$props$backend$e2.loading,
+          error = _this$props$backend$e2.error,
+          message = _this$props$backend$e2.message,
+          _this$props$backend$e3 = _this$props$backend$e2.schools,
+          schools = _this$props$backend$e3 === void 0 ? [] : _this$props$backend$e3,
+          _this$props$backend$e4 = _this$props$backend$e2.elder,
+          elder = _this$props$backend$e4 === void 0 ? {} : _this$props$backend$e4,
           features = _this$props.auth.data.role.features;
       var _this$state = this.state,
           elder_title = _this$state.title,
           name = _this$state.name,
           email = _this$state.email,
           photo = _this$state.photo,
+          payment = _this$state.payment,
           paid = _this$state.paid,
+          form_errors = _this$state.errors,
+          school_id = _this$state.school_id,
+          promotion = _this$state.promotion,
           translate = _this$state.translate;
       var content;
 
       var errors = /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_11__.jsx)(react_jsx_runtime__WEBPACK_IMPORTED_MODULE_11__.Fragment, {
-        children: /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_11__.jsx)(_components_Error_Error__WEBPACK_IMPORTED_MODULE_2__["default"], {
+        children: /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_11__.jsx)(_components_Error_Error__WEBPACK_IMPORTED_MODULE_3__["default"], {
           err: error
         })
       });
@@ -866,6 +913,14 @@ var Add = /*#__PURE__*/function (_Component) {
         to: "/user/dashboard"
       });
 
+      var schoolsOptions = schools.sort(function (a, b) {
+        return a.name.localeCompare(b.name);
+      }).map(function (school) {
+        return /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_11__.jsx)("option", {
+          value: school.id,
+          children: school.name
+        }, JSON.stringify(school));
+      });
       var languagesOptions = languages.map(function (language) {
         return /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_11__.jsx)("option", {
           value: language.abbr,
@@ -890,143 +945,121 @@ var Add = /*#__PURE__*/function (_Component) {
               className: "row",
               children: languages.map(function (l) {
                 return /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_11__.jsx)(react__WEBPACK_IMPORTED_MODULE_0__.Fragment, {
-                  children: /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_11__.jsx)(_components_UI_Input__WEBPACK_IMPORTED_MODULE_3__["default"], {
+                  children: /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_11__.jsx)(_components_UI_Input__WEBPACK_IMPORTED_MODULE_2__["default"], {
                     type: "text",
                     id: "title-" + l.abbr,
-                    className: "col-md-12" + (l.abbr === translate ? "" : " d-none"),
-                    icon: icon,
+                    className: "col-lg-12" + (l.abbr === translate ? "" : " d-none"),
                     onChange: _this2.inputChangeHandler,
                     value: elder_title[l.abbr],
                     name: "title[" + l.abbr + "]",
                     required: true,
-                    placeholder: form.title
+                    label: form.title
                   })
                 }, 'language-' + l.abbr);
               })
             })
           }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_11__.jsx)("div", {
             className: "col-lg-3",
-            children: /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_11__.jsx)(reactstrap__WEBPACK_IMPORTED_MODULE_14__["default"], {
-              children: /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_11__.jsx)(reactstrap__WEBPACK_IMPORTED_MODULE_15__["default"], {
-                type: "select",
-                name: "translate",
-                onChange: this.inputChangeHandler,
-                value: translate,
-                children: languagesOptions
-              })
+            children: /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_11__.jsx)(_components_UI_Input__WEBPACK_IMPORTED_MODULE_2__["default"], {
+              type: "select",
+              name: "translate",
+              label: form.language,
+              onChange: this.inputChangeHandler,
+              value: translate,
+              children: languagesOptions
             })
           }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_11__.jsx)("div", {
             className: "col-12 mb-3",
             children: /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_11__.jsx)("hr", {})
           }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_11__.jsx)("div", {
             className: "col-lg-9",
-            children: /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_11__.jsxs)(reactstrap__WEBPACK_IMPORTED_MODULE_16__["default"], {
-              children: [/*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_11__.jsx)(_components_UI_Input__WEBPACK_IMPORTED_MODULE_3__["default"], {
-                className: "col-md-6",
+            children: /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_11__.jsxs)(reactstrap__WEBPACK_IMPORTED_MODULE_14__["default"], {
+              children: [/*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_11__.jsx)(_components_UI_Input__WEBPACK_IMPORTED_MODULE_2__["default"], {
+                className: "col-lg-6",
                 type: "text",
                 name: "name",
-                placeholder: form.name,
+                label: form.name,
                 onChange: this.inputChangeHandler,
-                icon: "user",
                 required: true,
                 value: name
-              }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_11__.jsx)(_components_UI_Input__WEBPACK_IMPORTED_MODULE_3__["default"], {
-                className: "col-md-6",
+              }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_11__.jsx)(_components_UI_Input__WEBPACK_IMPORTED_MODULE_2__["default"], {
+                className: "col-lg-6",
                 type: "email",
                 name: "email",
-                placeholder: form.email,
+                label: form.email,
                 onChange: this.inputChangeHandler,
-                icon: "envelope",
                 required: true,
                 value: email
-              }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_11__.jsxs)(_components_UI_Input__WEBPACK_IMPORTED_MODULE_3__["default"], {
-                className: "col-md-6",
+              }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_11__.jsxs)(_components_UI_Input__WEBPACK_IMPORTED_MODULE_2__["default"], {
+                className: "col-lg-6",
                 type: "select",
-                name: "paid",
-                label: form.paid,
+                name: "school_id",
+                label: form.school,
                 onChange: this.inputChangeHandler,
                 required: true,
-                value: paid,
+                value: school_id,
                 children: [/*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_11__.jsx)("option", {
-                  children: form.select_status
-                }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_11__.jsx)("option", {
-                  value: 0,
-                  children: form.unpaid_status
-                }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_11__.jsx)("option", {
-                  value: 1,
-                  children: form.paid_status
-                })]
+                  children: form.select_school
+                }), schoolsOptions]
+              }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_11__.jsx)(_components_UI_Input__WEBPACK_IMPORTED_MODULE_2__["default"], {
+                className: "col-lg-6",
+                type: "number",
+                name: "promotion",
+                label: form.promotion,
+                onChange: this.inputChangeHandler,
+                required: true,
+                value: promotion
+              }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_11__.jsx)(_components_UI_Input__WEBPACK_IMPORTED_MODULE_2__["default"], {
+                className: "col-lg-12",
+                type: "image",
+                name: "payment",
+                label: form.payment,
+                onClick: function onClick() {
+                  return _this2.fileUpload('payment');
+                },
+                cms: form,
+                defaultValue: elder.payment,
+                value: payment,
+                dimensions: "21by9"
+              }), this.props.edit && paid == 0 && /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_11__.jsx)(_components_UI_Input__WEBPACK_IMPORTED_MODULE_2__["default"], {
+                className: "col-lg-12",
+                type: "textarea",
+                name: "errors",
+                label: form.errors,
+                onChange: this.inputChangeHandler,
+                required: true,
+                value: form_errors
               })]
             })
-          }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_11__.jsx)("div", {
+          }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_11__.jsxs)("div", {
             className: "col-lg-3",
-            children: /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_11__.jsx)(reactstrap__WEBPACK_IMPORTED_MODULE_14__["default"], {
-              children: /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_11__.jsx)("div", {
-                id: "embed-photo",
-                className: "embed-responsive embed-responsive-1by1 bg-soft rounded-8 d-flex justify-content-center align-items-center position-relative",
-                style: {
-                  cursor: 'pointer',
-                  backgroundImage: photo && "url(\"".concat(photo, "\")"),
-                  backgroundRepeat: 'no-repeat',
-                  backgroundPosition: 'center',
-                  backgroundSize: 'cover',
-                  overflow: 'visible'
-                },
-                onClick: this.fileUpload,
-                children: this.props.edit ? photo && photo !== elder.photo && /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_11__.jsxs)("div", {
-                  className: "text-center text-green w-100",
-                  children: [/*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_11__.jsx)("div", {
-                    className: "position-absolute",
-                    style: {
-                      top: 0,
-                      right: 0,
-                      transform: 'translate(50%,-50%)'
-                    },
-                    children: /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_11__.jsx)("i", {
-                      className: "fas fa-check-circle fa-fw fa-2x"
-                    })
-                  }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_11__.jsx)("div", {
-                    className: "position-absolute file-selected text-truncate w-100 pt-3",
-                    style: {
-                      top: '100%',
-                      left: 0
-                    }
-                  })]
-                }) : photo ? /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_11__.jsxs)("div", {
-                  className: "text-center text-green w-100",
-                  children: [/*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_11__.jsx)("div", {
-                    className: "position-absolute",
-                    style: {
-                      top: 0,
-                      right: 0,
-                      transform: 'translate(50%,-50%)'
-                    },
-                    children: /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_11__.jsx)("i", {
-                      className: "fas fa-check-circle fa-fw fa-2x"
-                    })
-                  }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_11__.jsx)("div", {
-                    className: "position-absolute file-selected text-truncate w-100 pt-3",
-                    style: {
-                      top: '100%',
-                      left: 0
-                    }
-                  })]
-                }) : /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_11__.jsxs)("div", {
-                  className: "text-center text-light w-100 overflow-hidden px-3",
-                  children: [/*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_11__.jsx)("div", {
-                    children: /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_11__.jsx)("i", {
-                      className: "fas fa-file-image fa-fw fa-4x"
-                    })
-                  }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_11__.jsx)("div", {
-                    className: "mt-3 mb-1 text-center text-12 text-truncate",
-                    children: form.upload
-                  }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_11__.jsx)("div", {
-                    className: "text-center text-12 text-truncate",
-                    children: form.size
-                  })]
-                })
-              })
-            })
+            children: [/*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_11__.jsxs)(_components_UI_Input__WEBPACK_IMPORTED_MODULE_2__["default"], {
+              type: "select",
+              name: "paid",
+              label: form.paid,
+              onChange: this.inputChangeHandler,
+              required: true,
+              value: paid,
+              children: [/*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_11__.jsx)("option", {
+                children: form.select_status
+              }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_11__.jsx)("option", {
+                value: 0,
+                children: form.unpaid_status
+              }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_11__.jsx)("option", {
+                value: 1,
+                children: form.paid_status
+              })]
+            }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_11__.jsx)(_components_UI_Input__WEBPACK_IMPORTED_MODULE_2__["default"], {
+              type: "image",
+              name: "photo",
+              label: form.photo,
+              onClick: function onClick() {
+                return _this2.fileUpload('photo');
+              },
+              cms: form,
+              defaultValue: elder.photo,
+              value: photo
+            })]
           })]
         }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_11__.jsx)(_components_Backend_UI_Food_Form_Save__WEBPACK_IMPORTED_MODULE_6__["default"], {
           edit: this.props.edit,
@@ -1059,6 +1092,13 @@ var Add = /*#__PURE__*/function (_Component) {
               type: "file",
               id: "photo",
               name: "photo",
+              className: "d-none",
+              onChange: this.inputChangeHandler,
+              accept: ".png,.jpg,.jpeg"
+            }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_11__.jsx)("input", {
+              type: "file",
+              id: "payment",
+              name: "payment",
               className: "d-none",
               onChange: this.inputChangeHandler,
               accept: ".png,.jpg,.jpeg"
@@ -1263,7 +1303,7 @@ __webpack_require__.r(__webpack_exports__);
 
 var ___CSS_LOADER_EXPORT___ = _node_modules_css_loader_dist_runtime_api_js__WEBPACK_IMPORTED_MODULE_0___default()(function(i){return i[1]});
 // Module
-___CSS_LOADER_EXPORT___.push([module.id, ".UI.Input {\n  position: relative;\n}\n.UI.Input ::-moz-placeholder {\n  color: var(--border-50);\n  opacity: 1;\n}\n.UI.Input :-ms-input-placeholder {\n  color: var(--border-50);\n  opacity: 1;\n}\n.UI.Input ::placeholder {\n  color: var(--border-50);\n  opacity: 1;\n}\n.UI.Input label:not(.control-label) {\n  position: absolute;\n  left: 75px;\n  top: 0.75rem;\n  z-index: 1;\n  max-width: calc(100% - 76px - 0.75rem);\n}\n.UI.Input .form-control[required] + label:not(.control-label)::after {\n  content: \"*\";\n  color: red;\n}\n.UI.Input .form-control[readonly] + label:not(.control-label),\n.UI.Input .form-control[disabled] + label:not(.control-label),\n.UI.Input .form-control[required]:valid + label:not(.control-label),\n.UI.Input input:not([value=\"\"]) + label:not(.control-label),\n.UI.Input textarea:not(:invalid) + label:not(.control-label) {\n  display: none;\n}\n.UI.Input .input-group {\n  border: none;\n  display: flex;\n  overflow: hidden;\n  border-radius: var(--border-radius);\n  align-items: center;\n  background-color: var(--white);\n  box-shadow: 0 0 0 1px var(--border-10);\n}\n.UI.Input .input-group-prepend {\n  z-index: 10;\n  height: 45px;\n  position: relative;\n}\n.UI.Input .input-group-prepend .input-group-text {\n  width: 57px;\n  border: none;\n  display: block;\n  padding: 3px 18px;\n  position: relative;\n  color: var(--border-30);\n  background-color: transparent;\n}\n.UI.Input .input-group-prepend .input-group-text .icon {\n  top: 50%;\n  left: 50%;\n  margin: 0 3px;\n  position: absolute;\n  color: var(--blue);\n  transform: translate(-50%, -50%);\n}\n.UI.Input .input-group-prepend .input-group-text .addon {\n  top: 0;\n  left: 0;\n  width: 100%;\n  height: 100%;\n  display: flex;\n  position: absolute;\n  align-items: center;\n  justify-content: center;\n}\n.UI.Input .input-group-prepend .input-group-text .circle {\n  top: 50%;\n  left: 100%;\n  width: 10px;\n  height: 10px;\n  overflow: hidden;\n  position: absolute;\n  border-radius: 50%;\n  background-color: var(--white);\n  transform: translate(-50%, calc(-50% - 2px));\n}\n.UI.Input .input-group-prepend .input-group-text .circle::after {\n  top: 0;\n  left: 0;\n  content: \"\";\n  width: 100%;\n  z-index: -1;\n  height: 100%;\n  position: absolute;\n  background-color: var(--border-10);\n}\n.UI.Input .form-control,\n.UI.Input select {\n  border: none;\n  height: 45px;\n  color: inherit;\n  box-shadow: none;\n  padding-left: 15px;\n  padding-right: 15px;\n}\n.UI.Input textarea {\n  min-height: 112px;\n}\n.UI.Input .control-label {\n  font-weight: 500;\n}\n.UI.Input .input-group-append .input-group-text {\n  border: none;\n  padding: 0 24px;\n  color: var(--border);\n  background-color: transparent;\n}\n.UI.Input.lg .input-group {\n  border-radius: calc(var(--border-radius) * 2);\n}\n.UI.Input.lg .input-group-prepend {\n  height: 82px;\n}\n.UI.Input.lg .input-group-prepend .input-group-text {\n  padding-left: 39px;\n  padding-right: 28px;\n}\n.UI.Input.lg .form-control,\n.UI.Input.lg select {\n  height: 82px;\n  font-size: 18px;\n  padding-left: 40px;\n  padding-right: 40px;\n}\n.UI.Input.inactive .input-group-prepend .input-group-text .addon {\n  background-color: var(--readonly);\n}", ""]);
+___CSS_LOADER_EXPORT___.push([module.id, ".UI.Input {\n  position: relative;\n}\n.UI.Input ::-moz-placeholder {\n  color: var(--border-50);\n  opacity: 1;\n}\n.UI.Input :-ms-input-placeholder {\n  color: var(--border-50);\n  opacity: 1;\n}\n.UI.Input ::placeholder {\n  color: var(--border-50);\n  opacity: 1;\n}\n.UI.Input label:not(.control-label) {\n  position: absolute;\n  left: 75px;\n  top: 0.75rem;\n  z-index: 1;\n  max-width: calc(100% - 76px - 0.75rem);\n}\n.UI.Input .form-control[required] + label:not(.control-label)::after {\n  content: \"*\";\n  color: red;\n}\n.UI.Input .form-control[readonly] + label:not(.control-label),\n.UI.Input .form-control[disabled] + label:not(.control-label),\n.UI.Input .form-control[required]:valid + label:not(.control-label),\n.UI.Input input:not([value=\"\"]) + label:not(.control-label),\n.UI.Input textarea:not(:invalid) + label:not(.control-label) {\n  display: none;\n}\n.UI.Input .input-group {\n  border: none;\n  display: flex;\n  overflow: hidden;\n  border-radius: var(--border-radius);\n  align-items: center;\n  background-color: var(--white);\n  box-shadow: 0 0 0 1px var(--border-10);\n}\n.UI.Input .input-group-prepend {\n  z-index: 10;\n  height: 45px;\n  position: relative;\n}\n.UI.Input .input-group-prepend .input-group-text {\n  width: 57px;\n  border: none;\n  display: block;\n  padding: 3px 18px;\n  position: relative;\n  color: var(--border-30);\n  background-color: transparent;\n}\n.UI.Input .input-group-prepend .input-group-text .icon {\n  top: 50%;\n  left: 50%;\n  margin: 0 3px;\n  position: absolute;\n  color: var(--blue);\n  transform: translate(-50%, -50%);\n}\n.UI.Input .input-group-prepend .input-group-text .addon {\n  top: 0;\n  left: 0;\n  width: 100%;\n  height: 100%;\n  display: flex;\n  position: absolute;\n  align-items: center;\n  justify-content: center;\n}\n.UI.Input .input-group-prepend .input-group-text .circle {\n  top: 50%;\n  left: 100%;\n  width: 10px;\n  height: 10px;\n  overflow: hidden;\n  position: absolute;\n  border-radius: 50%;\n  background-color: var(--white);\n  transform: translate(-50%, calc(-50% - 2px));\n}\n.UI.Input .input-group-prepend .input-group-text .circle::after {\n  top: 0;\n  left: 0;\n  content: \"\";\n  width: 100%;\n  z-index: -1;\n  height: 100%;\n  position: absolute;\n  background-color: var(--border-10);\n}\n.UI.Input .form-control,\n.UI.Input select {\n  border: none;\n  height: 45px;\n  color: inherit;\n  box-shadow: none;\n  padding-left: 15px;\n  padding-right: 15px;\n}\n.UI.Input textarea {\n  min-height: 112px;\n}\n.UI.Input .embed-responsive {\n  display: flex;\n  cursor: pointer;\n  overflow: visible;\n  position: relative;\n  align-items: center;\n  justify-content: center;\n  background-color: var(--border-10);\n  border-radius: var(--border-radius);\n  box-shadow: 0 0 0 1px var(--border-10);\n}\n.UI.Input .embed-responsive .image-selected {\n  width: 100%;\n  text-align: center;\n  color: var(--green);\n}\n.UI.Input .embed-responsive .image-selected .check-circle {\n  top: 0;\n  right: 0;\n  position: absolute;\n  transform: translate(50%, -50%);\n}\n.UI.Input .embed-responsive .image-selected .file-selected {\n  left: 0;\n  bottom: 0;\n  width: 100%;\n  padding: 8px 15px;\n  position: absolute;\n  color: var(--white);\n  background-color: var(--black-70);\n  border-bottom-left-radius: var(--border-radius);\n  border-bottom-right-radius: var(--border-radius);\n}\n.UI.Input .embed-responsive .select-image {\n  width: 100%;\n  padding: 0 16px;\n  overflow: hidden;\n  text-align: center;\n  color: var(--border-50);\n}\n.UI.Input .embed-responsive .select-image .upload {\n  margin-top: 16px;\n  margin-bottom: 4px;\n  text-align: center;\n}\n.UI.Input .control-label {\n  font-weight: 500;\n}\n.UI.Input .input-group-append .input-group-text {\n  border: none;\n  padding: 0 24px;\n  color: var(--border);\n  background-color: transparent;\n}\n.UI.Input.lg .input-group {\n  border-radius: calc(var(--border-radius) * 2);\n}\n.UI.Input.lg .input-group-prepend {\n  height: 82px;\n}\n.UI.Input.lg .input-group-prepend .input-group-text {\n  padding-left: 39px;\n  padding-right: 28px;\n}\n.UI.Input.lg .form-control,\n.UI.Input.lg select {\n  height: 82px;\n  font-size: 18px;\n  padding-left: 40px;\n  padding-right: 40px;\n}\n.UI.Input.inactive .input-group-prepend .input-group-text .addon {\n  background-color: var(--readonly);\n}", ""]);
 // Exports
 /* harmony default export */ const __WEBPACK_DEFAULT_EXPORT__ = (___CSS_LOADER_EXPORT___);
 

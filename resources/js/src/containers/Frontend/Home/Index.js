@@ -34,11 +34,13 @@ const Stat = ({ icon, value, text }) => <div className='Stat'>
     </div>
 </div>;
 
+const initialState = {
+    name: '',
+    email: '',
+};
+
 class Home extends Component {
-    state = {
-        name: '',
-        email: '',
-    }
+    state = { ...initialState }
 
 
 
@@ -58,6 +60,12 @@ class Home extends Component {
     // Lifecycle methods
     componentDidMount() {
         this.props.get();
+    }
+
+    componentDidUpdate(prevProps) {
+        if (!prevProps.frontend.home.message && this.props.frontend.home.message && this.props.frontend.home.message.type === 'success' && !this.props.edit) {
+            this.setState({ ...initialState });
+        }
     }
 
     componentWillUnmount() {

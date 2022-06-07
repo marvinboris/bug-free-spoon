@@ -110,6 +110,57 @@
         min-height: 112px;
     }
 
+    .embed-responsive {
+        display: flex;
+        cursor: pointer;
+        overflow: visible;
+        position: relative;
+        align-items: center;
+        justify-content: center;
+        background-color: var(--border-10);
+        border-radius: var(--border-radius);
+        box-shadow: 0 0 0 1px var(--border-10);
+
+        .image-selected {
+            width: 100%;
+            text-align: center;
+            color: var(--green);
+
+            .check-circle {
+                top: 0;
+                right: 0;
+                position: absolute;
+                transform: translate(50%, -50%);
+            }
+
+            .file-selected {
+                left: 0;
+                bottom: 0;
+                width: 100%;
+                padding: 8px 15px;
+                position: absolute;
+                color: var(--white);
+                background-color: var(--black-70);
+                border-bottom-left-radius: var(--border-radius);
+                border-bottom-right-radius: var(--border-radius);
+            }
+        }
+
+        .select-image {
+            width: 100%;
+            padding: 0 16px;
+            overflow: hidden;
+            text-align: center;
+            color: var(--border-50);
+
+            .upload {
+                margin-top: 16px;
+                margin-bottom: 4px;
+                text-align: center;
+            }
+        }
+    }
+
     .control-label {
         font-weight: 500;
     }
