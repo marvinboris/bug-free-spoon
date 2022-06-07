@@ -115,7 +115,7 @@ class Add extends Component {
             backend: { elders: { loading, error, message, elder } },
             auth: { data: { role: { features } } }
         } = this.props;
-        const { title: elder_title, name, email, photo, paid, translate } = this.state;
+        const { title: elder_title, name, email, photo, payment, paid, translate } = this.state;
         let content;
 
         const errors = <>
@@ -139,7 +139,7 @@ class Add extends Component {
                 <div className="col-lg-9">
                     <div className="row">
                         {languages.map(l => <Fragment key={'language-' + l.abbr}>
-                            <FormInput type="text" id={"title-" + l.abbr} className={"col-md-12" + (l.abbr === translate ? "" : " d-none")} icon={icon} onChange={this.inputChangeHandler} value={elder_title[l.abbr]} name={"title[" + l.abbr + "]"} required label={form.title} />
+                            <FormInput type="text" id={"title-" + l.abbr} className={"col-md-12" + (l.abbr === translate ? "" : " d-none")} onChange={this.inputChangeHandler} value={elder_title[l.abbr]} name={"title[" + l.abbr + "]"} required label={form.title} />
                         </Fragment>)}
                     </div>
                 </div>
@@ -158,8 +158,8 @@ class Add extends Component {
 
                 <div className="col-lg-9">
                     <Row>
-                        <FormInput className="col-md-6" type="text" name="name" label={form.name} onChange={this.inputChangeHandler} icon="user" required value={name} />
-                        <FormInput className="col-md-6" type="email" name="email" label={form.email} onChange={this.inputChangeHandler} icon="envelope" required value={email} />
+                        <FormInput className="col-md-6" type="text" name="name" label={form.name} onChange={this.inputChangeHandler} required value={name} />
+                        <FormInput className="col-md-6" type="email" name="email" label={form.email} onChange={this.inputChangeHandler} required value={email} />
                         <FormInput className="col-md-6" type="select" name="paid" label={form.paid} onChange={this.inputChangeHandler} required value={paid}>
                             <option>{form.select_status}</option>
                             <option value={0}>{form.unpaid_status}</option>
