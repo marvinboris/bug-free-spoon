@@ -139,7 +139,7 @@ class Add extends Component {
                 <div className="col-lg-9">
                     <div className="row">
                         {languages.map(l => <Fragment key={'language-' + l.abbr}>
-                            <FormInput type="text" id={"title-" + l.abbr} className={"col-md-12" + (l.abbr === translate ? "" : " d-none")} icon={icon} onChange={this.inputChangeHandler} value={event_title[l.abbr]} name={"title[" + l.abbr + "]"} required placeholder={form.title} />
+                            <FormInput type="text" id={"title-" + l.abbr} className={"col-md-12" + (l.abbr === translate ? "" : " d-none")} icon={icon} onChange={this.inputChangeHandler} value={event_title[l.abbr]} name={"title[" + l.abbr + "]"} required label={form.title} />
                             <FormGroup id={"description-" + l.abbr} className={"col-md-12" + (l.abbr === translate ? "" : " d-none")}>
                                 {this.props.edit && event && event.description[l.abbr] === description[l.abbr] && <Editor defaultValue={event.description[l.abbr]} name={"description[" + l.abbr + "]"} placeholder={form.description} />}
                                 {!this.props.edit && <Editor name={"description[" + l.abbr + "]"} placeholder={form.description} />}
@@ -166,7 +166,7 @@ class Add extends Component {
 
                 <div className="col-lg-9">
                     <FormGroup>
-                        <div id="embed-photo" className="embed-responsive embed-responsive-21by9 bg-soft rounded-8 d-flex justify-content-center align-items-center position-relative" style={{
+                        <div id="embed-photo" className="embed-responsive embed-responsive-21by9 bg-border-10 rounded-15 d-flex justify-content-center align-items-center position-relative" style={{
                             cursor: 'pointer',
                             backgroundImage: photo && `url("${photo}")`,
                             backgroundRepeat: 'no-repeat',
@@ -197,7 +197,7 @@ class Add extends Component {
 
                 <div className="col-lg-9">
                     <Row>
-                        <FormInput className="col-md-6" type="date" name="date" placeholder={form.date} onChange={this.inputChangeHandler} icon="clock" required value={date} />
+                        <FormInput className="col-md-6" type="date" name="date" label={form.date} onChange={this.inputChangeHandler} icon="clock" required value={date} />
                     </Row>
                 </div>
             </div>

@@ -138,7 +138,7 @@ class Add extends Component {
                 <div className="col-lg-9">
                     <div className="row">
                         {languages.map(l => <Fragment key={'language-' + l.abbr}>
-                            <FormInput type="text" id={"title-" + l.abbr} className={"col-md-12" + (l.abbr === translate ? "" : " d-none")} icon={icon} onChange={this.inputChangeHandler} value={publication_title[l.abbr]} name={"title[" + l.abbr + "]"} required placeholder={form.title} />
+                            <FormInput type="text" id={"title-" + l.abbr} className={"col-md-12" + (l.abbr === translate ? "" : " d-none")} icon={icon} onChange={this.inputChangeHandler} value={publication_title[l.abbr]} name={"title[" + l.abbr + "]"} required label={form.title} />
                             <FormGroup id={"body-" + l.abbr} className={"col-md-12" + (l.abbr === translate ? "" : " d-none")}>
                                 {this.props.edit && publication && publication.body[l.abbr] === body[l.abbr] && <Editor defaultValue={publication.body[l.abbr]} name={"body[" + l.abbr + "]"} placeholder={form.body} />}
                                 {!this.props.edit && <Editor name={"body[" + l.abbr + "]"} placeholder={form.body} />}
@@ -161,7 +161,7 @@ class Add extends Component {
 
                 <div className="col-lg-9">
                     <FormGroup>
-                        <div id="embed-photo" className="embed-responsive embed-responsive-21by9 bg-soft rounded-8 d-flex justify-content-center align-items-center position-relative" style={{
+                        <div id="embed-photo" className="embed-responsive embed-responsive-21by9 bg-border-10 rounded-15 d-flex justify-content-center align-items-center position-relative" style={{
                             cursor: 'pointer',
                             backgroundImage: photo && `url("${photo}")`,
                             backgroundRepeat: 'no-repeat',

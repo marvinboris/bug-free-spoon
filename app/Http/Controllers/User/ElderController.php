@@ -14,7 +14,7 @@ class ElderController extends Controller
         'name' => 'required|string',
         'email' => 'required|email',
         'title' => 'array|required',
-        'photo' => 'required|image',
+        'photo' => 'nullable|image',
         'payment' => 'nullable|image',
         'paid' => 'required|integer',
         'errors' => 'nullable|string',

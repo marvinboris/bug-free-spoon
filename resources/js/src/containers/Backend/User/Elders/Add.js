@@ -20,6 +20,7 @@ const initialState = {
     name: '',
     email: '',
     photo: null,
+    payment: null,
     paid: '1',
 
     translate: '',
@@ -138,7 +139,7 @@ class Add extends Component {
                 <div className="col-lg-9">
                     <div className="row">
                         {languages.map(l => <Fragment key={'language-' + l.abbr}>
-                            <FormInput type="text" id={"title-" + l.abbr} className={"col-md-12" + (l.abbr === translate ? "" : " d-none")} icon={icon} onChange={this.inputChangeHandler} value={elder_title[l.abbr]} name={"title[" + l.abbr + "]"} required placeholder={form.title} />
+                            <FormInput type="text" id={"title-" + l.abbr} className={"col-md-12" + (l.abbr === translate ? "" : " d-none")} icon={icon} onChange={this.inputChangeHandler} value={elder_title[l.abbr]} name={"title[" + l.abbr + "]"} required label={form.title} />
                         </Fragment>)}
                     </div>
                 </div>
@@ -157,26 +158,55 @@ class Add extends Component {
 
                 <div className="col-lg-9">
                     <Row>
-                        <FormInput className="col-md-6" type="text" name="name" placeholder={form.name} onChange={this.inputChangeHandler} icon="user" required value={name} />
-                        <FormInput className="col-md-6" type="email" name="email" placeholder={form.email} onChange={this.inputChangeHandler} icon="envelope" required value={email} />
+                        <FormInput className="col-md-6" type="text" name="name" label={form.name} onChange={this.inputChangeHandler} icon="user" required value={name} />
+                        <FormInput className="col-md-6" type="email" name="email" label={form.email} onChange={this.inputChangeHandler} icon="envelope" required value={email} />
                         <FormInput className="col-md-6" type="select" name="paid" label={form.paid} onChange={this.inputChangeHandler} required value={paid}>
                             <option>{form.select_status}</option>
                             <option value={0}>{form.unpaid_status}</option>
                             <option value={1}>{form.paid_status}</option>
                         </FormInput>
+                        <FormGroup className='col-md-12'>
+                            <label className='text-500 mb-2'>{form.payment}</label>
+                            <div id="embed-payment" className="embed-responsive embed-responsive-21by9 bg-border-10 rounded-15 d-flex justify-content-center align-items-center position-relative" style={{
+                                cursor: 'pointer',
+                                backgroundImage: payment && `url("${payment}")`,
+                                backgroundRepeat: 'no-repeat',
+                                backgroundPosition: 'center',
+                                backgroundSize: 'cover',
+                                overflow: 'visible',
+                            }} onClick={() => this.fileUpload('payment')}>
+                                {this.props.edit
+                                    ? payment && (payment !== elder.payment) && <div className="text-center text-green w-100">
+                                        <div className="position-absolute" style={{ top: 0, right: 0, transform: 'translate(50%,-50%)' }}><i className='fas fa-check-circle fa-fw fa-2x' /></div>
+
+                                        <div className="position-absolute file-selected text-truncate w-100 pt-3" style={{ top: '100%', left: 0 }} />
+                                    </div>
+                                    : payment ? <div className="text-center text-green w-100">
+                                        <div className="position-absolute" style={{ top: 0, right: 0, transform: 'translate(50%,-50%)' }}><i className='fas fa-check-circle fa-fw fa-2x' /></div>
+
+                                        <div className="position-absolute file-selected text-truncate w-100 pt-3" style={{ top: '100%', left: 0 }} />
+                                    </div> : <div className="text-center text-light w-100 overflow-hidden px-3">
+                                        <div><i className='fas fa-file-image fa-fw fa-4x' /></div>
+
+                                        <div className="mt-3 mb-1 text-center text-12 text-truncate">{form.upload}</div>
+
+                                        <div className="text-center text-12 text-truncate">{form.size}</div>
+                                    </div>}
+                            </div>
+                        </FormGroup>
                     </Row>
                 </div>
 
                 <div className="col-lg-3">
-                    <FormGroup>
-                        <div id="embed-photo" className="embed-responsive embed-responsive-1by1 bg-soft rounded-8 d-flex justify-content-center align-items-center position-relative" style={{
+                    <FormGroup className='col-md-12'>
+                        <div id="embed-photo" className="embed-responsive embed-responsive-1by1 bg-border-10 rounded-15 d-flex justify-content-center align-items-center position-relative" style={{
                             cursor: 'pointer',
                             backgroundImage: photo && `url("${photo}")`,
                             backgroundRepeat: 'no-repeat',
                             backgroundPosition: 'center',
                             backgroundSize: 'cover',
                             overflow: 'visible',
-                        }} onClick={this.fileUpload}>
+                        }} onClick={() => this.fileUpload('photo')}>
                             {this.props.edit
                                 ? photo && (photo !== elder.photo) && <div className="text-center text-green w-100">
                                     <div className="position-absolute" style={{ top: 0, right: 0, transform: 'translate(50%,-50%)' }}><i className='fas fa-check-circle fa-fw fa-2x' /></div>
@@ -214,6 +244,7 @@ class Add extends Component {
                 {errors}
                 <Form onSubmit={this.saveHandler} icon={icon} title={this.props.edit ? edit : add} list={index} link="/user/elders" innerClassName="row justify-content-center">
                     <input type="file" id="photo" name="photo" className="d-none" onChange={this.inputChangeHandler} accept=".png,.jpg,.jpeg" />
+                    <input type="file" id="payment" name="payment" className="d-none" onChange={this.inputChangeHandler} accept=".png,.jpg,.jpeg" />
                     {content}
                 </Form>
             </div>
