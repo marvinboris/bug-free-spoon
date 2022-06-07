@@ -29,9 +29,9 @@ class Layout extends Component {
                     </div>
 
                     <div className='right'>
-                        <a href='' target='_blank' className='fab fa-facebook-square' />
-                        <a href='' target='_blank' className='fab fa-linkedin' />
-                        <a href='' target='_blank' className='fab fa-twitter-square' />
+                        <a href='' target='_blank'><i className='fab fa-facebook-square' /></a>
+                        <a href='' target='_blank'><i className='fab fa-linkedin' /></a>
+                        <a href='' target='_blank'><i className='fab fa-twitter-square' /></a>
                     </div>
                 </div>
             </footer>

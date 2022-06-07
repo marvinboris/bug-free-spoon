@@ -105,7 +105,7 @@ Route::namespace('User')->prefix('user')->name('user.')->group(function () {
     });
 });
 
-Route::middleware('auth:admin,customer,api')->group(function () {
+Route::middleware('auth:admin,api')->group(function () {
     Route::get('logout', 'UtilController@logout')->name('logout');
     Route::get('user', 'UtilController@account')->name('user');
 

@@ -119,6 +119,9 @@
         }
 
         &.about .actions {
+            a {
+                margin-bottom: 10px;
+            }
 
             .donate,
             .join {

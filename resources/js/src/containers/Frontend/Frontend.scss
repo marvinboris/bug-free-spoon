@@ -24,6 +24,7 @@
         .container {
             display: flex;
             padding: 40px 0;
+            justify-content: space-between;
             align-items: center;
 
             .left a {
@@ -32,8 +33,11 @@
                 text-decoration: none;
             }
 
-            .right a:not(:first) {
+            .right a {
+                font-size: 30px;
                 margin-left: 10px;
+                color: var(--blue);
+                text-decoration: none;
             }
         }
     }
