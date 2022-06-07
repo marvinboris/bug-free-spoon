@@ -138,7 +138,7 @@ class Add extends Component {
                 <div className="col-lg-9">
                     <div className="row">
                         {languages.map(l => <Fragment key={'language-' + l.abbr}>
-                            <FormInput type="text" id={"title-" + l.abbr} className={"col-md-12" + (l.abbr === translate ? "" : " d-none")} icon={icon} onChange={this.inputChangeHandler} value={publication_title[l.abbr]} name={"title[" + l.abbr + "]"} required label={form.title} />
+                            <FormInput type="text" id={"title-" + l.abbr} className={"col-md-12" + (l.abbr === translate ? "" : " d-none")} onChange={this.inputChangeHandler} value={publication_title[l.abbr]} name={"title[" + l.abbr + "]"} required label={form.title} />
                             <FormGroup id={"body-" + l.abbr} className={"col-md-12" + (l.abbr === translate ? "" : " d-none")}>
                                 {this.props.edit && publication && publication.body[l.abbr] === body[l.abbr] && <Editor defaultValue={publication.body[l.abbr]} name={"body[" + l.abbr + "]"} placeholder={form.body} />}
                                 {!this.props.edit && <Editor name={"body[" + l.abbr + "]"} placeholder={form.body} />}
@@ -192,7 +192,7 @@ class Add extends Component {
 
                 <div className="col-lg-9">
                     <Row>
-                        <FormInput type="select" className="col-md-6" icon="pencil-alt" onChange={this.inputChangeHandler} value={is_active} name="is_active" required>
+                        <FormInput type="select" className="col-md-6" onChange={this.inputChangeHandler} value={is_active} name="is_active" required>
                             <option>{form.select_status}</option>
                             <option value={1}>{active}</option>
                             <option value={0}>{inactive}</option>

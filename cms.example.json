@@ -566,6 +566,7 @@
                             "name": "Nom",
                             "title": "Titre du poste",
                             "photo": "Photo",
+                            "email": "Adresse mail",
                             "elder_photo": "Photo de l'ancien",
                             "paid": "Statut de paiement",
                             "select_status": "Sélectionner le statut",
@@ -690,7 +691,7 @@
                                     "year": "Année cotisée",
                                     "payment": "Preuve de paiement",
                                     "submit": "Soumettre",
-                                    "payment_details":"Afin de confirmer votre adhésion à la Fiducac, veuillez effectuer un paiement et en envoyer la preuve en image (une capture d'écran du message de transfert ou de dépôt, par exemple)."
+                                    "payment_details": "Afin de confirmer votre adhésion à la Fiducac, veuillez effectuer un paiement et en envoyer la preuve en image (une capture d'écran du message de transfert ou de dépôt, par exemple)."
                                 }
                             }
                         },
