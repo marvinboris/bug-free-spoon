@@ -1,16 +1,17 @@
 .SectionTitle {
-    margin-bottom: 25px;
+    margin-bottom: 15px;
     display: flex;
     align-items: stretch;
 
     .icon {
-        padding-right: 15px;
+        // display: none;
+        padding-right: 11px;
 
         .wrapper {
-            width: 77px;
-            height: 77px;
+            width: 57px;
+            height: 57px;
             display: flex;
-            font-size: 30px;
+            font-size: 20px;
             color: var(--blue);
             align-items: center;
             justify-content: center;
@@ -21,10 +22,9 @@
 
     .text {
         .title {
-            font-size: 30px;
+            font-size: 24px;
             font-weight: 500;
             color: var(--blue);
-            margin-bottom: 7px;
             display: inline-block;
             border-bottom: .5px solid var(--border);
         }
@@ -35,6 +35,53 @@
 
         .text {
             text-align: center;
+        }
+    }
+}
+
+@media (min-width: 800px) {
+    .SectionTitle {
+        margin-bottom: 20px;
+
+        .icon {
+            display: block;
+            padding-right: 13px;
+
+            .wrapper {
+                width: 67px;
+                height: 67px;
+                font-size: 25px;
+            }
+        }
+
+        .text {
+            .title {
+                font-size: 27px;
+                margin-bottom: 3px;
+            }
+        }
+    }
+}
+
+@media (min-width: 1280px) {
+    .SectionTitle {
+        margin-bottom: 25px;
+
+        .icon {
+            padding-right: 15px;
+
+            .wrapper {
+                width: 77px;
+                height: 77px;
+                font-size: 30px;
+            }
+        }
+
+        .text {
+            .title {
+                font-size: 30px;
+                margin-bottom: 7px;
+            }
         }
     }
 }

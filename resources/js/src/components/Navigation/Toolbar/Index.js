@@ -66,7 +66,7 @@ class Toolbar extends Component {
                     </div>
 
                     <div className="mx-2 mx-md-3 d-lg-none">
-                        <i onClick={this.toggleNavbar} className="fas fa-th-large text-21 text-md-40" style={{ cursor: 'pointer' }} />
+                        <i onClick={this.toggleNavbar} className="fas fa-th-large text-30 text-md-40 cursor-pointer" />
                     </div>
 
                     <div className="pl-3 d-lg-block">
@@ -77,14 +77,8 @@ class Toolbar extends Component {
 
             <div className="d-lg-none">
                 <Collapse isOpen={!this.state.navbar} navbar>
-                    <div className="fixed-top w-100 h-100 bg-black-85 d-flex flex-column p-3">
-                        <div className="position-absolute pt-3 pr-3" style={{ top: 0, right: 0, zIndex: 10 }}>
-                            <i className="fas fa-times text-25" style={{ cursor: 'pointer' }} onClick={this.toggleNavbar} />
-                        </div>
-
-                        <div className="p-3">
-                            <NavigationItems cms={{ menu }} font="border" toggleNavbar={this.toggleNavbar} />
-                        </div>
+                    <div className="bg-white d-flex flex-column py-2">
+                        <NavigationItems cms={{ menu }} font="border" toggleNavbar={this.toggleNavbar} />
                     </div>
                 </Collapse>
             </div>

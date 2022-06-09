@@ -3,7 +3,7 @@ import { Card, CardBody } from 'reactstrap';
 
 import './ElderBlock.scss';
 
-export default ({ name, title, animation = "fade-up", photo }) => {
+export default ({ name, title, school, promotion, animation = "fade-up", photo }) => {
     const lang = localStorage.getItem('lang');
 
     return <div className="ElderBlock pb-3 pb-xl-0">
@@ -12,7 +12,7 @@ export default ({ name, title, animation = "fade-up", photo }) => {
             <div className="card-img-top embed-responsive embed-responsive-1by1 bg-black" style={{ opacity: .3 }} />
             <CardBody className="bg-blue-80 text-white position-relative">
                 <div className="bg-white rounded-right position-absolute" style={{ width: 10, height: 40, top: '50%', left: 0, transform: 'translateY(-50%)' }} />
-                <div className="ml-5 ml-xl-4">
+                <div className="ml-2 ml-md-3 ml-xl-4">
                     <div className="font-weight-normal text-montserrat-alt h4 position-relative d-flex align-items-center">
                         <span className="pr-2">{name}</span>
 
@@ -29,11 +29,8 @@ export default ({ name, title, animation = "fade-up", photo }) => {
                         {title[lang]}
                     </div>
 
-                    <div className='social-networks'>
-                        <i className="fab fa-facebook-square" />
-                        <i className="fab fa-twitter-square" />
-                        <i className="fab fa-instagram" />
-                        <i className="fab fa-whatsapp" />
+                    <div className='track'>
+                        {school} - {promotion}
                     </div>
                 </div>
             </CardBody>

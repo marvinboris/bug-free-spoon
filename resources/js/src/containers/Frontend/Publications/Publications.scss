@@ -3,18 +3,32 @@
         background-color: var(--blue-10);
 
         .container {
-            padding: 80px 0;
-
-            img {
-                border-radius: var(--border-radius);
-            }
-
-            p {
-                margin-bottom: 40px;
-            }
-
             .PublicationBlock {
-                margin-bottom: 24px;
+                margin-bottom: 16px;
+            }
+        }
+    }
+}
+
+@media (min-width: 800px) {
+    .Frontend .Publications {
+        section {
+            .container {
+                .PublicationBlock {
+                    margin-bottom: 20px;
+                }
+            }
+        }
+    }
+}
+
+@media (min-width: 1280px) {
+    .Frontend .Publications {
+        section {
+            .container {
+                .PublicationBlock {
+                    margin-bottom: 24px;
+                }
             }
         }
     }

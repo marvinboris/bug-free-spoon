@@ -2,6 +2,7 @@
     padding: 15px 30px 31px 24px;
     background-color: var(--white);
     border-radius: 20px;
+    margin-bottom: 4px;
 }
 
 .Backend.User .Dashboard .Card .title {

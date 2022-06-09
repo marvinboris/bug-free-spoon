@@ -7,8 +7,21 @@
 	position: fixed;
 
 	.content {
-		padding: 24px;
-		background-color: var(--blue-10);
+		z-index: 1;
+		padding: 16px;
+		background-color: var(--soft);
+		position: relative;
+
+		&::after {
+			content: "";
+			position: absolute;
+			top: 0;
+			left: 0;
+			width: 100%;
+			height: 100%;
+			z-index: -1;
+			background-color: var(--blue-10);
+		}
 	}
 
 	.navbar-nav {
@@ -51,7 +64,7 @@
 	}
 }
 
-@media (min-width: 768px) {
+@media (min-width: 800px) {
 	.Backend.User .SideDrawer {
 		left: 0 !important;
 
@@ -61,6 +74,18 @@
 
 		.navbar-nav {
 			height: calc(100vh - 210px);
+		}
+
+		.content {
+			padding: 20px;
+		}
+	}
+}
+
+@media (min-width: 1280px) {
+	.Backend.User .SideDrawer {
+		.content {
+			padding: 24px;
 		}
 	}
 }

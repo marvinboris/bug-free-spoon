@@ -312,7 +312,7 @@ __webpack_require__.r(__webpack_exports__);
 
 var ___CSS_LOADER_EXPORT___ = _node_modules_css_loader_dist_runtime_api_js__WEBPACK_IMPORTED_MODULE_0___default()(function(i){return i[1]});
 // Module
-___CSS_LOADER_EXPORT___.push([module.id, ".PageTitle {\n  position: relative;\n  background-color: var(--blue-80);\n}\n.PageTitle::after {\n  top: 0;\n  left: 0;\n  content: \"\";\n  width: 100%;\n  z-index: -1;\n  height: 100%;\n  position: absolute;\n  background-color: var(--black);\n}\n.PageTitle .container {\n  display: flex;\n  padding: 80px 0;\n  align-items: center;\n  color: var(--white);\n  flex-direction: column;\n  justify-content: center;\n}\n.PageTitle .container .title {\n  font-size: 2rem;\n  font-weight: 700;\n  margin-bottom: 7px;\n  border-bottom: 0.5px solid var(--white);\n}", ""]);
+___CSS_LOADER_EXPORT___.push([module.id, ".PageTitle {\n  position: relative;\n  background-color: var(--blue-80);\n}\n.PageTitle::after {\n  top: 0;\n  left: 0;\n  content: \"\";\n  width: 100%;\n  z-index: -1;\n  height: 100%;\n  position: absolute;\n  background-color: var(--black);\n}\n.PageTitle .container {\n  display: flex;\n  padding-top: 80px;\n  padding-bottom: 80px;\n  align-items: center;\n  color: var(--white);\n  flex-direction: column;\n  justify-content: center;\n}\n.PageTitle .container .title {\n  font-size: 2rem;\n  font-weight: 700;\n  margin-bottom: 7px;\n  border-bottom: 0.5px solid var(--white);\n}", ""]);
 // Exports
 /* harmony default export */ const __WEBPACK_DEFAULT_EXPORT__ = (___CSS_LOADER_EXPORT___);
 
@@ -335,7 +335,7 @@ __webpack_require__.r(__webpack_exports__);
 
 var ___CSS_LOADER_EXPORT___ = _node_modules_css_loader_dist_runtime_api_js__WEBPACK_IMPORTED_MODULE_0___default()(function(i){return i[1]});
 // Module
-___CSS_LOADER_EXPORT___.push([module.id, ".SectionTitle {\n  margin-bottom: 25px;\n  display: flex;\n  align-items: stretch;\n}\n.SectionTitle .icon {\n  padding-right: 15px;\n}\n.SectionTitle .icon .wrapper {\n  width: 77px;\n  height: 77px;\n  display: flex;\n  font-size: 30px;\n  color: var(--blue);\n  align-items: center;\n  justify-content: center;\n  background-color: var(--blue-10);\n  border-radius: var(--border-radius);\n}\n.SectionTitle .text .title {\n  font-size: 30px;\n  font-weight: 500;\n  color: var(--blue);\n  margin-bottom: 7px;\n  display: inline-block;\n  border-bottom: 0.5px solid var(--border);\n}\n.SectionTitle.centered {\n  justify-content: center;\n}\n.SectionTitle.centered .text {\n  text-align: center;\n}", ""]);
+___CSS_LOADER_EXPORT___.push([module.id, ".SectionTitle {\n  margin-bottom: 15px;\n  display: flex;\n  align-items: stretch;\n}\n.SectionTitle .icon {\n  padding-right: 11px;\n}\n.SectionTitle .icon .wrapper {\n  width: 57px;\n  height: 57px;\n  display: flex;\n  font-size: 20px;\n  color: var(--blue);\n  align-items: center;\n  justify-content: center;\n  background-color: var(--blue-10);\n  border-radius: var(--border-radius);\n}\n.SectionTitle .text .title {\n  font-size: 24px;\n  font-weight: 500;\n  color: var(--blue);\n  display: inline-block;\n  border-bottom: 0.5px solid var(--border);\n}\n.SectionTitle.centered {\n  justify-content: center;\n}\n.SectionTitle.centered .text {\n  text-align: center;\n}\n\n@media (min-width: 800px) {\n  .SectionTitle {\n    margin-bottom: 20px;\n  }\n  .SectionTitle .icon {\n    display: block;\n    padding-right: 13px;\n  }\n  .SectionTitle .icon .wrapper {\n    width: 67px;\n    height: 67px;\n    font-size: 25px;\n  }\n  .SectionTitle .text .title {\n    font-size: 27px;\n    margin-bottom: 3px;\n  }\n}\n@media (min-width: 1280px) {\n  .SectionTitle {\n    margin-bottom: 25px;\n  }\n  .SectionTitle .icon {\n    padding-right: 15px;\n  }\n  .SectionTitle .icon .wrapper {\n    width: 77px;\n    height: 77px;\n    font-size: 30px;\n  }\n  .SectionTitle .text .title {\n    font-size: 30px;\n    margin-bottom: 7px;\n  }\n}", ""]);
 // Exports
 /* harmony default export */ const __WEBPACK_DEFAULT_EXPORT__ = (___CSS_LOADER_EXPORT___);
 
@@ -358,7 +358,7 @@ __webpack_require__.r(__webpack_exports__);
 
 var ___CSS_LOADER_EXPORT___ = _node_modules_css_loader_dist_runtime_api_js__WEBPACK_IMPORTED_MODULE_0___default()(function(i){return i[1]});
 // Module
-___CSS_LOADER_EXPORT___.push([module.id, ".Frontend .Opportunities section {\n  background-color: var(--blue-10);\n}\n.Frontend .Opportunities section .container {\n  padding: 80px 0;\n}\n.Frontend .Opportunities section .container img {\n  border-radius: var(--border-radius);\n}\n.Frontend .Opportunities section .container p {\n  margin-bottom: 40px;\n}", ""]);
+___CSS_LOADER_EXPORT___.push([module.id, ".Frontend .Opportunities section {\n  background-color: var(--blue-10);\n}", ""]);
 // Exports
 /* harmony default export */ const __WEBPACK_DEFAULT_EXPORT__ = (___CSS_LOADER_EXPORT___);
 

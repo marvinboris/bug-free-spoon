@@ -290,6 +290,8 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony default export */ const __WEBPACK_DEFAULT_EXPORT__ = (function (_ref) {
   var name = _ref.name,
       title = _ref.title,
+      school = _ref.school,
+      promotion = _ref.promotion,
       _ref$animation = _ref.animation,
       animation = _ref$animation === void 0 ? "fade-up" : _ref$animation,
       photo = _ref.photo;
@@ -321,7 +323,7 @@ __webpack_require__.r(__webpack_exports__);
             transform: 'translateY(-50%)'
           }
         }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_2__.jsxs)("div", {
-          className: "ml-5 ml-xl-4",
+          className: "ml-2 ml-md-3 ml-xl-4",
           children: [/*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_2__.jsxs)("div", {
             className: "font-weight-normal text-montserrat-alt h4 position-relative d-flex align-items-center",
             children: [/*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_2__.jsx)("span", {
@@ -360,16 +362,8 @@ __webpack_require__.r(__webpack_exports__);
             className: "card-text text-white text-montserrat-alt pb-1 mb-3",
             children: title[lang]
           }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_2__.jsxs)("div", {
-            className: "social-networks",
-            children: [/*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_2__.jsx)("i", {
-              className: "fab fa-facebook-square"
-            }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_2__.jsx)("i", {
-              className: "fab fa-twitter-square"
-            }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_2__.jsx)("i", {
-              className: "fab fa-instagram"
-            }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_2__.jsx)("i", {
-              className: "fab fa-whatsapp"
-            })]
+            className: "track",
+            children: [school, " - ", promotion]
           })]
         })]
       })]
@@ -1777,9 +1771,11 @@ var Stat = function Stat(_ref) {
   return /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_17__.jsxs)("div", {
     className: "Stat",
     children: [/*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_17__.jsx)("div", {
-      className: "icon",
-      children: /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_17__.jsx)("i", {
-        className: 'fas fa-' + icon
+      children: /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_17__.jsx)("div", {
+        className: "icon",
+        children: /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_17__.jsx)("i", {
+          className: 'fas fa-fw fa-' + icon
+        })
       })
     }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_17__.jsxs)("div", {
       children: [/*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_17__.jsx)("div", {
@@ -1878,7 +1874,7 @@ var Home = /*#__PURE__*/function (_Component) {
           children: /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_17__.jsxs)("div", {
             className: "row",
             children: [/*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_17__.jsx)("div", {
-              className: "col-4",
+              className: "col-md-4",
               children: /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_17__.jsxs)("div", {
                 className: "img",
                 children: [/*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_17__.jsx)("img", {
@@ -1890,7 +1886,7 @@ var Home = /*#__PURE__*/function (_Component) {
                 })]
               })
             }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_17__.jsxs)("div", {
-              className: "col-8",
+              className: "col-md-8",
               children: [/*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_17__.jsx)(_components_UI_RemainingTime__WEBPACK_IMPORTED_MODULE_10__["default"], {
                 time: event.date
               }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_17__.jsx)(react_router_dom__WEBPACK_IMPORTED_MODULE_18__.Link, {
@@ -1933,25 +1929,29 @@ var Home = /*#__PURE__*/function (_Component) {
           className: "banner",
           children: [/*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_17__.jsx)("div", {
             className: "banner__container",
-            children: /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_17__.jsxs)("div", {
+            children: /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_17__.jsx)("div", {
               className: "banner__text container",
-              children: [/*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_17__.jsx)("div", {
-                className: "title",
-                children: cms.banner.title
-              }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_17__.jsx)("div", {
-                className: "subtitle",
-                children: cms.banner.carousel[0].altText
-              }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_17__.jsxs)("div", {
-                children: [/*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_17__.jsx)(react_router_dom__WEBPACK_IMPORTED_MODULE_18__.Link, {
-                  to: '/alumni-call',
-                  className: "alumni-call btn btn-blue",
-                  children: cms.banner.alumni_call
-                }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_17__.jsx)(react_router_dom__WEBPACK_IMPORTED_MODULE_18__.Link, {
-                  to: '/opportunities',
-                  className: "btn btn-white",
-                  children: cms.banner.opportunities
+              children: /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_17__.jsxs)("div", {
+                className: "row",
+                children: [/*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_17__.jsx)("div", {
+                  className: "title text-24 text-md-28 text-xl-32 col-10 col-md-8 col-xl-6",
+                  children: cms.banner.title
+                }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_17__.jsx)("div", {
+                  className: "subtitle text-14 text-md-16 text-xl-18 col-10 col-md-9 col-xl-8",
+                  children: cms.banner.carousel[0].altText
+                }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_17__.jsxs)("div", {
+                  className: "col-12",
+                  children: [/*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_17__.jsx)(react_router_dom__WEBPACK_IMPORTED_MODULE_18__.Link, {
+                    to: '/alumni-call',
+                    className: "alumni-call btn btn-blue",
+                    children: cms.banner.alumni_call
+                  }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_17__.jsx)(react_router_dom__WEBPACK_IMPORTED_MODULE_18__.Link, {
+                    to: '/opportunities',
+                    className: "btn btn-white",
+                    children: cms.banner.opportunities
+                  })]
                 })]
-              })]
+              })
             })
           }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_17__.jsx)(_Carousel__WEBPACK_IMPORTED_MODULE_3__["default"], {
             items: cms.banner.carousel
@@ -1991,7 +1991,7 @@ var Home = /*#__PURE__*/function (_Component) {
                 children: [/*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_17__.jsx)(_components_UI_SectionTitle__WEBPACK_IMPORTED_MODULE_9__["default"], _objectSpread({}, cms.about)), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_17__.jsx)("p", {
                   children: cms.about.description
                 }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_17__.jsxs)("div", {
-                  className: "actions",
+                  className: "actions text-center text-md-left",
                   children: [/*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_17__.jsxs)("a", {
                     href: "mailto:contact@fiducac.org?subject=Je fais un don",
                     target: "_blank",
@@ -2549,7 +2549,7 @@ __webpack_require__.r(__webpack_exports__);
 
 var ___CSS_LOADER_EXPORT___ = _node_modules_css_loader_dist_runtime_api_js__WEBPACK_IMPORTED_MODULE_0___default()(function(i){return i[1]});
 // Module
-___CSS_LOADER_EXPORT___.push([module.id, ".ElderBlock {\n  padding: 10px;\n}\n.ElderBlock .card {\n  border-radius: var(--border-radius) !important;\n}\n.ElderBlock .position-absolute.w-100.h-100 {\n  transform: scale(1);\n  transform-origin: center;\n  transition: all 0.25s;\n}\n.ElderBlock .card:hover .position-absolute.w-100.h-100 {\n  transform: scale(1.1);\n}\n.ElderBlock .social-networks {\n  font-size: 13px;\n}\n.ElderBlock .social-networks i {\n  margin-right: 20px;\n}", ""]);
+___CSS_LOADER_EXPORT___.push([module.id, ".ElderBlock {\n  padding: 10px;\n}\n.ElderBlock .card {\n  border-radius: var(--border-radius) !important;\n}\n.ElderBlock .position-absolute.w-100.h-100 {\n  transform: scale(1);\n  transform-origin: center;\n  transition: all 0.25s;\n}\n.ElderBlock .card:hover .position-absolute.w-100.h-100 {\n  transform: scale(1.1);\n}\n.ElderBlock .track {\n  font-size: 13px;\n}", ""]);
 // Exports
 /* harmony default export */ const __WEBPACK_DEFAULT_EXPORT__ = (___CSS_LOADER_EXPORT___);
 
@@ -2645,7 +2645,7 @@ __webpack_require__.r(__webpack_exports__);
 
 var ___CSS_LOADER_EXPORT___ = _node_modules_css_loader_dist_runtime_api_js__WEBPACK_IMPORTED_MODULE_0___default()(function(i){return i[1]});
 // Module
-___CSS_LOADER_EXPORT___.push([module.id, ".SectionTitle {\n  margin-bottom: 25px;\n  display: flex;\n  align-items: stretch;\n}\n.SectionTitle .icon {\n  padding-right: 15px;\n}\n.SectionTitle .icon .wrapper {\n  width: 77px;\n  height: 77px;\n  display: flex;\n  font-size: 30px;\n  color: var(--blue);\n  align-items: center;\n  justify-content: center;\n  background-color: var(--blue-10);\n  border-radius: var(--border-radius);\n}\n.SectionTitle .text .title {\n  font-size: 30px;\n  font-weight: 500;\n  color: var(--blue);\n  margin-bottom: 7px;\n  display: inline-block;\n  border-bottom: 0.5px solid var(--border);\n}\n.SectionTitle.centered {\n  justify-content: center;\n}\n.SectionTitle.centered .text {\n  text-align: center;\n}", ""]);
+___CSS_LOADER_EXPORT___.push([module.id, ".SectionTitle {\n  margin-bottom: 15px;\n  display: flex;\n  align-items: stretch;\n}\n.SectionTitle .icon {\n  padding-right: 11px;\n}\n.SectionTitle .icon .wrapper {\n  width: 57px;\n  height: 57px;\n  display: flex;\n  font-size: 20px;\n  color: var(--blue);\n  align-items: center;\n  justify-content: center;\n  background-color: var(--blue-10);\n  border-radius: var(--border-radius);\n}\n.SectionTitle .text .title {\n  font-size: 24px;\n  font-weight: 500;\n  color: var(--blue);\n  display: inline-block;\n  border-bottom: 0.5px solid var(--border);\n}\n.SectionTitle.centered {\n  justify-content: center;\n}\n.SectionTitle.centered .text {\n  text-align: center;\n}\n\n@media (min-width: 800px) {\n  .SectionTitle {\n    margin-bottom: 20px;\n  }\n  .SectionTitle .icon {\n    display: block;\n    padding-right: 13px;\n  }\n  .SectionTitle .icon .wrapper {\n    width: 67px;\n    height: 67px;\n    font-size: 25px;\n  }\n  .SectionTitle .text .title {\n    font-size: 27px;\n    margin-bottom: 3px;\n  }\n}\n@media (min-width: 1280px) {\n  .SectionTitle {\n    margin-bottom: 25px;\n  }\n  .SectionTitle .icon {\n    padding-right: 15px;\n  }\n  .SectionTitle .icon .wrapper {\n    width: 77px;\n    height: 77px;\n    font-size: 30px;\n  }\n  .SectionTitle .text .title {\n    font-size: 30px;\n    margin-bottom: 7px;\n  }\n}", ""]);
 // Exports
 /* harmony default export */ const __WEBPACK_DEFAULT_EXPORT__ = (___CSS_LOADER_EXPORT___);
 
@@ -2669,7 +2669,7 @@ __webpack_require__.r(__webpack_exports__);
 
 var ___CSS_LOADER_EXPORT___ = _node_modules_css_loader_dist_runtime_api_js__WEBPACK_IMPORTED_MODULE_0___default()(function(i){return i[1]});
 // Module
-___CSS_LOADER_EXPORT___.push([module.id, ".Frontend .Home .Stat {\n  display: flex;\n  align-items: center;\n  justify-content: center;\n}\n.Frontend .Home .Stat .icon {\n  font-size: 77px;\n  margin-right: 25px;\n}\n.Frontend .Home .Stat .value {\n  font-size: 30px;\n}\n.Frontend .Home .banner {\n  position: relative;\n  height: calc(100vh - 87px);\n}\n.Frontend .Home .banner .banner__container {\n  position: absolute;\n  width: 100%;\n  height: 100%;\n  z-index: 10;\n}\n.Frontend .Home .banner .banner__text {\n  height: 100%;\n  display: flex;\n  position: relative;\n  color: var(--white);\n  flex-direction: column;\n  justify-content: center;\n}\n.Frontend .Home .banner .banner__text > .title {\n  width: 50%;\n  font-size: 2rem;\n  font-weight: 500;\n  margin-bottom: 25px;\n}\n.Frontend .Home .banner .banner__text > .subtitle {\n  width: 70%;\n  font-size: 18px;\n  margin-bottom: 40px;\n}\n.Frontend .Home .banner .banner__text .alumni-call {\n  margin-right: 15px;\n}\n.Frontend .Home .events .events__container .events__wrapper {\n  bottom: 0;\n  z-index: 1;\n  width: 100%;\n  padding: 24px;\n  display: flex;\n  position: relative;\n  border-radius: var(--border-radius);\n  color: var(--white);\n  align-items: stretch;\n  transform: translateY(-50%);\n  background-color: var(--blue);\n}\n.Frontend .Home .events .events__container .events__wrapper .events__title {\n  top: 0;\n  right: 24px;\n  font-size: 24px;\n  font-weight: 500;\n  color: var(--dark);\n  padding: 10px 45px;\n  position: absolute;\n  border-radius: 50rem;\n  transform: translateY(-50%);\n  background-color: var(--white);\n}\n.Frontend .Home .events .events__container .events__wrapper .img {\n  overflow: hidden;\n  border-radius: var(--border-radius);\n}\n.Frontend .Home .events .events__container .events__wrapper .img .date {\n  padding: 12px;\n  font-size: 18px;\n  font-weight: 500;\n  color: var(--dark);\n  text-align: center;\n  background-color: var(--white);\n}\n.Frontend .Home .events .events__container .events__wrapper a.title {\n  font-size: 30px;\n  font-weight: 500;\n  color: var(--white);\n  margin: 25px 0;\n  text-decoration: none;\n}\n.Frontend .Home .events .events__container .events__wrapper p {\n  margin-bottom: 40px;\n}\n.Frontend .Home section {\n  background-color: var(--white);\n}\n.Frontend .Home section.about, .Frontend .Home section.elders, .Frontend .Home section.newsletter {\n  background-color: var(--blue-10);\n}\n.Frontend .Home section.about .actions a, .Frontend .Home section.about .actions button {\n  margin-bottom: 10px;\n}\n.Frontend .Home section.about .actions .donate,\n.Frontend .Home section.about .actions .join {\n  margin-right: 15px;\n}\n.Frontend .Home section.stats {\n  color: var(--white);\n  background-color: var(--blue);\n}\n.Frontend .Home section.newsletter p {\n  text-align: center;\n}\n.Frontend .Home section.newsletter form {\n  justify-content: center;\n}\n.Frontend .Home section.newsletter form .submit {\n  margin-top: 40px;\n  text-align: center;\n}\n.Frontend .Home section .container {\n  padding: 80px 0;\n}\n.Frontend .Home section .container img {\n  border-radius: var(--border-radius);\n}\n.Frontend .Home section .container p {\n  margin-bottom: 40px;\n}\n.Frontend .Home section .container .view-all {\n  margin-top: 40px;\n  text-align: center;\n}\n.Frontend .Home .carousel-inner {\n  height: 100% !important;\n}\n.Frontend .Home .carousel-indicators {\n  top: 50%;\n  width: 30px;\n  transform: translate(-50%, -50%);\n  left: 96%;\n  margin: 0;\n}\n.Frontend .Home .carousel-indicators li {\n  width: 24px;\n  height: 24px;\n  border-radius: 50%;\n  background-color: white;\n  border: none;\n  margin: 8px 0;\n  transition: all 0.5s;\n}\n.Frontend .Home .carousel-indicators li.active {\n  width: 28px;\n  height: 28px;\n  background-color: var(--blue);\n  border: 4px solid var(--white);\n}\n\n@media screen and (max-width: 992px) {\n  .Frontend .Home .banner {\n    min-height: auto;\n  }\n  .Frontend .Home .txt-block img {\n    transform: translateX(-200%);\n  }\n}", ""]);
+___CSS_LOADER_EXPORT___.push([module.id, ".Frontend .Home .Stat {\n  display: flex;\n  align-items: center;\n}\n.Frontend .Home .Stat .icon {\n  width: 75px;\n  font-size: 57px;\n  margin-right: 15px;\n}\n.Frontend .Home .Stat .value {\n  font-size: 30px;\n}\n.Frontend .Home .banner {\n  position: relative;\n  height: calc(100vh - 66px);\n}\n.Frontend .Home .banner .banner__container {\n  position: absolute;\n  width: 100%;\n  height: 100%;\n  z-index: 10;\n}\n.Frontend .Home .banner .banner__text {\n  height: 100%;\n  display: flex;\n  position: relative;\n  color: var(--white);\n  flex-direction: column;\n  justify-content: center;\n}\n.Frontend .Home .banner .banner__text .title {\n  font-weight: 500;\n  margin-bottom: 15px;\n}\n.Frontend .Home .banner .banner__text .subtitle {\n  margin-bottom: 20px;\n}\n.Frontend .Home .banner .banner__text .alumni-call {\n  margin-right: 15px;\n}\n.Frontend .Home .events .events__container .events__wrapper {\n  bottom: 0;\n  z-index: 1;\n  width: 100%;\n  padding: 24px;\n  display: flex;\n  position: relative;\n  border-radius: var(--border-radius);\n  color: var(--white);\n  align-items: stretch;\n  transform: translateY(-15px);\n  background-color: var(--blue);\n}\n.Frontend .Home .events .events__container .events__wrapper .events__title {\n  top: 0;\n  right: 24px;\n  display: none;\n  font-size: 24px;\n  font-weight: 500;\n  color: var(--dark);\n  padding: 10px 45px;\n  position: absolute;\n  border-radius: 50rem;\n  transform: translateY(-50%);\n  background-color: var(--white);\n}\n.Frontend .Home .events .events__container .events__wrapper .img {\n  overflow: hidden;\n  border-radius: var(--border-radius);\n  margin-bottom: 15px;\n}\n.Frontend .Home .events .events__container .events__wrapper .img .date {\n  padding: 12px;\n  font-size: 18px;\n  font-weight: 500;\n  color: var(--dark);\n  text-align: center;\n  background-color: var(--white);\n}\n.Frontend .Home .events .events__container .events__wrapper a.title {\n  font-size: 30px;\n  font-weight: 500;\n  color: var(--white);\n  margin: 25px 0;\n  text-decoration: none;\n}\n.Frontend .Home .events .events__container .events__wrapper p {\n  margin-bottom: 20px;\n}\n.Frontend .Home section {\n  background-color: var(--white);\n}\n.Frontend .Home section.about, .Frontend .Home section.elders, .Frontend .Home section.newsletter {\n  background-color: var(--blue-10);\n}\n.Frontend .Home section.about img {\n  margin-bottom: 15px;\n}\n.Frontend .Home section.about p {\n  margin-bottom: 20px;\n}\n.Frontend .Home section.about .actions a,\n.Frontend .Home section.about .actions button {\n  margin-top: 10px;\n}\n.Frontend .Home section.about .actions .donate {\n  margin-right: 10px;\n}\n.Frontend .Home section.about .actions .join {\n  margin-right: 0;\n}\n.Frontend .Home section.stats {\n  color: var(--white);\n  background-color: var(--blue);\n}\n.Frontend .Home section.newsletter p {\n  text-align: center;\n}\n.Frontend .Home section.newsletter form {\n  justify-content: center;\n}\n.Frontend .Home section.newsletter form .submit {\n  margin-top: 20px;\n  text-align: center;\n}\n.Frontend .Home section .container {\n  padding-top: 40px;\n  padding-bottom: 40px;\n}\n.Frontend .Home section .container img {\n  border-radius: var(--border-radius);\n}\n.Frontend .Home section .container p {\n  margin-bottom: 20px;\n}\n.Frontend .Home section .container .view-all {\n  margin-top: 20px;\n  text-align: center;\n}\n.Frontend .Home .carousel-inner {\n  height: 100% !important;\n}\n.Frontend .Home .carousel-indicators {\n  top: 50%;\n  width: 30px;\n  transform: translate(-50%, -50%);\n  left: calc(96% - 15px);\n  margin: 0;\n}\n.Frontend .Home .carousel-indicators li {\n  width: 24px;\n  height: 24px;\n  border-radius: 50%;\n  background-color: white;\n  border: none;\n  margin: 8px 0;\n  transition: all 0.5s;\n}\n.Frontend .Home .carousel-indicators li.active {\n  width: 28px;\n  height: 28px;\n  background-color: var(--blue);\n  border: 4px solid var(--white);\n}\n\n@media (min-width: 800px) {\n  .Frontend .Home .Stat .icon {\n    width: 88px;\n    font-size: 67px;\n    margin-right: 20px;\n  }\n  .Frontend .Home .Stat .value {\n    font-size: 30px;\n  }\n  .Frontend .Home .banner .banner__text .title {\n    margin-bottom: 20px;\n  }\n  .Frontend .Home .banner .banner__text .subtitle {\n    margin-bottom: 30px;\n  }\n  .Frontend .Home .events .events__container .events__wrapper {\n    padding: 24px;\n    transform: translateY(-50%);\n  }\n  .Frontend .Home .events .events__container .events__wrapper .events__title {\n    top: 0;\n    right: 24px;\n    display: block;\n    font-size: 24px;\n    padding: 10px 45px;\n  }\n  .Frontend .Home .events .events__container .events__wrapper .img {\n    margin-bottom: 0;\n  }\n  .Frontend .Home .events .events__container .events__wrapper .img .date {\n    padding: 12px;\n    font-size: 18px;\n  }\n  .Frontend .Home .events .events__container .events__wrapper a.title {\n    font-size: 30px;\n    margin: 25px 0;\n  }\n  .Frontend .Home .events .events__container .events__wrapper p {\n    margin-bottom: 30px;\n  }\n  .Frontend .Home section.about p {\n    margin-bottom: 20px;\n  }\n  .Frontend .Home section.about .actions a,\n.Frontend .Home section.about .actions button {\n    margin-top: 10px;\n  }\n  .Frontend .Home section.about .actions .donate,\n.Frontend .Home section.about .actions .join {\n    margin-right: 15px;\n  }\n  .Frontend .Home section.newsletter form .submit {\n    margin-top: 30px;\n  }\n}\n@media (min-width: 1280px) {\n  .Frontend .Home .Stat .icon {\n    width: 101px;\n    font-size: 77px;\n    margin-right: 25px;\n  }\n  .Frontend .Home .Stat .value {\n    font-size: 30px;\n  }\n  .Frontend .Home .banner {\n    height: calc(100vh - 87px);\n  }\n  .Frontend .Home .banner .banner__text .title {\n    margin-bottom: 25px;\n  }\n  .Frontend .Home .banner .banner__text .subtitle {\n    margin-bottom: 40px;\n  }\n  .Frontend .Home .events .events__container .events__wrapper {\n    padding: 24px;\n  }\n  .Frontend .Home .events .events__container .events__wrapper .events__title {\n    top: 0;\n    right: 24px;\n    font-size: 24px;\n    padding: 10px 45px;\n  }\n  .Frontend .Home .events .events__container .events__wrapper .img .date {\n    padding: 12px;\n    font-size: 18px;\n  }\n  .Frontend .Home .events .events__container .events__wrapper a.title {\n    font-size: 30px;\n    margin: 25px 0;\n  }\n  .Frontend .Home .events .events__container .events__wrapper p {\n    margin-bottom: 40px;\n  }\n  .Frontend .Home section.about p {\n    margin-bottom: 30px;\n  }\n  .Frontend .Home section.newsletter form .submit {\n    margin-top: 40px;\n  }\n}", ""]);
 // Exports
 /* harmony default export */ const __WEBPACK_DEFAULT_EXPORT__ = (___CSS_LOADER_EXPORT___);
 

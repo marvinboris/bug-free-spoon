@@ -1,10 +1,10 @@
 .UI.PageTitle {
-    top: 78.47px;
-    height: 81px;
+    top: 60.97px;
+    height: 61px;
     display: flex;
     z-index: 1000;
     position: sticky;
-    padding-left: 66px;
+    padding-left: 16px;
     align-items: center;
     background-color: var(--white);
 
@@ -29,14 +29,57 @@
     }
 
     .icon {
-        padding-right: 23px;
-        font-size: 33px;
+        padding-right: 16px;
+        font-size: 27px;
         color: var(--blue);
     }
 
     .title {
         font-size: 16px;
         font-weight: 500;
-        margin-bottom: 10px;
+    }
+}
+
+@media (min-width: 800px) {
+    .UI.PageTitle {
+        top: 78.47px;
+        height: 71px;
+        padding-left: 41px;
+    
+        .blue-line {
+            width: 9px;
+        }
+    
+        .icon {
+            padding-right: 20px;
+            font-size: 30px;
+        }
+    
+        .title {
+            font-size: 16px;
+            margin-bottom: 5px;
+        }
+    }
+}
+
+@media (min-width: 1280px) {
+    .UI.PageTitle {
+        top: 78.47px;
+        height: 81px;
+        padding-left: 66px;
+    
+        .blue-line {
+            width: 9px;
+        }
+    
+        .icon {
+            padding-right: 23px;
+            font-size: 33px;
+        }
+    
+        .title {
+            font-size: 16px;
+            margin-bottom: 10px;
+        }
     }
 }

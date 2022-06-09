@@ -2,11 +2,11 @@
     .Stat {
         display: flex;
         align-items: center;
-        justify-content: center;
 
         .icon {
-            font-size: 77px;
-            margin-right: 25px;
+            width: 75px;
+            font-size: 57px;
+            margin-right: 15px;
         }
 
         .value {
@@ -16,7 +16,7 @@
 
     .banner {
         position: relative;
-        height: calc(100vh - 87px);
+        height: calc(100vh - 66px);
 
         .banner__container {
             position: absolute;
@@ -33,17 +33,13 @@
             flex-direction: column;
             justify-content: center;
 
-            &>.title {
-                width: 50%;
-                font-size: 2rem;
+            .title {
                 font-weight: 500;
-                margin-bottom: 25px;
+                margin-bottom: 15px;
             }
 
-            &>.subtitle {
-                width: 70%;
-                font-size: 18px;
-                margin-bottom: 40px;
+            .subtitle {
+                margin-bottom: 20px;
             }
 
             .alumni-call {
@@ -64,12 +60,13 @@
                 border-radius: var(--border-radius);
                 color: var(--white);
                 align-items: stretch;
-                transform: translateY(-50%);
+                transform: translateY(-15px);
                 background-color: var(--blue);
 
                 .events__title {
                     top: 0;
                     right: 24px;
+                    display: none;
                     font-size: 24px;
                     font-weight: 500;
                     color: var(--dark);
@@ -83,6 +80,7 @@
                 .img {
                     overflow: hidden;
                     border-radius: var(--border-radius);
+                    margin-bottom: 15px;
 
                     .date {
                         padding: 12px;
@@ -103,7 +101,7 @@
                 }
 
                 p {
-                    margin-bottom: 40px;
+                    margin-bottom: 20px;
                 }
             }
         }
@@ -118,14 +116,29 @@
             background-color: var(--blue-10);
         }
 
-        &.about .actions {
-            a, button {
-                margin-bottom: 10px;
+        &.about {
+            img {
+                margin-bottom: 15px;
             }
 
-            .donate,
-            .join {
-                margin-right: 15px;
+            p {
+                margin-bottom: 20px;
+            }
+
+            .actions {
+
+                a,
+                button {
+                    margin-top: 10px;
+                }
+
+                .donate {
+                    margin-right: 10px;
+                }
+
+                .join {
+                    margin-right: 0;
+                }
             }
         }
 
@@ -143,25 +156,26 @@
                 justify-content: center;
 
                 .submit {
-                    margin-top: 40px;
+                    margin-top: 20px;
                     text-align: center;
                 }
             }
         }
 
         .container {
-            padding: 80px 0;
+            padding-top: 40px;
+            padding-bottom: 40px;
 
             img {
                 border-radius: var(--border-radius);
             }
 
             p {
-                margin-bottom: 40px;
+                margin-bottom: 20px;
             }
 
             .view-all {
-                margin-top: 40px;
+                margin-top: 20px;
                 text-align: center;
             }
         }
@@ -175,7 +189,7 @@
         top: 50%;
         width: 30px;
         transform: translate(-50%, -50%);
-        left: 96%;
+        left: calc(96% - 15px);
         margin: 0;
 
         li {
@@ -197,12 +211,171 @@
     }
 }
 
-@media screen and (max-width: 992px) {
-    .Frontend .Home .banner {
-        min-height: auto;
-    }
+@media (min-width: 800px) {
+    .Frontend .Home {
+        .Stat {
+            .icon {
+                width: 88px;
+                font-size: 67px;
+                margin-right: 20px;
+            }
 
-    .Frontend .Home .txt-block img {
-        transform: translateX(-200%);
+            .value {
+                font-size: 30px;
+            }
+        }
+
+        .banner {
+            .banner__text {
+                .title {
+                    margin-bottom: 20px;
+                }
+
+                .subtitle {
+                    margin-bottom: 30px;
+                }
+            }
+        }
+
+        .events {
+            .events__container {
+                .events__wrapper {
+                    padding: 24px;
+                    transform: translateY(-50%);
+
+                    .events__title {
+                        top: 0;
+                        right: 24px;
+                        display: block;
+                        font-size: 24px;
+                        padding: 10px 45px;
+                    }
+
+                    .img {
+                        margin-bottom: 0;
+
+                        .date {
+                            padding: 12px;
+                            font-size: 18px;
+                        }
+                    }
+
+                    a.title {
+                        font-size: 30px;
+                        margin: 25px 0;
+                    }
+
+                    p {
+                        margin-bottom: 30px;
+                    }
+                }
+            }
+        }
+
+        section {
+            &.about {
+                p {
+                    margin-bottom: 20px;
+                }
+
+                .actions {
+
+                    a,
+                    button {
+                        margin-top: 10px;
+                    }
+
+                    .donate,
+                    .join {
+                        margin-right: 15px;
+                    }
+                }
+            }
+
+            &.newsletter {
+                form {
+                    .submit {
+                        margin-top: 30px;
+                    }
+                }
+            }
+        }
+    }
+}
+
+@media (min-width: 1280px) {
+    .Frontend .Home {
+        .Stat {
+            .icon {
+                width: 101px;
+                font-size: 77px;
+                margin-right: 25px;
+            }
+
+            .value {
+                font-size: 30px;
+            }
+        }
+
+        .banner {
+            height: calc(100vh - 87px);
+
+            .banner__text {
+                .title {
+                    margin-bottom: 25px;
+                }
+
+                .subtitle {
+                    margin-bottom: 40px;
+                }
+            }
+        }
+
+        .events {
+            .events__container {
+                .events__wrapper {
+                    padding: 24px;
+
+                    .events__title {
+                        top: 0;
+                        right: 24px;
+                        font-size: 24px;
+                        padding: 10px 45px;
+                    }
+
+                    .img {
+                        .date {
+                            padding: 12px;
+                            font-size: 18px;
+                        }
+                    }
+
+                    a.title {
+                        font-size: 30px;
+                        margin: 25px 0;
+                    }
+
+                    p {
+                        margin-bottom: 40px;
+                    }
+                }
+            }
+        }
+
+        section {
+            &.about {
+                p {
+                    margin-bottom: 30px;
+                }
+            }
+
+            &.newsletter {
+                form {
+                    .submit {
+                        margin-top: 40px;
+                    }
+                }
+            }
+        }
     }
 }

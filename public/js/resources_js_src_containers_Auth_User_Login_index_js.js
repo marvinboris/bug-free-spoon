@@ -552,7 +552,7 @@ var Login = /*#__PURE__*/function (_Component) {
           bonus: /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_8__.jsx)("div", {
             className: "position-absolute d-flex align-items-center",
             style: {
-              height: 66,
+              height: '100%',
               top: 0,
               right: 30,
               zIndex: 10,
@@ -573,7 +573,7 @@ var Login = /*#__PURE__*/function (_Component) {
                   style: {
                     height: 1.5,
                     width: 24,
-                    transform: 'rotate(30deg) translate(-9px, -12px)'
+                    transform: 'rotate(30deg) translate(-9px, -10px)'
                   },
                   className: "bg-blue"
                 })

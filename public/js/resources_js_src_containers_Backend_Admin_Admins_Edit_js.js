@@ -277,7 +277,9 @@ __webpack_require__.r(__webpack_exports__);
         className: "link",
         children: /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_2__.jsxs)("button", {
           className: "btn btn-blue",
-          children: [list, /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_2__.jsx)("i", {
+          children: [/*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_2__.jsx)("span", {
+            children: list
+          }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_2__.jsx)("i", {
             className: "fas fa-tasks"
           })]
         })
@@ -1676,7 +1678,7 @@ __webpack_require__.r(__webpack_exports__);
 
 var ___CSS_LOADER_EXPORT___ = _node_modules_css_loader_dist_runtime_api_js__WEBPACK_IMPORTED_MODULE_0___default()(function(i){return i[1]});
 // Module
-___CSS_LOADER_EXPORT___.push([module.id, ".UI.Form {\n  border-radius: var(--border-radius);\n  padding: 36px 51px 75px 51px;\n  background-color: var(--white);\n}\n.UI.Form .header {\n  display: flex;\n  align-items: center;\n  margin-bottom: 63px;\n  justify-content: space-between;\n}\n.UI.Form .header .title {\n  font-size: 18px;\n  font-weight: 700;\n  margin-bottom: 5px;\n}\n.UI.Form .header .subtitle {\n  font-size: 12px;\n  margin-bottom: 15px;\n}\n.UI.Form .header .blue-line {\n  width: 33px;\n  height: 7px;\n  border-radius: 5px;\n  background-color: var(--blue);\n}\n.UI.Form .header .link {\n  text-decoration: none;\n}", ""]);
+___CSS_LOADER_EXPORT___.push([module.id, ".UI.Form {\n  border-radius: var(--border-radius);\n  padding: 16px 16px 48px 16px;\n  background-color: var(--white);\n}\n.UI.Form .header {\n  display: flex;\n  align-items: center;\n  margin-bottom: 16px;\n  justify-content: space-between;\n}\n.UI.Form .header .title {\n  font-size: 16px;\n  font-weight: 700;\n}\n.UI.Form .header .subtitle {\n  font-size: 12px;\n  margin-bottom: 15px;\n}\n.UI.Form .header .blue-line {\n  width: 33px;\n  height: 7px;\n  border-radius: 5px;\n  background-color: var(--blue);\n}\n.UI.Form .header .link i {\n  margin-left: 0;\n}\n.UI.Form .header .link span {\n  display: none;\n}\n\n@media (min-width: 800px) {\n  .UI.Form {\n    padding: 26px 33px 62px 33px;\n  }\n  .UI.Form .header {\n    margin-bottom: 40px;\n  }\n  .UI.Form .header .title {\n    font-size: 20px;\n  }\n  .UI.Form .header .subtitle {\n    font-size: 12px;\n    margin-bottom: 15px;\n  }\n  .UI.Form .header .link i {\n    margin-left: 10px;\n  }\n  .UI.Form .header .link span {\n    display: inline;\n  }\n}\n@media (min-width: 1280px) {\n  .UI.Form {\n    padding: 36px 51px 75px 51px;\n  }\n  .UI.Form .header {\n    margin-bottom: 64px;\n  }\n  .UI.Form .header .subtitle {\n    font-size: 12px;\n    margin-bottom: 15px;\n  }\n}", ""]);
 // Exports
 /* harmony default export */ const __WEBPACK_DEFAULT_EXPORT__ = (___CSS_LOADER_EXPORT___);
 

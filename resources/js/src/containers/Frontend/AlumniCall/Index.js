@@ -28,7 +28,7 @@ class AlumniCall extends Component {
             frontend: { alumni_call: { loading, elders = [] } }
         } = this.props;
 
-        const eldersContent = elders.map(elder => <div className='col-lg-4' key={JSON.stringify(elder)}><ElderBlock {...elder} /></div>);
+        const eldersContent = elders.map(elder => <div className='col-md-6 col-xl-4' key={JSON.stringify(elder)}><ElderBlock {...elder} /></div>);
 
         return <div className="AlumniCall">
             <PageTitle {...cms} />

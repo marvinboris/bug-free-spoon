@@ -179,7 +179,9 @@ __webpack_require__.r(__webpack_exports__);
         className: "link",
         children: /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_2__.jsxs)("button", {
           className: "btn btn-blue",
-          children: [list, /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_2__.jsx)("i", {
+          children: [/*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_2__.jsx)("span", {
+            children: list
+          }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_2__.jsx)("i", {
             className: "fas fa-tasks"
           })]
         })
@@ -453,12 +455,12 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony default export */ const __WEBPACK_DEFAULT_EXPORT__ = ({
   "header": {
     "id": "ID",
-    "sign_out": "Se déconnecter",
+    "sign_out": "Se d\xE9connecter",
     "no_message": "Aucun message",
     "no_notification": "Aucune notification",
-    "logout": "Déconnexion",
+    "logout": "D\xE9connexion",
     "close": "Fermer",
-    "sure_logout": "Êtes-vous sûr de vouloir vous déconnecter",
+    "sure_logout": "\xCAtes-vous s\xFBr de vouloir vous d\xE9connecter",
     "you_have": "Vous avez",
     "messages": "messages",
     "unread_message": "message non lu",
@@ -470,7 +472,7 @@ __webpack_require__.r(__webpack_exports__);
   },
   "footer": {
     "copyright": "Copyright",
-    "all_rights": "Tous droits réservés par"
+    "all_rights": "Tous droits r\xE9serv\xE9s par"
   },
   "sidebar": {
     "admin": "Administrateur",
@@ -494,15 +496,15 @@ __webpack_require__.r(__webpack_exports__);
       },
       "roles": {
         "icon": "user-tag",
-        "title": "Rôles",
-        "add": "Ajouter un rôle",
-        "index": "Liste des rôles"
+        "title": "R\xF4les",
+        "add": "Ajouter un r\xF4le",
+        "index": "Liste des r\xF4les"
       },
       "features": {
         "icon": "tools",
-        "title": "Fonctionnalités",
-        "add": "Ajouter une fonctionnalité",
-        "index": "Liste des fonctionnalités"
+        "title": "Fonctionnalit\xE9s",
+        "add": "Ajouter une fonctionnalit\xE9",
+        "index": "Liste des fonctionnalit\xE9s"
       },
       "languages": {
         "icon": "language",
@@ -514,7 +516,7 @@ __webpack_require__.r(__webpack_exports__);
         "icon": "wrench",
         "title": "CMS",
         "global": "Global",
-        "general": "Général",
+        "general": "G\xE9n\xE9ral",
         "components": "Composants",
         "auth": "Authentification",
         "messages": "Messages",
@@ -527,21 +529,21 @@ __webpack_require__.r(__webpack_exports__);
       },
       "settings": {
         "icon": "sliders-h",
-        "title": "Paramètres",
+        "title": "Param\xE8tres",
         "cms": "CMS",
-        "language": "Paramètres de langue"
+        "language": "Param\xE8tres de langue"
       },
       "events": {
         "icon": "calendar-alt",
-        "title": "Evènements",
-        "add": "Ajouter un évènement",
-        "index": "Liste des évènements"
+        "title": "Ev\xE8nements",
+        "add": "Ajouter un \xE9v\xE8nement",
+        "index": "Liste des \xE9v\xE8nements"
       },
       "activities": {
         "icon": "chart-line",
-        "title": "Activités",
-        "add": "Ajouter une activité",
-        "index": "Liste des activités"
+        "title": "Activit\xE9s",
+        "add": "Ajouter une activit\xE9",
+        "index": "Liste des activit\xE9s"
       },
       "elders": {
         "icon": "users",
@@ -560,6 +562,18 @@ __webpack_require__.r(__webpack_exports__);
         "title": "Souscripteurs",
         "add": "Ajouter un souscripteur",
         "index": "Liste des souscripteurs"
+      },
+      "contributions": {
+        "icon": "wallet",
+        "title": "Cotisations",
+        "add": "Ajouter une cotisation",
+        "index": "Liste des cotisations"
+      },
+      "schools": {
+        "icon": "school",
+        "title": "Ecoles",
+        "add": "Ajouter une école",
+        "index": "Liste des écoles"
       }
     }
   },
@@ -570,8 +584,8 @@ __webpack_require__.r(__webpack_exports__);
         "title": "Panneau de l'administrateur",
         "subtitle": "Tableau de bord",
         "blocks": {
-          "events": "Evènements",
-          "activities": "Activités",
+          "events": "Ev\xE8nements",
+          "activities": "Activit\xE9s",
           "elders": "Anciens",
           "publications": "Publications",
           "subscribers": "Souscripteurs"
@@ -582,15 +596,15 @@ __webpack_require__.r(__webpack_exports__);
         "title": "Panneau de l'utilisateur",
         "subtitle": "Tableau de bord",
         "blocks": {
-          "events": "Evènements",
-          "activities": "Activités",
+          "events": "Ev\xE8nements",
+          "activities": "Activit\xE9s",
           "elders": "Anciens",
           "publications": "Publications",
           "subscribers": "Souscripteurs"
         },
         "general_report": {
-          "title": "Rapport général",
-          "subtitle": "Rapport général",
+          "title": "Rapport g\xE9n\xE9ral",
+          "subtitle": "Rapport g\xE9n\xE9ral",
           "elders": "Anciens",
           "publications": "Publications",
           "total_elders": "Total des anciens",
@@ -623,7 +637,7 @@ __webpack_require__.r(__webpack_exports__);
       "form": {
         "name": "Nom de l'administrateur",
         "full_name": "Nom complet",
-        "phone": "Numéro de téléphone",
+        "phone": "Num\xE9ro de t\xE9l\xE9phone",
         "password": "Mot de passe",
         "password_confirmation": "Confirmation de mot de passe",
         "email": "Adresse mail",
@@ -640,42 +654,42 @@ __webpack_require__.r(__webpack_exports__);
       "form": {
         "name": "Nom de l'utilisateur",
         "full_name": "Nom complet",
-        "phone": "Numéro de téléphone",
+        "phone": "Num\xE9ro de t\xE9l\xE9phone",
         "password": "Mot de passe",
         "password_confirmation": "Confirmation de mot de passe",
         "email": "Adresse mail",
-        "role": "Rôle",
-        "select_role": "Sélectionner un rôle",
+        "role": "R\xF4le",
+        "select_role": "S\xE9lectionner un r\xF4le",
         "user_photo": "Photo de l'utilisateur",
         "photo": "Photo"
       }
     },
     "roles": {
       "icon": "user-tag",
-      "title": "Rôles",
-      "add": "Ajouter un rôle",
-      "edit": "Modifier un rôle",
-      "index": "Liste des rôles",
+      "title": "R\xF4les",
+      "add": "Ajouter un r\xF4le",
+      "edit": "Modifier un r\xF4le",
+      "index": "Liste des r\xF4les",
       "form": {
         "name": "Nom",
         "description": "Description",
-        "features": "Fonctionnalités",
-        "created_at": "Créé le",
-        "create": "Créer",
+        "features": "Fonctionnalit\xE9s",
+        "created_at": "Cr\xE9\xE9 le",
+        "create": "Cr\xE9er",
         "update": "Modifier",
         "delete": "Supprimer"
       }
     },
     "features": {
       "icon": "tools",
-      "title": "Fonctionnalités",
-      "add": "Ajouter une fonctionnalité",
-      "edit": "Modifier une fonctionnalité",
-      "index": "Liste des fonctionnalités",
+      "title": "Fonctionnalit\xE9s",
+      "add": "Ajouter une fonctionnalit\xE9",
+      "edit": "Modifier une fonctionnalit\xE9",
+      "index": "Liste des fonctionnalit\xE9s",
       "form": {
         "name": "Nom",
-        "prefix": "Préfixe",
-        "created_at": "Créée le"
+        "prefix": "Pr\xE9fixe",
+        "created_at": "Cr\xE9\xE9e le"
       }
     },
     "languages": {
@@ -686,16 +700,16 @@ __webpack_require__.r(__webpack_exports__);
       "index": "Liste des langues",
       "form": {
         "name": "Nom",
-        "abbr": "Abréviation",
+        "abbr": "Abr\xE9viation",
         "flag": "Drapeau",
-        "select_flag": "Sélectionner un drapeau",
-        "created_at": "Créée le"
+        "select_flag": "S\xE9lectionner un drapeau",
+        "created_at": "Cr\xE9\xE9e le"
       }
     },
     "notifications": {
       "icon": "bell",
       "title": "Notifications",
-      "show": "Détails des notifications",
+      "show": "D\xE9tails des notifications",
       "index": "Liste des notifications",
       "form": {
         "you_have_no_notification": "Vous n'avez pas de notification."
@@ -703,8 +717,8 @@ __webpack_require__.r(__webpack_exports__);
     },
     "settings": {
       "icon": "sliders-h",
-      "title": "Paramètres",
-      "subtitle": "Paramètres du compte",
+      "title": "Param\xE8tres",
+      "subtitle": "Param\xE8tres du compte",
       "form": {
         "user_account": {
           "title": "User Account Settings",
@@ -721,7 +735,7 @@ __webpack_require__.r(__webpack_exports__);
           "title": "Payment Method Settings",
           "subtitle": "Setup your payout chanel",
           "mobile_money": {
-            "title": "Orange Money / MTN Momo",
+            "title": "Orange Money \/ MTN Momo",
             "subtitle": "Only for Cameroon for now.",
             "mobile_money_name": "Full Nom",
             "select_operator": "Select Operator",
@@ -758,31 +772,36 @@ __webpack_require__.r(__webpack_exports__);
     },
     "events": {
       "icon": "calendar-alt",
-      "title": "Evènements",
-      "add": "Ajouter un évènement",
-      "edit": "Modifier un évènement",
-      "index": "Liste des évènements",
+      "title": "Ev\xE8nements",
+      "add": "Ajouter un \xE9v\xE8nement",
+      "edit": "Modifier un \xE9v\xE8nement",
+      "index": "Liste des \xE9v\xE8nements",
       "form": {
         "title": "Titre",
         "description": "Description",
         "body": "Contenu",
         "date": "Date",
         "photo": "Photo",
-        "created_at": "Créé le"
+        "event_photo": "Photo de l'\xE9v\xE8nement",
+        "language": "Langue",
+        "created_at": "Cr\xE9\xE9 le"
       }
     },
     "activities": {
       "icon": "chart-line",
-      "title": "Activités",
-      "add": "Ajouter une activité",
-      "edit": "Modifier une activité",
-      "index": "Liste des activités",
+      "title": "Activit\xE9s",
+      "add": "Ajouter une activit\xE9",
+      "edit": "Modifier une activit\xE9",
+      "index": "Liste des activit\xE9s",
       "form": {
         "title": "Titre",
         "body": "Contenu",
         "slug": "Slug",
         "photo": "Photo",
-        "created_at": "Créée le"
+        "activity_photo": "Photo de l'activit\xE9",
+        "language": "Langue",
+        "is_active": "Status",
+        "created_at": "Cr\xE9\xE9e le"
       }
     },
     "elders": {
@@ -794,7 +813,20 @@ __webpack_require__.r(__webpack_exports__);
       "form": {
         "name": "Nom",
         "title": "Titre du poste",
-        "created_at": "Créée le"
+        "photo": "Photo",
+        "school": "Ecole",
+        "select_school": "Sélectionner une école",
+        "promotion": "Promotion",
+        "email": "Adresse mail",
+        "elder_photo": "Photo de l'ancien",
+        "paid": "Statut de paiement",
+        "payment": "Preuve de paiement",
+        "language": "Langue",
+        "select_status": "Sélectionner le statut",
+        "paid_status": "Payée",
+        "unpaid_status": "Impayée",
+        "errors": "Corrections à effectuer",
+        "created_at": "Cr\xE9\xE9e le"
       }
     },
     "publications": {
@@ -804,13 +836,15 @@ __webpack_require__.r(__webpack_exports__);
       "edit": "Modifier une publication",
       "index": "Liste des publications",
       "form": {
-        "title": "Nom",
+        "title": "Titre",
         "body": "Contenu",
         "slug": "Slug",
         "photo": "Photo",
+        "publication_photo": "Photo de la publication",
         "is_active": "Status",
-        "select_status": "Sélectionner le statut",
-        "created_at": "Créée le"
+        "select_status": "S\xE9lectionner le statut",
+        "language": "Langue",
+        "created_at": "Cr\xE9\xE9e le"
       }
     },
     "subscribers": {
@@ -820,9 +854,40 @@ __webpack_require__.r(__webpack_exports__);
       "edit": "Modifier un souscripteur",
       "index": "Liste des souscripteurs",
       "form": {
-        "name": "Nom",
+        "name": "Prénom",
         "email": "Adresse mail",
-        "created_at": "Créée le"
+        "created_at": "Cr\xE9\xE9e le"
+      }
+    },
+    "contributions": {
+      "icon": "wallet",
+      "title": "Cotisations",
+      "add": "Ajouter une cotisation",
+      "edit": "Modifier une cotisation",
+      "index": "Liste des cotisations",
+      "form": {
+        "elder": "Ancien",
+        "select_elder": "Sélectionner un ancien",
+        "year": "Année cotisée",
+        "payment": "Preuve de paiement",
+        "paid": "Statut de paiement",
+        "select_status": "Sélectionner le statut",
+        "paid_status": "Payée",
+        "unpaid_status": "Impayée",
+        "created_at": "Cr\xE9\xE9e le"
+      }
+    },
+    "schools": {
+      "icon": "school",
+      "title": "Ecoles",
+      "add": "Ajouter une école",
+      "edit": "Modifier une école",
+      "index": "Liste des écoles",
+      "form": {
+        "name": "Nom",
+        "abbr": "Abrévation",
+        "link": "Site web",
+        "created_at": "Cr\xE9\xE9e le"
       }
     }
   }
@@ -2115,7 +2180,7 @@ __webpack_require__.r(__webpack_exports__);
 
 var ___CSS_LOADER_EXPORT___ = _node_modules_css_loader_dist_runtime_api_js__WEBPACK_IMPORTED_MODULE_0___default()(function(i){return i[1]});
 // Module
-___CSS_LOADER_EXPORT___.push([module.id, ".UI.Form {\n  border-radius: var(--border-radius);\n  padding: 36px 51px 75px 51px;\n  background-color: var(--white);\n}\n.UI.Form .header {\n  display: flex;\n  align-items: center;\n  margin-bottom: 63px;\n  justify-content: space-between;\n}\n.UI.Form .header .title {\n  font-size: 18px;\n  font-weight: 700;\n  margin-bottom: 5px;\n}\n.UI.Form .header .subtitle {\n  font-size: 12px;\n  margin-bottom: 15px;\n}\n.UI.Form .header .blue-line {\n  width: 33px;\n  height: 7px;\n  border-radius: 5px;\n  background-color: var(--blue);\n}\n.UI.Form .header .link {\n  text-decoration: none;\n}", ""]);
+___CSS_LOADER_EXPORT___.push([module.id, ".UI.Form {\n  border-radius: var(--border-radius);\n  padding: 16px 16px 48px 16px;\n  background-color: var(--white);\n}\n.UI.Form .header {\n  display: flex;\n  align-items: center;\n  margin-bottom: 16px;\n  justify-content: space-between;\n}\n.UI.Form .header .title {\n  font-size: 16px;\n  font-weight: 700;\n}\n.UI.Form .header .subtitle {\n  font-size: 12px;\n  margin-bottom: 15px;\n}\n.UI.Form .header .blue-line {\n  width: 33px;\n  height: 7px;\n  border-radius: 5px;\n  background-color: var(--blue);\n}\n.UI.Form .header .link i {\n  margin-left: 0;\n}\n.UI.Form .header .link span {\n  display: none;\n}\n\n@media (min-width: 800px) {\n  .UI.Form {\n    padding: 26px 33px 62px 33px;\n  }\n  .UI.Form .header {\n    margin-bottom: 40px;\n  }\n  .UI.Form .header .title {\n    font-size: 20px;\n  }\n  .UI.Form .header .subtitle {\n    font-size: 12px;\n    margin-bottom: 15px;\n  }\n  .UI.Form .header .link i {\n    margin-left: 10px;\n  }\n  .UI.Form .header .link span {\n    display: inline;\n  }\n}\n@media (min-width: 1280px) {\n  .UI.Form {\n    padding: 36px 51px 75px 51px;\n  }\n  .UI.Form .header {\n    margin-bottom: 64px;\n  }\n  .UI.Form .header .subtitle {\n    font-size: 12px;\n    margin-bottom: 15px;\n  }\n}", ""]);
 // Exports
 /* harmony default export */ const __WEBPACK_DEFAULT_EXPORT__ = (___CSS_LOADER_EXPORT___);
 

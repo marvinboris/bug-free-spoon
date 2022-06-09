@@ -3,8 +3,6 @@ import { connect } from 'react-redux';
 import { withRouter } from 'react-router-dom';
 
 // Components
-import Notifications from './Notifications';
-import Messages from './Messages';
 import SideDrawer from './SideDrawer';
 
 import { authLogout } from '../../../../store/actions/auth';
@@ -49,9 +47,6 @@ class Layout extends Component {
             children
         } = this.props;
         const { selectedItem } = this.state;
-        const {
-            pages: { backend: { header } }
-        } = cms;
 
         return (
             <div className='Backend User'>
@@ -61,17 +56,7 @@ class Layout extends Component {
                     <div className='sticky-top'>
                         <div className='d-flex flex-fill'>
                             <div className='d-md-none'>
-                                <i className='cursor-pointer fas fa-bars text-39' onClick={this.sideDrawerToggle} />
-                            </div>
-
-                            <div className='ml-auto d-flex'>
-                                <div className='pr-5'>
-                                    <Notifications cms={{ header }} notifications={data.notifications} />
-                                </div>
-
-                                <div>
-                                    <Messages cms={{ header }} messages={data.messages} />
-                                </div>
+                                <i className='cursor-pointer fas fa-th-large text-30' onClick={this.sideDrawerToggle} />
                             </div>
                         </div>
 
@@ -81,7 +66,7 @@ class Layout extends Component {
                             </div>
 
                             <div>
-                                <div className='profile-pic' style={{ backgroundImage: 'url("' + data.photo + '")' }} />
+                                <div className='profile-pic bg-img' style={{ backgroundImage: 'url("' + data.photo + '")' }} />
                             </div>
                         </div>
                     </div>

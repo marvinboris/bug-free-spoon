@@ -41,7 +41,12 @@ class FrontendController extends Controller
                 'value' => '30+',
             ]
         ];
-        $elders = Elder::wherePaid(1)->orderBy('id', 'DESC')->take(3)->get();
+        $elders = [];
+        foreach (Elder::wherePaid(1)->orderBy('id', 'DESC')->take(3)->get() as $elder) {
+            $elders[] = array_merge($elder->toArray(), [
+                'school' => $elder->school ? $elder->school->name : null,
+            ]);   
+        }
         $publications = Publication::orderBy('id', 'DESC')->take(3)->get();
 
         return response()->json([
@@ -161,7 +166,9 @@ class FrontendController extends Controller
         $filteredData = $filteredData->get();
 
         foreach ($filteredData as $elder) {
-            $elders[] = array_merge($elder->toArray(), []);
+            $elders[] = array_merge($elder->toArray(), [
+                'school' => $elder->school ? $elder->school->name : null,
+            ]);
         }
 
         return response()->json([

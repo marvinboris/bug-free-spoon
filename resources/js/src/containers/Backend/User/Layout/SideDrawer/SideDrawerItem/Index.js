@@ -26,7 +26,7 @@ const SideDrawerItem = ({ children, dropdown, icon, href = '', items, path = '',
 
     let content;
     if (!dropdown) content = <>
-        <NavLink onClick={onSideDrawerToggle} exact={exact} className="SideDrawerItem d-sm-none nav-link" activeClassName="active" to={href}>
+        <NavLink onClick={onSideDrawerToggle} exact={exact} className="SideDrawerItem d-block d-sm-none nav-link" activeClassName="active" to={href}>
             <div>
                 <i className={"fas fa-" + icon + " fa-fw mr-3"} />
 

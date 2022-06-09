@@ -14,7 +14,7 @@ export default ({ onSubmit, title, subtitle, className = '', children, style, id
 
         {list && <Link to={link} className="link">
             <button className='btn btn-blue'>
-            {list}<i className='fas fa-tasks' />
+                <span>{list}</span><i className='fas fa-tasks' />
             </button>
         </Link>}
     </div>

@@ -1,8 +1,6 @@
 import React, { Component } from 'react';
 import { connect } from 'react-redux';
-import { Col, Table, Button, Input, Row, UncontrolledDropdown, DropdownToggle, DropdownMenu } from 'reactstrap';
-import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
-import { faPlusCircle, faFileExcel, faFilePdf, faFileCsv, faPrint, faAngleDoubleLeft, faChevronLeft, faChevronRight, faAngleDoubleRight, faPlus, faFileExport } from '@fortawesome/free-solid-svg-icons';
+import { Table, Collapse, Input, UncontrolledDropdown, DropdownToggle, DropdownMenu } from 'reactstrap';
 import { Link } from 'react-router-dom';
 
 import { updateObject } from '../../../../shared/utility';
@@ -136,7 +134,7 @@ class List extends Component {
         } = this.props;
         const { show, search, page, pageFirst, pageSecond, pageLast, pageNumber } = this.state;
 
-        const titles = fields.map(({ name, fixed }) => <th className="text-nowrap" style={fixed ? { position: 'sticky', right: 0 } : {}} key={name}>{name}</th>);
+        const titles = fields.map(({ name, fixed }) => <th className={"text-nowrap" + (fixed ? " sticky" : "")} style={fixed ? { position: 'sticky', right: 0 } : {}} key={name}>{name}</th>);
         titles.unshift(<th className="text-center align-middle" key="#">{cms.sl}</th>);
         if (select) titles.unshift(<th className="align-middle text-center" key="select_all">
             <input type="checkbox" onClick={selectHandler} className="select_all" />
@@ -155,6 +153,43 @@ class List extends Component {
             return <tr className="align-middle" key={index + 1}>{inside}</tr>;
         });
 
+        const optionsContent = <>
+            <div className='show'>
+                <div className='text'>{cms.show}</div>
+
+                <Input type="select" name="show" onChange={this.inputChangedHandler} className='select'>
+                    <option value="10">10</option>
+                    <option value="25">25</option>
+                    <option value="50">50</option>
+                    <option value="100">100</option>
+                    <option value="All">{cms.all}</option>
+                </Input>
+            </div>
+
+            <UncontrolledDropdown className="export">
+                <DropdownToggle color="blue" caret>
+                    <i className='fas fa-file-export' />{'Export'}
+                </DropdownToggle>
+
+                <DropdownMenu>
+                    <a href="/api/export/xlsx" onClick={this.onClick} className="dropdown-item"><i className='fas fa-file-excel' />{cms.excel}</a>
+                    <a href="/api/export/pdf" onClick={this.onClick} className="dropdown-item"><i className='fas fa-file-pdf' />{cms.pdf}</a>
+                    <a href="/api/export/csv" onClick={this.onClick} className="dropdown-item"><i className='fas fa-file-csv' />{cms.csv}</a>
+                    <a href="/api/export/pdf" onClick={this.onClick} className="dropdown-item"><i className='fas fa-print' />{cms.print}</a>
+                </DropdownMenu>
+            </UncontrolledDropdown>
+
+            <div className='search'>
+                <Input type="search" name="search" onChange={this.inputChangedHandler} placeholder={`${cms.search}...`} />
+            </div>
+
+            {add && <Link to={link} className="link">
+                <button className='btn btn-blue'>
+                    <span>{add}</span><i className='fas fa-plus' />
+                </button>
+            </Link>}
+        </>;
+
         const modulo = total % show;
         const entries = total === 0 ? total : (modulo !== 0 ? modulo : show);
 
@@ -171,41 +206,7 @@ class List extends Component {
                         <div className='blue-line' />
                     </div>
 
-
-                    <div className='show'>
-                        <div className='text'>{cms.show}</div>
-
-                        <Input type="select" name="show" onChange={this.inputChangedHandler} className='select'>
-                            <option value="10">10</option>
-                            <option value="25">25</option>
-                            <option value="50">50</option>
-                            <option value="100">100</option>
-                            <option value="All">{cms.all}</option>
-                        </Input>
-                    </div>
-
-                    <UncontrolledDropdown className="export">
-                        <DropdownToggle color="blue" caret>
-                            <i className='fas fa-file-export' />{'Export'}
-                        </DropdownToggle>
-
-                        <DropdownMenu>
-                            <a href="/api/export/xlsx" onClick={this.onClick} className="dropdown-item"><i className='fas fa-file-excel' />{cms.excel}</a>
-                            <a href="/api/export/pdf" onClick={this.onClick} className="dropdown-item"><i className='fas fa-file-pdf' />{cms.pdf}</a>
-                            <a href="/api/export/csv" onClick={this.onClick} className="dropdown-item"><i className='fas fa-file-csv' />{cms.csv}</a>
-                            <a href="/api/export/pdf" onClick={this.onClick} className="dropdown-item"><i className='fas fa-print' />{cms.print}</a>
-                        </DropdownMenu>
-                    </UncontrolledDropdown>
-
-                    <div className='search'>
-                        <Input type="search" name="search" onChange={this.inputChangedHandler} placeholder={`${cms.search}...`} />
-                    </div>
-
-                    {add && <Link to={link} className="link">
-                        <button className='btn btn-blue'>
-                            {add}<i className='fas fa-plus' />
-                        </button>
-                    </Link>}
+                    {optionsContent}
                 </div>
 
                 <div className="body">
@@ -228,8 +229,8 @@ class List extends Component {
                         <div className="pt-2 d-flex justify-content-end">
                             {show !== "All" && <ul className="pagination btn-group">
                                 {page !== 1 && <>
-                                    <li className="btn btn-yellow" onClick={this.firstPageHandler}><FontAwesomeIcon icon={faAngleDoubleLeft} className="mr-2" />{cms.first}</li>
-                                    <li className="btn btn-darkblue text-secondary" onClick={this.previousPageHandler}><FontAwesomeIcon icon={faChevronLeft} /></li>
+                                    <li className="btn btn-yellow" onClick={this.firstPageHandler}><i className="fas fa-angle-double-left mr-2" />{cms.first}</li>
+                                    <li className="btn btn-darkblue text-secondary" onClick={this.previousPageHandler}><i className='fas fa-chevron-left' /></li>
                                 </>}
 
                                 <li className={"btn btn-darkblue " + (page === pageFirst ? 'text-700 active' : 'secondary')} onClick={() => this.pageChangeHandler(pageFirst)}>{pageFirst}</li>
@@ -240,8 +241,8 @@ class List extends Component {
                                     {pageNumber > 2 && <li className={"btn btn-darkblue " + (page === pageLast ? 'text-700 active' : 'secondary')} onClick={() => this.pageChangeHandler(pageLast)}>{pageLast}</li>}
 
                                     {page !== pageNumber && <>
-                                        <li className="btn btn-darkblue text-secondary" onClick={this.nextPageHandler}><FontAwesomeIcon icon={faChevronRight} /></li>
-                                        <li className="btn btn-primary" onClick={this.lastPageHandler}>{cms.last}<FontAwesomeIcon icon={faAngleDoubleRight} className="ml-2" /></li>
+                                        <li className="btn btn-darkblue text-secondary" onClick={this.nextPageHandler}><i className='fas fa-chevron-right' /></li>
+                                        <li className="btn btn-primary" onClick={this.lastPageHandler}>{cms.last}<i className="fas fa-angle-double-right ml-2" /></li>
                                     </>}
                                 </>}
                             </ul>}

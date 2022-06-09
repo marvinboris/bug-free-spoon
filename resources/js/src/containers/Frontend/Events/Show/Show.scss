@@ -1,23 +1,22 @@
 .Events.Show {
     .event {
         .container {
-            padding: 80px 0;
-
             .title {
-                font-size: 30px;
+                font-size: 24px;
                 font-weight: 700;
                 color: var(--blue);
-                margin-bottom: 24px;
+                margin-bottom: 16px;
             }
 
             .bg-img {
                 position: relative;
-                margin-bottom: 40px;
+                margin-bottom: 20px;
                 border-radius: var(--border-radius);
 
                 .RemainingTime {
                     top: 0;
                     left: 50%;
+                    width: 256px;
                     display: block;
                     padding: 20px 40px;
                     position: absolute;
@@ -30,27 +29,103 @@
                     border-bottom-right-radius: var(--border-radius);
 
                     &>div:not(.remaining) {
-                        margin: 0 10px;
+                        margin: 0 4px;
                         display: inline-flex;
                     }
 
                     .remaining {
-                        margin-top: 10px;
+                        margin-top: 4px;
                         text-align: center;
                     }
                 }
             }
 
             .description {
-                font-size: 24px;
-                margin-bottom: 20px;
+                font-size: 18px;
+                margin-bottom: 12px;
                 color: var(--blue);
-                font-weight: 500px;
+                font-weight: 500;
             }
 
             .content {
-                font-size: 18px;
+                font-size: 14px;
                 text-align: justify;
+            }
+        }
+    }
+}
+
+@media (min-width: 800px) {
+    .Events.Show {
+        .event {
+            .container {
+                .title {
+                    font-size: 27px;
+                    margin-bottom: 20px;
+                }
+
+                .bg-img {
+                    margin-bottom: 30px;
+
+                    .RemainingTime {
+                        padding: 20px 40px;
+
+                        &>div:not(.remaining) {
+                            margin: 0 7px;
+                        }
+
+                        .remaining {
+                            margin-top: 7px;
+                        }
+                    }
+                }
+
+                .description {
+                    font-size: 21px;
+                    margin-bottom: 16px;
+                }
+
+                .content {
+                    font-size: 16px;
+                }
+            }
+        }
+    }
+}
+
+@media (min-width: 1280px) {
+    .Events.Show {
+        .event {
+            .container {
+                .title {
+                    font-size: 30px;
+                    margin-bottom: 24px;
+                }
+
+                .bg-img {
+                    margin-bottom: 40px;
+
+                    .RemainingTime {
+                        padding: 20px 40px;
+
+                        &>div:not(.remaining) {
+                            margin: 0 10px;
+                        }
+
+                        .remaining {
+                            margin-top: 10px;
+                        }
+                    }
+                }
+
+                .description {
+                    font-size: 24px;
+                    margin-bottom: 20px;
+                }
+
+                .content {
+                    font-size: 18px;
+                }
             }
         }
     }

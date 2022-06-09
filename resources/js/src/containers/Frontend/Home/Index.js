@@ -23,8 +23,10 @@ import { getHome, postSubscribe, resetHome } from '../../../store/actions/fronte
 import './Home.scss';
 
 const Stat = ({ icon, value, text }) => <div className='Stat'>
-    <div className='icon'>
-        <i className={'fas fa-' + icon} />
+    <div>
+        <div className='icon'>
+            <i className={'fas fa-fw fa-' + icon} />
+        </div>
     </div>
 
     <div>
@@ -84,7 +86,7 @@ class Home extends Component {
 
         const eventsContent = events.map(event => <div key={JSON.stringify(event)}>
             <div className='row'>
-                <div className='col-4'>
+                <div className='col-md-4'>
                     <div className='img'>
                         <img src={event.photo} className='img-fluid' />
 
@@ -92,7 +94,7 @@ class Home extends Component {
                     </div>
                 </div>
 
-                <div className='col-8'>
+                <div className='col-md-8'>
                     <RemainingTime time={event.date} />
 
                     <Link to={event.link} className="title">{event.title[lang]}</Link>
@@ -112,13 +114,15 @@ class Home extends Component {
             <div className='banner'>
                 <div className="banner__container">
                     <div className="banner__text container">
-                        <div className='title'>{cms.banner.title}</div>
+                        <div className='row'>
+                            <div className='title text-24 text-md-28 text-xl-32 col-10 col-md-8 col-xl-6'>{cms.banner.title}</div>
 
-                        <div className='subtitle'>{cms.banner.carousel[0].altText}</div>
+                            <div className='subtitle text-14 text-md-16 text-xl-18 col-10 col-md-9 col-xl-8'>{cms.banner.carousel[0].altText}</div>
 
-                        <div>
-                            <Link to={'/alumni-call'} className="alumni-call btn btn-blue">{cms.banner.alumni_call}</Link>
-                            <Link to={'/opportunities'} className="btn btn-white">{cms.banner.opportunities}</Link>
+                            <div className='col-12'>
+                                <Link to={'/alumni-call'} className="alumni-call btn btn-blue">{cms.banner.alumni_call}</Link>
+                                <Link to={'/opportunities'} className="btn btn-white">{cms.banner.opportunities}</Link>
+                            </div>
                         </div>
                     </div>
                 </div>
@@ -148,7 +152,7 @@ class Home extends Component {
 
                             <p>{cms.about.description}</p>
 
-                            <div className='actions'>
+                            <div className='actions text-center text-md-left'>
                                 <a href='mailto:contact@fiducac.org?subject=Je fais un don' target='_blank' className="donate btn btn-blue">{cms.about.donate}<i className='fas fa-donate' /></a>
                                 <View title={cms.about.join.title} content={<Join />}><button className='join btn btn-white'>{cms.about.join.title}<i className='fas fa-sign-in-alt' /></button></View>
                                 <View title={cms.about.pay.title} content={<Pay />}><button className='pay btn btn-border'>{cms.about.pay.title}<i className='fas fa-wallet' /></button></View>

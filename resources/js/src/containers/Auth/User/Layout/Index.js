@@ -32,9 +32,7 @@ class Layout extends Component {
 
             <footer>
                 <div className='container d-flex justify-content-center align-items-center'>
-                    <div className='pr-3'><i className='far fa-copyright fa-fw text-18 text-blue' /></div>
-
-                    <div>{footer.copyrights} {(new Date()).getFullYear()}. {footer.all_rights} <span className='special'>{company_name}</span></div>
+                    <div><i className='far fa-copyright fa-fw text-14 text-md-16 text-xl-18 text-blue' /> {footer.copyrights} {(new Date()).getFullYear()}. {footer.all_rights} <span className='special'>{company_name}</span></div>
                 </div>
             </footer>
         </div>

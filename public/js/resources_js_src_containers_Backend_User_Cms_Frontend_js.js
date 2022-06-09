@@ -178,7 +178,9 @@ __webpack_require__.r(__webpack_exports__);
         className: "link",
         children: /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_2__.jsxs)("button", {
           className: "btn btn-blue",
-          children: [list, /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_2__.jsx)("i", {
+          children: [/*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_2__.jsx)("span", {
+            children: list
+          }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_2__.jsx)("i", {
             className: "fas fa-tasks"
           })]
         })
@@ -263,49 +265,95 @@ __webpack_require__.r(__webpack_exports__);
     "menu": {
       "home": "La FIDUCAC",
       "alumni_call": "Alumni Call",
-      "committee": "Le comité",
-      "opportunities": "Opportunités",
+      "committee": "Le comit\xE9",
+      "opportunities": "Opportunit\xE9s",
       "contact": "Contact"
     }
   },
   "footer": {
-    "fiducac": "Fédération Internationale Des Diplômés De L'UCAC"
+    "fiducac": "F\xE9d\xE9ration Internationale Des Dipl\xF4m\xE9s De L'UCAC",
+    "social_networks": {
+      "title": "Réseaux sociaux",
+      "list": [{
+        "icon": "facebook-square",
+        "link": "https://web.facebook.com/equipefiducac/?_rdc=1&_rdr"
+      }, {
+        "icon": "linkedin",
+        "link": "https://www.linkedin.com/company/fiducac/about/"
+      }, {
+        "icon": "twitter-square",
+        "link": "https://twitter.com/fiducac?lang=fr"
+      }]
+    },
+    "schools": {
+      "title": "Les écoles de l'UCAC"
+    }
   },
   "pages": {
     "home": {
       "banner": {
-        "title": "Fédération Internationale Des Diplômés De L'UCAC",
+        "title": "F\xE9d\xE9ration Internationale Des Dipl\xF4m\xE9s De L'UCAC",
         "alumni_call": "Alumni Call",
-        "opportunities": "Opportunités",
+        "opportunities": "Opportunit\xE9s",
         "carousel": [{
-          "src": "/images/Photo-Amphi-1-1.jpg",
-          "altText": "Nos diplômés après un forum sur les changements macro-économiques et leurs impacts sur l’employabilité"
+          "src": "\/images\/Photo-Amphi-1-1.jpg",
+          "altText": "Nos dipl\xF4m\xE9s apr\xE8s un forum sur les changements macro-\xE9conomiques et leurs impacts sur l\u2019employabilit\xE9"
         }, {
-          "src": "/images/Devanture-Institut-UCAC-ICAM-1.jpg",
-          "altText": "Visite du comité de direction de la FIDUCAC à l’UCAC-ICAM pour multiples projets"
+          "src": "\/images\/Devanture-Institut-UCAC-ICAM-1.jpg",
+          "altText": "Visite du comit\xE9 de direction de la FIDUCAC \xE0 l\u2019UCAC-ICAM pour multiples projets"
         }, {
-          "src": "/images/Defile-Catho-en-marche-1.jpg",
+          "src": "\/images\/Defile-Catho-en-marche-1.jpg",
           "altText": "Lancement officiel de la FIDUCAC en 2009"
         }]
       },
       "events": {
-        "title": "Evènement à venir",
+        "title": "Ev\xE8nement \xE0 venir",
         "join": "Rejoindre"
       },
       "about": {
         "title": "La Fiducac",
         "subtitle": "Qui sommes-nous ?",
-        "photo": "/images/Equipe-2.jpg",
-        "description": "A la Fiducac, nous définissons notre avenir tout en embrassant une tradition en devenir depuis plus de 35 ans. Notre mission estudiantine façonne notre vision. Mais nos anciens et amis — notre communauté unique en son genre — font de cette vision une réalité. Ils assurent la réussite des jeunes poulains. Ils aident à forger un nouveau chapitre audacieux dans l’histoire extraordinaire de l’UCAC. Ensemble, nous garderons la FIDUCAC prospère et préparerons une nouvelle génération pour montrer la voie.",
+        "photo": "\/images\/Equipe-2.jpg",
+        "description": "A la Fiducac, nous d\xE9finissons notre avenir tout en embrassant une tradition en devenir depuis plus de 35 ans. Notre mission estudiantine fa\xE7onne notre vision. Mais nos anciens et amis \u2014 notre communaut\xE9 unique en son genre \u2014 font de cette vision une r\xE9alit\xE9. Ils assurent la r\xE9ussite des jeunes poulains. Ils aident \xE0 forger un nouveau chapitre audacieux dans l\u2019histoire extraordinaire de l\u2019UCAC. Ensemble, nous garderons la FIDUCAC prosp\xE8re et pr\xE9parerons une nouvelle g\xE9n\xE9ration pour montrer la voie.",
         "donate": "Faire un don",
-        "icon": "info-circle"
+        "icon": "info-circle",
+        "join": {
+          "title": "Adhérer",
+          "subtitle": "Rejoindre la Fiducac",
+          "form": {
+            "title": "Lieu de service et poste occupé",
+            "name": "Votre nom",
+            "email": "Votre adresse mail",
+            "photo": "Votre photo",
+            "upload": "Envoyer",
+            "payment": "Preuve de paiement",
+            "school": "Ecole",
+            "select_school": "Sélectionner une école",
+            "promotion": "Promotion",
+            "submit": "Soumettre",
+            "language": "Langue",
+            "all_languages": "Assurez-vous de renseigner les informations dans toutes les langues avant de soumettre le formulaire.",
+            "payment_details": "Afin de confirmer votre adhésion à la Fiducac, veuillez effectuer un paiement et en envoyer la preuve en image (une capture d'écran du message de transfert ou de dépôt, par exemple)."
+          }
+        },
+        "pay": {
+          "title": "Cotisation annuelle",
+          "subtitle": "Régler sa cotisation annuelle",
+          "form": {
+            "email": "Votre adresse mail",
+            "year": "Année cotisée",
+            "payment": "Preuve de paiement",
+            "submit": "Soumettre",
+            "payment_details": "Afin de confirmer votre adhésion à la Fiducac, veuillez effectuer un paiement et en envoyer la preuve en image (une capture d'écran du message de transfert ou de dépôt, par exemple)."
+          }
+        }
       },
       "activities": {
-        "title": "Nos activités",
-        "subtitle": "Les activités de la Fiducac",
-        "description": "Les desseins de la Fiducac sont semblables à ceux de bien des alumnis. Nous souhaitons créer une communauté qui puisse être utile à chacun d'entre nous.",
+        "title": "Nos activit\xE9s",
+        "subtitle": "Les activit\xE9s de la Fiducac",
+        "description": "Les desseins de la Fiducac sont semblables \xE0 ceux de bien des alumnis. Nous souhaitons cr\xE9er une communaut\xE9 qui puisse \xEAtre utile \xE0 chacun d'entre nous.",
         "icon": "chart-line",
-        "view_all": "Voir toutes les activités"
+        "view_all": "Voir toutes les activit\xE9s"
       },
       "stats": {
         "members": {
@@ -318,58 +366,58 @@ __webpack_require__.r(__webpack_exports__);
         },
         "events": {
           "icon": "calendar-alt",
-          "text": "Evènements"
+          "text": "Ev\xE8nements"
         },
         "awards": {
           "icon": "award",
-          "text": "Récompenses"
+          "text": "R\xE9compenses"
         }
       },
       "elders": {
         "title": "Nos anciens",
-        "subtitle": "Nos anciens partagent avec nous leur expérience",
+        "subtitle": "Nos anciens partagent avec nous leur exp\xE9rience",
         "icon": "users",
         "view_all": "Voir tous les anciens"
       },
       "publications": {
-        "title": "Nos publications récentes",
-        "subtitle": "Retrouvez les publications récentes de la Fiducac",
+        "title": "Nos publications r\xE9centes",
+        "subtitle": "Retrouvez les publications r\xE9centes de la Fiducac",
         "icon": "newspaper",
         "view_all": "Voir toutes les publications"
       },
       "newsletter": {
-        "title": "Restez connecté",
-        "subtitle": "Tenez-vous informé en vous inscrivant à notre newsletter",
-        "description": "En souscrivant, vous acceptez de partager votre adresse e-mail avec la Fiducac afin de recevoir des messages de nouvelles récentes de l'UCAC, des mises à jour et d’autres e-mails jugés importants. Vous pouvez vous désabonner à tout moment à l’aide du lien correspondant disponible dans ces e-mails.",
+        "title": "Restez connect\xE9",
+        "subtitle": "Tenez-vous inform\xE9 en vous inscrivant \xE0 notre newsletter",
+        "description": "En souscrivant, vous acceptez de partager votre adresse e-mail avec la Fiducac afin de recevoir des messages de nouvelles r\xE9centes de l'UCAC, des mises \xE0 jour et d\u2019autres e-mails jug\xE9s importants. Vous pouvez vous d\xE9sabonner \xE0 tout moment \xE0 l\u2019aide du lien correspondant disponible dans ces e-mails.",
         "email": "Adresse mail",
-        "name": "Nom",
+        "name": "Prénom",
         "submit": "Soumettre"
       },
-      "contact": {}
+      "contact": []
     },
     "alumni_call": {
       "title": "Alumni Call",
-      "subtitle": "Nos anciens nous partagent leur expérience",
+      "subtitle": "Nos anciens nous partagent leur exp\xE9rience",
       "elders": {
         "title": "Nos anciens",
-        "subtitle": "Nos anciens partagent avec nous leur expérience",
+        "subtitle": "Nos anciens partagent avec nous leur exp\xE9rience",
         "icon": "users"
       }
     },
     "committee": {
-      "title": "Le comité",
-      "subtitle": "Le comité dirigeant de la Fiducac"
+      "title": "Le comit\xE9",
+      "subtitle": "Le comit\xE9 dirigeant de la Fiducac"
     },
     "opportunities": {
-      "title": "Opportunités",
-      "subtitle": "Les opportunités à saisir pour tout un chacun"
+      "title": "Opportunit\xE9s",
+      "subtitle": "Les opportunit\xE9s \xE0 saisir pour tout un chacun"
     },
     "contact": {
       "title": "Contact",
       "subtitle": "Contactez-nous",
       "contact": {
         "title": "Contactez-nous",
-        "subtitle": "Remplissez ce formulaire pour toute information supplémentaire",
+        "subtitle": "Remplissez ce formulaire pour toute information suppl\xE9mentaire",
         "name": "Nom",
         "email": "Adresse mail",
         "message": "Message",
@@ -388,13 +436,23 @@ __webpack_require__.r(__webpack_exports__);
       }
     },
     "activities": {
-      "title": "Activités",
-      "subtitle": "Nos activités",
+      "title": "Activit\xE9s",
+      "subtitle": "Nos activit\xE9s",
       "loading": "Chargement en cours...",
       "activities": {
-        "title": "Nos activités",
-        "subtitle": "Retrouvez les activités de la Fiducac",
+        "title": "Nos activit\xE9s",
+        "subtitle": "Retrouvez les activit\xE9s de la Fiducac",
         "icon": "chart-line"
+      }
+    },
+    "events": {
+      "title": "Evènements",
+      "subtitle": "Nos évènements",
+      "loading": "Chargement en cours...",
+      "activities": {
+        "title": "Nos évènements",
+        "subtitle": "Retrouvez les évènements de la Fiducac",
+        "icon": "calendar-alt"
       }
     }
   }
@@ -1576,7 +1634,7 @@ __webpack_require__.r(__webpack_exports__);
 
 var ___CSS_LOADER_EXPORT___ = _node_modules_css_loader_dist_runtime_api_js__WEBPACK_IMPORTED_MODULE_0___default()(function(i){return i[1]});
 // Module
-___CSS_LOADER_EXPORT___.push([module.id, ".UI.Form {\n  border-radius: var(--border-radius);\n  padding: 36px 51px 75px 51px;\n  background-color: var(--white);\n}\n.UI.Form .header {\n  display: flex;\n  align-items: center;\n  margin-bottom: 63px;\n  justify-content: space-between;\n}\n.UI.Form .header .title {\n  font-size: 18px;\n  font-weight: 700;\n  margin-bottom: 5px;\n}\n.UI.Form .header .subtitle {\n  font-size: 12px;\n  margin-bottom: 15px;\n}\n.UI.Form .header .blue-line {\n  width: 33px;\n  height: 7px;\n  border-radius: 5px;\n  background-color: var(--blue);\n}\n.UI.Form .header .link {\n  text-decoration: none;\n}", ""]);
+___CSS_LOADER_EXPORT___.push([module.id, ".UI.Form {\n  border-radius: var(--border-radius);\n  padding: 16px 16px 48px 16px;\n  background-color: var(--white);\n}\n.UI.Form .header {\n  display: flex;\n  align-items: center;\n  margin-bottom: 16px;\n  justify-content: space-between;\n}\n.UI.Form .header .title {\n  font-size: 16px;\n  font-weight: 700;\n}\n.UI.Form .header .subtitle {\n  font-size: 12px;\n  margin-bottom: 15px;\n}\n.UI.Form .header .blue-line {\n  width: 33px;\n  height: 7px;\n  border-radius: 5px;\n  background-color: var(--blue);\n}\n.UI.Form .header .link i {\n  margin-left: 0;\n}\n.UI.Form .header .link span {\n  display: none;\n}\n\n@media (min-width: 800px) {\n  .UI.Form {\n    padding: 26px 33px 62px 33px;\n  }\n  .UI.Form .header {\n    margin-bottom: 40px;\n  }\n  .UI.Form .header .title {\n    font-size: 20px;\n  }\n  .UI.Form .header .subtitle {\n    font-size: 12px;\n    margin-bottom: 15px;\n  }\n  .UI.Form .header .link i {\n    margin-left: 10px;\n  }\n  .UI.Form .header .link span {\n    display: inline;\n  }\n}\n@media (min-width: 1280px) {\n  .UI.Form {\n    padding: 36px 51px 75px 51px;\n  }\n  .UI.Form .header {\n    margin-bottom: 64px;\n  }\n  .UI.Form .header .subtitle {\n    font-size: 12px;\n    margin-bottom: 15px;\n  }\n}", ""]);
 // Exports
 /* harmony default export */ const __WEBPACK_DEFAULT_EXPORT__ = (___CSS_LOADER_EXPORT___);
 
@@ -1599,7 +1657,7 @@ __webpack_require__.r(__webpack_exports__);
 
 var ___CSS_LOADER_EXPORT___ = _node_modules_css_loader_dist_runtime_api_js__WEBPACK_IMPORTED_MODULE_0___default()(function(i){return i[1]});
 // Module
-___CSS_LOADER_EXPORT___.push([module.id, ".UI.PageTitle {\n  top: 78.47px;\n  height: 81px;\n  display: flex;\n  z-index: 1000;\n  position: -webkit-sticky;\n  position: sticky;\n  padding-left: 66px;\n  align-items: center;\n  background-color: var(--white);\n}\n.UI.PageTitle::after {\n  content: \"\";\n  position: absolute;\n  top: 0;\n  left: 0;\n  z-index: -1;\n  width: 100%;\n  height: 100%;\n  background-color: var(--blue-10);\n}\n.UI.PageTitle .blue-line {\n  position: absolute;\n  width: 9px;\n  height: 100%;\n  left: 0;\n  top: 0;\n  background-color: var(--blue);\n}\n.UI.PageTitle .icon {\n  padding-right: 23px;\n  font-size: 33px;\n  color: var(--blue);\n}\n.UI.PageTitle .title {\n  font-size: 16px;\n  font-weight: 500;\n  margin-bottom: 10px;\n}", ""]);
+___CSS_LOADER_EXPORT___.push([module.id, ".UI.PageTitle {\n  top: 60.97px;\n  height: 61px;\n  display: flex;\n  z-index: 1000;\n  position: -webkit-sticky;\n  position: sticky;\n  padding-left: 16px;\n  align-items: center;\n  background-color: var(--white);\n}\n.UI.PageTitle::after {\n  content: \"\";\n  position: absolute;\n  top: 0;\n  left: 0;\n  z-index: -1;\n  width: 100%;\n  height: 100%;\n  background-color: var(--blue-10);\n}\n.UI.PageTitle .blue-line {\n  position: absolute;\n  width: 9px;\n  height: 100%;\n  left: 0;\n  top: 0;\n  background-color: var(--blue);\n}\n.UI.PageTitle .icon {\n  padding-right: 16px;\n  font-size: 27px;\n  color: var(--blue);\n}\n.UI.PageTitle .title {\n  font-size: 16px;\n  font-weight: 500;\n}\n\n@media (min-width: 800px) {\n  .UI.PageTitle {\n    top: 78.47px;\n    height: 71px;\n    padding-left: 41px;\n  }\n  .UI.PageTitle .blue-line {\n    width: 9px;\n  }\n  .UI.PageTitle .icon {\n    padding-right: 20px;\n    font-size: 30px;\n  }\n  .UI.PageTitle .title {\n    font-size: 16px;\n    margin-bottom: 5px;\n  }\n}\n@media (min-width: 1280px) {\n  .UI.PageTitle {\n    top: 78.47px;\n    height: 81px;\n    padding-left: 66px;\n  }\n  .UI.PageTitle .blue-line {\n    width: 9px;\n  }\n  .UI.PageTitle .icon {\n    padding-right: 23px;\n    font-size: 33px;\n  }\n  .UI.PageTitle .title {\n    font-size: 16px;\n    margin-bottom: 10px;\n  }\n}", ""]);
 // Exports
 /* harmony default export */ const __WEBPACK_DEFAULT_EXPORT__ = (___CSS_LOADER_EXPORT___);
 

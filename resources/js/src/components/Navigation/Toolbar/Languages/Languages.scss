@@ -57,3 +57,12 @@
         }
     }
 }
+
+@media (min-width: 800px) {
+    .Toolbar .Languages {
+        .dropdown-menu {
+            left: unset !important;
+            right: 0;
+        }
+    }
+}

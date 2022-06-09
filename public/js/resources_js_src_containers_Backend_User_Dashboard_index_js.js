@@ -276,9 +276,9 @@ __webpack_require__.r(__webpack_exports__);
       value = _ref.value,
       color = _ref.color;
   return /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_2__.jsx)("div", {
-    className: "col",
+    className: "col px-0 px-md-3",
     children: /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_2__.jsxs)("div", {
-      className: "Card shadow-lg",
+      className: "Card shadow-sm",
       children: [/*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_2__.jsx)("div", {
         className: "title text-truncate",
         children: title
@@ -2734,7 +2734,7 @@ __webpack_require__.r(__webpack_exports__);
 
 var ___CSS_LOADER_EXPORT___ = _node_modules_css_loader_dist_runtime_api_js__WEBPACK_IMPORTED_MODULE_0___default()(function(i){return i[1]});
 // Module
-___CSS_LOADER_EXPORT___.push([module.id, ".Backend.User .Dashboard .Card {\r\n    padding: 15px 30px 31px 24px;\r\n    background-color: var(--white);\r\n    border-radius: 20px;\r\n}\r\n\r\n.Backend.User .Dashboard .Card .title {\r\n    font-size: 15px;\r\n    font-weight: 500;\r\n}\r\n\r\n.Backend.User .Dashboard .Card .line {\r\n    height: 4px;\r\n    width: 15px;\r\n    border-radius: 1.8px;\r\n    margin-top: 13px;\r\n    margin-bottom: 8px;\r\n}\r\n", ""]);
+___CSS_LOADER_EXPORT___.push([module.id, ".Backend.User .Dashboard .Card {\r\n    padding: 15px 30px 31px 24px;\r\n    background-color: var(--white);\r\n    border-radius: 20px;\r\n    margin-bottom: 4px;\r\n}\r\n\r\n.Backend.User .Dashboard .Card .title {\r\n    font-size: 15px;\r\n    font-weight: 500;\r\n}\r\n\r\n.Backend.User .Dashboard .Card .line {\r\n    height: 4px;\r\n    width: 15px;\r\n    border-radius: 1.8px;\r\n    margin-top: 13px;\r\n    margin-bottom: 8px;\r\n}\r\n", ""]);
 // Exports
 /* harmony default export */ const __WEBPACK_DEFAULT_EXPORT__ = (___CSS_LOADER_EXPORT___);
 
@@ -2758,7 +2758,7 @@ __webpack_require__.r(__webpack_exports__);
 
 var ___CSS_LOADER_EXPORT___ = _node_modules_css_loader_dist_runtime_api_js__WEBPACK_IMPORTED_MODULE_0___default()(function(i){return i[1]});
 // Module
-___CSS_LOADER_EXPORT___.push([module.id, ".UI.PageTitle {\n  top: 78.47px;\n  height: 81px;\n  display: flex;\n  z-index: 1000;\n  position: -webkit-sticky;\n  position: sticky;\n  padding-left: 66px;\n  align-items: center;\n  background-color: var(--white);\n}\n.UI.PageTitle::after {\n  content: \"\";\n  position: absolute;\n  top: 0;\n  left: 0;\n  z-index: -1;\n  width: 100%;\n  height: 100%;\n  background-color: var(--blue-10);\n}\n.UI.PageTitle .blue-line {\n  position: absolute;\n  width: 9px;\n  height: 100%;\n  left: 0;\n  top: 0;\n  background-color: var(--blue);\n}\n.UI.PageTitle .icon {\n  padding-right: 23px;\n  font-size: 33px;\n  color: var(--blue);\n}\n.UI.PageTitle .title {\n  font-size: 16px;\n  font-weight: 500;\n  margin-bottom: 10px;\n}", ""]);
+___CSS_LOADER_EXPORT___.push([module.id, ".UI.PageTitle {\n  top: 60.97px;\n  height: 61px;\n  display: flex;\n  z-index: 1000;\n  position: -webkit-sticky;\n  position: sticky;\n  padding-left: 16px;\n  align-items: center;\n  background-color: var(--white);\n}\n.UI.PageTitle::after {\n  content: \"\";\n  position: absolute;\n  top: 0;\n  left: 0;\n  z-index: -1;\n  width: 100%;\n  height: 100%;\n  background-color: var(--blue-10);\n}\n.UI.PageTitle .blue-line {\n  position: absolute;\n  width: 9px;\n  height: 100%;\n  left: 0;\n  top: 0;\n  background-color: var(--blue);\n}\n.UI.PageTitle .icon {\n  padding-right: 16px;\n  font-size: 27px;\n  color: var(--blue);\n}\n.UI.PageTitle .title {\n  font-size: 16px;\n  font-weight: 500;\n}\n\n@media (min-width: 800px) {\n  .UI.PageTitle {\n    top: 78.47px;\n    height: 71px;\n    padding-left: 41px;\n  }\n  .UI.PageTitle .blue-line {\n    width: 9px;\n  }\n  .UI.PageTitle .icon {\n    padding-right: 20px;\n    font-size: 30px;\n  }\n  .UI.PageTitle .title {\n    font-size: 16px;\n    margin-bottom: 5px;\n  }\n}\n@media (min-width: 1280px) {\n  .UI.PageTitle {\n    top: 78.47px;\n    height: 81px;\n    padding-left: 66px;\n  }\n  .UI.PageTitle .blue-line {\n    width: 9px;\n  }\n  .UI.PageTitle .icon {\n    padding-right: 23px;\n    font-size: 33px;\n  }\n  .UI.PageTitle .title {\n    font-size: 16px;\n    margin-bottom: 10px;\n  }\n}", ""]);
 // Exports
 /* harmony default export */ const __WEBPACK_DEFAULT_EXPORT__ = (___CSS_LOADER_EXPORT___);
 

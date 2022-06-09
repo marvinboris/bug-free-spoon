@@ -66,12 +66,12 @@ blue
         const formContent = <>
             <Input type="email" icon="key" onChange={this.inputChangeHandler} validation={{ required: true }} value={email} name="email" required placeholder={login.email_address} />
             <Input id="password" type={visible ? "text" : "password"} className="position-relative" icon="lock" onChange={this.inputChangeHandler} validation={{ required: true }} value={password} name="password" required placeholder={login.password}
-                bonus={<div className="position-absolute d-flex align-items-center" style={{ height: 66, top: 0, right: 30, zIndex: 10, cursor: 'pointer' }} onClick={this.eyeClickedHandler}>
+                bonus={<div className="position-absolute d-flex align-items-center" style={{ height: '100%', top: 0, right: 30, zIndex: 10, cursor: 'pointer' }} onClick={this.eyeClickedHandler}>
                     <div className="position-relative">
                         <i className="fas fa-eye text-blue" />
 
                         <div style={!visible ? { visibility: 'visible' } : { visibility: 'hidden' }}>
-                            <div style={{ height: 1.5, width: 24, transform: 'rotate(30deg) translate(-9px, -12px)' }} className="bg-blue" />
+                            <div style={{ height: 1.5, width: 24, transform: 'rotate(30deg) translate(-9px, -10px)' }} className="bg-blue" />
                         </div>
                     </div>
                 </div>}
