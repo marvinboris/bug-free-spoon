@@ -48,6 +48,20 @@ export const getContent = () => async (dispatch, getState) => {
     }
 };
 
+export const changeLanguage = lang => async dispatch => {
+    dispatch(contentStart());
+
+    try {
+        const res = await fetch(`${prefix}content/${lang}`);
+        const resData = await res.json();
+        localStorage.setItem('lang', lang);
+        dispatch(contentSuccess(resData));
+    } catch (error) {
+        console.log(error);
+        dispatch(contentFail(error));
+    }
+}
+
 export const setLanguage = id => async dispatch => {
     dispatch(contentStart());
 

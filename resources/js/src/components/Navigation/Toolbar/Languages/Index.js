@@ -16,7 +16,7 @@ export default ({ languages, language, set }) => <UncontrolledDropdown className
     </DropdownToggle>
 
     <DropdownMenu>
-        {languages.map(l => <DropdownItem onClick={() => set(l.id)} key={JSON.stringify(l) + Math.random()}>
+        {languages.map(l => <DropdownItem onClick={() => set(l.abbr)} key={JSON.stringify(l) + Math.random()}>
             <span className={`flag-icon flag-icon-${l.flag.toLowerCase()}`} />
             {l.name}
         </DropdownItem>)}

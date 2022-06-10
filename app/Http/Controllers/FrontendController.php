@@ -14,6 +14,7 @@ use App\Models\User;
 use App\Notifications\ContactNotification;
 use App\Notifications\NewContribution;
 use App\Notifications\NewMember;
+use Carbon\Carbon;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Notification;
 
@@ -21,7 +22,7 @@ class FrontendController extends Controller
 {
     public function home()
     {
-        $events = Event::orderBy('id', 'DESC')->get();
+        $events = Event::whereDate('date', '>', Carbon::today())->orderBy('date', 'DESC')->get();
         $activities = Activity::orderBy('id', 'DESC')->take(3)->get();
         $stats = [
             [

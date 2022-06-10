@@ -380,7 +380,7 @@ __webpack_require__.r(__webpack_exports__);
         "view_all": "Voir tous les anciens"
       },
       "publications": {
-        "title": "Nos publications r\xE9centes",
+        "title": "Nos publications",
         "subtitle": "Retrouvez les publications r\xE9centes de la Fiducac",
         "icon": "newspaper",
         "view_all": "Voir toutes les publications"
