@@ -140,7 +140,7 @@ class Add extends Component {
                         {languages.map(l => <Fragment key={'language-' + l.abbr}>
                             <Input type="text" id={"title-" + l.abbr} className={"col-lg-12" + (l.abbr === translate ? "" : " d-none")} onChange={this.inputChangeHandler} value={activity_title[l.abbr]} name={"title[" + l.abbr + "]"} required label={form.title} />
                             <FormGroup id={"body-" + l.abbr} className={"col-lg-12" + (l.abbr === translate ? "" : " d-none")}>
-                                {this.props.edit && activity && activity.body[l.abbr] === body[l.abbr] && <Editor defaultValue={activity.body[l.abbr]} name={"body[" + l.abbr + "]"} placeholder={form.body} />}
+                                {this.props.edit && activity.body && activity.body[l.abbr] === body[l.abbr] && <Editor defaultValue={activity.body[l.abbr]} name={"body[" + l.abbr + "]"} placeholder={form.body} />}
                                 {!this.props.edit && <Editor name={"body[" + l.abbr + "]"} placeholder={form.body} />}
                             </FormGroup>
                         </Fragment>)}

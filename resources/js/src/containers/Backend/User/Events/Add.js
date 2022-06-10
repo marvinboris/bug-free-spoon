@@ -141,11 +141,11 @@ class Add extends Component {
                         {languages.map(l => <Fragment key={'language-' + l.abbr}>
                             <Input type="text" id={"title-" + l.abbr} className={"col-lg-12" + (l.abbr === translate ? "" : " d-none")} onChange={this.inputChangeHandler} value={event_title[l.abbr]} name={"title[" + l.abbr + "]"} required label={form.title} />
                             <FormGroup id={"description-" + l.abbr} className={"col-lg-12" + (l.abbr === translate ? "" : " d-none")}>
-                                {this.props.edit && event && event.description[l.abbr] === description[l.abbr] && <Editor defaultValue={event.description[l.abbr]} name={"description[" + l.abbr + "]"} placeholder={form.description} />}
+                                {this.props.edit && event.description && event.description[l.abbr] === description[l.abbr] && <Editor defaultValue={event.description[l.abbr]} name={"description[" + l.abbr + "]"} placeholder={form.description} />}
                                 {!this.props.edit && <Editor name={"description[" + l.abbr + "]"} placeholder={form.description} />}
                             </FormGroup>
                             <FormGroup id={"body-" + l.abbr} className={"col-lg-12" + (l.abbr === translate ? "" : " d-none")}>
-                                {this.props.edit && event && event.body[l.abbr] === body[l.abbr] && <Editor defaultValue={event.body[l.abbr]} name={"body[" + l.abbr + "]"} placeholder={form.body} />}
+                                {this.props.edit && event.body && event.body[l.abbr] === body[l.abbr] && <Editor defaultValue={event.body[l.abbr]} name={"body[" + l.abbr + "]"} placeholder={form.body} />}
                                 {!this.props.edit && <Editor name={"body[" + l.abbr + "]"} placeholder={form.body} />}
                             </FormGroup>
                         </Fragment>)}
