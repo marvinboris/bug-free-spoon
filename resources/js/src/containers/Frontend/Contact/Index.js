@@ -2,6 +2,7 @@ import React, { Component } from 'react';
 import { connect } from 'react-redux';
 import { withRouter } from 'react-router-dom';
 
+import Error from '../../../components/Messages/Error';
 import Feedback from '../../../components/Messages/Feedback';
 
 import PageTitle from '../../../components/Frontend/UI/Title/PageTitle';
@@ -27,7 +28,7 @@ class Contact extends Component {
     // Component methods
     saveHandler = e => {
         e.preventDefault();
-        this.props.post(e.target);
+        if (!this.props.frontend.contact.loading) this.props.post(e.target);
     }
 
     inputChangeHandler = e => {
@@ -39,9 +40,7 @@ class Contact extends Component {
 
     // Lifecycle methods
     componentDidUpdate(prevProps) {
-        if (!prevProps.frontend.contact.message && this.props.frontend.contact.message && this.props.frontend.contact.message.type === 'success' && !this.props.edit) {
-            this.setState({ ...initialState });
-        }
+        if (!prevProps.frontend.contact.message && this.props.frontend.contact.message && this.props.frontend.contact.message.type === 'success') this.setState({ ...initialState });
     }
 
     componentWillUnmount() {
@@ -53,9 +52,11 @@ class Contact extends Component {
             content: { cms: {
                 pages: { frontend: { pages: { contact: cms } } }
             } },
-            frontend: { contact: { loading, message: backend_message } }
+            frontend: { contact: { loading, error, message: backend_message } }
         } = this.props;
         const { name, email, message } = this.state;
+
+        console.log({ backend_message })
 
         return <div className="Contact">
             <PageTitle {...cms} />
@@ -64,21 +65,24 @@ class Contact extends Component {
                 <div className='container'>
                     <SectionTitle {...cms.contact} centered />
 
-                    <form className='row' onSubmit={this.saveHandler}>
-                        <div className='col-lg-7'><p>{cms.contact.description}</p></div>
-
+                    <div className='row justify-content-center'>
                         <div className='col-lg-7'>
-                            <Feedback message={backend_message} time={5000} />
-                        </div>
+                            <p>{cms.contact.description}</p>
 
-                        <Input type='text' name='name' className='col-lg-7' onChange={this.inputChangeHandler} value={name} placeholder={cms.contact.name} required validation={{ required: true }} />
-                        <Input type='email' name='email' className='col-lg-7' onChange={this.inputChangeHandler} value={email} placeholder={cms.contact.email} required validation={{ required: true }} />
-                        <Input type='textarea' name='message' className='col-lg-7' onChange={this.inputChangeHandler} value={message} placeholder={cms.contact.message} required validation={{ required: true }} />
+                            <Error err={error} />
+                            <Feedback message={backend_message} />
 
-                        <div className='submit col-12'>
-                            <button className='btn btn-blue'>{cms.contact.submit}<i className='fas fa-paper-plane' /></button>
+                            <form onSubmit={this.saveHandler}>
+                                <Input type='text' name='name' onChange={this.inputChangeHandler} value={name} placeholder={cms.contact.name} required disabled={loading} />
+                                <Input type='email' name='email' onChange={this.inputChangeHandler} value={email} placeholder={cms.contact.email} required disabled={loading} />
+                                <Input type='textarea' name='message' onChange={this.inputChangeHandler} value={message} placeholder={cms.contact.message} required disabled={loading} />
+
+                                <div className='submit'>
+                                    <button className={'btn btn-blue' + (loading ? ' btn-disabled' : '')}>{cms.contact.submit}<i className='fas fa-paper-plane' /></button>
+                                </div>
+                            </form>
                         </div>
-                    </form>
+                    </div>
                 </div>
             </section>
         </div>;

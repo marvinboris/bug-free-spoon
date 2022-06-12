@@ -6,6 +6,7 @@ import Carousel from './Carousel';
 import Join from './Join';
 import Pay from './Pay';
 
+import Error from '../../../components/Messages/Error';
 import Feedback from '../../../components/Messages/Feedback';
 
 import RemainingTime from '../../../components/Frontend/UI/RemainingTime';
@@ -50,7 +51,7 @@ class Home extends Component {
     // Component methods
     saveHandler = e => {
         e.preventDefault();
-        this.props.subscribe(e.target);
+        if (!this.props.frontend.home.loading) this.props.subscribe(e.target);
     }
 
     inputChangeHandler = e => {
@@ -66,9 +67,7 @@ class Home extends Component {
     }
 
     componentDidUpdate(prevProps) {
-        if (!prevProps.frontend.home.message && this.props.frontend.home.message && this.props.frontend.home.message.type === 'success' && !this.props.edit) {
-            this.setState({ ...initialState });
-        }
+        if (!prevProps.frontend.home.message && this.props.frontend.home.message && this.props.frontend.home.message.type === 'success') this.setState({ ...initialState });
     }
 
     componentWillUnmount() {
@@ -80,7 +79,7 @@ class Home extends Component {
             content: { cms: {
                 pages: { frontend: { pages: { home: cms } } }
             } },
-            frontend: { home: { loading, message, events = [], activities = [], stats = [], elders = [], publications = [] } }
+            frontend: { home: { loading, error, message, events = [], activities = [], stats = [], elders = [], publications = [] } }
         } = this.props;
         const { name, email } = this.state;
         const lang = localStorage.getItem('lang');
@@ -219,18 +218,21 @@ class Home extends Component {
 
                     <p>{cms.newsletter.description}</p>
 
-                    <form className='row' onSubmit={this.saveHandler}>
+                    <div className='row justify-content-center'>
                         <div className='col-lg-7'>
-                            <Feedback message={message} time={5000} />
-                        </div>
+                            <Error err={error} />
+                            <Feedback message={message} />
 
-                        <Input type='text' name='name' className='col-lg-7' onChange={this.inputChangeHandler} value={name} placeholder={cms.newsletter.name} required validation={{ required: true }} />
-                        <Input type='email' name='email' className='col-lg-7' onChange={this.inputChangeHandler} value={email} placeholder={cms.newsletter.email} required validation={{ required: true }} />
+                            <form onSubmit={this.saveHandler}>
+                                <Input type='text' name='name' onChange={this.inputChangeHandler} value={name} placeholder={cms.newsletter.name} required disabled={loading} />
+                                <Input type='email' name='email' onChange={this.inputChangeHandler} value={email} placeholder={cms.newsletter.email} required disabled={loading} />
 
-                        <div className='submit col-12'>
-                            <button className='btn btn-blue'>{cms.newsletter.submit}<i className='fas fa-paper-plane' /></button>
+                                <div className='submit'>
+                                    <button className={'btn btn-blue' + (loading ? ' btn-disabled' : '')}>{cms.newsletter.submit}<i className='fas fa-paper-plane' /></button>
+                                </div>
+                            </form>
                         </div>
-                    </form>
+                    </div>
                 </div>
             </section>
         </div>;

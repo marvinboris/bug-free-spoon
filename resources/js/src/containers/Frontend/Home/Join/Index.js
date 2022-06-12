@@ -69,9 +69,7 @@ class Join extends Component {
 
     // Lifecycle methods
     componentDidUpdate(prevProps) {
-        if (!prevProps.frontend.home.message && this.props.frontend.home.message && this.props.frontend.home.message.type === 'success' && !this.props.edit) {
-            this.setState({ ...initialState });
-        }
+        if (!prevProps.frontend.home.message && this.props.frontend.home.message && this.props.frontend.home.message.type === 'success' && !this.props.edit) this.setState({ ...initialState });
     }
 
     render() {

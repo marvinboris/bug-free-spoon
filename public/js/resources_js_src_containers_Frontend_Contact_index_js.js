@@ -85,6 +85,30 @@ __webpack_require__.r(__webpack_exports__);
 
 /***/ }),
 
+/***/ "./resources/js/src/components/Messages/Error/index.js":
+/*!*************************************************************!*\
+  !*** ./resources/js/src/components/Messages/Error/index.js ***!
+  \*************************************************************/
+/***/ ((__unused_webpack_module, __webpack_exports__, __webpack_require__) => {
+
+__webpack_require__.r(__webpack_exports__);
+/* harmony export */ __webpack_require__.d(__webpack_exports__, {
+/* harmony export */   "default": () => (__WEBPACK_DEFAULT_EXPORT__)
+/* harmony export */ });
+/* harmony import */ var react__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! react */ "./node_modules/react/index.js");
+/* harmony import */ var react_jsx_runtime__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! react/jsx-runtime */ "./node_modules/react/jsx-runtime.js");
+
+
+/* harmony default export */ const __WEBPACK_DEFAULT_EXPORT__ = (function (_ref) {
+  var err = _ref.err;
+  return err ? /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_1__.jsx)("div", {
+    className: "alert alert-danger",
+    children: err.message ? err.message : err
+  }) : null;
+});
+
+/***/ }),
+
 /***/ "./resources/js/src/components/Messages/Feedback/index.js":
 /*!****************************************************************!*\
   !*** ./resources/js/src/components/Messages/Feedback/index.js ***!
@@ -393,14 +417,15 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony export */ });
 /* harmony import */ var react__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! react */ "./node_modules/react/index.js");
 /* harmony import */ var react_redux__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! react-redux */ "./node_modules/react-redux/es/index.js");
-/* harmony import */ var react_router_dom__WEBPACK_IMPORTED_MODULE_9__ = __webpack_require__(/*! react-router-dom */ "./node_modules/react-router-dom/node_modules/react-router/esm/react-router.js");
-/* harmony import */ var _components_Messages_Feedback__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! ../../../components/Messages/Feedback */ "./resources/js/src/components/Messages/Feedback/index.js");
-/* harmony import */ var _components_Frontend_UI_Title_PageTitle__WEBPACK_IMPORTED_MODULE_3__ = __webpack_require__(/*! ../../../components/Frontend/UI/Title/PageTitle */ "./resources/js/src/components/Frontend/UI/Title/PageTitle/index.js");
-/* harmony import */ var _components_Frontend_UI_Title_SectionTitle__WEBPACK_IMPORTED_MODULE_4__ = __webpack_require__(/*! ../../../components/Frontend/UI/Title/SectionTitle */ "./resources/js/src/components/Frontend/UI/Title/SectionTitle/index.js");
-/* harmony import */ var _components_UI_Input__WEBPACK_IMPORTED_MODULE_5__ = __webpack_require__(/*! ../../../components/UI/Input */ "./resources/js/src/components/UI/Input/index.js");
-/* harmony import */ var _store_actions_frontend_contact__WEBPACK_IMPORTED_MODULE_6__ = __webpack_require__(/*! ../../../store/actions/frontend/contact */ "./resources/js/src/store/actions/frontend/contact.js");
-/* harmony import */ var _Contact_scss__WEBPACK_IMPORTED_MODULE_7__ = __webpack_require__(/*! ./Contact.scss */ "./resources/js/src/containers/Frontend/Contact/Contact.scss");
-/* harmony import */ var react_jsx_runtime__WEBPACK_IMPORTED_MODULE_8__ = __webpack_require__(/*! react/jsx-runtime */ "./node_modules/react/jsx-runtime.js");
+/* harmony import */ var react_router_dom__WEBPACK_IMPORTED_MODULE_10__ = __webpack_require__(/*! react-router-dom */ "./node_modules/react-router-dom/node_modules/react-router/esm/react-router.js");
+/* harmony import */ var _components_Messages_Error__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! ../../../components/Messages/Error */ "./resources/js/src/components/Messages/Error/index.js");
+/* harmony import */ var _components_Messages_Feedback__WEBPACK_IMPORTED_MODULE_3__ = __webpack_require__(/*! ../../../components/Messages/Feedback */ "./resources/js/src/components/Messages/Feedback/index.js");
+/* harmony import */ var _components_Frontend_UI_Title_PageTitle__WEBPACK_IMPORTED_MODULE_4__ = __webpack_require__(/*! ../../../components/Frontend/UI/Title/PageTitle */ "./resources/js/src/components/Frontend/UI/Title/PageTitle/index.js");
+/* harmony import */ var _components_Frontend_UI_Title_SectionTitle__WEBPACK_IMPORTED_MODULE_5__ = __webpack_require__(/*! ../../../components/Frontend/UI/Title/SectionTitle */ "./resources/js/src/components/Frontend/UI/Title/SectionTitle/index.js");
+/* harmony import */ var _components_UI_Input__WEBPACK_IMPORTED_MODULE_6__ = __webpack_require__(/*! ../../../components/UI/Input */ "./resources/js/src/components/UI/Input/index.js");
+/* harmony import */ var _store_actions_frontend_contact__WEBPACK_IMPORTED_MODULE_7__ = __webpack_require__(/*! ../../../store/actions/frontend/contact */ "./resources/js/src/store/actions/frontend/contact.js");
+/* harmony import */ var _Contact_scss__WEBPACK_IMPORTED_MODULE_8__ = __webpack_require__(/*! ./Contact.scss */ "./resources/js/src/containers/Frontend/Contact/Contact.scss");
+/* harmony import */ var react_jsx_runtime__WEBPACK_IMPORTED_MODULE_9__ = __webpack_require__(/*! react/jsx-runtime */ "./node_modules/react/jsx-runtime.js");
 function _typeof(obj) { "@babel/helpers - typeof"; return _typeof = "function" == typeof Symbol && "symbol" == typeof Symbol.iterator ? function (obj) { return typeof obj; } : function (obj) { return obj && "function" == typeof Symbol && obj.constructor === Symbol && obj !== Symbol.prototype ? "symbol" : typeof obj; }, _typeof(obj); }
 
 function ownKeys(object, enumerableOnly) { var keys = Object.keys(object); if (Object.getOwnPropertySymbols) { var symbols = Object.getOwnPropertySymbols(object); enumerableOnly && (symbols = symbols.filter(function (sym) { return Object.getOwnPropertyDescriptor(object, sym).enumerable; })), keys.push.apply(keys, symbols); } return keys; }
@@ -440,6 +465,7 @@ function _defineProperty(obj, key, value) { if (key in obj) { Object.definePrope
 
 
 
+
 var initialState = {
   name: '',
   email: '',
@@ -466,8 +492,7 @@ var Contact = /*#__PURE__*/function (_Component) {
 
     _defineProperty(_assertThisInitialized(_this), "saveHandler", function (e) {
       e.preventDefault();
-
-      _this.props.post(e.target);
+      if (!_this.props.frontend.contact.loading) _this.props.post(e.target);
     });
 
     _defineProperty(_assertThisInitialized(_this), "inputChangeHandler", function (e) {
@@ -501,75 +526,70 @@ var Contact = /*#__PURE__*/function (_Component) {
           cms = _this$props.content.cms.pages.frontend.pages.contact,
           _this$props$frontend$ = _this$props.frontend.contact,
           loading = _this$props$frontend$.loading,
+          error = _this$props$frontend$.error,
           backend_message = _this$props$frontend$.message;
       var _this$state = this.state,
           name = _this$state.name,
           email = _this$state.email,
           message = _this$state.message;
-      return /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_8__.jsxs)("div", {
+      console.log({
+        backend_message: backend_message
+      });
+      return /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_9__.jsxs)("div", {
         className: "Contact",
-        children: [/*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_8__.jsx)(_components_Frontend_UI_Title_PageTitle__WEBPACK_IMPORTED_MODULE_3__["default"], _objectSpread({}, cms)), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_8__.jsx)("section", {
+        children: [/*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_9__.jsx)(_components_Frontend_UI_Title_PageTitle__WEBPACK_IMPORTED_MODULE_4__["default"], _objectSpread({}, cms)), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_9__.jsx)("section", {
           className: "contact",
-          children: /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_8__.jsxs)("div", {
+          children: /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_9__.jsxs)("div", {
             className: "container",
-            children: [/*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_8__.jsx)(_components_Frontend_UI_Title_SectionTitle__WEBPACK_IMPORTED_MODULE_4__["default"], _objectSpread(_objectSpread({}, cms.contact), {}, {
+            children: [/*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_9__.jsx)(_components_Frontend_UI_Title_SectionTitle__WEBPACK_IMPORTED_MODULE_5__["default"], _objectSpread(_objectSpread({}, cms.contact), {}, {
               centered: true
-            })), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_8__.jsxs)("form", {
-              className: "row",
-              onSubmit: this.saveHandler,
-              children: [/*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_8__.jsx)("div", {
+            })), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_9__.jsx)("div", {
+              className: "row justify-content-center",
+              children: /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_9__.jsxs)("div", {
                 className: "col-lg-7",
-                children: /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_8__.jsx)("p", {
+                children: [/*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_9__.jsx)("p", {
                   children: cms.contact.description
-                })
-              }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_8__.jsx)("div", {
-                className: "col-lg-7",
-                children: /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_8__.jsx)(_components_Messages_Feedback__WEBPACK_IMPORTED_MODULE_2__["default"], {
-                  message: backend_message,
-                  time: 5000
-                })
-              }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_8__.jsx)(_components_UI_Input__WEBPACK_IMPORTED_MODULE_5__["default"], {
-                type: "text",
-                name: "name",
-                className: "col-lg-7",
-                onChange: this.inputChangeHandler,
-                value: name,
-                placeholder: cms.contact.name,
-                required: true,
-                validation: {
-                  required: true
-                }
-              }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_8__.jsx)(_components_UI_Input__WEBPACK_IMPORTED_MODULE_5__["default"], {
-                type: "email",
-                name: "email",
-                className: "col-lg-7",
-                onChange: this.inputChangeHandler,
-                value: email,
-                placeholder: cms.contact.email,
-                required: true,
-                validation: {
-                  required: true
-                }
-              }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_8__.jsx)(_components_UI_Input__WEBPACK_IMPORTED_MODULE_5__["default"], {
-                type: "textarea",
-                name: "message",
-                className: "col-lg-7",
-                onChange: this.inputChangeHandler,
-                value: message,
-                placeholder: cms.contact.message,
-                required: true,
-                validation: {
-                  required: true
-                }
-              }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_8__.jsx)("div", {
-                className: "submit col-12",
-                children: /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_8__.jsxs)("button", {
-                  className: "btn btn-blue",
-                  children: [cms.contact.submit, /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_8__.jsx)("i", {
-                    className: "fas fa-paper-plane"
+                }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_9__.jsx)(_components_Messages_Error__WEBPACK_IMPORTED_MODULE_2__["default"], {
+                  err: error
+                }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_9__.jsx)(_components_Messages_Feedback__WEBPACK_IMPORTED_MODULE_3__["default"], {
+                  message: backend_message
+                }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_9__.jsxs)("form", {
+                  onSubmit: this.saveHandler,
+                  children: [/*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_9__.jsx)(_components_UI_Input__WEBPACK_IMPORTED_MODULE_6__["default"], {
+                    type: "text",
+                    name: "name",
+                    onChange: this.inputChangeHandler,
+                    value: name,
+                    placeholder: cms.contact.name,
+                    required: true,
+                    disabled: loading
+                  }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_9__.jsx)(_components_UI_Input__WEBPACK_IMPORTED_MODULE_6__["default"], {
+                    type: "email",
+                    name: "email",
+                    onChange: this.inputChangeHandler,
+                    value: email,
+                    placeholder: cms.contact.email,
+                    required: true,
+                    disabled: loading
+                  }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_9__.jsx)(_components_UI_Input__WEBPACK_IMPORTED_MODULE_6__["default"], {
+                    type: "textarea",
+                    name: "message",
+                    onChange: this.inputChangeHandler,
+                    value: message,
+                    placeholder: cms.contact.message,
+                    required: true,
+                    disabled: loading
+                  }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_9__.jsx)("div", {
+                    className: "submit",
+                    children: /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_9__.jsxs)("button", {
+                      className: 'btn btn-blue' + (loading ? ' btn-disabled' : ''),
+                      children: [cms.contact.submit, /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_9__.jsx)("i", {
+                        className: "fas fa-paper-plane"
+                      })]
+                    })
                   })]
-                })
-              })]
+                })]
+              })
             })]
           })
         })]
@@ -587,15 +607,15 @@ var mapStateToProps = function mapStateToProps(state) {
 var mapDispatchToProps = function mapDispatchToProps(dispatch) {
   return {
     post: function post(data) {
-      return dispatch((0,_store_actions_frontend_contact__WEBPACK_IMPORTED_MODULE_6__.postContact)(data));
+      return dispatch((0,_store_actions_frontend_contact__WEBPACK_IMPORTED_MODULE_7__.postContact)(data));
     },
     reset: function reset() {
-      return dispatch((0,_store_actions_frontend_contact__WEBPACK_IMPORTED_MODULE_6__.resetContact)());
+      return dispatch((0,_store_actions_frontend_contact__WEBPACK_IMPORTED_MODULE_7__.resetContact)());
     }
   };
 };
 
-/* harmony default export */ const __WEBPACK_DEFAULT_EXPORT__ = ((0,react_router_dom__WEBPACK_IMPORTED_MODULE_9__.withRouter)((0,react_redux__WEBPACK_IMPORTED_MODULE_1__.connect)(mapStateToProps, mapDispatchToProps)(Contact)));
+/* harmony default export */ const __WEBPACK_DEFAULT_EXPORT__ = ((0,react_router_dom__WEBPACK_IMPORTED_MODULE_10__.withRouter)((0,react_redux__WEBPACK_IMPORTED_MODULE_1__.connect)(mapStateToProps, mapDispatchToProps)(Contact)));
 
 /***/ }),
 
@@ -804,7 +824,7 @@ __webpack_require__.r(__webpack_exports__);
 
 var ___CSS_LOADER_EXPORT___ = _node_modules_css_loader_dist_runtime_api_js__WEBPACK_IMPORTED_MODULE_0___default()(function(i){return i[1]});
 // Module
-___CSS_LOADER_EXPORT___.push([module.id, ".Frontend .Contact section {\n  background-color: var(--blue-10);\n}\n.Frontend .Contact section .container p {\n  text-align: center;\n}\n.Frontend .Contact section .container form {\n  justify-content: center;\n}\n.Frontend .Contact section .container form .submit {\n  margin-top: 20px;\n  text-align: center;\n}\n\n@media (min-width: 800px) {\n  .Frontend .Contact section .container form .submit {\n    margin-top: 30px;\n  }\n}\n@media (min-width: 1280px) {\n  .Frontend .Contact section .container form .submit {\n    margin-top: 40px;\n  }\n}", ""]);
+___CSS_LOADER_EXPORT___.push([module.id, ".Frontend .Contact section {\n  background-color: var(--blue-10);\n}\n.Frontend .Contact section .container p {\n  text-align: center;\n}\n.Frontend .Contact section .container form .submit {\n  margin-top: 20px;\n  text-align: center;\n}\n\n@media (min-width: 800px) {\n  .Frontend .Contact section .container form .submit {\n    margin-top: 30px;\n  }\n}\n@media (min-width: 1280px) {\n  .Frontend .Contact section .container form .submit {\n    margin-top: 40px;\n  }\n}", ""]);
 // Exports
 /* harmony default export */ const __WEBPACK_DEFAULT_EXPORT__ = (___CSS_LOADER_EXPORT___);
 
