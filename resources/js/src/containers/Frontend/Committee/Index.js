@@ -1,9 +1,8 @@
 import React, { Component } from 'react';
 import { connect } from 'react-redux';
-import { withRouter, Link } from 'react-router-dom';
+import { withRouter } from 'react-router-dom';
 
-import PageTitle from '../../../components/UI/PageTitle';
-import SectionTitle from '../../../components/UI/SectionTitle';
+import PageTitle from '../../../components/Frontend/UI/Title/PageTitle';
 
 import { getCommittee, resetCommittee } from '../../../store/actions/frontend/committee';
 

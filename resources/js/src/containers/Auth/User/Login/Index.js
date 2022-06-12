@@ -2,11 +2,11 @@ import React, { Component } from 'react'
 import { connect } from 'react-redux';
 import { Form, Col } from 'reactstrap';
 
-import Error from '../../../../components/Error/Error';
+import Error from '../../../../components/Messages/Error';
+import Feedback from '../../../../components/Messages/Feedback';
+
 import NormalInput from '../../../../components/UI/Input';
-import Feedback from '../../../../components/Feedback/Feedback';
-import CustomSpinner from '../../../../components/UI/CustomSpinner/CustomSpinner';
-import CenterButton from '../../../../components/UI/Button/CenterButton/CenterButton';
+import Preloader from '../../../../components/UI/Preloaders/Preloader';
 
 import { authUserLogin, setHash } from '../../../../store/actions/auth';
 
@@ -78,7 +78,7 @@ blue
             />
 
             <div className="mt-5 pt-1 pb-2">
-                <CenterButton color="blue" className="btn-block" icon="sign-in-alt">{login.sign_in}</CenterButton>
+                <button className="btn-block btn btn-blue">{login.sign_in}<i className='fas fa-sign-in-alt' /></button>
             </div>
         </>;
 
@@ -87,7 +87,7 @@ blue
         const feedback = <Feedback message={message} />;
         let content = null;
 
-        if (loading) content = <div className="h-100 d-flex justify-content-center align-items-center"><CustomSpinner /></div>;
+        if (loading) content = <div className="h-100 d-flex justify-content-center align-items-center"><Preloader /></div>;
         else content = <Form onSubmit={this.submitHandler}>
             {formContent}
         </Form>;

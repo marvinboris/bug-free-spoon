@@ -11,24 +11,24 @@ export default {
     "footer": {
         "fiducac": "F\u00e9d\u00e9ration Internationale Des Dipl\u00f4m\u00e9s De L'UCAC",
         "social_networks": {
-            "title": "Réseaux sociaux",
+            "title": "R\u00e9seaux sociaux",
             "list": [
                 {
                     "icon": "facebook-square",
-                    "link": "https://web.facebook.com/equipefiducac/?_rdc=1&_rdr"
+                    "link": "https:\/\/web.facebook.com\/equipefiducac\/?_rdc=1&_rdr"
                 },
                 {
                     "icon": "linkedin",
-                    "link": "https://www.linkedin.com/company/fiducac/about/"
+                    "link": "https:\/\/www.linkedin.com\/company\/fiducac\/about\/"
                 },
                 {
                     "icon": "twitter-square",
-                    "link": "https://twitter.com/fiducac?lang=fr"
+                    "link": "https:\/\/twitter.com\/fiducac?lang=fr"
                 }
             ]
         },
         "schools": {
-            "title": "Les écoles de l'UCAC"
+            "title": "Les \u00e9coles de l'UCAC"
         }
     },
     "pages": {
@@ -64,33 +64,33 @@ export default {
                 "donate": "Faire un don",
                 "icon": "info-circle",
                 "join": {
-                    "title": "Adhérer",
+                    "title": "Adh\u00e9rer",
                     "subtitle": "Rejoindre la Fiducac",
                     "form": {
-                        "title": "Lieu de service et poste occupé",
+                        "title": "Lieu de service et poste occup\u00e9",
                         "name": "Votre nom",
                         "email": "Votre adresse mail",
                         "photo": "Votre photo",
                         "upload": "Envoyer",
                         "payment": "Preuve de paiement",
                         "school": "Ecole",
-                        "select_school": "Sélectionner une école",
+                        "select_school": "S\u00e9lectionner une \u00e9cole",
                         "promotion": "Promotion",
                         "submit": "Soumettre",
                         "language": "Langue",
                         "all_languages": "Assurez-vous de renseigner les informations dans toutes les langues avant de soumettre le formulaire.",
-                        "payment_details": "Afin de confirmer votre adhésion à la Fiducac, veuillez effectuer un paiement et en envoyer la preuve en image (une capture d'écran du message de transfert ou de dépôt, par exemple)."
+                        "payment_details": "Afin de confirmer votre adh\u00e9sion \u00e0 la Fiducac, veuillez effectuer un paiement et en envoyer la preuve en image (une capture d'\u00e9cran du message de transfert ou de d\u00e9p\u00f4t, par exemple)."
                     }
                 },
                 "pay": {
                     "title": "Cotisation annuelle",
-                    "subtitle": "Régler sa cotisation annuelle",
+                    "subtitle": "R\u00e9gler sa cotisation annuelle",
                     "form": {
                         "email": "Votre adresse mail",
-                        "year": "Année cotisée",
+                        "year": "Ann\u00e9e cotis\u00e9e",
                         "payment": "Preuve de paiement",
                         "submit": "Soumettre",
-                        "payment_details": "Afin de confirmer votre adhésion à la Fiducac, veuillez effectuer un paiement et en envoyer la preuve en image (une capture d'écran du message de transfert ou de dépôt, par exemple)."
+                        "payment_details": "Afin de confirmer votre adh\u00e9sion \u00e0 la Fiducac, veuillez effectuer un paiement et en envoyer la preuve en image (une capture d'\u00e9cran du message de transfert ou de d\u00e9p\u00f4t, par exemple)."
                     }
                 }
             },
@@ -136,7 +136,7 @@ export default {
                 "subtitle": "Tenez-vous inform\u00e9 en vous inscrivant \u00e0 notre newsletter",
                 "description": "En souscrivant, vous acceptez de partager votre adresse e-mail avec la Fiducac afin de recevoir des messages de nouvelles r\u00e9centes de l'UCAC, des mises \u00e0 jour et d\u2019autres e-mails jug\u00e9s importants. Vous pouvez vous d\u00e9sabonner \u00e0 tout moment \u00e0 l\u2019aide du lien correspondant disponible dans ces e-mails.",
                 "email": "Adresse mail",
-                "name": "Prénom",
+                "name": "Pr\u00e9nom",
                 "submit": "Soumettre"
             },
             "contact": []
@@ -192,12 +192,12 @@ export default {
             }
         },
         "events": {
-            "title": "Evènements",
-            "subtitle": "Nos évènements",
+            "title": "Ev\u00e8nements",
+            "subtitle": "Nos \u00e9v\u00e8nements",
             "loading": "Chargement en cours...",
             "activities": {
-                "title": "Nos évènements",
-                "subtitle": "Retrouvez les évènements de la Fiducac",
+                "title": "Nos \u00e9v\u00e8nements",
+                "subtitle": "Retrouvez les \u00e9v\u00e8nements de la Fiducac",
                 "icon": "calendar-alt"
             }
         }

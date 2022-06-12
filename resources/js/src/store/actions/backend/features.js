@@ -7,10 +7,12 @@ const resource = (type, ...params) => manageResource('features', {
     fail: error => ({ type: actionTypes.FEATURES_FAIL, error })
 }, type, ...params);
 
-export const resetFeatures = () => ({ type: actionTypes.FEATURES_RESET });
-export const getFeatures = (page, show, search) => resource('index', page, show, search);
-export const getFeaturesInfo = () => resource('info');
-export const getFeature = id => resource('show', id);
-export const postFeatures = data => resource('post', data);
-export const patchFeatures = (id, data) => resource('patch', id, data);
-export const deleteFeatures = id => resource('delete', id);
+export default {
+    reset: () => ({ type: actionTypes.FEATURES_RESET }),
+    get: (page, show, search) => resource('index', page, show, search),
+    info: () => resource('info'),
+    show: id => resource('show', id),
+    post: data => resource('post', data),
+    patch: (id, data) => resource('patch', id, data),
+    delete: id => resource('delete', id),
+}

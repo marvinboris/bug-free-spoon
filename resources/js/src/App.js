@@ -8,134 +8,82 @@ import asyncComponent from './hoc/asyncComponent/asyncComponent';
 import AuthUserLayout from './containers/Auth/User/Layout';
 import AuthAdminLayout from './containers/Auth/Admin/Layout';
 import FrontendLayout from './containers/Frontend/Layout';
-import BackendLayout from './containers/Backend/Layout';
-import BackendUserLayout from './containers/Backend/User/Layout';
+import BackendManagerLayout from './containers/Backend/Manager/Layout';
 
-import Spinner from './components/UI/Spinner';
+import Spinner from './components/UI/Preloaders/Spinner';
 
 import { authCheckState } from './store/actions/auth';
 import { getContent } from './store/actions/content';
 
 import 'aos/dist/aos.css';
 
-// User routes
-const asyncUserCmsGlobal = asyncComponent(() => import('./containers/Backend/User/Cms/Global'));
-const asyncUserCmsGeneral = asyncComponent(() => import('./containers/Backend/User/Cms/General'));
-const asyncUserCmsMessages = asyncComponent(() => import('./containers/Backend/User/Cms/Messages'));
-const asyncUserCmsComponents = asyncComponent(() => import('./containers/Backend/User/Cms/Components'));
-const asyncUserCmsAuth = asyncComponent(() => import('./containers/Backend/User/Cms/Auth'));
-const asyncUserCmsBackend = asyncComponent(() => import('./containers/Backend/User/Cms/Backend'));
-const asyncUserCmsFrontend = asyncComponent(() => import('./containers/Backend/User/Cms/Frontend'));
+// Manager routes
+const asyncManagerCmsGlobal = asyncComponent(() => import('./containers/Backend/Manager/Cms/Global'));
+const asyncManagerCmsGeneral = asyncComponent(() => import('./containers/Backend/Manager/Cms/General'));
+const asyncManagerCmsMessages = asyncComponent(() => import('./containers/Backend/Manager/Cms/Messages'));
+const asyncManagerCmsComponents = asyncComponent(() => import('./containers/Backend/Manager/Cms/Components'));
+const asyncManagerCmsAuth = asyncComponent(() => import('./containers/Backend/Manager/Cms/Auth'));
+const asyncManagerCmsBackend = asyncComponent(() => import('./containers/Backend/Manager/Cms/Backend'));
+const asyncManagerCmsFrontend = asyncComponent(() => import('./containers/Backend/Manager/Cms/Frontend'));
 
+const asyncManagerDashboard = asyncComponent(() => import('./containers/Backend/Manager/Dashboard'));
 
-const asyncUserDashboard = asyncComponent(() => import('./containers/Backend/User/Dashboard'));
+const asyncManagerFeatures = asyncComponent(() => import('./containers/Backend/Manager/Features'));
+const asyncManagerFeaturesAdd = asyncComponent(() => import('./containers/Backend/Manager/Features/Add'));
+const asyncManagerFeaturesEdit = asyncComponent(() => import('./containers/Backend/Manager/Features/Edit'));
 
+const asyncManagerLanguages = asyncComponent(() => import('./containers/Backend/Manager/Languages'));
+const asyncManagerLanguagesAdd = asyncComponent(() => import('./containers/Backend/Manager/Languages/Add'));
+const asyncManagerLanguagesEdit = asyncComponent(() => import('./containers/Backend/Manager/Languages/Edit'));
 
-const asyncUserFeatures = asyncComponent(() => import('./containers/Backend/User/Features'));
-const asyncUserFeaturesAdd = asyncComponent(() => import('./containers/Backend/User/Features/Add'));
-const asyncUserFeaturesEdit = asyncComponent(() => import('./containers/Backend/User/Features/Edit'));
+const asyncManagerRoles = asyncComponent(() => import('./containers/Backend/Manager/Roles'));
+const asyncManagerRolesAdd = asyncComponent(() => import('./containers/Backend/Manager/Roles/Add'));
+const asyncManagerRolesEdit = asyncComponent(() => import('./containers/Backend/Manager/Roles/Edit'));
 
+const asyncManagerSettingsLanguage = asyncComponent(() => import('./containers/Backend/Manager/Settings/Language'));
 
-const asyncUserLanguages = asyncComponent(() => import('./containers/Backend/User/Languages'));
-const asyncUserLanguagesAdd = asyncComponent(() => import('./containers/Backend/User/Languages/Add'));
-const asyncUserLanguagesEdit = asyncComponent(() => import('./containers/Backend/User/Languages/Edit'));
+const asyncManagerEvents = asyncComponent(() => import('./containers/Backend/Manager/Events'));
+const asyncManagerEventsAdd = asyncComponent(() => import('./containers/Backend/Manager/Events/Add'));
+const asyncManagerEventsEdit = asyncComponent(() => import('./containers/Backend/Manager/Events/Edit'));
 
+const asyncManagerActivities = asyncComponent(() => import('./containers/Backend/Manager/Activities'));
+const asyncManagerActivitiesAdd = asyncComponent(() => import('./containers/Backend/Manager/Activities/Add'));
+const asyncManagerActivitiesEdit = asyncComponent(() => import('./containers/Backend/Manager/Activities/Edit'));
 
-const asyncUserRoles = asyncComponent(() => import('./containers/Backend/User/Roles'));
-const asyncUserRolesAdd = asyncComponent(() => import('./containers/Backend/User/Roles/Add'));
-const asyncUserRolesEdit = asyncComponent(() => import('./containers/Backend/User/Roles/Edit'));
+const asyncManagerElders = asyncComponent(() => import('./containers/Backend/Manager/Elders'));
+const asyncManagerEldersAdd = asyncComponent(() => import('./containers/Backend/Manager/Elders/Add'));
+const asyncManagerEldersEdit = asyncComponent(() => import('./containers/Backend/Manager/Elders/Edit'));
 
+const asyncManagerPublications = asyncComponent(() => import('./containers/Backend/Manager/Publications'));
+const asyncManagerPublicationsAdd = asyncComponent(() => import('./containers/Backend/Manager/Publications/Add'));
+const asyncManagerPublicationsEdit = asyncComponent(() => import('./containers/Backend/Manager/Publications/Edit'));
 
-const asyncUserSettingsLanguage = asyncComponent(() => import('./containers/Backend/User/Settings/Language'));
+const asyncManagerSubscribers = asyncComponent(() => import('./containers/Backend/Manager/Subscribers'));
+const asyncManagerSubscribersAdd = asyncComponent(() => import('./containers/Backend/Manager/Subscribers/Add'));
+const asyncManagerSubscribersEdit = asyncComponent(() => import('./containers/Backend/Manager/Subscribers/Edit'));
 
+const asyncManagerContributions = asyncComponent(() => import('./containers/Backend/Manager/Contributions'));
+const asyncManagerContributionsAdd = asyncComponent(() => import('./containers/Backend/Manager/Contributions/Add'));
+const asyncManagerContributionsEdit = asyncComponent(() => import('./containers/Backend/Manager/Contributions/Edit'));
 
-const asyncUserEvents = asyncComponent(() => import('./containers/Backend/User/Events'));
-const asyncUserEventsAdd = asyncComponent(() => import('./containers/Backend/User/Events/Add'));
-const asyncUserEventsEdit = asyncComponent(() => import('./containers/Backend/User/Events/Edit'));
+const asyncManagerSchools = asyncComponent(() => import('./containers/Backend/Manager/Schools'));
+const asyncManagerSchoolsAdd = asyncComponent(() => import('./containers/Backend/Manager/Schools/Add'));
+const asyncManagerSchoolsEdit = asyncComponent(() => import('./containers/Backend/Manager/Schools/Edit'));
 
-
-const asyncUserActivities = asyncComponent(() => import('./containers/Backend/User/Activities'));
-const asyncUserActivitiesAdd = asyncComponent(() => import('./containers/Backend/User/Activities/Add'));
-const asyncUserActivitiesEdit = asyncComponent(() => import('./containers/Backend/User/Activities/Edit'));
-
-
-const asyncUserElders = asyncComponent(() => import('./containers/Backend/User/Elders'));
-const asyncUserEldersAdd = asyncComponent(() => import('./containers/Backend/User/Elders/Add'));
-const asyncUserEldersEdit = asyncComponent(() => import('./containers/Backend/User/Elders/Edit'));
-
-
-const asyncUserPublications = asyncComponent(() => import('./containers/Backend/User/Publications'));
-const asyncUserPublicationsAdd = asyncComponent(() => import('./containers/Backend/User/Publications/Add'));
-const asyncUserPublicationsEdit = asyncComponent(() => import('./containers/Backend/User/Publications/Edit'));
-
-
-const asyncUserSubscribers = asyncComponent(() => import('./containers/Backend/User/Subscribers'));
-const asyncUserSubscribersAdd = asyncComponent(() => import('./containers/Backend/User/Subscribers/Add'));
-const asyncUserSubscribersEdit = asyncComponent(() => import('./containers/Backend/User/Subscribers/Edit'));
-
-
-const asyncUserContributions = asyncComponent(() => import('./containers/Backend/User/Contributions'));
-const asyncUserContributionsAdd = asyncComponent(() => import('./containers/Backend/User/Contributions/Add'));
-const asyncUserContributionsEdit = asyncComponent(() => import('./containers/Backend/User/Contributions/Edit'));
-
-
-const asyncUserSchools = asyncComponent(() => import('./containers/Backend/User/Schools'));
-const asyncUserSchoolsAdd = asyncComponent(() => import('./containers/Backend/User/Schools/Add'));
-const asyncUserSchoolsEdit = asyncComponent(() => import('./containers/Backend/User/Schools/Edit'));
-
-
-const asyncUserUsers = asyncComponent(() => import('./containers/Backend/User/Users'));
-const asyncUserUsersAdd = asyncComponent(() => import('./containers/Backend/User/Users/Add'));
-const asyncUserUsersEdit = asyncComponent(() => import('./containers/Backend/User/Users/Edit'));
-
+const asyncManagerUsers = asyncComponent(() => import('./containers/Backend/Manager/Users'));
+const asyncManagerUsersAdd = asyncComponent(() => import('./containers/Backend/Manager/Users/Add'));
+const asyncManagerUsersEdit = asyncComponent(() => import('./containers/Backend/Manager/Users/Edit'));
 
 // Admin routes
 const asyncAdminAdmins = asyncComponent(() => import('./containers/Backend/Admin/Admins'));
 const asyncAdminAdminsAdd = asyncComponent(() => import('./containers/Backend/Admin/Admins/Add'));
 const asyncAdminAdminsEdit = asyncComponent(() => import('./containers/Backend/Admin/Admins/Edit'));
 
-
-const asyncAdminCmsGlobal = asyncComponent(() => import('./containers/Backend/Admin/Cms/Global'));
-const asyncAdminCmsGeneral = asyncComponent(() => import('./containers/Backend/Admin/Cms/General'));
-const asyncAdminCmsMessages = asyncComponent(() => import('./containers/Backend/Admin/Cms/Messages'));
-const asyncAdminCmsComponents = asyncComponent(() => import('./containers/Backend/Admin/Cms/Components'));
-const asyncAdminCmsAuth = asyncComponent(() => import('./containers/Backend/Admin/Cms/Auth'));
-const asyncAdminCmsBackend = asyncComponent(() => import('./containers/Backend/Admin/Cms/Backend'));
-
-
-const asyncAdminDashboard = asyncComponent(() => import('./containers/Backend/Admin/Dashboard'));
-
-
-const asyncAdminFeatures = asyncComponent(() => import('./containers/Backend/Admin/Features'));
-const asyncAdminFeaturesAdd = asyncComponent(() => import('./containers/Backend/Admin/Features/Add'));
-const asyncAdminFeaturesEdit = asyncComponent(() => import('./containers/Backend/Admin/Features/Edit'));
-
-
-const asyncAdminLanguages = asyncComponent(() => import('./containers/Backend/Admin/Languages'));
-const asyncAdminLanguagesAdd = asyncComponent(() => import('./containers/Backend/Admin/Languages/Add'));
-const asyncAdminLanguagesEdit = asyncComponent(() => import('./containers/Backend/Admin/Languages/Edit'));
-
-
-const asyncAdminRoles = asyncComponent(() => import('./containers/Backend/Admin/Roles'));
-const asyncAdminRolesAdd = asyncComponent(() => import('./containers/Backend/Admin/Roles/Add'));
-const asyncAdminRolesEdit = asyncComponent(() => import('./containers/Backend/Admin/Roles/Edit'));
-
-
-const asyncAdminSettingsLanguage = asyncComponent(() => import('./containers/Backend/Admin/Settings/Language'));
-
-
-const asyncAdminUsers = asyncComponent(() => import('./containers/Backend/Admin/Users'));
-const asyncAdminUsersAdd = asyncComponent(() => import('./containers/Backend/Admin/Users/Add'));
-const asyncAdminUsersEdit = asyncComponent(() => import('./containers/Backend/Admin/Users/Edit'));
-
-
 // Auth routes
 const asyncAuthUserLogin = asyncComponent(() => import('./containers/Auth/User/Login'));
 
-
 const asyncAuthAdminLogin = asyncComponent(() => import('./containers/Auth/Admin/Login'));
 const asyncAuthAdminVerify = asyncComponent(() => import('./containers/Auth/Admin/Verify'));
-
 
 // Frontend routes
 const asyncHome = asyncComponent(() => import('./containers/Frontend/Home'));
@@ -184,149 +132,107 @@ class App extends Component {
             </FrontendLayout>
         </Route>;
 
-        let routes = (
-            <Switch>
-                <Route path="/auth/admin">
-                    <AuthAdminLayout>
-                        <Switch>
-                            <Route path="/auth/admin/verify" component={asyncAuthAdminVerify} />
-                            <Route path="/auth/admin/login" component={asyncAuthAdminLogin} />
-                        </Switch>
-                    </AuthAdminLayout>
-                </Route>
-                <Redirect path="/admin" to="/auth/admin/login" />
+        let routes = <Switch>
+            <Route path="/auth/admin">
+                <AuthAdminLayout>
+                    <Switch>
+                        <Route path="/auth/admin/verify" component={asyncAuthAdminVerify} />
+                        <Route path="/auth/admin/login" component={asyncAuthAdminLogin} />
+                    </Switch>
+                </AuthAdminLayout>
+            </Route>
+            <Redirect path="/admin" to="/auth/admin/login" />
 
-                <Route path="/auth/user">
-                    <AuthUserLayout>
-                        <Switch>
-                            <Route path="/auth/user/login" component={asyncAuthUserLogin} />
-                        </Switch>
-                    </AuthUserLayout>
-                </Route>
-                <Redirect path="/user" to="/auth/user/login" />
+            <Route path="/auth/user">
+                <AuthUserLayout>
+                    <Switch>
+                        <Route path="/auth/user/login" component={asyncAuthUserLogin} />
+                    </Switch>
+                </AuthUserLayout>
+            </Route>
+            <Redirect path="/user" to="/auth/user/login" />
 
-                {frontendRoutes}
-            </Switch>
-        );
+            {frontendRoutes}
+        </Switch>;
 
         if (isAuthenticated) {
-            routes = (
-                <Switch>
-                    <Route path="/user">
-                        <BackendUserLayout>
-                            <Switch>
-                                <Route path="/user/schools/:id/edit" component={asyncUserSchoolsEdit} />
-                                <Route path="/user/schools/add" component={asyncUserSchoolsAdd} />
-                                <Route path="/user/schools" component={asyncUserSchools} />
+            routes = <Switch>
+                <Route path={['/user', '/admin']}>
+                    <BackendManagerLayout>
+                        <Switch>
+                            <Route path="/admin/admins/:id/edit" component={asyncAdminAdminsEdit} />
+                            <Route path="/admin/admins/add" component={asyncAdminAdminsAdd} />
+                            <Route path="/admin/admins" component={asyncAdminAdmins} />
 
-                                <Route path="/user/contributions/:id/edit" component={asyncUserContributionsEdit} />
-                                <Route path="/user/contributions/add" component={asyncUserContributionsAdd} />
-                                <Route path="/user/contributions" component={asyncUserContributions} />
-                                
-                                <Route path="/user/subscribers/:id/edit" component={asyncUserSubscribersEdit} />
-                                <Route path="/user/subscribers/add" component={asyncUserSubscribersAdd} />
-                                <Route path="/user/subscribers" component={asyncUserSubscribers} />
+                            <Route path="/:manager/schools/:id/edit" component={asyncManagerSchoolsEdit} />
+                            <Route path="/:manager/schools/add" component={asyncManagerSchoolsAdd} />
+                            <Route path="/:manager/schools" component={asyncManagerSchools} />
 
-                                <Route path="/user/publications/:id/edit" component={asyncUserPublicationsEdit} />
-                                <Route path="/user/publications/add" component={asyncUserPublicationsAdd} />
-                                <Route path="/user/publications" component={asyncUserPublications} />
+                            <Route path="/:manager/contributions/:id/edit" component={asyncManagerContributionsEdit} />
+                            <Route path="/:manager/contributions/add" component={asyncManagerContributionsAdd} />
+                            <Route path="/:manager/contributions" component={asyncManagerContributions} />
 
-                                <Route path="/user/elders/:id/edit" component={asyncUserEldersEdit} />
-                                <Route path="/user/elders/add" component={asyncUserEldersAdd} />
-                                <Route path="/user/elders" component={asyncUserElders} />
+                            <Route path="/:manager/subscribers/:id/edit" component={asyncManagerSubscribersEdit} />
+                            <Route path="/:manager/subscribers/add" component={asyncManagerSubscribersAdd} />
+                            <Route path="/:manager/subscribers" component={asyncManagerSubscribers} />
 
-                                <Route path="/user/activities/:id/edit" component={asyncUserActivitiesEdit} />
-                                <Route path="/user/activities/add" component={asyncUserActivitiesAdd} />
-                                <Route path="/user/activities" component={asyncUserActivities} />
+                            <Route path="/:manager/publications/:id/edit" component={asyncManagerPublicationsEdit} />
+                            <Route path="/:manager/publications/add" component={asyncManagerPublicationsAdd} />
+                            <Route path="/:manager/publications" component={asyncManagerPublications} />
 
-                                <Route path="/user/events/:id/edit" component={asyncUserEventsEdit} />
-                                <Route path="/user/events/add" component={asyncUserEventsAdd} />
-                                <Route path="/user/events" component={asyncUserEvents} />
+                            <Route path="/:manager/elders/:id/edit" component={asyncManagerEldersEdit} />
+                            <Route path="/:manager/elders/add" component={asyncManagerEldersAdd} />
+                            <Route path="/:manager/elders" component={asyncManagerElders} />
 
-                                <Route path="/user/cms/global" component={asyncUserCmsGlobal} />
-                                <Route path="/user/cms/general" component={asyncUserCmsGeneral} />
-                                <Route path="/user/cms/messages" component={asyncUserCmsMessages} />
-                                <Route path="/user/cms/components" component={asyncUserCmsComponents} />
-                                <Route path="/user/cms/auth" component={asyncUserCmsAuth} />
-                                <Route path="/user/cms/backend" component={asyncUserCmsBackend} />
-                                <Route path="/user/cms/frontend" component={asyncUserCmsFrontend} />
+                            <Route path="/:manager/activities/:id/edit" component={asyncManagerActivitiesEdit} />
+                            <Route path="/:manager/activities/add" component={asyncManagerActivitiesAdd} />
+                            <Route path="/:manager/activities" component={asyncManagerActivities} />
 
-                                <Route path="/user/dashboard" component={asyncUserDashboard} />
+                            <Route path="/:manager/events/:id/edit" component={asyncManagerEventsEdit} />
+                            <Route path="/:manager/events/add" component={asyncManagerEventsAdd} />
+                            <Route path="/:manager/events" component={asyncManagerEvents} />
 
-                                <Route path="/user/features/:id/edit" component={asyncUserFeaturesEdit} />
-                                <Route path="/user/features/add" component={asyncUserFeaturesAdd} />
-                                <Route path="/user/features" component={asyncUserFeatures} />
+                            <Route path="/:manager/cms/global" component={asyncManagerCmsGlobal} />
+                            <Route path="/:manager/cms/general" component={asyncManagerCmsGeneral} />
+                            <Route path="/:manager/cms/messages" component={asyncManagerCmsMessages} />
+                            <Route path="/:manager/cms/components" component={asyncManagerCmsComponents} />
+                            <Route path="/:manager/cms/auth" component={asyncManagerCmsAuth} />
+                            <Route path="/:manager/cms/backend" component={asyncManagerCmsBackend} />
+                            <Route path="/:manager/cms/frontend" component={asyncManagerCmsFrontend} />
 
-                                <Route path="/user/languages/:id/edit" component={asyncUserLanguagesEdit} />
-                                <Route path="/user/languages/add" component={asyncUserLanguagesAdd} />
-                                <Route path="/user/languages" component={asyncUserLanguages} />
+                            <Route path="/:manager/dashboard" component={asyncManagerDashboard} />
 
-                                <Route path="/user/roles/:id/edit" component={asyncUserRolesEdit} />
-                                <Route path="/user/roles/add" component={asyncUserRolesAdd} />
-                                <Route path="/user/roles" component={asyncUserRoles} />
+                            <Route path="/:manager/features/:id/edit" component={asyncManagerFeaturesEdit} />
+                            <Route path="/:manager/features/add" component={asyncManagerFeaturesAdd} />
+                            <Route path="/:manager/features" component={asyncManagerFeatures} />
 
-                                <Route path="/user/settings/language" component={asyncUserSettingsLanguage} />
+                            <Route path="/:manager/languages/:id/edit" component={asyncManagerLanguagesEdit} />
+                            <Route path="/:manager/languages/add" component={asyncManagerLanguagesAdd} />
+                            <Route path="/:manager/languages" component={asyncManagerLanguages} />
 
-                                <Route path="/user/users/:id/edit" component={asyncUserUsersEdit} />
-                                <Route path="/user/users/add" component={asyncUserUsersAdd} />
-                                <Route path="/user/users" component={asyncUserUsers} />
+                            <Route path="/:manager/roles/:id/edit" component={asyncManagerRolesEdit} />
+                            <Route path="/:manager/roles/add" component={asyncManagerRolesAdd} />
+                            <Route path="/:manager/roles" component={asyncManagerRoles} />
 
-                                <Redirect path="/user" to={`/user/dashboard`} />
-                            </Switch>
-                        </BackendUserLayout>
-                    </Route>
+                            <Route path="/:manager/settings/language" component={asyncManagerSettingsLanguage} />
 
+                            <Route path="/:manager/users/:id/edit" component={asyncManagerUsersEdit} />
+                            <Route path="/:manager/users/add" component={asyncManagerUsersAdd} />
+                            <Route path="/:manager/users" component={asyncManagerUsers} />
 
+                            <Redirect path="/admin" to={`/admin/dashboard`} />
+                            <Redirect path="/user" to={`/user/dashboard`} />
+                        </Switch>
+                    </BackendManagerLayout>
+                </Route>
 
-                    <Route path="/admin">
-                        <BackendLayout>
-                            <Switch>
-                                <Route path="/admin/admins/:id/edit" component={asyncAdminAdminsEdit} />
-                                <Route path="/admin/admins/add" component={asyncAdminAdminsAdd} />
-                                <Route path="/admin/admins" component={asyncAdminAdmins} />
+                <Redirect path="/dashboard" to={`/${role}/dashboard`} />
+                <Redirect path="/login" to={`/${role}/dashboard`} />
+                <Redirect path="/start" to={`/${role}/dashboard`} />
+                <Redirect path="/auth" to={`/${role}/dashboard`} />
 
-                                <Route path="/admin/cms/global" component={asyncAdminCmsGlobal} />
-                                <Route path="/admin/cms/general" component={asyncAdminCmsGeneral} />
-                                <Route path="/admin/cms/messages" component={asyncAdminCmsMessages} />
-                                <Route path="/admin/cms/components" component={asyncAdminCmsComponents} />
-                                <Route path="/admin/cms/auth" component={asyncAdminCmsAuth} />
-                                <Route path="/admin/cms/backend" component={asyncAdminCmsBackend} />
-
-                                <Route path="/admin/dashboard" component={asyncAdminDashboard} />
-
-                                <Route path="/admin/features/:id/edit" component={asyncAdminFeaturesEdit} />
-                                <Route path="/admin/features/add" component={asyncAdminFeaturesAdd} />
-                                <Route path="/admin/features" component={asyncAdminFeatures} />
-
-                                <Route path="/admin/languages/:id/edit" component={asyncAdminLanguagesEdit} />
-                                <Route path="/admin/languages/add" component={asyncAdminLanguagesAdd} />
-                                <Route path="/admin/languages" component={asyncAdminLanguages} />
-
-                                <Route path="/admin/roles/:id/edit" component={asyncAdminRolesEdit} />
-                                <Route path="/admin/roles/add" component={asyncAdminRolesAdd} />
-                                <Route path="/admin/roles" component={asyncAdminRoles} />
-
-                                <Route path="/admin/settings/language" component={asyncAdminSettingsLanguage} />
-
-                                <Route path="/admin/users/:id/edit" component={asyncAdminUsersEdit} />
-                                <Route path="/admin/users/add" component={asyncAdminUsersAdd} />
-                                <Route path="/admin/users" component={asyncAdminUsers} />
-
-                                <Redirect path="/admin" to={`/admin/dashboard`} />
-                            </Switch>
-                        </BackendLayout>
-                    </Route>
-
-
-
-                    <Redirect path="/dashboard" to={`/${role}/dashboard`} />
-                    <Redirect path="/login" to={`/${role}/dashboard`} />
-                    <Redirect path="/start" to={`/${role}/dashboard`} />
-                    <Redirect path="/auth" to={`/${role}/dashboard`} />
-
-                    {frontendRoutes}
-                </Switch>
-            );
+                {frontendRoutes}
+            </Switch>;
         }
 
         const dataReady = cms !== undefined && countries !== undefined && ((isAuthenticated && role !== undefined) || !isAuthenticated);

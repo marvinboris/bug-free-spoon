@@ -7,10 +7,12 @@ const resource = (type, ...params) => manageResource('users', {
     fail: error => ({ type: actionTypes.USERS_FAIL, error })
 }, type, ...params);
 
-export const resetUsers = () => ({ type: actionTypes.USERS_RESET });
-export const getUsers = (page, show, search) => resource('index', page, show, search);
-export const getUsersInfo = () => resource('info');
-export const getUser = id => resource('show', id);
-export const postUsers = data => resource('post', data);
-export const patchUsers = (id, data) => resource('patch', id, data);
-export const deleteUsers = id => resource('delete', id);
+export default {
+    reset: () => ({ type: actionTypes.USERS_RESET }),
+    get: (page, show, search) => resource('index', page, show, search),
+    info: () => resource('info'),
+    show: id => resource('show', id),
+    post: data => resource('post', data),
+    patch: (id, data) => resource('patch', id, data),
+    delete: id => resource('delete', id),
+}

@@ -7,10 +7,12 @@ const resource = (type, ...params) => manageResource('activities', {
     fail: error => ({ type: actionTypes.ACTIVITIES_FAIL, error })
 }, type, ...params);
 
-export const resetActivities = () => ({ type: actionTypes.ACTIVITIES_RESET });
-export const getActivities = (page, show, search) => resource('index', page, show, search);
-export const getActivitiesInfo = () => resource('info');
-export const getActivity = id => resource('show', id);
-export const postActivities = data => resource('post', data);
-export const patchActivities = (id, data) => resource('patch', id, data);
-export const deleteActivities = id => resource('delete', id);
+export default {
+    reset: () => ({ type: actionTypes.ACTIVITIES_RESET }),
+    get: (page, show, search) => resource('index', page, show, search),
+    info: () => resource('info'),
+    show: id => resource('show', id),
+    post: data => resource('post', data),
+    patch: (id, data) => resource('patch', id, data),
+    delete: id => resource('delete', id),
+}

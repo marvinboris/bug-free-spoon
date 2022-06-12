@@ -392,7 +392,8 @@
                         "form": {
                             "logo": "Logo",
                             "app_name": "Nom de l'application",
-                            "company_name": "Nom de l'entreprise"
+                            "company_name": "Nom de l'entreprise",
+                            "company_logo": "Logo de l'entreprise"
                         }
                     },
                     "admins": {
@@ -486,54 +487,10 @@
                         "icon": "sliders-h",
                         "title": "Param\u00e8tres",
                         "subtitle": "Param\u00e8tres du compte",
-                        "form": {
-                            "user_account": {
-                                "title": "User Account Settings",
-                                "subtitle": "User Account Settings",
-                                "name": "Full Nom",
-                                "email": "E-mail Address",
-                                "country": "Country",
-                                "city": "City",
-                                "address": "Address",
-                                "phone": "Mobile Phone No.",
-                                "select_country": "Select country"
-                            },
-                            "payment_method": {
-                                "title": "Payment Method Settings",
-                                "subtitle": "Setup your payout chanel",
-                                "mobile_money": {
-                                    "title": "Orange Money \/ MTN Momo",
-                                    "subtitle": "Only for Cameroon for now.",
-                                    "mobile_money_name": "Full Nom",
-                                    "select_operator": "Select Operator",
-                                    "orange_money": "Orange Money",
-                                    "mtn_mobile_money": "MTN Mobile Money",
-                                    "mobile_money_phone": "Provide OM Number"
-                                },
-                                "paypal": {
-                                    "title": "Paypal Account",
-                                    "paypal_email": "Your PayPal Email"
-                                }
-                            },
-                            "profile_image": {
-                                "title": "Profile Image",
-                                "subtitle": "Upload image to change profile",
-                                "id": "ID"
-                            },
-                            "affiliate_link": {
-                                "title": "Affiliate Link",
-                                "subtitle": "Invite your friends these options",
-                                "share": "Share"
-                            },
-                            "accept_payment_methods": {
-                                "title": "Accepted Payment Methods",
-                                "subtitle": "Use only these payment gateways"
-                            }
-                        },
                         "language": {
-                            "title": "Language settings",
+                            "title": "Paramètres de languge",
                             "form": {
-                                "select_language": "Select a language"
+                                "select_language": "Sélectionner une langue"
                             }
                         }
                     },
@@ -1245,7 +1202,8 @@
                         "form": {
                             "logo": "Logo",
                             "app_name": "App name",
-                            "company_name": "Company name"
+                            "company_name": "Company name",
+                            "company_logo": "Company logo"
                         }
                     },
                     "admins": {

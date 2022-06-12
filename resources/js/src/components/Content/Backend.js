@@ -118,8 +118,8 @@ export default {
             "schools": {
                 "icon": "school",
                 "title": "Ecoles",
-                "add": "Ajouter une école",
-                "index": "Liste des écoles"
+                "add": "Ajouter une \u00e9cole",
+                "index": "Liste des \u00e9coles"
             }
         }
     },
@@ -171,7 +171,8 @@ export default {
             "form": {
                 "logo": "Logo",
                 "app_name": "Nom de l'application",
-                "company_name": "Nom de l'entreprise"
+                "company_name": "Nom de l'entreprise",
+                "company_logo": "Logo de l'entreprise"
             }
         },
         "admins": {
@@ -265,54 +266,10 @@ export default {
             "icon": "sliders-h",
             "title": "Param\u00e8tres",
             "subtitle": "Param\u00e8tres du compte",
-            "form": {
-                "user_account": {
-                    "title": "User Account Settings",
-                    "subtitle": "User Account Settings",
-                    "name": "Full Nom",
-                    "email": "E-mail Address",
-                    "country": "Country",
-                    "city": "City",
-                    "address": "Address",
-                    "phone": "Mobile Phone No.",
-                    "select_country": "Select country"
-                },
-                "payment_method": {
-                    "title": "Payment Method Settings",
-                    "subtitle": "Setup your payout chanel",
-                    "mobile_money": {
-                        "title": "Orange Money \/ MTN Momo",
-                        "subtitle": "Only for Cameroon for now.",
-                        "mobile_money_name": "Full Nom",
-                        "select_operator": "Select Operator",
-                        "orange_money": "Orange Money",
-                        "mtn_mobile_money": "MTN Mobile Money",
-                        "mobile_money_phone": "Provide OM Number"
-                    },
-                    "paypal": {
-                        "title": "Paypal Account",
-                        "paypal_email": "Your PayPal Email"
-                    }
-                },
-                "profile_image": {
-                    "title": "Profile Image",
-                    "subtitle": "Upload image to change profile",
-                    "id": "ID"
-                },
-                "affiliate_link": {
-                    "title": "Affiliate Link",
-                    "subtitle": "Invite your friends these options",
-                    "share": "Share"
-                },
-                "accept_payment_methods": {
-                    "title": "Accepted Payment Methods",
-                    "subtitle": "Use only these payment gateways"
-                }
-            },
             "language": {
-                "title": "Language settings",
+                "title": "Paramètres de languge",
                 "form": {
-                    "select_language": "Select a language"
+                    "select_language": "Sélectionner une langue"
                 }
             }
         },
@@ -346,7 +303,7 @@ export default {
                 "photo": "Photo",
                 "activity_photo": "Photo de l'activit\u00e9",
                 "language": "Langue",
-                "is_active": "Status",
+                "is_active": "Statut",
                 "created_at": "Cr\u00e9\u00e9e le"
             }
         },
@@ -361,17 +318,17 @@ export default {
                 "title": "Titre du poste",
                 "photo": "Photo",
                 "school": "Ecole",
-                "select_school": "Sélectionner une école",
+                "select_school": "S\u00e9lectionner une \u00e9cole",
                 "promotion": "Promotion",
                 "email": "Adresse mail",
                 "elder_photo": "Photo de l'ancien",
                 "paid": "Statut de paiement",
                 "payment": "Preuve de paiement",
                 "language": "Langue",
-                "select_status": "Sélectionner le statut",
-                "paid_status": "Payée",
-                "unpaid_status": "Impayée",
-                "errors": "Corrections à effectuer",
+                "select_status": "S\u00e9lectionner le statut",
+                "paid_status": "Pay\u00e9e",
+                "unpaid_status": "Impay\u00e9e",
+                "errors": "Corrections \u00e0 effectuer",
                 "created_at": "Cr\u00e9\u00e9e le"
             }
         },
@@ -387,7 +344,7 @@ export default {
                 "slug": "Slug",
                 "photo": "Photo",
                 "publication_photo": "Photo de la publication",
-                "is_active": "Status",
+                "is_active": "Statut",
                 "select_status": "S\u00e9lectionner le statut",
                 "language": "Langue",
                 "created_at": "Cr\u00e9\u00e9e le"
@@ -400,7 +357,7 @@ export default {
             "edit": "Modifier un souscripteur",
             "index": "Liste des souscripteurs",
             "form": {
-                "name": "Prénom",
+                "name": "Pr\u00e9nom",
                 "email": "Adresse mail",
                 "created_at": "Cr\u00e9\u00e9e le"
             }
@@ -413,25 +370,25 @@ export default {
             "index": "Liste des cotisations",
             "form": {
                 "elder": "Ancien",
-                "select_elder": "Sélectionner un ancien",
-                "year": "Année cotisée",
+                "select_elder": "S\u00e9lectionner un ancien",
+                "year": "Ann\u00e9e cotis\u00e9e",
                 "payment": "Preuve de paiement",
                 "paid": "Statut de paiement",
-                "select_status": "Sélectionner le statut",
-                "paid_status": "Payée",
-                "unpaid_status": "Impayée",
+                "select_status": "S\u00e9lectionner le statut",
+                "paid_status": "Pay\u00e9e",
+                "unpaid_status": "Impay\u00e9e",
                 "created_at": "Cr\u00e9\u00e9e le"
             }
         },
         "schools": {
             "icon": "school",
             "title": "Ecoles",
-            "add": "Ajouter une école",
-            "edit": "Modifier une école",
-            "index": "Liste des écoles",
+            "add": "Ajouter une \u00e9cole",
+            "edit": "Modifier une \u00e9cole",
+            "index": "Liste des \u00e9coles",
             "form": {
                 "name": "Nom",
-                "abbr": "Abrévation",
+                "abbr": "Abr\u00e9vation",
                 "link": "Site web",
                 "created_at": "Cr\u00e9\u00e9e le"
             }

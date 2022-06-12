@@ -2,9 +2,9 @@ import React, { Component } from 'react';
 import { connect } from 'react-redux';
 import { withRouter, Link } from 'react-router-dom';
 
-import PageTitle from '../../../components/UI/PageTitle';
-import SectionTitle from '../../../components/UI/SectionTitle';
-import ActivityBlock from '../../../components/UI/ActivityBlock';
+import PageTitle from '../../../components/Frontend/UI/Title/PageTitle';
+import SectionTitle from '../../../components/Frontend/UI/Title/SectionTitle';
+import ActivityBlock from '../../../components/Frontend/UI/Blocks/ActivityBlock';
 
 import { getActivities, resetActivities } from '../../../store/actions/frontend/activities';
 

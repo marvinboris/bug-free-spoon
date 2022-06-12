@@ -2,10 +2,11 @@ import React, { Component } from 'react';
 import { connect } from 'react-redux';
 import { FormGroup, Row } from 'reactstrap';
 
-import Error from '../../../../components/Error/Error';
+import Error from '../../../../components/Messages/Error';
+import Feedback from '../../../../components/Messages/Feedback';
+
 import FormInput from '../../../../components/UI/Input';
-import Feedback from '../../../../components/Feedback/Feedback';
-import CustomSpinner from '../../../../components/UI/CustomSpinner/CustomSpinner';
+import Preloader from '../../../../components/UI/Preloaders/Preloader';
 
 import { postPay } from '../../../../store/actions/frontend/home';
 
@@ -77,7 +78,7 @@ class Pay extends Component {
         </>;
 
         if (loading) content = <div className='col-12'>
-            <CustomSpinner />
+            <Preloader />
         </div>;
         else content = <div className='col-12'>
             <Feedback message={message} time={5000} />

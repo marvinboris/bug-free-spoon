@@ -7,10 +7,12 @@ const resource = (type, ...params) => manageResource('languages', {
     fail: error => ({ type: actionTypes.LANGUAGES_FAIL, error })
 }, type, ...params);
 
-export const resetLanguages = () => ({ type: actionTypes.LANGUAGES_RESET });
-export const getLanguages = (page, show, search) => resource('index', page, show, search);
-export const getLanguagesInfo = () => resource('info');
-export const getLanguage = id => resource('show', id);
-export const postLanguages = data => resource('post', data);
-export const patchLanguages = (id, data) => resource('patch', id, data);
-export const deleteLanguages = id => resource('delete', id);
+export default {
+    reset: () => ({ type: actionTypes.LANGUAGES_RESET }),
+    get: (page, show, search) => resource('index', page, show, search),
+    info: () => resource('info'),
+    show: id => resource('show', id),
+    post: data => resource('post', data),
+    patch: (id, data) => resource('patch', id, data),
+    delete: id => resource('delete', id),
+}

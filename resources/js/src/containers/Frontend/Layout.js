@@ -2,8 +2,9 @@ import React, { Component } from 'react';
 import { connect } from 'react-redux';
 import { Link, withRouter } from 'react-router-dom';
 
-import Toolbar from '../../components/Navigation/Toolbar';
-import Logo from '../../components/UI/Logo/Logo';
+import Logo from '../../components/UI/Logo';
+
+import Toolbar from '../../components/Frontend/Navigation/Toolbar';
 
 import './Frontend.scss';
 

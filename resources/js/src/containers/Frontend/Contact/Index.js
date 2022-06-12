@@ -1,11 +1,13 @@
 import React, { Component } from 'react';
 import { connect } from 'react-redux';
-import { withRouter, Link } from 'react-router-dom';
+import { withRouter } from 'react-router-dom';
+
+import Feedback from '../../../components/Messages/Feedback';
+
+import PageTitle from '../../../components/Frontend/UI/Title/PageTitle';
+import SectionTitle from '../../../components/Frontend/UI/Title/SectionTitle';
 
 import Input from '../../../components/UI/Input';
-import PageTitle from '../../../components/UI/PageTitle';
-import Feedback from '../../../components/Feedback/Feedback';
-import SectionTitle from '../../../components/UI/SectionTitle';
 
 import { postContact, resetContact } from '../../../store/actions/frontend/contact';
 

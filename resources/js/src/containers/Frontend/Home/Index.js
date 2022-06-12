@@ -1,21 +1,22 @@
 import React, { Component } from 'react';
 import { connect } from 'react-redux';
 import { withRouter, Link } from 'react-router-dom';
-import OwlCarousel from 'react-owl-carousel2';
 
 import Carousel from './Carousel';
 import Join from './Join';
 import Pay from './Pay';
 
-import Input from '../../../components/UI/Input';
-import ElderBlock from '../../../components/UI/ElderBlock';
-import Feedback from '../../../components/Feedback/Feedback';
-import SectionTitle from '../../../components/UI/SectionTitle';
-import RemainingTime from '../../../components/UI/RemainingTime';
-import ActivityBlock from '../../../components/UI/ActivityBlock';
-import PublicationBlock from '../../../components/UI/PublicationBlock';
+import Feedback from '../../../components/Messages/Feedback';
 
-import View from '../../../components/Backend/UI/View/View';
+import RemainingTime from '../../../components/Frontend/UI/RemainingTime';
+import SectionTitle from '../../../components/Frontend/UI/Title/SectionTitle';
+import ActivityBlock from '../../../components/Frontend/UI/Blocks/ActivityBlock';
+import ElderBlock from '../../../components/Frontend/UI/Blocks/ElderBlock';
+import PublicationBlock from '../../../components/Frontend/UI/Blocks/PublicationBlock';
+
+import View from '../../../components/UI/View';
+import Input from '../../../components/UI/Input';
+import OwlCarousel from '../../../components/UI/OwlCarousel';
 
 import { convertDate } from '../../../shared/utility';
 import { getHome, postSubscribe, resetHome } from '../../../store/actions/frontend/home';

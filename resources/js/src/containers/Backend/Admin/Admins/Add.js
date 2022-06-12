@@ -1,21 +1,19 @@
 import React, { Component } from 'react';
 import { connect } from 'react-redux';
 import { withRouter } from 'react-router-dom';
-import { Col, FormGroup, Row } from 'reactstrap';
-import { faUser, faLock, faEnvelope, faCheckCircle, faFileImage } from '@fortawesome/free-solid-svg-icons';
-import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
+import { Col, Row } from 'reactstrap';
 
 // Components
-import Breadcrumb from '../../../../components/Backend/UI/Breadcrumb/Breadcrumb';
-import SpecialTitle from '../../../../components/UI/Titles/SpecialTitle/SpecialTitle';
-import Subtitle from '../../../../components/UI/Titles/Subtitle/Subtitle';
-import Error from '../../../../components/Error/Error';
-import CustomSpinner from '../../../../components/UI/CustomSpinner/CustomSpinner';
-import Form from '../../../../components/Backend/UI/Form/Form';
-import Save from '../../../../components/Backend/UI/Food/Form/Save';
-import FormInput from '../../../../components/Backend/UI/Input/Input';
-import TitleWrapper from '../../../../components/Backend/UI/TitleWrapper';
-import Feedback from '../../../../components/Feedback/Feedback';
+import Error from '../../../../components/Messages/Error';
+import Feedback from '../../../../components/Messages/Feedback';
+
+import Form from '../../../../components/Backend/UI/Form';
+import Save from '../../../../components/Backend/UI/Form/Save';
+import PageTitle from '../../../../components/Backend/UI/Title/PageTitle';
+import Breadcrumb from '../../../../components/Backend/UI/Title/Breadcrumb';
+
+import Input from '../../../../components/UI/Input';
+import Preloader from '../../../../components/UI/Preloaders/Preloader';
 
 import { getAdmin, postAdmins, patchAdmins, resetAdmins } from '../../../../store/actions/backend/admins';
 
@@ -26,7 +24,6 @@ const initialState = {
     email: '',
     password: '',
     password_confirmation: '',
-    role_id: '',
 
     add: false,
 }
@@ -101,101 +98,62 @@ class Add extends Component {
     }
 
     render() {
-        let {
+        const {
             content: {
                 cms: {
-                    pages: { backend: { pages: { admins: { title, add, edit, index, form } } } }
+                    pages: { backend: { pages: { admins: { icon, title, add, edit, index, form } } } }
                 }
             },
-            backend: { admins: { loading, error, message, admin } },
+            backend: { admins: { loading, error, message, admin = {} } },
         } = this.props;
-        let { name, phone, photo, email, password, password_confirmation } = this.state;
+        const { name, phone, photo, email, password, password_confirmation } = this.state;
         let content;
-        let errors = null;
+
+        const errors = <>
+            <Error err={error} />
+        </>;
 
         if (loading) content = <Col xs={12}>
-            <CustomSpinner />
+            <Preloader />
         </Col>;
-        else {
-            errors = <>
-                <Error err={error} />
-            </>;
-            content = (
-                <>
-                    <Col xl={9}>
-                        <Feedback message={message} />
+        else content = <>
+            <Feedback message={message} />
 
-                        {this.props.edit && <input type="hidden" name="_method" defaultValue="PATCH" />}
+            {this.props.edit && <input type="hidden" name="_method" defaultValue="PATCH" />}
 
-                        <div className="shadow-lg rounded-8 bg-white px-4 px-sm-5 py-3 py-sm-4">
-                            <Row className="my-2 my-sm-3">
-                                <div className="col-lg-9">
-                                    <Row>
-                                        <FormInput type="text" className="col-md-6" icon={faUser} onChange={this.inputChangeHandler} value={name} name="name" required placeholder={form.name} />
-                                        <FormInput type="tel" className="col-md-6" addon={<span className="text-secondary text-small">+237</span>} onChange={this.inputChangeHandler} value={phone} name="phone" required placeholder={form.phone} />
-                                        <FormInput type="password" className="col-md-6" icon={faLock} onChange={this.inputChangeHandler} value={password} name="password" placeholder={form.password} />
-                                        <FormInput type="password" className="col-md-6" icon={faLock} onChange={this.inputChangeHandler} value={password_confirmation} name="password_confirmation" placeholder={form.password_confirmation} />
-                                        <FormInput type="email" className="col-md-6" icon={faEnvelope} onChange={this.inputChangeHandler} value={email} name="email" placeholder={form.email} />
-                                    </Row>
-                                </div>
-
-                                <div className="col-lg-3">
-                                    <FormGroup>
-                                        <div id="embed-photo" className="embed-responsive embed-responsive-1by1 bg-soft rounded-8 d-flex justify-content-center align-items-center position-relative" style={{
-                                            cursor: 'pointer',
-                                            backgroundImage: photo && `url("${photo}")`,
-                                            backgroundRepeat: 'no-repeat',
-                                            backgroundPosition: 'center',
-                                            backgroundSize: 'cover',
-                                            overflow: 'visible',
-                                        }} onClick={this.fileUpload}>
-                                            {this.props.edit
-                                                ? photo && (photo !== admin.photo) && <div className="text-center text-green w-100">
-                                                    <div className="position-absolute" style={{ top: 0, right: 0, transform: 'translate(50%,-50%)' }}><FontAwesomeIcon icon={faCheckCircle} fixedWidth size="2x" /></div>
-
-                                                    <div className="position-absolute file-selected text-truncate w-100 pt-3" style={{ top: '100%', left: 0 }} />
-                                                </div>
-                                                : photo ? <div className="text-center text-green w-100">
-                                                    <div className="position-absolute" style={{ top: 0, right: 0, transform: 'translate(50%,-50%)' }}><FontAwesomeIcon icon={faCheckCircle} fixedWidth size="2x" /></div>
-
-                                                    <div className="position-absolute file-selected text-truncate w-100 pt-3" style={{ top: '100%', left: 0 }} />
-                                                </div> : <div className="text-center text-light w-100 overflow-hidden px-3">
-                                                    <div><FontAwesomeIcon icon={faFileImage} fixedWidth size="4x" /></div>
-
-                                                    <div className="mt-3 mb-1 text-center text-12 text-truncate">{form.upload}</div>
-
-                                                    <div className="text-center text-12 text-truncate">{form.size}</div>
-                                                </div>}
-                                        </div>
-                                    </FormGroup>
-                                </div>
-
-                                <Save edit={this.props.edit} saveAddHandler={this.saveAddHandler} />
-                            </Row>
-                        </div>
-                    </Col>
-                </>
-            );
-        }
-
-        return (
-            <>
-                <TitleWrapper>
-                    <Breadcrumb items={this.props.edit && [{ to: '/admin/admins', content: index }]} main={this.props.edit ? edit : add} icon={faUser} />
-                    <SpecialTitle>{title}</SpecialTitle>
-                    <Subtitle>{this.props.edit ? edit : add}</Subtitle>
-                </TitleWrapper>
-                <div>
-                    {errors}
+            <Row>
+                <div className="col-lg-9">
                     <Row>
-                        <Form onSubmit={this.saveHandler} icon={faUser} title={this.props.edit ? edit : add} list={index} link="/admin/admins" innerClassName="row justify-content-center">
-                            <input type="file" id="photo" name="photo" className="d-none" onChange={this.inputChangeHandler} accept=".png,.jpg,.jpeg" />
-                            {content}
-                        </Form>
+                        <Input type="text" className="col-lg-6" onChange={this.inputChangeHandler} value={name} name="name" required label={form.name} />
+                        <Input type="tel" className="col-lg-6" addon={<span className="text-secondary text-small">+237</span>} onChange={this.inputChangeHandler} value={phone} name="phone" required label={form.phone} />
+                        <Input type="password" className="col-lg-6" onChange={this.inputChangeHandler} value={password} name="password" label={form.password} />
+                        <Input type="password" className="col-lg-6" onChange={this.inputChangeHandler} value={password_confirmation} name="password_confirmation" label={form.password_confirmation} />
+                        <Input type="email" className="col-lg-6" onChange={this.inputChangeHandler} value={email} name="email" label={form.email} />
                     </Row>
                 </div>
-            </>
-        );
+
+                <div className="col-lg-3">
+                    <Input type="image" name="photo" label={form.photo} onClick={this.fileUpload} cms={form} defaultValue={admin.photo} value={photo} />
+                </div>
+
+                <Save edit={this.props.edit} saveAddHandler={this.saveAddHandler} />
+            </Row>
+        </>;
+
+
+        return <div className='Admins'>
+            <PageTitle title={title} subtitle={this.props.edit ? edit : add} icon={icon}>
+                <Breadcrumb items={this.props.edit && [{ to: '/admin/admins', content: index }]} main={this.props.edit ? edit : add} />
+            </PageTitle>
+
+            <div className='content'>
+                {errors}
+                <Form onSubmit={this.saveHandler} icon={icon} title={this.props.edit ? edit : add} list={index} link="/admin/admins" innerClassName="row justify-content-center">
+                    <input type="file" id="photo" name="photo" className="d-none" onChange={this.inputChangeHandler} accept=".png,.jpg,.jpeg" />
+                    {content}
+                </Form>
+            </div>
+        </div>;
     }
 }
 

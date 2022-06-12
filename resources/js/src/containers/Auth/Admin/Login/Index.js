@@ -2,12 +2,11 @@ import React, { Component } from 'react'
 import { connect } from 'react-redux';
 import { Form, FormGroup, Label, CustomInput, Col } from 'reactstrap';
 
+import Error from '../../../../components/Messages/Error';
+import Feedback from '../../../../components/Messages/Feedback';
+
 import Input from '../../../../components/UI/Input';
-import Error from '../../../../components/Error/Error';
-import Feedback from '../../../../components/Feedback/Feedback';
-import Title from '../../../../components/UI/Titles/Title/Title';
-import BetweenButton from '../../../../components/UI/Button/BetweenButton/BetweenButton';
-import CustomSpinner from '../../../../components/UI/CustomSpinner/CustomSpinner';
+import Preloader from '../../../../components/UI/Preloaders/Preloader';
 
 import { authAdminLogin, setHash } from '../../../../store/actions/auth';
 
@@ -47,11 +46,10 @@ export class Login extends Component {
             auth: { loading, error, message },
             dark = false
         } = this.props;
-        let titleContent, formContent;
+        let formContent;
 
-        titleContent = <>
-            {login.sign_in_to} <span className="text-blue">{login.admin_panel}</span>
-        </>;
+
+        const titleContent = <div className="text-37 text-700 text-blue">{login.sign_in_to} <span className="text-blue">{login.admin_panel}</span></div>;
 
         formContent = <>
             <Input type="text" icon="user" onChange={this.inputChangeHandler} validation={{ required: true, isEmail: true }} value={email} name="email" required placeholder={login.email_address} />
@@ -67,22 +65,22 @@ export class Login extends Component {
                 </Label>
             </FormGroup>
 
-            <BetweenButton color="blue" size="lg" className="py-3 px-4 btn-block" icon="sign-in-alt">{login.sign_in}</BetweenButton>
+            <button className="py-3 px-4 btn btn-blue btn-lg btn-block">{login.sign_in}<i className='fas fa-sign-in-alt' /></button>
         </>;
 
         const errors = <Error err={error} />;
         const feedback = <Feedback message={message} />;
         let content = null;
 
-        if (loading) content = <div className="h-100 d-flex justify-content-center align-items-center"><CustomSpinner /></div>;
+        if (loading) content = <div className="h-100 d-flex justify-content-center align-items-center"><Preloader /></div>;
         else content = <Form onSubmit={this.submitHandler}>
             {formContent}
         </Form>;
 
         return <>
-            <Title className="h4">
-                {titleContent}
-            </Title>
+        <div className="mb-5 pb-1">
+            {titleContent}
+        </div>
             {errors}
             {feedback}
             {content}

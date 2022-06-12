@@ -7,10 +7,12 @@ const resource = (type, ...params) => manageResource('contributions', {
     fail: error => ({ type: actionTypes.CONTRIBUTIONS_FAIL, error })
 }, type, ...params);
 
-export const resetContributions = () => ({ type: actionTypes.CONTRIBUTIONS_RESET });
-export const getContributions = (page, show, search) => resource('index', page, show, search);
-export const getContributionsInfo = () => resource('info');
-export const getContribution = id => resource('show', id);
-export const postContributions = data => resource('post', data);
-export const patchContributions = (id, data) => resource('patch', id, data);
-export const deleteContributions = id => resource('delete', id);
+export default {
+    reset: () => ({ type: actionTypes.CONTRIBUTIONS_RESET }),
+    get: (page, show, search) => resource('index', page, show, search),
+    info: () => resource('info'),
+    show: id => resource('show', id),
+    post: data => resource('post', data),
+    patch: (id, data) => resource('patch', id, data),
+    delete: id => resource('delete', id),
+}

@@ -7,10 +7,12 @@ const resource = (type, ...params) => manageResource('roles', {
     fail: error => ({ type: actionTypes.ROLES_FAIL, error })
 }, type, ...params);
 
-export const resetRoles = () => ({ type: actionTypes.ROLES_RESET });
-export const getRoles = (page, show, search) => resource('index', page, show, search);
-export const getRolesInfo = () => resource('info');
-export const getRole = id => resource('show', id);
-export const postRoles = data => resource('post', data);
-export const patchRoles = (id, data) => resource('patch', id, data);
-export const deleteRoles = id => resource('delete', id);
+export default {
+    reset: () => ({ type: actionTypes.ROLES_RESET }),
+    get: (page, show, search) => resource('index', page, show, search),
+    info: () => resource('info'),
+    show: id => resource('show', id),
+    post: data => resource('post', data),
+    patch: (id, data) => resource('patch', id, data),
+    delete: id => resource('delete', id),
+}

@@ -2,7 +2,7 @@ import React, { Component } from 'react';
 import { connect } from 'react-redux';
 import { withRouter, Link } from 'react-router-dom';
 
-import PageTitle from '../../../../components/UI/PageTitle';
+import PageTitle from '../../../../components/Frontend/UI/Title/PageTitle';
 
 import { getActivity, resetActivities } from '../../../../store/actions/frontend/activities';
 

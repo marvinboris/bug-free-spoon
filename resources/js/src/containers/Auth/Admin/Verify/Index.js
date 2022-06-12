@@ -1,14 +1,13 @@
 import React, { Component } from 'react'
 import { connect } from 'react-redux';
 import { Form, FormGroup } from 'reactstrap';
-import { faSignInAlt, faCode } from '@fortawesome/free-solid-svg-icons';
+
+import Error from '../../../../components/Messages/Error';
+import Feedback from '../../../../components/Messages/Feedback';
 
 import Input from '../../../../components/UI/Input';
-import Error from '../../../../components/Error/Error';
-import BetweenButton from '../../../../components/UI/Button/BetweenButton/BetweenButton';
-import Feedback from '../../../../components/Feedback/Feedback';
-import CustomSpinner from '../../../../components/UI/CustomSpinner/CustomSpinner';
-import Title from '../../../../components/UI/Titles/Title/Title';
+
+import Preloader from '../../../../components/UI/Preloaders/Preloader';
 
 import { authAdminVerify, resendCode, setHash } from '../../../../store/actions/auth';
 
@@ -48,20 +47,18 @@ export class Verify extends Component {
             auth: { hash, loading, error, message },
             onResendCode,
         } = this.props;
-        let titleContent, formContent;
+        let formContent;
 
-        titleContent = <>
-            {enter} <span className="text-blue">{verification_code}</span>
-        </>;
+        const titleContent = <div className="text-37 text-700 text-blue">{enter} <span className="text-blue">{verification_code}</span></div>;
 
         formContent = <>
-            <Input type="text" icon={faCode} onChange={this.inputChangeHandler} value={code} name="code" required placeholder={verification_code} />
+            <Input type="text" icon='code' onChange={this.inputChangeHandler} value={code} name="code" required placeholder={verification_code} />
             <input type="hidden" name="hash" value={hash} />
             <FormGroup className="ml-2 mb-5 mt-4">
                 <p className="text-dark text-right">{didnt_receive_code}? <strong className="text-blue" style={{ cursor: 'pointer' }} onClick={() => onResendCode(hash)}>{resend}</strong></p>
             </FormGroup>
 
-            <BetweenButton color="blue" size="lg" className="py-3 px-4 btn-block" icon={faSignInAlt}>{continue_}</BetweenButton>
+            <button className="py-3 px-4 btn btn-blue btn-lg btn-block">{continue_}<i className='fas fa-sign-in-alt' /></button>
         </>;
 
 
@@ -69,15 +66,15 @@ export class Verify extends Component {
         const feedback = <Feedback message={message} />;
         let content = null;
 
-        if (loading) content = <div className="h-100 d-flex justify-content-center align-items-center"><CustomSpinner /></div>;
+        if (loading) content = <div className="h-100 d-flex justify-content-center align-items-center"><Preloader /></div>;
         else content = <Form onSubmit={this.submitHandler}>
             {formContent}
         </Form>;
 
         return <>
-            <Title className="h4">
+            <div className="mb-5 pb-1">
                 {titleContent}
-            </Title>
+            </div>
             {errors}
             {feedback}
             {content}

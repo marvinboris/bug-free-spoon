@@ -7,10 +7,12 @@ const resource = (type, ...params) => manageResource('events', {
     fail: error => ({ type: actionTypes.EVENTS_FAIL, error })
 }, type, ...params);
 
-export const resetEvents = () => ({ type: actionTypes.EVENTS_RESET });
-export const getEvents = (page, show, search) => resource('index', page, show, search);
-export const getEventsInfo = () => resource('info');
-export const getEvent = id => resource('show', id);
-export const postEvents = data => resource('post', data);
-export const patchEvents = (id, data) => resource('patch', id, data);
-export const deleteEvents = id => resource('delete', id);
+export default {
+    reset: () => ({ type: actionTypes.EVENTS_RESET }),
+    get: (page, show, search) => resource('index', page, show, search),
+    info: () => resource('info'),
+    show: id => resource('show', id),
+    post: data => resource('post', data),
+    patch: (id, data) => resource('patch', id, data),
+    delete: id => resource('delete', id),
+}

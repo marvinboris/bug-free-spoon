@@ -2,7 +2,7 @@ import React, { Component } from 'react';
 import { connect } from 'react-redux';
 import { withRouter } from 'react-router-dom';
 
-import Logo from '../../../../components/UI/Logo/Logo';
+import Logo from '../../../../components/UI/Logo';
 
 import './Layout.scss';
 
