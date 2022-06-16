@@ -16,7 +16,7 @@ export default ({ props, toggle, selectItem, selectedItem }) => {
         content: { cms: { pages: { backend: cms } } },
         auth: { role, data }
     } = props;
-    const resources = ['users', 'roles', 'features', 'languages', 'events', 'activities', 'elders', 'publications', 'subscribers', 'contributions', 'schools'];
+    const resources = Object.keys(cms.sidebar.menu).filter(resource => !['admins', 'dashboard', 'cms', 'notifications', 'settings'].includes(resource));
 
     const SDI = ({ fixed = false, id = null, dropdown = null, icon, path, custom = false, addon = [] }) => {
         if (id && fixed) return <SideDrawerItem id={id} sideDrawerToggle={toggle} select={selectItem} selected={selectedItem} icon={icon} href={path}>{id}</SideDrawerItem>;

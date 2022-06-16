@@ -32,8 +32,13 @@ class DashboardController extends Controller
         ];
 
         $names = $cms['pages'][$user->language->abbr]['general']['months'];
-        $totalElders = [80, 129, 106, 164, 148, 129, 214, 152, 106, 180, 126, 48];
-        $totalPublications = [0, 41, 10, 33, 50, 23, 69, 48, 23, 86, 64, 23];
+        $totalElders = [];
+        $totalPublications = [];
+        for ($i=0; $i < 12; $i++) {
+            $totalElders[] = Elder::whereYear('created_at', now()->year)->whereMonth('created_at', $i + 1)->count(); 
+            $totalPublications[] = Publication::whereYear('created_at', now()->year)->whereMonth('created_at', $i + 1)->count(); 
+        }
+
         for ($i = 0; $i < count($names); $i++) {
             $generalReportTrackerData[] = [
                 'name' => strtoupper($names[$i]),

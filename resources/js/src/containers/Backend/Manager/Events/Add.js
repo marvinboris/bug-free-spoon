@@ -30,8 +30,8 @@ class Add extends Component {
 
     // Component methods
     resetState = () => this.setState({ ...initialState, title: {}, description: {}, body: {} })
-    saveAddHandler = () => utility.add.component.saveAddHandler(this.setState, this.props)
-    inputChangeHandler = e => utility.add.component.inputChangeHandler(this.state, this.setState)(e)
+    saveAddHandler = () => utility.add.component.saveAddHandler(this.setState.bind(this), this.props)
+    inputChangeHandler = e => utility.add.component.inputChangeHandler(this.state, this.setState.bind(this))(e)
     fileUpload = id => utility.add.component.fileUpload(id)
 
     // Lifecycle methods
